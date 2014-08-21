@@ -7,7 +7,6 @@ func! s:java_options()
     setl tw=0
     setl cin
     setl cino=j1
-    "setl ep=astyle\ --mode=java\ --style=java
 
     syn region comment oneline start="//" end="$"
     syn region comment start="/\*" end="\*/"
