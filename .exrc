@@ -1,4 +1,4 @@
-"last change 2014-08-21
+ set nocp
 ino <tab> <c-p>
 ino jj <esc>
 set ai
@@ -12,7 +12,6 @@ set inf
 set is
 set ls=2
 set nf-=octal
-set nocp
 set noswf
 set nowarn
 set pm=~~
