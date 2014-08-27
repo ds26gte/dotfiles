@@ -1,0 +1,14 @@
+# last modified 2014-08-22
+
+cd ~/src/vim
+
+hg up
+
+./configure \
+--disable-gui \
+--without-x \
+--enable-multibyte
+
+make clean
+make
+sudo make install
