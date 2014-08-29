@@ -1,4 +1,4 @@
-"last modified 2014-08-26
+"last modified 2014-08-29
 
 au bufread,bufnewfile *.vim call s:vim_options()
 
@@ -13,6 +13,5 @@ func! s:vim_options()
 
     syn clear string
     syn region comment oneline start="\s\@<=\"" end="$"
-    syn region string oneline start="\\\@<!\"" skip="\\[\\\"]" end="\""
     syn match comment "^\s*\".*$"
 endfunc
