@@ -1,9 +1,15 @@
-"last change 2012-02-23
+"last change 2014-08-31
 
-if !filereadable('/usr/bin/xsel')
-    finish
+if exists("+clipboard")
+  "clipboard works; no need for xsel
+  finish
 endif
 
-com! -range=% Pbcopy <line1>,<line2>w !xsel --clipboard --input
+if !filereadable("/usr/bin/xsel")
+  "xsel unavailable; exit
+  finish
+endif
 
-com! Pbpaste r !xsel --clipboard --output
+com! -range=% Pbcopy <line1>,<line2>w !xsel -bi
+
+com! Pbpaste r !xsel -bo
