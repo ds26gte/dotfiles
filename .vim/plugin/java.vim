@@ -1,4 +1,4 @@
-"last modified 2014-08-21
+"last modified 2014-08-26
 
 au bufread,bufnewfile *.java call s:java_options()
 
@@ -13,3 +13,5 @@ func! s:java_options()
 endfunc
 
 au bufwritepost *.java make
+
+set wig+=*.class

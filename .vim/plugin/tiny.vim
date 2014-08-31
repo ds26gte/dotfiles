@@ -1,8 +1,8 @@
-"last modified 2014-08-21
+"last modified 2014-08-29
 
-if has('eval')
-    "load only for tiny vim
-    fini
+if has("eval")
+  "load rest only for tiny vim
+  fini
 endif
 
 ru plugin/hilite.vim
