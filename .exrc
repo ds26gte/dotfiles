@@ -1,5 +1,5 @@
  set nocp
-"last modified 2014-08-30
+"last modified 2014-08-31
 ino <tab> <c-p>
 ino jj <esc>
 set ai
@@ -33,8 +33,7 @@ set ts=4
 set tw=65
 set vi+=%
 set wic
-set wim=longest:full,full
-set wmnu
+set wim=longest:list
 set ww+=h,l
 sil ru plugin/tiny.vim
 sil! set acd
