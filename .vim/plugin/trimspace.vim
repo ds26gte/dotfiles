@@ -1,17 +1,13 @@
-"last modified 2011-09-09
+"last modified 2014-09-04
 
-com! Trimspace call Trimspace()
+au bufwritepre * call s:trimspace()
 
-func! Trimspace()
-    norm mx
-    sil! %s/\s\+$//
-    sil! v/./,/./-j
-    while getline(1) =~ '^$'
-        1d
-    endwhile
-    while getline('$') =~ '^$'
-        $d
-    endwhile
-    sil! norm `x
-    noh
+func! s:trimspace()
+  norm mx
+  sil! %s/\s\+$//
+  sil $ g/^$/ s/^$/\r@trimspace-last-line@/
+  sil v/./,/./-j
+  sil 1 g/^$/d
+  sil $ g/^@trimspace-last-line@$/ $-1,$d
+  sil! norm `x
 endfunc
