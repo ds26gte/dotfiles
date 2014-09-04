@@ -1,6 +1,8 @@
-"last modified 2014-09-03
+"last modified 2014-09-04
 
 au bufread,bufnewfile *.js call s:js_options()
+
+au bufread,bufnewfile *.json doau bufread pretend.js
 
 func! s:js_options()
   setl tw=0
