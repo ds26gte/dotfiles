@@ -1,4 +1,4 @@
-"last modified 2014-08-29
+"last modified 2014-09-05
 
 if has("eval")
   "load rest only for tiny vim
@@ -7,4 +7,4 @@ endif
 
 ru plugin/hilite.vim
 
-set ep=astyle\ --mode=java\ --style=java
+set ep=astyle\ -s2\ -o\ -O\ --mode=java\ --style=java
