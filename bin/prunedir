@@ -14,6 +14,12 @@
 # otherdir.  Subdirectories under the working directory that
 # become empty are also removed.
 
+if test $# -ne 1
+then echo argument directory missing; exit
+elif test ! -d "$1"
+then echo argument not directory; exit
+fi
+
 here=$(pwd)
 
 if ! expr "$here" : ".*/$" > /dev/null
@@ -38,7 +44,9 @@ prunecwdagainst() {
       if test ! -f "$theref"
       then echo $theref doesnt exist
       elif cmp "$heref" "$theref" > /dev/null
-      then rm -f "$heref"
+      then
+        echo deleting $heref
+        rm -f "$heref"
       else
         echo $heref is different
       fi
