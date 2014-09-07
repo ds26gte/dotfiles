@@ -1,0 +1,21 @@
+# last modified 2014-09-01
+
+cat >> feature.h <<EOF
+
+#undef FEAT_CRYPT
+#undef FEAT_MENU
+#undef FEAT_MOUSE_XTERM
+#undef FEAT_MULTI_LANG
+#undef FEAT_NETBEANS_INTG
+#undef FEAT_POSTSCRIPT
+#undef FEAT_PRINTER
+#undef FEAT_SIGNS
+#undef FEAT_SMARTINDENT
+#undef FEAT_SPELL
+#undef FEAT_STL_OPT
+#undef FEAT_TAG_BINS
+#undef FEAT_TAG_OLDSTATIC
+#undef FEAT_VREPLACE
+#undef FEAT_WILDMENU
+
+EOF
