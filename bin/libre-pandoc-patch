@@ -1,0 +1,31 @@
+# last modified 2014-09-07
+
+# .docx files written from libreoffice don't have
+# word/webSettings.xml, which trips pandoc when the latter uses
+# such a file as a reference.docx. This script fixes that by
+# adding a dummy webSettings.xml to ./reference.docx
+
+if test ! -f reference.docx
+then echo reference.docx not found; exit
+fi
+
+if test -n "$(unzip -l reference.docx|grep word/webSettings.xml|head -n 1)"
+then echo reference.docx already has word/webSettings.xml; exit
+fi
+
+rm -fr pandoc.temp
+mkdir pandoc.temp
+cp -p reference.docx pandoc.temp
+cd pandoc.temp
+
+unzip -q reference.docx
+
+cd word
+cp -p settings.xml webSettings.xml
+cd ..
+
+rm reference.docx
+zip -qr reference.docx *
+
+mv reference.docx ..
+rm -fr pandoc.temp
