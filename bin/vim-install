@@ -1,14 +1,36 @@
-# last modified 2014-08-22
+# last modified 2014-09-01
 
 cd ~/src/vim
-
-hg up
 
 ./configure \
 --disable-gui \
 --without-x \
---enable-multibyte
+--disable-nls \
+
+#--with-x \
+
+cd src
+
+if test ! -e feature.h.sav
+then cp -p feature.h feature.h.sav
+fi
+
+vim-modify-feature
+
+cd ..
 
 make clean
 make
+
+cd src
+
+if test -e feature.h.sav
+then
+cp -p feature.h feature.h.mod
+cp -p feature.h.sav feature.h
+rm -f feature.h.sav
+fi
+
+cd ..
+
 sudo make install
