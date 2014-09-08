@@ -9,4 +9,4 @@ fi
 ti=${f##*/}
 ti=${ti%.*}
 
-pandoc --smart -o $ti.docx $f
+pandoc -S -o $ti.docx $f
