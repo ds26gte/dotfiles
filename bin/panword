@@ -1,0 +1,12 @@
+# last modified 2014-09-08
+
+f=$1
+
+if test ! -f $f
+then echo File $f not found; exit
+fi
+
+ti=${f##*/}
+ti=${ti%.*}
+
+pandoc --smart -o $ti.docx $f
