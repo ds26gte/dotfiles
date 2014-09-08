@@ -29,4 +29,4 @@ ti=${ti%.*}
 
 dt=$(date -r $f +"%Y-%m-%d")
 
-pandoc -s --smart -t man -o $ti.$sec -V title=$ti -V section=$sec -V date=$dt $f
+pandoc -s -S -t man -o $ti.$sec -V title=$ti -V section=$sec -V date=$dt $f
