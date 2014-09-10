@@ -1,4 +1,4 @@
-"last modified 2014-09-06
+"last modified 2014-09-10
 "set mouse=a
 "set ww+=<,>,[,]
 ino <tab> <c-p>
@@ -15,5 +15,6 @@ set para+=FSFE
 set ru
 set sbr=⌇
 set sect+=*\ SS
+set tag=./tags;~
 set title
 set vi+=%
