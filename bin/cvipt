@@ -1,0 +1,32 @@
+# last modified 2014-09-10
+# ex:tw=0
+
+# cvipt foo.cpt
+#
+# reads the ccrypted file foo.cpt. After modifications to the buffer,
+# use ZZ to write and quit.
+
+f=$1
+
+ext=${f##*.}
+if test "$ext" != cpt
+then echo $f doesn\'t have extension .cpt; exit
+fi
+
+read -p "Enter password: " -s crypticnonsense
+export crypticnonsense
+
+if test ! -f $f
+then echo | ccrypt -e -E crypticnonsense > $f
+fi
+
+rm -fr ~/tmp/.ccrypt.tmp
+
+/usr/bin/vi ~/tmp/.ccrypt.tmp \
+  -c "set nocp noswf nowrite" \
+  -c "sil r !ccrypt -c -E crypticnonsense $f" \
+  -c "sil v/./,/./-j" \
+  -c "sil 1 g/^$/d" \
+  -c "set nomod" \
+  -c "nmap ZQ :sil set nomod <bar> sil w !ccrypt -e -E crypticnonsense > $f<cr>" \
+  -c "nmap ZZ ZQ:q<cr>"
