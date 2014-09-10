@@ -1,6 +1,6 @@
-"last change 2014-08-29
+"last change 2014-09-08
 
-if exists("+acd")
+if exists('+acd')
   set acd
 else
   au bufenter * lcd %:p:h
