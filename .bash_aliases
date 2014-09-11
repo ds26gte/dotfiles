@@ -1,4 +1,4 @@
-# last change 2014-09-05
+# last change 2014-09-08
 # vi:tw=0
 
 set -o vi
@@ -7,7 +7,7 @@ shopt -s cdspell
 shopt -s extglob
 shopt -s globstar
 shopt -s nocaseglob
-#shopt -s autocd
+shopt -s autocd
 
 # in ~/.inputrc put
 # set completion-ignore-case on
