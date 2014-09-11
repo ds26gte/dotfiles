@@ -1,4 +1,4 @@
-"last modified 2014-09-06
+"last modified 2014-09-10
 
 set bg=dark
 set term=xterm-256color
@@ -9,9 +9,9 @@ hi linenr ctermfg=136
 hi matchparen ctermbg=178
 hi modemsg cterm=none ctermfg=242
 hi moremsg ctermfg=171
-hi nontext ctermfg=30
+hi nontext ctermfg=58
 hi search ctermbg=none ctermfg=100
-hi title ctermfg=172
+hi title ctermfg=66
 hi warningmsg ctermfg=196
 hi tabline cterm=none ctermbg=237 ctermfg=247
 hi tablinesel cterm=none ctermbg=237 ctermfg=242
