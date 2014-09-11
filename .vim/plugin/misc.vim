@@ -2,6 +2,7 @@
 "set mouse=a
 "set ww+=<,>,[,]
 ino <tab> <c-p>
+set acd
 set cf
 set cot+=longest
 set cpt+=k./*.txt
