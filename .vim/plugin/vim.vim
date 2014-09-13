@@ -1,4 +1,4 @@
-"last modified 2014-09-03
+"last modified 2014-09-13
 
 au bufread,bufnewfile *.vim call s:vim_options()
 
@@ -10,7 +10,8 @@ func! s:vim_options()
 
   ru indent/vim.vim
 
-  syn clear string
   syn region comment oneline start="\s\@<=\"" end="$"
   syn match comment "^\s*\".*$"
+  syn region string oneline start="[\\]\@<!\"" skip="\\[\\\"]" end="\""
+  syn region string oneline start="[\\]\@<!'" skip="\\[\\']" end="'"
 endfunc
