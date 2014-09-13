@@ -1,9 +1,10 @@
-"last modified 2014-09-10
+"last modified 2014-09-13
 "set mouse=a
 "set ww+=<,>,[,]
 ino <tab> <c-p>
 set acd
 set cf
+set cm=blowfish
 set cot+=longest
 set cpt+=k./*.txt
 set dict=/usr/share/dict/words
