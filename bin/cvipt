@@ -1,4 +1,4 @@
-# last modified 2014-09-10
+# last modified 2014-09-15
 # ex:tw=0
 
 # cvipt foo.cpt
@@ -22,8 +22,8 @@ fi
 
 rm -fr ~/tmp/.ccrypt.tmp
 
-/usr/bin/vi ~/tmp/.ccrypt.tmp \
-  -c "set nocp noswf nowrite" \
+/usr/bin/vi -N -m ~/tmp/.ccrypt.tmp \
+  -c "set noswf" \
   -c "sil r !ccrypt -c -E crypticnonsense $f" \
   -c "sil v/./,/./-j" \
   -c "sil 1 g/^$/d" \
