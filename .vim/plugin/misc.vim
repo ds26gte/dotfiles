@@ -1,5 +1,4 @@
-"last modified 2014-09-15
-"set bs=indent,eol.start
+"last modified 2014-09-19
 "set dy+=lastline
 "set mouse=a
 "set noswf
@@ -9,7 +8,6 @@
 ino <tab> <c-p>
 set acd
 set cf
-set cm=blowfish
 set cot+=longest
 set cpt+=k./*.txt
 set dict=/usr/share/dict/words
@@ -26,3 +24,4 @@ set tag=./tags;~
 set title
 set vi+=%
 set ww+=h,l
+sil! set cm=blowfish

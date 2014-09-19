@@ -1,8 +1,9 @@
  set nocp
-"last modified 2014-09-15
+"last modified 2014-09-17
 ino jj <esc>
 set ai
 set bk
+set dy=lastline
 set ep=sjindent
 set et
 set hid
