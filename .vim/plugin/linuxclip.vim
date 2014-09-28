@@ -1,9 +1,9 @@
-"last change 2014-09-13
+"last change 2014-09-28
 
-if exists('+clipboard')
-  "clipboard works; no need for xsel
-  finish
-endif
+"if exists('+clipboard')
+"  "clipboard works; no need for xsel
+"  finish
+"endif
 
 if !filereadable('/usr/bin/xsel')
   "xsel unavailable; exit
