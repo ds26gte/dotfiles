@@ -1,5 +1,4 @@
-# last change 2014-09-08
-# vi:tw=0
+# last change 2014-09-29
 
 set -o vi
 
@@ -17,4 +16,3 @@ export PATH=.:$PATH
 . ~/.env
 
 . ~/.aliases
-. ~/.aliases.more
