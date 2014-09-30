@@ -1,8 +1,8 @@
-# last modified 2014-09-01
+# last modified 2014-09-28
 
 cat >> feature.h <<EOF
 
-#undef FEAT_CRYPT
+/* #undef FEAT_CRYPT */
 #undef FEAT_MENU
 #undef FEAT_MOUSE_XTERM
 #undef FEAT_MULTI_LANG

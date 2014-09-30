@@ -1,8 +1,8 @@
-"last modified 2014-09-13
+"last modified 2014-09-29
 
 au bufread,bufnewfile *.vim call s:vim_options()
 
-au bufread,bufnewfile .exrc doau bufread pretend.vim
+au bufread,bufnewfile .{ex,{,n}vim}rc doau bufread pretend.vim
 
 func! s:vim_options()
   setl fo-=r
