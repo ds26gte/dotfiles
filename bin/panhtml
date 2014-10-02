@@ -1,0 +1,8 @@
+# last modified 2014-10-02
+
+pandoc \
+  -s \
+  -t html5 \
+  -f markdown-raw_html+autolink_bare_uris \
+  -S \
+  "$@"
