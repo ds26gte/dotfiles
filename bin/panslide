@@ -1,0 +1,22 @@
+# last modified 2014-10-02
+
+if test $# -ne 1
+then echo one argument file needed; exit
+else
+  f=$1
+  if test ! -f $f
+  then echo file $f not found; exit
+  fi
+fi
+
+g=${f##*/}
+g=${g%.*}
+
+pandoc \
+  -f markdown-raw_html \
+  -t revealjs \
+  -S \
+  -V revealjs-url:$HOME/.pandoc/reveal.js \
+  -H $HOME/.pandoc/revealjsfont.css \
+  -o $g.html \
+  $f

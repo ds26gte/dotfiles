@@ -1,4 +1,4 @@
-# last modified 2014-09-08
+# last modified 2014-10-02
 
 echousage() {
   cmd=$(basename $0)
@@ -13,15 +13,17 @@ echousage() {
 
 if test $# -eq 3 -a "$1" = "-s"
 then sec=$2; shift 2
-elif test $# -eq 1 -a "$1" != "--help"
-then sec=1
-else echousage
 fi
 
-f=$1
-
-if test ! -f $f
-then echo File $f not found; exit
+if test $# -ne 1
+then echo require at least one argument; echousage; exit
+else
+  f=$1
+  if test "$1" = "--help"
+  then echousage; exit
+  elif test ! -f $f
+  then echo file $f not found; echousage; exit
+  fi
 fi
 
 ti=${f##*/}
@@ -29,4 +31,11 @@ ti=${ti%.*}
 
 dt=$(date -r $f +"%Y-%m-%d")
 
-pandoc -s -S -t man -o $ti.$sec -V title=$ti -V section=$sec -V date=$dt $f
+pandoc \
+  -f markdown-raw_html \
+  -t man
+  -s \
+  -S \
+  -V title=$ti -V section=$sec -V date=$dt \
+  -o $ti.$sec
+  $f

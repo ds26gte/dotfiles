@@ -1,12 +1,19 @@
-# last modified 2014-09-08
+# last modified 2014-10-02
 
-f=$1
-
-if test ! -f $f
-then echo File $f not found; exit
+if test $# -ne 1
+then echo require one argument file; exit
+else
+  f=$1
+  if test ! -f $f
+  then echo file $f not found; exit
+  fi
 fi
 
 ti=${f##*/}
 ti=${ti%.*}
 
-pandoc -S -o $ti.docx $f
+pandoc \
+  -f markdown-raw_html+autolink_bare_uris \
+  -S \
+  -o $ti.docx \
+  $f
