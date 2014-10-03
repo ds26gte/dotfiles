@@ -1,8 +1,24 @@
-# last modified 2014-10-02
+# last modified 2014-10-03
+
+cssf=
+if test -f default.css
+then cssf="-c default.css"
+else
+  g=$(find . -name default.css -print|head -1)
+  if test ! -z $g
+  then cssf="-c $g"
+  else
+    g=$(find . -name \*.css -print|head -1)
+    if test ! -z $g
+    then cssf="-c $g"
+    fi
+  fi
+fi
 
 pandoc \
   -s \
   -t html5 \
   -f markdown-raw_html+autolink_bare_uris \
   -S \
+  $cssf \
   "$@"
