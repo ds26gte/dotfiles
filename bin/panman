@@ -46,3 +46,5 @@ pandoc \
   -V title=$ti -V section=$sec -V date=$dt \
   -o $ti.$sec \
   $ft
+
+rm $ft

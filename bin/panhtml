@@ -14,6 +14,7 @@ then
   g=${g%.*}
   fopt="-o $g.html $ft"
 else
+  ft=
   fopt="$@"
 fi
 
@@ -39,3 +40,5 @@ pandoc \
   -S \
   $cssopt \
   $fopt
+
+test ! -z $ft && rm $ft

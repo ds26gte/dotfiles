@@ -26,3 +26,5 @@ pandoc \
   -H $HOME/.pandoc/revealjsfont.css \
   -o $g.html \
   $ft
+
+rm $ft
