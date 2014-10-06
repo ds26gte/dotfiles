@@ -1,16 +1,33 @@
-# last modified 2014-10-03
+# last modified 2014-10-06
 
-cssf=
-if test -f default.css
-then cssf="-c default.css"
+if test $# -eq 1
+then
+  f=$1
+  if test ! -f $f
+  then echo file $f not found; exit
+  fi
+  ft=$(mktemp --suffix=.txt)
+  sed -e '/^\s*::\s*$/,/^\s*::\s*$/ s/^/| /' \
+      -e '/^|\s*::\s*$/d' \
+      $f > $ft
+  g=${f##*/}
+  g=${g%.*}
+  fopt="-o $g.html $ft"
 else
-  g=$(find . -name default.css -print|head -1)
-  if test ! -z $g
-  then cssf="-c $g"
+  fopt="$@"
+fi
+
+cssopt=
+if test -f default.css
+then cssopt="-c default.css"
+else
+  cssf=$(find . -name default.css -print|head -1)
+  if test ! -z $cssf
+  then cssopt="-c $cssf"
   else
-    g=$(find . -name \*.css -print|head -1)
-    if test ! -z $g
-    then cssf="-c $g"
+    cssf=$(find . -name \*.css -print|head -1)
+    if test ! -z $cssf
+    then cssopt="-c $cssf"
     fi
   fi
 fi
@@ -18,7 +35,7 @@ fi
 pandoc \
   -s \
   -t html5 \
-  -f markdown-raw_html+autolink_bare_uris \
+  -f markdown-raw_html-subscript-superscript+autolink_bare_uris \
   -S \
-  $cssf \
-  "$@"
+  $cssopt \
+  $fopt

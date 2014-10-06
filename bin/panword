@@ -1,4 +1,4 @@
-# last modified 2014-10-02
+# last modified 2014-10-06
 
 if test $# -ne 1
 then echo require one argument file; exit
@@ -9,11 +9,19 @@ else
   fi
 fi
 
-ti=${f##*/}
-ti=${ti%.*}
+ft=$(mktemp --suffix=.txt)
+
+sed -e '/^\s*::\s*$/,/^\s*::\s*$/ s/^/| /' \
+    -e '/^|\s*::\s*$/d' \
+    $f > $ft
+
+g=${f##*/}
+g=${g%.*}
 
 pandoc \
-  -f markdown-raw_html+autolink_bare_uris \
+  -f markdown-raw_html-subscript-superscript+autolink_bare_uris \
   -S \
-  -o $ti.docx \
-  $f
+  -o $g.docx \
+  $ft
+
+rm $ft

@@ -1,4 +1,4 @@
-# last modified 2014-10-02
+# last modified 2014-10-06
 
 echousage() {
   cmd=$(basename $0)
@@ -27,16 +27,22 @@ else
   fi
 fi
 
+ft=$(mktemp --suffix=.txt)
+
+sed -e '/^\s*::\s*$/,/^\s*::\s*$/ s/^/| /' \
+    -e '/^|\s*::\s*$/d' \
+    $f > $ft
+
 ti=${f##*/}
 ti=${ti%.*}
 
 dt=$(date -r $f +"%Y-%m-%d")
 
 pandoc \
-  -f markdown-raw_html \
+  -f markdown-raw_html-subscript-superscript \
   -t man \
   -s \
   -S \
   -V title=$ti -V section=$sec -V date=$dt \
   -o $ti.$sec \
-  $f
+  $ft

@@ -1,4 +1,4 @@
-# last modified 2014-10-02
+# last modified 2014-10-06
 
 if test $# -ne 1
 then echo one argument file needed; exit
@@ -9,14 +9,20 @@ else
   fi
 fi
 
+ft=$(mktemp --suffix=.txt)
+
+sed -e '/^\s*::\s*$/,/^\s*::\s*$/ s/^/| /' \
+    -e '/^|\s*::\s*$/d' \
+    $f > $ft
+
 g=${f##*/}
 g=${g%.*}
 
 pandoc \
-  -f markdown-raw_html \
+  -f markdown-raw_html-subscript-superscript \
   -t revealjs \
   -S \
   -V revealjs-url:$HOME/.pandoc/reveal.js \
   -H $HOME/.pandoc/revealjsfont.css \
   -o $g.html \
-  $f
+  $ft
