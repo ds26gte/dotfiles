@@ -1,21 +1,32 @@
 # last modified 2014-10-06
 
-if test $# -eq 1
+fopt=
+
+if test $# -eq 0
 then
-  f=$1
+  fsdtin=1
+  f=$(mktemp --suffix=.txt)
+  cat > $f
+else
+  f=$1; shift
   if test ! -f $f
   then echo file $f not found; exit
   fi
-  ft=$(mktemp --suffix=.txt)
-  sed -e '/^\s*::\s*$/,/^\s*::\s*$/ s/^/| /' \
-      -e '/^|\s*::\s*$/d' \
-      $f > $ft
-  g=${f##*/}
-  g=${g%.*}
-  fopt="-o $g.html $ft"
-else
-  ft=
-  fopt="$@"
+  if test $# -eq 0
+  then
+    g=${f##*/}
+    g=${g%.*}
+    fopt="-o $g.html"
+  fi
+fi
+
+ft=$(mktemp --suffix=.txt)
+sed -e '/^\s*::\s*$/,/^\s*::\s*$/ s/^/| /' \
+    -e '/^|\s*::\s*$/d' \
+    $f > $ft
+
+if test ! -z $fsdtin
+then rm $f
 fi
 
 cssopt=
@@ -39,6 +50,8 @@ pandoc \
   -f markdown-raw_html-subscript-superscript+autolink_bare_uris \
   -S \
   $cssopt \
-  $fopt
+  $ft \
+  $fopt \
+  "$@"
 
-test ! -z $ft && rm $ft
+rm $ft
