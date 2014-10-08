@@ -1,4 +1,4 @@
-# last modified 2014-10-06
+# last modified 2014-10-08
 
 if test $# -ne 1
 then echo require one argument file; exit
@@ -11,9 +11,7 @@ fi
 
 ft=$(mktemp --suffix=.txt)
 
-sed -e '/^\s*::\s*$/,/^\s*::\s*$/ s/^/| /' \
-    -e '/^|\s*::\s*$/d' \
-    $f > $ft
+panpre $f $ft
 
 g=${f##*/}
 g=${g%.*}

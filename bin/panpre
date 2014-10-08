@@ -1,0 +1,11 @@
+# last modified 2014-10-08
+
+if test $# -ne 2
+then echo need 2 arguments; exit
+elif test ! -f $1
+then echo file $1 not found; exit
+fi
+
+sed -e '/^\s*::\s*$/,/^\s*::\s*$/ s/^/| /' \
+    -e '/^|\s*::\s*$/d' \
+    $1 > $2

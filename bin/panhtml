@@ -1,4 +1,4 @@
-# last modified 2014-10-06
+# last modified 2014-10-08
 
 fopt=
 
@@ -21,9 +21,8 @@ else
 fi
 
 ft=$(mktemp --suffix=.txt)
-sed -e '/^\s*::\s*$/,/^\s*::\s*$/ s/^/| /' \
-    -e '/^|\s*::\s*$/d' \
-    $f > $ft
+
+panpre $f $ft
 
 if test ! -z $fsdtin
 then rm $f

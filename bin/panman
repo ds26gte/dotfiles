@@ -1,4 +1,4 @@
-# last modified 2014-10-06
+# last modified 2014-10-08
 
 echousage() {
   cmd=$(basename $0)
@@ -29,9 +29,7 @@ fi
 
 ft=$(mktemp --suffix=.txt)
 
-sed -e '/^\s*::\s*$/,/^\s*::\s*$/ s/^/| /' \
-    -e '/^|\s*::\s*$/d' \
-    $f > $ft
+panpre $f $ft
 
 ti=${f##*/}
 ti=${ti%.*}
