@@ -1,4 +1,4 @@
-"last modified 2014-09-29
+"last modified 2014-10-07
 "set dy+=lastline
 "set mouse=a
 "set noswf
@@ -20,6 +20,7 @@ set acd
 set ai
 set bk
 set bs=indent,eol,start
+set cedit=<esc>
 set cf
 set cot+=longest
 set cpt+=k./*.txt
