@@ -1,8 +1,8 @@
-# last modified 2014-09-30
+# last modified 2014-10-04
 cd /usr/local
 sudo find . -name racket -type d -exec rm -fr {} \;
-sudo find . -name racket\* -exec rm {} \;
-sudo find . -name drracket\* -exec rm {} \;
-sudo find . -name gracket\* -exec rm {} \;
+sudo find . -name racket\* -delete
+sudo find . -name drracket\* -delete
+sudo find . -name gracket\* -delete
 cd ~/src/racket
 sudo make unix-style PREFIX=/usr/local
