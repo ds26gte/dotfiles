@@ -1,3 +1,4 @@
+#alias ly=lynx
 alias ..='cd ..'
 alias .2='..;..'
 alias .3='.2;..'
@@ -9,7 +10,6 @@ alias 3='fg %3'
 alias 3restart='sudo shutdown -r now'
 alias 3shutdown='sudo shutdown -h now'
 alias apt-get='sudo apt-get'
-alias bin='cd;cd bin'
 alias c=clear
 alias cd..='cd ..'
 alias cp='cp -p'
@@ -31,8 +31,9 @@ alias la='ls -Ad .*'
 alias lo=libreoffice
 alias ls='ls --color=auto -F'
 alias ly=lynx
-alias lynx='lynx -display_charset=utf-8 -editor=vim -vikeys'
+alias lynx='COLUMNS=80 lynx -display_charset=utf-8 -editor=vim -vikeys'
 alias m=less
+alias man='MANWIDTH=80 man --nh --nj'
 alias md=mkdir
 alias mo=less
 alias more=less
@@ -41,14 +42,16 @@ alias ping='ping -c 5'
 alias pp='p;p'
 alias ppp='pp;p'
 alias pppp='pp;pp'
+alias prun='prunedir ../..'
 alias pw=pwd
 alias realias='. ~/.aliases'
 alias rmr='rm -fr'
 alias sl=ls
-alias tmp='cd;cd tmp'
+alias t=txt2page
 alias ubgrade='sudo apt-get update;sudo apt-get upgrade;sudo apt-get dist-upgrade'
 alias ui=/usr/bin/vi
 alias uvi=/usr/bin/vi
+alias vip='ps -ef|grep " vi"|grep -v grep'
 alias vu=evince
 alias wget='wget -c'
 alias word=lowriter

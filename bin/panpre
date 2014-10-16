@@ -1,4 +1,4 @@
-# last modified 2014-10-08
+# last modified 2014-10-16
 
 if test $# -ne 2
 then echo need 2 arguments; exit
@@ -6,6 +6,8 @@ elif test ! -f $1
 then echo file $1 not found; exit
 fi
 
-sed -e '/^\s*::\s*$/,/^\s*::\s*$/ s/^/| /' \
-    -e '/^|\s*::\s*$/d' \
+sed -e '/^\s*::$/,/^\s*::$/ s/^/| /' \
+    -e '/^|\s*::$/d' \
+    -e 's/^:+:\s*\(\S\+\)$/\n[^\1]:/' \
+    -e 's/^:+:$//' \
     $1 > $2
