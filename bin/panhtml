@@ -1,10 +1,10 @@
-# last modified 2014-10-08
+# last modified 2014-10-17
 
 fopt=
 
 if test $# -eq 0
 then
-  fsdtin=1
+  fstdin=1
   f=$(mktemp --suffix=.txt)
   cat > $f
 else
@@ -24,7 +24,7 @@ ft=$(mktemp --suffix=.txt)
 
 panpre $f $ft
 
-if test ! -z $fsdtin
+if test ! -z $fstdin
 then rm $f
 fi
 
@@ -52,5 +52,16 @@ pandoc \
   $ft \
   $fopt \
   "$@"
+
+if test -z $fstdin
+then
+sed -i $g.html \
+-e '1,5 {
+/^<html.*>$/ a\
+<!--\
+Generated from '$f' by pandoc\
+-->
+}'
+fi
 
 rm $ft
