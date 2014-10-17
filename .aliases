@@ -31,7 +31,7 @@ alias la='ls -Ad .*'
 alias lo=libreoffice
 alias ls='ls --color=auto -F'
 alias ly=lynx
-alias lynx='COLUMNS=80 lynx -display_charset=utf-8 -editor=vim -vikeys'
+alias lynx='COLUMNS=80 lynx -display_charset=utf-8 -editor=vim -lss=~/.lynx.lss -vikeys'
 alias m=less
 alias man='MANWIDTH=80 man --nh --nj'
 alias md=mkdir
