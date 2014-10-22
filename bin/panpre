@@ -1,17 +1,15 @@
-# last modified 2014-10-18
+# last modified 2014-10-21
 
 if test $# -ne 2
 then echo need 2 arguments; exit
-elif test ! -f $1
+fi
+
+if test ! -f $1
 then echo file $1 not found; exit
 fi
 
-sed -e '/^\.\s*::$/,/^\.\s*::$/ s/^/| /' \
-    -e 's/^| \.\s*::$//' \
-    -e 's/^\.\s*#\*$/### */' \
-    -e 's/^\.\s*#%\s/# /' \
-    -e 's/^\.\s*\(#\+\s\+\)/\1/' \
-    -e 's/^\.\s*\(```\(\s*\S\+\)\?\)$/\1/' \
-    -e 's/^:+:\s*\(\S\+\)$/\n[^\1]:/' \
-    -e 's/^:+:$//' \
-    $1 > $2
+sed -e '/^::/, /^$/ s/^/ÞtzpLeadingSpacesLine/' \
+-e 's/^\(ÞtzpLeadingSpacesLine\)::/\1/' \
+-e 's/^ÞtzpLeadingSpacesLine$//' \
+-e 's/^ÞtzpLeadingSpacesLine/| /' \
+$1 > $2
