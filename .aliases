@@ -37,6 +37,7 @@ alias man='MANWIDTH=80 man --nh --nj'
 alias md=mkdir
 alias mo=less
 alias more=less
+alias osubgrade='ubgrade;sudo update-manager -d'
 alias p='cd ..'
 alias ping='ping -c 5'
 alias pp='p;p'
@@ -48,6 +49,7 @@ alias realias='. ~/.aliases'
 alias rmr='rm -fr'
 alias sl=ls
 alias t=txt2page
+alias tmac='cd /usr/local/share/groff/current/tmac'
 alias ubgrade='sudo apt-get update;sudo apt-get upgrade;sudo apt-get dist-upgrade'
 alias ui=/usr/bin/vi
 alias uvi=/usr/bin/vi
