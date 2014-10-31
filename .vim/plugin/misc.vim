@@ -1,5 +1,8 @@
-"last modified 2014-10-07
+"last modified 2014-10-28
+"set cedit=<esc>
 "set dy+=lastline
+"set exrc "doesn't work!
+"set isf-=! "why exactly?
 "set mouse=a
 "set noswf
 "set nowarn
@@ -20,7 +23,6 @@ set acd
 set ai
 set bk
 set bs=indent,eol,start
-set cedit=<esc>
 set cf
 set cot+=longest
 set cpt+=k./*.txt
@@ -28,13 +30,11 @@ set dict=/usr/share/dict/words
 set dy=lastline
 set ep=
 set et
-set exrc "doesn't work!
 set ffs-=dos
 set hid
 set hls
 set inf
 set is
-set isf-=! "why exactly?
 set lbr
 set ls=2
 set nf-=octal
