@@ -1,4 +1,4 @@
-"last modified 2014-10-11
+"last modified 2014-10-28
 
 au bufread,bufnewfile *.vim call s:vim_options()
 
@@ -16,4 +16,5 @@ func! s:vim_options()
   syn match comment "^\s*\".*$"
   syn region string oneline start="[\\]\@<!\"" skip="\\[\\\"]" end="\""
   syn region string oneline start="[\\]\@<!'" skip="\\[\\']" end="'"
+  syn match comment "^\".*$"
 endfunc
