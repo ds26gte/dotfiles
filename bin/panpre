@@ -1,4 +1,4 @@
-# last modified 2014-10-21
+# last modified 2014-10-28
 
 if test $# -ne 2
 then echo need 2 arguments; exit
@@ -8,8 +8,24 @@ if test ! -f $1
 then echo file $1 not found; exit
 fi
 
-sed -e '/^::/, /^$/ s/^/ÞtzpLeadingSpacesLine/' \
--e 's/^\(ÞtzpLeadingSpacesLine\)::/\1/' \
--e 's/^ÞtzpLeadingSpacesLine$//' \
--e 's/^ÞtzpLeadingSpacesLine/| /' \
+sed \
+\
+-e 's/Þ/&tzpThornTzp/g' \
+\
+-e '/^\s*```/,/^\s*```/ s/^/ÞtzpCodeDisplayLineTzp/' \
+\
+-e '/^\s*::/, /^$/ s/^/ÞtzpLeadingSpacesLineTzp/' \
+-e 's/^\(ÞtzpLeadingSpacesLineTzp\s*\)::/\1/' \
+-e 's/^ÞtzpLeadingSpacesLineTzp$//' \
+-e 's/^ÞtzpLeadingSpacesLineTzp/| /' \
+\
+-e '/^\s/, /^$/ s/^/ÞtzpLeadingSpacesLineIItzp/' \
+-e 's/ÞtzpLeadingSpacesLineIItzp\(\S\)/ \1/' \
+-e 's/ÞtzpLeadingSpacesLineIItzp$//' \
+-e 's/ÞtzpLeadingSpacesLineIItzp/| /' \
+\
+-e 's/^ÞtzpCodeDisplayLineTzp//' \
+\
+-e 's/\(Þ\)tzpThornTzp/\1/g' \
+\
 $1 > $2
