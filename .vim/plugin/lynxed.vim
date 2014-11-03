@@ -1,10 +1,12 @@
-"last change 2014-10-17
+"last change 2014-11-03
 
 "needed only if called from within lynx
 
 if $LYNX_VERSION == ""
   finish
 endif
+
+au bufread *.html setl noswf
 
 let s:lynx_source_files = []
 
@@ -13,7 +15,7 @@ au bufenter *.html call s:txt_go_to_source_file()
 func! s:txt_go_to_source_file()
   let generated_by_txt2page_p = 0
   let generated_by_pandoc_p = 0
-  "determine if html file was generated
+  "check if html file was generated
   1,5g/^Generated from .\{-} by txt2page/
         \ let generated_by_txt2page_p = 1
   1,5g/^Generated from .\{-} by pandoc/
@@ -30,7 +32,7 @@ func! s:txt_go_to_source_file()
   elseif generated_by_pandoc_p
     setl mp=panhtml\ %
   endif
-  "when writing source file, refresh the html
+  "when writing source file, remember to refresh the html
   let this_file = expand('%')
   exec 'au bufwritepost ' . this_file . ' call s:remember_to_refresh_html()'
 endfunc
