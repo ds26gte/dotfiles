@@ -1,4 +1,4 @@
-"last modified 2014-10-16
+"last modified 2014-11-04
 
 au bufread,bufnewfile ~/public_html/pyret-lang*/** call s:pyret_options()
 
@@ -26,4 +26,4 @@ func! s:pyret_scrbl_options()
   setl mp=cd\ ~/public_html/pyret-lang/docs/written;make
 endfunc
 
-au bufwritepost ~/public_html/pyret-lang/**/*.{arr,js} make
+"au bufwritepost ~/public_html/pyret-lang/**/*.{arr,js} make
