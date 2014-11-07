@@ -1,10 +1,10 @@
-"last modified 2014-09-20
+"last modified 2014-11-06
 
 set bg=dark
 set term=xterm-256color
 
 hi directory ctermfg=32
-hi linenr ctermfg=136
+hi linenr ctermfg=237 "136
 hi modemsg cterm=none ctermfg=242
 hi moremsg ctermfg=171
 hi nontext ctermfg=58

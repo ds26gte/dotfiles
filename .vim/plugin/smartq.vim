@@ -1,6 +1,7 @@
-"last modified 2014-11-05
+"last modified 2014-11-06
 
 func! SmartQuotes()
+  norm my
   sil! %s/^\s*\`\`\`\s*[[:alpha:]]\+\s*$/ÞtzpListingTzp&/
   sil! %s/^\s*\`\`\`\s*$/ÞtzpListingTzp&/
   call SubAlternate(0)
@@ -9,6 +10,7 @@ func! SmartQuotes()
   v/^ÞtzpPreformattedTzp/ call s:smartQuotesAux()
   sil! %s/^ÞtzpPreformattedTzp//
   sil! %s/^ÞtzpListingTzp\(.*\)[01]$/\1/
+  norm `y
 endfunc
 
 func! s:smartQuotesAux()
@@ -41,4 +43,6 @@ func! s:smartQuotesAux()
     " - followed by opt spaces and number becomes minus
 
     s:\(^\|\s\)-\(\s*\.\?[0-9]\):\1−\2:g
+
+    s:^\*\(\s\):•\1:
 endfunc
