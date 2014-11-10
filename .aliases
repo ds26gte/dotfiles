@@ -21,6 +21,7 @@ alias ei=/usr/bin/vi
 alias excel=localc
 alias ff=firefox
 alias gc='rm *~ .*~'
+alias gitpu='git pull'
 alias h=history
 alias info='info --vi-keys'
 alias iv=vi
