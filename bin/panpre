@@ -1,4 +1,4 @@
-# last modified 2014-10-28
+# last modified 2014-11-11
 
 if test $# -ne 2
 then echo need 2 arguments; exit
@@ -14,15 +14,13 @@ sed \
 \
 -e '/^\s*```/,/^\s*```/ s/^/ÞtzpCodeDisplayLineTzp/' \
 \
--e '/^\s*::/, /^$/ s/^/ÞtzpLeadingSpacesLineTzp/' \
--e 's/^\(ÞtzpLeadingSpacesLineTzp\s*\)::/\1/' \
--e 's/^ÞtzpLeadingSpacesLineTzp$//' \
--e 's/^ÞtzpLeadingSpacesLineTzp/| /' \
+-e '/^\s/, /^$/ s/^/ÞtzpLeadingSpacesLineTzp/' \
 \
--e '/^\s/, /^$/ s/^/ÞtzpLeadingSpacesLineIItzp/' \
--e 's/ÞtzpLeadingSpacesLineIItzp\(\S\)/ \1/' \
--e 's/ÞtzpLeadingSpacesLineIItzp$//' \
--e 's/ÞtzpLeadingSpacesLineIItzp/| /' \
+-e 's/^•\(\s\)/*\1/' \
+\
+-e 's/ÞtzpLeadingSpacesLineTzp\(\S\)/ \1/' \
+-e 's/ÞtzpLeadingSpacesLineTzp$//' \
+-e 's/ÞtzpLeadingSpacesLineTzp/| /' \
 \
 -e 's/^ÞtzpCodeDisplayLineTzp//' \
 \
