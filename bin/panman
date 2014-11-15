@@ -1,4 +1,4 @@
-# last modified 2014-10-08
+# last modified 2014-11-11
 
 echousage() {
   cmd=$(basename $0)
@@ -40,7 +40,6 @@ pandoc \
   -f markdown-raw_html-subscript-superscript \
   -t man \
   -s \
-  -S \
   -V title=$ti -V section=$sec -V date=$dt \
   -o $ti.$sec \
   $ft

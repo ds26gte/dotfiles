@@ -1,4 +1,4 @@
-# last modified 2014-10-08
+# last modified 2014-11-11
 
 if test $# -ne 1
 then echo one argument file needed; exit
@@ -19,7 +19,6 @@ g=${g%.*}
 pandoc \
   -f markdown-raw_html-subscript-superscript \
   -t revealjs \
-  -S \
   -V revealjs-url:$HOME/.pandoc/reveal.js \
   -H $HOME/.pandoc/revealjsfont.css \
   -o $g.html \
