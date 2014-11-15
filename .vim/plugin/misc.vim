@@ -1,4 +1,4 @@
-"last modified 2014-10-28
+"last modified 2014-11-15
 "set cedit=<esc>
 "set dy+=lastline
 "set exrc "doesn't work!
@@ -24,6 +24,7 @@ set ai
 set bk
 set bs=indent,eol,start
 set cf
+set com-=mb:*
 set cot+=longest
 set cpt+=k./*.txt
 set dict=/usr/share/dict/words

@@ -1,4 +1,4 @@
-"last change 2014-11-03
+"last change 2014-11-11
 
 "needed only if called from within lynx
 
@@ -33,8 +33,7 @@ func! s:txt_go_to_source_file()
     setl mp=panhtml\ %
   endif
   "when writing source file, remember to refresh the html
-  let this_file = expand('%')
-  exec 'au bufwritepost ' . this_file . ' call s:remember_to_refresh_html()'
+  exec 'au bufwritepost ' . expand('%') . ' call s:remember_to_refresh_html()'
 endfunc
 
 func! s:remember_to_refresh_html()
