@@ -1,9 +1,9 @@
-"last modified 2014-11-04
+"last modified 2014-11-17
 
 au bufread,bufnewfile ~/public_html/pyret-lang*/** call s:pyret_options()
 
 func! s:pyret_options()
-  setl sua+=.js,.arr
+  "setl sua+=.js,.arr
 
   setl path=.
         \,~/public_html/pyret-lang/src/js/base
@@ -20,10 +20,10 @@ func! s:pyret_js_options()
   setl mp=cd\ ~/public_html/pyret-lang;make
 endfunc
 
-au bufread,bufnewfile ~/public_html/pyret-lang/docs/written/**/*.scrbl call s:pyret_scrbl_options()
+au bufread,bufnewfile ~/public_html/pyret-lang/docs/written/**.scrbl call s:pyret_scrbl_options()
 
 func! s:pyret_scrbl_options()
   setl mp=cd\ ~/public_html/pyret-lang/docs/written;make
 endfunc
 
-"au bufwritepost ~/public_html/pyret-lang/**/*.{arr,js} make
+au bufwritepost ~/public_html/pyret-lang/**/*.{arr,js} make
