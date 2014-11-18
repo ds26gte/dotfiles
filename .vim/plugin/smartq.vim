@@ -1,4 +1,4 @@
-"last modified 2014-11-11
+"last modified 2014-11-17
 
 func! SmartQuotes()
   norm my
@@ -31,15 +31,20 @@ func! s:smartQuotesAux()
 
     " -- preceded by {bol, space} and
     "followed by {space, comma, closing-quote, eol}
-    "becomes emdash
+    "becomes emdash (U+2014)
 
-    s:\(^\|\s\)--\(\s\|,\|[’”]\|$\):\1—\2:g
+    s:\(^\|\s\)--\(\s\|[,’”]\|$\):\1—\2:g
 
     " -- followed by closing quote becomes emdash
 
     s:--\([’”]\):—\1:g
 
-    " - followed by opt spaces and number becomes minus
+    " - directly between two digits becomes endash (U+2013)
+
+    s:\(\d\)-\(\d\):\1–\2:g
+
+    " - preceded by {bol, space} and
+    "followed by opt spaces and then number becomes minus (U+2212)
 
     s:\(^\|\s\)-\(\s*\.\?[0-9]\):\1−\2:g
 
