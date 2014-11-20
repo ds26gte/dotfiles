@@ -16,12 +16,15 @@ alias cd..='cd ..'
 alias cp='cp -p'
 alias cr=google-chrome
 alias cx='chmod +x'
+alias datein='TZ=Asia/Kolkata date'
 alias diff=colordiff
+alias dotf='src;cd dotfiles'
 alias ei=/usr/bin/vi
 alias excel=localc
 alias ff=firefox
 alias gc='rm *~ .*~'
 alias gitpu='git pull'
+alias groffinstall='src;cd groff;./configure;make;sudo make install'
 alias h=history
 alias info='info --vi-keys'
 alias iv=vi
@@ -35,7 +38,7 @@ alias ls='ls --color=auto -F'
 alias ly=lynx
 alias lynx='COLUMNS=80 lynx -editor=vim -vikeys'
 alias m=less
-alias man='MANWIDTH=80 man --nh --nj'
+alias man='PATH=/usr/local/bin:$PATH MANWIDTH=80 man --nh --nj'
 alias md=mkdir
 alias mo=less
 alias more=less
@@ -50,11 +53,17 @@ alias pw=pwd
 alias realias='. ~/.aliases'
 alias rmr='rm -fr'
 alias sl=ls
+alias src='cd;cd src'
+alias t3p='src;cd txt2page'
+alias t3pe='t3p;cd eg'
 alias t=txt2page
+alias testrn='py ~/public_html/pyret-lang/tests/pyret/tests/test-roughnum.arr'
 alias tmac='cd /usr/local/share/groff/current/tmac'
 alias ubgrade='sudo apt-get update;sudo apt-get upgrade;sudo apt-get dist-upgrade'
 alias ui=/usr/bin/vi
 alias uvi=/usr/bin/vi
+alias vialias='vi ~/.aliases.more;realias'
+alias vimf='cd;cd .vim/plugin'
 alias vip='ps -ef|grep " vi"|grep -v grep'
 alias vu=evince
 alias wget='wget -c'
