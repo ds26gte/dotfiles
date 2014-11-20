@@ -1,4 +1,4 @@
-"last modified 2014-11-12
+"last modified 2014-11-18
 
 func! s:xdigFunc(biliteral, num, ...)
   exec "let l:dnum = " . a:num
@@ -17,10 +17,13 @@ Xdig bv 0x2615 "beverage
 Xdig fl 0x2698 "flower
 Xdig gr 0x2699 "gear
 Xdig he 0x2767 "hedera
+Xdig mi 0x2032 "minute
 Xdig nv 0x2630 "navicon
 Xdig pc 0x2761 "pilcrow, curved
 Xdig pi 0xb6 "pilcrow
 Xdig qd 0x220e "qed
+Xdig rt 0x2023 "right triangle
+Xdig se 0x2033 "second
 Xdig sk 0x2620 "skull
 Xdig sm 0x263a "smiley
 Xdig tp 0x22a4 "top

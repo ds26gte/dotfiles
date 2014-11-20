@@ -11,6 +11,7 @@ alias 3='fg %3'
 alias 3restart='sudo shutdown -r now'
 alias 3shutdown='sudo shutdown -h now'
 alias apt-get='sudo apt-get'
+alias bin='cd;cd bin'
 alias c=clear
 alias cd..='cd ..'
 alias cp='cp -p'
@@ -19,6 +20,7 @@ alias cx='chmod +x'
 alias datein='TZ=Asia/Kolkata date'
 alias diff=colordiff
 alias dotf='src;cd dotfiles'
+alias dvimf='src;cd dotfiles/.vim/plugin'
 alias ei=/usr/bin/vi
 alias excel=localc
 alias ff=firefox
