@@ -1,15 +1,30 @@
-"last modified 2014-11-17
+"last modified 2014-11-20
 
 func! SmartQuotes()
+  if !&tw && &sbr != ''
+    return
+  endif
   norm my
   sil! %s/^\s*\`\`\`\s*\%([[:alpha:]]\+\s*\)\?$/ÞtzpListingTzp&/
-  call SubAlternate(0)
-  sil g/^ÞtzpListingTzp/ s/$/\=SubAlternate()
+  call s:subAlternate(0)
+  sil g/^ÞtzpListingTzp/ s/$/\=s:subAlternate()
   sil g/^ÞtzpListingTzp.*0$/ .,/^ÞtzpListingTzp.*1$/ s/^/ÞtzpPreformattedTzp/
   v/^ÞtzpPreformattedTzp/ call s:smartQuotesAux()
   sil! %s/^ÞtzpPreformattedTzp//
   sil! %s/^ÞtzpListingTzp\(.*\)[01]$/\1/
   norm `y
+endfunc
+
+func! s:subAlternate(...)
+  if !exists('b:subAlternateP')
+    let b:subAlternateP = 1
+  endif
+  if a:0
+    let b:subAlternateP = 1
+  else
+    let b:subAlternateP = !b:subAlternateP
+    return b:subAlternateP
+  endif
 endfunc
 
 func! s:smartQuotesAux()
@@ -51,4 +66,4 @@ func! s:smartQuotesAux()
     s:^\*\(\s\):•\1:
 endfunc
 
-au bufwritepre *.txt call SmartQuotes()
+au bufwritepre * call SmartQuotes()
