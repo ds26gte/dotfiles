@@ -1,29 +1,105 @@
-# last modified 2014-11-11
+# last modified 2014-11-20
 
 if test $# -ne 2
-then echo need 2 arguments; exit
+then echo need 2 args; exit
 fi
 
 if test ! -f $1
 then echo file $1 not found; exit
 fi
 
-sed \
-\
--e 's/Þ/&tzpThornTzp/g' \
-\
--e '/^\s*```/,/^\s*```/ s/^/ÞtzpCodeDisplayLineTzp/' \
-\
--e '/^\s/, /^$/ s/^/ÞtzpLeadingSpacesLineTzp/' \
-\
--e 's/^•\(\s\)/*\1/' \
-\
--e 's/ÞtzpLeadingSpacesLineTzp\(\S\)/ \1/' \
--e 's/ÞtzpLeadingSpacesLineTzp$//' \
--e 's/ÞtzpLeadingSpacesLineTzp/| /' \
-\
--e 's/^ÞtzpCodeDisplayLineTzp//' \
-\
--e 's/\(Þ\)tzpThornTzp/\1/g' \
-\
-$1 > $2
+if test -d $2
+then echo second arg $2 is a directory; exit
+fi
+
+cp -p $1 $2
+
+ex -u NONE $2 <<EOF
+
+func! SubAlternate(...)
+  if !exists('b:subAlternateP')
+    let b:subAlternateP = 1
+  endif
+  if a:0
+    let b:subAlternateP = 1
+  else
+    let b:subAlternateP = !b:subAlternateP
+    return b:subAlternateP
+  endif
+endfunc
+
+"save all verbatim Þs, as we'll be using Þ to help in the
+"conversion
+
+%s/Þ/&tzpThornTzp/g
+
+"mark all lines of code display as we don't want to change stuff
+"in there
+
+%s/^\s*\(\`\`\`\)/ÞtzpCodeDisplayTzp\1/
+
+call SubAlternate(0)
+
+g/^ÞtzpCodeDisplayTzp/ s/^ÞtzpCodeDisplayTzp/\=(submatch(0) . SubAlternate())
+
+g/^ÞtzpCodeDisplayTzp0/, /^ÞtzpCodeDisplayTzp1/ s/^/ÞtzpPreformattedTzp/
+
+%s/^\(ÞtzpPreformattedTzp\)ÞtzpCodeDisplayTzp[01]/\1/
+
+"in-text †id is a call to footnote
+
+v/^ÞtzpPreformattedTzp/ s/\(.\)†\(\S\+\%([:punct:]\)\@<!\)/\1[^\2]/g
+
+"line-final ‡ ends footnote text
+
+v/^ÞtzpPreformattedTzp/ s/\(.\)\(‡\)\s*\$/\1\rÞtzpFootnoteEndTzp/
+
+"line-beginning † starts a footnote text
+
+%s/^†\s*\(\S\+\%([:punct:]\)\@<!\)/ÞtzpFootnoteStartTzp[^\1]:./
+
+"blank line within footnote text becomes ¶
+
+g/^ÞtzpFootnoteStartTzp/, /^ÞtzpFootnoteEndTzp/ s/^\$/¶/
+
+"g/^ÞtzpFootnoteStartTzp/, /^ÞtzpFootnoteEndTzp/ s/^\$/ÞtzpFootnoteGrafTzp/
+
+"g/^ÞtzpFootnoteGrafTzp/+1 s/^/ÞtzpFootnoteNextGrafTzp   /
+
+"for every line with leading space, mark it all subsequent lines
+"until and including a blank line. Call these leading-space
+"blocks
+
+g/^\s/, /^\$/ s/^/ÞtzpLeadingSpaceLineTzp/
+
+"%s/^•\(\s\)/*\1/
+
+"a line with no leading space in a leading-space block has a
+"space inserted in front of it
+
+%s/ÞtzpLeadingSpaceLineTzp\(\S\)/ \1/
+
+"a blank line in a leading-space block (its last line) has its
+"mark removed
+
+%s/ÞtzpLeadingSpaceLineTzp\$//
+
+"a leading-space-block line has a pipe-&-space inserted in front
+"of it
+
+%s/ÞtzpLeadingSpaceLineTzp/| /
+
+"remove all footnote line markings
+
+%s/^ÞtzpFootnote\S\{-}Tzp//
+
+"remove all code display line markings
+
+%s/^ÞtzpPreformattedTzp//
+
+"restore verbatim Þs
+
+%s/\(Þ\)tzpThornTzp/\1/g
+
+w
+EOF
