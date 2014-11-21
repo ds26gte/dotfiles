@@ -1,4 +1,4 @@
-"last modified 2014-11-18
+"last modified 2014–11–18
 
 func! s:xdigFunc(biliteral, num, ...)
   exec "let l:dnum = " . a:num
@@ -27,6 +27,6 @@ Xdig se 0x2033 "second
 Xdig sk 0x2620 "skull
 Xdig sm 0x263a "smiley
 Xdig tp 0x22a4 "top
-Xdig u< 0x27e8 "left angle
-Xdig u> 0x27e9 "right angle
+"Xdig u< 0x27e8 "left angle
+"Xdig u> 0x27e9 "right angle
 Xdig ud 0x326 "underdot

@@ -1,17 +1,34 @@
 "last modified 2014-11-20
 
 func! SmartQuotes()
-  if !&tw && &sbr != ''
+  if !&tw && !&nu
+    "skip code files, which usually have tw=0.
+    "alpine email also has tw=0 but it also has 'nu'
     return
   endif
+  if match(expand('%:r'), '\.') == 0
+    "skip files beginning with dot
+    return
+  endif
+  let b:possibleCodeFile = 0
+  "skip other code files by inspecting first line
+  1 g/^\s*#\S/ let b:possibleCodeFile = 1
+  1 g/^#\s*$/ let b:possibleCodeFile = 1
+  1 g/^#\s*[Ll]ast\s/ let b:possibleCodeFile = 1
+  1 g/^":"/ let b:possibleCodeFile = 1
+  1 g/^\s*[(;]/ let b:possibleCodeFile = 1
+  if b:possibleCodeFile
+    return
+  endif
+
   norm my
-  sil! %s/^\s*\`\`\`\s*\%([[:alpha:]]\+\s*\)\?$/ÞtzpListingTzp&/
+  %s/^\s*\`\`\`\s*\%([[:alpha:]]\+\s*\)\?$/ÞtzpListingTzp&/
   call s:subAlternate(0)
-  sil g/^ÞtzpListingTzp/ s/$/\=s:subAlternate()
-  sil g/^ÞtzpListingTzp.*0$/ .,/^ÞtzpListingTzp.*1$/ s/^/ÞtzpPreformattedTzp/
+  g/^ÞtzpListingTzp/ s/$/\=s:subAlternate()
+  g/^ÞtzpListingTzp.*0$/ .,/^ÞtzpListingTzp.*1$/ s/^/ÞtzpPreformattedTzp/
   v/^ÞtzpPreformattedTzp/ call s:smartQuotesAux()
-  sil! %s/^ÞtzpPreformattedTzp//
-  sil! %s/^ÞtzpListingTzp\(.*\)[01]$/\1/
+  %s/^ÞtzpPreformattedTzp//
+  %s/^ÞtzpListingTzp\(.*\)[01]$/\1/
   norm `y
 endfunc
 
@@ -30,11 +47,11 @@ endfunc
 func! s:smartQuotesAux()
     "opening "
 
-    s:\(^\|\s\|(\|^\*\|\s\*\)":\1“:g
+    s:\(^\|\s\|(\|\[\|^\*\|\s\*\)":\1“:g
 
     "opening '
 
-    s:\(^\|\s\|(\|^\*\|\s\*\)':\1‘:g
+    s:\(^\|\s\|(\|\[\|^\*\|\s\*\)':\1‘:g
 
     "closing "
 
@@ -66,4 +83,4 @@ func! s:smartQuotesAux()
     s:^\*\(\s\):•\1:
 endfunc
 
-au bufwritepre * call SmartQuotes()
+au bufwritepre * sil! call SmartQuotes()

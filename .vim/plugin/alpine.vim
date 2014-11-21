@@ -1,4 +1,4 @@
-"last modified 2014-11-20
+"last modified 2014–11–20
 
 au bufread,bufnewfile /tmp/pico.* call s:alpine_options()
 
@@ -11,9 +11,11 @@ func! s:alpine_options()
 
   nn k gk
   nn j gj
-
-  nn gk k
-  nn gj j
+  nn 0 g0
+  nn $ g$
+  nn I g^i
+  nn A g$i
+  nn D dg$
 
   syn region comment oneline start="^>" end="$"
 endfunc
