@@ -1,4 +1,4 @@
-# last modified 2014-11-20
+# last modified 2014-11-22
 
 if test $# -ne 2
 then echo need 2 args; exit
@@ -67,27 +67,37 @@ g/^ÞtzpFootnoteStartTzp/, /^ÞtzpFootnoteEndTzp/ s/^\$/¶/
 "g/^ÞtzpFootnoteGrafTzp/+1 s/^/ÞtzpFootnoteNextGrafTzp   /
 
 "for every line with leading space, mark it all subsequent lines
-"until and including a blank line. Call these leading-space
+"until a blank line exclusive. Call these leading-space
 "blocks
 
-g/^\s/, /^\$/ s/^/ÞtzpLeadingSpaceLineTzp/
+g/^\s/, /^\s*\$/ s/^/ÞtzpLeadingSpaceLineTzp/
+
+%s/^ÞtzpLeadingSpaceTzp\s*\$//
 
 "%s/^•\(\s\)/*\1/
 
-"a line with no leading space in a leading-space block has a
-"space inserted in front of it
+"a line with no leading space in a leading-space block is marked
+"as a continuation line
 
-%s/ÞtzpLeadingSpaceLineTzp\(\S\)/ \1/
+%s/^ÞtzpLeadingSpaceLineTzp\(\S\)/ÞtzpLeadingSpaceContinuationLineTzp\1/
 
-"a blank line in a leading-space block (its last line) has its
-"mark removed
+"attach continuation lines to their main line
 
-%s/ÞtzpLeadingSpaceLineTzp\$//
+while 1
+  let b:continuationLinesLeft = 0
+  g/^ÞtzpLeadingSpaceContinuationLineTzp/ let b:continuationLinesLeft = 1
+  if b:continuationLinesLeft
+    g/^ÞtzpLeadingSpaceContinuationLineTzp/ -1,. j
+  else
+    break
+  endif
+endwhile
 
-"a leading-space-block line has a pipe-&-space inserted in front
-"of it
+%s/ÞtzpLeadingSpaceContinuationLineTzp//g
 
-%s/ÞtzpLeadingSpaceLineTzp/| /
+"add trailing spaces to the leading-space lines
+
+%s/^ÞtzpLeadingSpaceLineTzp\(.*\)/\1  /
 
 "remove all footnote line markings
 

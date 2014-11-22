@@ -1,6 +1,7 @@
-"last modified 2014-11-20
+"last modified 2014-11-22
 
 func! SmartQuotes()
+  norm my
   if !&tw && !&nu
     "skip code files, which usually have tw=0.
     "alpine email also has tw=0 but it also has 'nu'
@@ -8,6 +9,7 @@ func! SmartQuotes()
   endif
   if match(expand('%:r'), '\.') == 0
     "skip files beginning with dot
+    norm `y
     return
   endif
   let b:possibleCodeFile = 0
@@ -18,10 +20,10 @@ func! SmartQuotes()
   1 g/^":"/ let b:possibleCodeFile = 1
   1 g/^\s*[(;]/ let b:possibleCodeFile = 1
   if b:possibleCodeFile
+    norm `y
     return
   endif
 
-  norm my
   %s/^\s*\`\`\`\s*\%([[:alpha:]]\+\s*\)\?$/ÞtzpListingTzp&/
   call s:subAlternate(0)
   g/^ÞtzpListingTzp/ s/$/\=s:subAlternate()
