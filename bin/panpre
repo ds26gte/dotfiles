@@ -66,13 +66,13 @@ g/^ÞtzpFootnoteStartTzp/, /^ÞtzpFootnoteEndTzp/ s/^\$/¶/
 
 "g/^ÞtzpFootnoteGrafTzp/+1 s/^/ÞtzpFootnoteNextGrafTzp   /
 
-"for every line with leading space, mark it all subsequent lines
+"for every line with leading space, mark it and all subsequent lines
 "until a blank line exclusive. Call these leading-space
 "blocks
 
 g/^\s/, /^\s*\$/ s/^/ÞtzpLeadingSpaceLineTzp/
 
-%s/^ÞtzpLeadingSpaceTzp\s*\$//
+%s/^ÞtzpLeadingSpaceLineTzp\s*\$//
 
 "%s/^•\(\s\)/*\1/
 
@@ -94,6 +94,18 @@ while 1
 endwhile
 
 %s/ÞtzpLeadingSpaceContinuationLineTzp//g
+
+"use u+00a0 for 2nd, etc, leading spaces
+
+while 1
+  let b:verbatimSpacesLeft = 0
+  g/^ÞtzpLeadingSpaceLineTzp\s\s*\s\S/ let b:verbatimSpacesLeft = 1
+  if b:verbatimSpacesLeft
+    %s/^\(ÞtzpLeadingSpaceLineTzp\s\s*\)\s\(\S\)/\1 \2/  "the space here is actually u+00a0
+  else
+    break
+  endif
+endwhile
 
 "add trailing spaces to the leading-space lines
 

@@ -1,11 +1,13 @@
-"last modified 2014-10-06
+"last modified 2014-11-23
 
 au bufwritepre * call s:trimspace()
 
 func! s:trimspace()
   norm mx
-  "remote all trailing spaces
-  sil! %s/\s\+$//
+  if !&tw && !&nu
+    "remote all trailing spaces
+    sil! %s/\s\+$//
+  endif
   "if last line blank, tack on bogus nonblank line
   sil $ g/^$/ s/^$/\r@trimspace-last-line@/
   "from top, if blank line found, collapse it with all its

@@ -1,4 +1,4 @@
-# last modified 2014-11-11
+# last modified 2014-11-22
 
 fopt=
 
@@ -46,7 +46,7 @@ fi
 pandoc \
   -s \
   -t html5 \
-  -f markdown-raw_html-subscript-superscript+autolink_bare_uris \
+  -f markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris \
   $cssopt \
   $ft \
   $fopt \

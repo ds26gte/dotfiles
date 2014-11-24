@@ -1,4 +1,4 @@
-# last modified 2014-11-11
+# last modified 2014-11-22
 
 echousage() {
   cmd=$(basename $0)
@@ -37,7 +37,7 @@ ti=${ti%.*}
 dt=$(date -r $f +"%Y-%m-%d")
 
 pandoc \
-  -f markdown-raw_html-subscript-superscript \
+  -f markdown-line_blocks-raw_html-subscript-superscript \
   -t man \
   -s \
   -V title=$ti -V section=$sec -V date=$dt \

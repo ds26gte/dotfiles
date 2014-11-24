@@ -1,4 +1,4 @@
-# last modified 2014-11-11
+# last modified 2014-11-22
 
 if test $# -ne 1
 then echo require one argument file; exit
@@ -17,7 +17,7 @@ g=${f##*/}
 g=${g%.*}
 
 pandoc \
-  -f markdown-raw_html-subscript-superscript+autolink_bare_uris \
+  -f markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris \
   -o $g.docx \
   $ft
 

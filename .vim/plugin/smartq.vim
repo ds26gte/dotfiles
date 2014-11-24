@@ -1,36 +1,17 @@
-"last modified 2014-11-22
+"last modified 2014–11–23
 
 func! SmartQuotes()
   norm my
-  if !&tw && !&nu
-    "skip code files, which usually have tw=0.
-    "alpine email also has tw=0 but it also has 'nu'
-    return
-  endif
-  if match(expand('%:r'), '\.') == 0
-    "skip files beginning with dot
-    norm `y
-    return
-  endif
-  let b:possibleCodeFile = 0
-  "skip other code files by inspecting first line
-  1 g/^\s*#\S/ let b:possibleCodeFile = 1
-  1 g/^#\s*$/ let b:possibleCodeFile = 1
-  1 g/^#\s*[Ll]ast\s/ let b:possibleCodeFile = 1
-  1 g/^":"/ let b:possibleCodeFile = 1
-  1 g/^\s*[(;]/ let b:possibleCodeFile = 1
-  if b:possibleCodeFile
-    norm `y
-    return
-  endif
 
   %s/^\s*\`\`\`\s*\%([[:alpha:]]\+\s*\)\?$/ÞtzpListingTzp&/
   call s:subAlternate(0)
   g/^ÞtzpListingTzp/ s/$/\=s:subAlternate()
   g/^ÞtzpListingTzp.*0$/ .,/^ÞtzpListingTzp.*1$/ s/^/ÞtzpPreformattedTzp/
   v/^ÞtzpPreformattedTzp/ call s:smartQuotesAux()
+  call s:verbatimizeLeadingSpaces()
   %s/^ÞtzpPreformattedTzp//
   %s/^ÞtzpListingTzp\(.*\)[01]$/\1/
+
   norm `y
 endfunc
 
@@ -44,6 +25,18 @@ func! s:subAlternate(...)
     let b:subAlternateP = !b:subAlternateP
     return b:subAlternateP
   endif
+endfunc
+
+func! s:verbatimizeLeadingSpaces()
+  while 1
+    let b:leadingSpacesLeft = 0
+    g/^\s\s*\s\S/ let b:leadingSpacesLeft = 1
+    if b:leadingSpacesLeft
+      %s/^\(\s\s*\)\s\(\S\)/\1 \2/  "space here is actually u+00a0
+    else
+      break
+    endif
+  endwhile
 endfunc
 
 func! s:smartQuotesAux()
@@ -80,9 +73,13 @@ func! s:smartQuotesAux()
     " - preceded by {bol, space} and
     "followed by opt spaces and then number becomes minus (U+2212)
 
-    s:\(^\|\s\)-\(\s*\.\?[0-9]\):\1−\2:g
+    s:\(^\|\s\)-\(\s*\.\?[0–9]\):\1−\2:g
 
+    " bullet
     s:^\*\(\s\):•\1:
+
+    " line with leading space also gets 2 trailing spaces
+    s:^\(\s.*\S\)\s\{0,1}$:\1  :
 endfunc
 
-au bufwritepre * sil! call SmartQuotes()
+au bufwritepre *.txt sil! call SmartQuotes()
