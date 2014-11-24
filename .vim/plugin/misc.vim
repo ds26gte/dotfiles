@@ -1,4 +1,4 @@
-"last modified 2014-11-15
+"last modified 2014-11-23
 "set cedit=<esc>
 "set dy+=lastline
 "set exrc "doesn't work!
@@ -37,6 +37,7 @@ set hls
 set inf
 set is
 set lbr
+set lcs+=nbsp:·
 set ls=2
 set nf-=octal
 set para+=FSFE

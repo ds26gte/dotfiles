@@ -1,4 +1,4 @@
-# last modified 2014-11-22
+# last modified 2014-11-24
 
 fopt=
 
@@ -18,14 +18,6 @@ else
     g=${g%.*}
     fopt="-o $g.html"
   fi
-fi
-
-ft=$(mktemp --suffix=.txt)
-
-panpre $f $ft
-
-if test ! -z $fstdin
-then rm $f
 fi
 
 cssopt=
@@ -48,7 +40,7 @@ pandoc \
   -t html5 \
   -f markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris \
   $cssopt \
-  $ft \
+  $f \
   $fopt \
   "$@"
 
@@ -63,4 +55,6 @@ Generated from '$f' by pandoc\
 }'
 fi
 
-rm $ft
+if test ! -z $fstdin
+then rm $f
+fi

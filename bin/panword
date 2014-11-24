@@ -1,4 +1,4 @@
-# last modified 2014-11-22
+# last modified 2014-11-24
 
 if test $# -ne 1
 then echo require one argument file; exit
@@ -9,16 +9,10 @@ else
   fi
 fi
 
-ft=$(mktemp --suffix=.txt)
-
-panpre $f $ft
-
 g=${f##*/}
 g=${g%.*}
 
 pandoc \
   -f markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris \
   -o $g.docx \
-  $ft
-
-rm $ft
+  $f

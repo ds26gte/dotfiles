@@ -1,4 +1,4 @@
-# last modified 2014-11-22
+# last modified 2014-11-24
 
 if test $# -ne 1
 then echo one argument file needed; exit
@@ -9,10 +9,6 @@ else
   fi
 fi
 
-ft=$(mktemp --suffix=.txt)
-
-panpre $f $ft
-
 g=${f##*/}
 g=${g%.*}
 
@@ -22,6 +18,4 @@ pandoc \
   -V revealjs-url:$HOME/.pandoc/reveal.js \
   -H $HOME/.pandoc/revealjsfont.css \
   -o $g.html \
-  $ft
-
-rm $ft
+  $f

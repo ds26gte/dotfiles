@@ -13,6 +13,7 @@ Xdig an 0x2693 "anchor
 Xdig ap 0x2708 "airplane
 Xdig bm 0x22a5 "bottom
 Xdig bu 0x2022 "bullet
+Xdig ** 0x22c6 "star
 Xdig bv 0x2615 "beverage
 Xdig fl 0x2698 "flower
 Xdig gr 0x2699 "gear

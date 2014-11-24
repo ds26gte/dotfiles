@@ -18,6 +18,6 @@ func! s:alpine_options()
   nn D dg$
 
   syn region comment oneline start="^>" end="$"
-endfunc
 
-au bufwritepre /tmp/pico.* doau bufwritepre pretend.txt
+  exec 'au bufwritepre ' . expand('%') . ' doau bufwritepre pretend.txt'
+endfunc

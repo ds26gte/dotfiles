@@ -1,4 +1,4 @@
-"last modified 2014-11-23
+"last modified 2014-11-24
 
 au bufwritepre * call s:trimspace()
 
@@ -6,6 +6,8 @@ func! s:trimspace()
   norm mx
   if !&tw && !&nu
     "remote all trailing spaces
+    " !&w => file is not a prose file
+    " !&nu => file is not email
     sil! %s/\s\+$//
   endif
   "if last line blank, tack on bogus nonblank line

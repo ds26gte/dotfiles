@@ -56,6 +56,12 @@ func! s:smartQuotesAux()
 
     s:':’:g
 
+    " --- preceded by {bol, space} and
+    " followed by {space, eol}
+    " becomes quot dash (u+2015)
+
+    s:\(^\|\s\)---\(\s\|$\):\1―\2:g
+
     " -- preceded by {bol, space} and
     "followed by {space, comma, closing-quote, eol}
     "becomes emdash (U+2014)
@@ -75,8 +81,18 @@ func! s:smartQuotesAux()
 
     s:\(^\|\s\)-\(\s*\.\?[0–9]\):\1−\2:g
 
-    " bullet
+    " * following bol and followed by space
+    " becomes bullet (u+2022)
+
     s:^\*\(\s\):•\1:
+
+    " * becomes u+22c6
+
+    s:\*:⋆:g
+
+    " bol-number-dot-space: make space verbatim
+
+    s:^\(\d\+\.\)\s:\1 :
 
     " line with leading space also gets 2 trailing spaces
     s:^\(\s.*\S\)\s\{0,1}$:\1  :

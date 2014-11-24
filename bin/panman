@@ -1,4 +1,4 @@
-# last modified 2014-11-22
+# last modified 2014-11-24
 
 echousage() {
   cmd=$(basename $0)
@@ -27,10 +27,6 @@ else
   fi
 fi
 
-ft=$(mktemp --suffix=.txt)
-
-panpre $f $ft
-
 ti=${f##*/}
 ti=${ti%.*}
 
@@ -42,6 +38,4 @@ pandoc \
   -s \
   -V title=$ti -V section=$sec -V date=$dt \
   -o $ti.$sec \
-  $ft
-
-rm $ft
+  $f
