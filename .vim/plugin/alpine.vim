@@ -1,8 +1,8 @@
 "last modified 2014–11–20
 
-au bufread,bufnewfile /tmp/pico.* call s:alpine_options()
+au bufread,bufnewfile /tmp/pico.* call s:alpineOptions()
 
-func! s:alpine_options()
+func! s:alpineOptions()
   setl co=72
   setl lbr
   setl nu

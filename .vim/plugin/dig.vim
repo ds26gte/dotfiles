@@ -7,27 +7,31 @@ endfunc
 
 com! -nargs=* Xdig call s:xdigFunc(<f-args>)
 
+Xdig ** 0x22c6 "star
 Xdig :P 0x1f61c "tongue out
 Xdig al 0x2766 "aldus
 Xdig an 0x2693 "anchor
 Xdig ap 0x2708 "airplane
 Xdig bm 0x22a5 "bottom
 Xdig bu 0x2022 "bullet
-Xdig ** 0x22c6 "star
 Xdig bv 0x2615 "beverage
+Xdig eh 0x2619 "hedera reversed
 Xdig fl 0x2698 "flower
 Xdig gr 0x2699 "gear
 Xdig he 0x2767 "hedera
+Xdig la 0x27e8 "left angle
+Xdig m- 0x2014 "em dash
 Xdig mi 0x2032 "minute
+Xdig n- 0x2013 "en dash
 Xdig nv 0x2630 "navicon
 Xdig pc 0x2761 "pilcrow, curved
 Xdig pi 0xb6 "pilcrow
+Xdig q- 0x2015 "quot dash
 Xdig qd 0x220e "qed
+Xdig ra 0x27e9 "right angle
 Xdig rt 0x2023 "right triangle
 Xdig se 0x2033 "second
 Xdig sk 0x2620 "skull
 Xdig sm 0x263a "smiley
 Xdig tp 0x22a4 "top
-"Xdig u< 0x27e8 "left angle
-"Xdig u> 0x27e9 "right angle
 Xdig ud 0x326 "underdot

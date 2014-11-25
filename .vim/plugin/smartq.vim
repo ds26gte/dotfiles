@@ -1,4 +1,4 @@
-"last modified 2014–11–23
+" last modified 2014–11–23
 
 func! SmartQuotes()
   norm my
@@ -32,7 +32,7 @@ func! s:verbatimizeLeadingSpaces()
     let b:leadingSpacesLeft = 0
     g/^\s\s*\s\S/ let b:leadingSpacesLeft = 1
     if b:leadingSpacesLeft
-      %s/^\(\s\s*\)\s\(\S\)/\1 \2/  "space here is actually u+00a0
+      %s/^\(\s\s*\)\s\(\S\)/\1 \2/  " space here is actually u+00a0
     else
       break
     endif
@@ -40,19 +40,19 @@ func! s:verbatimizeLeadingSpaces()
 endfunc
 
 func! s:smartQuotesAux()
-    "opening "
+    " opening " becomes u+201c
 
     s:\(^\|\s\|(\|\[\|^\*\|\s\*\)":\1“:g
 
-    "opening '
+    " opening ' becomes u+2018
 
     s:\(^\|\s\|(\|\[\|^\*\|\s\*\)':\1‘:g
 
-    "closing "
+    " closing " becomes u+201d
 
     s:":”:g
 
-    "closing '
+    " closing ' becomes u+2019
 
     s:':’:g
 
@@ -63,21 +63,21 @@ func! s:smartQuotesAux()
     s:\(^\|\s\)---\(\s\|$\):\1―\2:g
 
     " -- preceded by {bol, space} and
-    "followed by {space, comma, closing-quote, eol}
-    "becomes emdash (U+2014)
+    " followed by {space, comma, closing-quote, eol}
+    " becomes em dash (U+2014)
 
     s:\(^\|\s\)--\(\s\|[,’”]\|$\):\1—\2:g
 
-    " -- followed by closing quote becomes emdash
+    " -- followed by closing quote becomes em dash
 
     s:--\([’”]\):—\1:g
 
-    " - directly between two digits becomes endash (U+2013)
+    " - directly between two digits becomes en dash (U+2013)
 
     s:\(\d\)-\(\d\):\1–\2:g
 
     " - preceded by {bol, space} and
-    "followed by opt spaces and then number becomes minus (U+2212)
+    " followed by opt spaces and then number becomes minus (U+2212)
 
     s:\(^\|\s\)-\(\s*\.\?[0–9]\):\1−\2:g
 
@@ -95,7 +95,11 @@ func! s:smartQuotesAux()
     s:^\(\d\+\.\)\s:\1 :
 
     " line with leading space also gets 2 trailing spaces
-    s:^\(\s.*\S\)\s\{0,1}$:\1  :
+    if !&tw
+      " but not for alpine
+    else
+      s:^\(\s.*\S\)\s\{0,1}$:\1  :
+    endif
 endfunc
 
 au bufwritepre *.txt sil! call SmartQuotes()
