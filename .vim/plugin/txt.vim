@@ -30,7 +30,7 @@ func! s:txtOptions()
 
   call TxtHilite()
 
-  exec 'au bufwritepre ' . expand('%') . ' call SmartQuotes()'
+  exec 'au bufwritepre ' . expand('%') . ' TypographicNiceties'
 endfunc
 
 au bufread,bufnewfile /tmp/pico.*,*.md,COMMIT_EDITMSG

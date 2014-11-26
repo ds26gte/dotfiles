@@ -1,20 +1,22 @@
 " last modified 2014-11-26
 
-func! SmartQuotes()
+func! s:typogNicetiesFunc()
   norm my
 
-  sil! %s/^\s*```\s*\%([[:alpha:]]\+\s*\)\?$/ÞtzpListingTzp&/
+  %s/^\s*```\s*\%([[:alpha:]]\+\s*\)\?$/ÞtzpListingTzp&/
   call s:toggle01(0)
-  sil! g/^ÞtzpListingTzp/ s/^ÞtzpListingTzp/\=submatch(0) . s:toggle01()/
-  sil! %s/^\(ÞtzpListingTzp1\s*\)\(```\s*\)$/\1`\2/
-  sil! g/^ÞtzpListingTzp0/ .,/^ÞtzpListingTzp1/ s/^/ÞtzpPreformattedTzp/
-  sil! v/^ÞtzpPreformattedTzp/ call s:smartQuotesAux()
-  sil! call s:verbatimizeLeadingSpaces()
-  sil! %s/^ÞtzpPreformattedTzp//
-  sil! %s/^ÞtzpListingTzp[01]//
+  g/^ÞtzpListingTzp/ s/^ÞtzpListingTzp/\=submatch(0) . s:toggle01()/
+  %s/^\(ÞtzpListingTzp1\s*\)\(```\s*\)$/\1`\2/
+  g/^ÞtzpListingTzp0/ .,/^ÞtzpListingTzp1/ s/^/ÞtzpPreformattedTzp/
+  v/^ÞtzpPreformattedTzp/ call s:typogNicetiesAux()
+  call s:verbatimizeLeadingSpaces()
+  %s/^ÞtzpPreformattedTzp//
+  %s/^ÞtzpListingTzp[01]//
 
   norm `y
 endfunc
+
+com! TypographicNiceties sil! call s:typogNicetiesFunc()
 
 func! s:toggle01(...)
   if a:0
@@ -38,7 +40,7 @@ func! s:verbatimizeLeadingSpaces()
   endwhile
 endfunc
 
-func! s:smartQuotesAux()
+func! s:typogNicetiesAux()
     " opening " becomes u+201c
 
     s:\(^\|\s\|(\|\[\|^\*\|\s\*\)":\1“:g
@@ -101,3 +103,10 @@ func! s:smartQuotesAux()
       s:^\(\s.*\S\)\s\{0,1}$:\1  :
     endif
 endfunc
+
+func! s:xdigFunc(biliteral, num, ...)
+  exec "let l:dnum = " . a:num
+  exec 'dig ' . a:biliteral . ' ' . l:dnum
+endfunc
+
+com! -nargs=* Xdig call s:xdigFunc(<f-args>)
