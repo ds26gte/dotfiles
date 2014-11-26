@@ -1,4 +1,4 @@
-"last modified 2014-10-28
+"last modified 2014-11-25
 
 au bufread,bufnewfile *.vim call s:vim_options()
 
@@ -8,7 +8,6 @@ au bufread,bufnewfile txt2page{,_pdf} doau bufread pretend.vim
 
 func! s:vim_options()
   setl fo-=r
-  setl tw=0
 
   ru indent/vim.vim
 

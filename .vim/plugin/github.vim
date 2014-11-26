@@ -1,3 +1,3 @@
-"last modified 1111–11–11
+" last modified 2014-11-25
 
-au bufwritepre *.md,COMMIT_EDITMSG doau bufwritepre pretend.txt
+au bufread,bufnewfile *.md,COMMIT_EDITMSG doau bufread pretend.txt

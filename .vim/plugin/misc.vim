@@ -1,8 +1,9 @@
-"last modified 2014-11-23
+"last modified 2014-11-26
 "set cedit=<esc>
 "set dy+=lastline
 "set exrc "doesn't work!
 "set isf-=! "why exactly?
+"set lbr
 "set mouse=a
 "set noswf
 "set nowarn
@@ -36,7 +37,6 @@ set hid
 set hls
 set inf
 set is
-set lbr
 set lcs+=nbsp:·
 set ls=2
 set nf-=octal
@@ -49,7 +49,6 @@ set sect+=*\ SS
 set sw=2
 set tag=./tags;~
 set title
-set tw=65
 set vi+=%
 set wic
 set wim=list:longest

@@ -1,4 +1,4 @@
-"last modified 2014–11–20
+" last modified 2014-11-25
 
 au bufread,bufnewfile /tmp/pico.* call s:alpineOptions()
 
@@ -7,7 +7,6 @@ func! s:alpineOptions()
   setl lbr
   setl nu
   setl sbr=
-  setl tw=0
 
   nn k gk
   nn j gj
@@ -19,5 +18,5 @@ func! s:alpineOptions()
 
   syn region comment oneline start="^>" end="$"
 
-  exec 'au bufwritepre ' . expand('%') . ' doau bufwritepre pretend.txt'
+  exec 'au bufwritepre ' . expand('%') . ' call SmartQuotes()'
 endfunc

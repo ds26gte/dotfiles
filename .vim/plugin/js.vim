@@ -1,9 +1,8 @@
-"last modified 2014-09-05
+"last modified 2014-11-25
 
 au bufread,bufnewfile *.js call s:js_options()
 
 func! s:js_options()
-  setl tw=0
   setl cin
   setl cino=j1,J1
 

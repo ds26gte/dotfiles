@@ -1,4 +1,4 @@
-"last modified 2014-10-17
+"last modified 2014-11-25
 
 au bufread,bufnewfile *.lisp call s:lisp_options()
 
@@ -6,7 +6,6 @@ au bufread,bufnewfile *.rkt,*.scm doau bufread pretend.lisp
 
 func! s:lisp_options()
   setl lisp
-  setl tw=0
 
   syn region comment oneline start=";" end="$"
   syn region comment start="#|" end="|#"

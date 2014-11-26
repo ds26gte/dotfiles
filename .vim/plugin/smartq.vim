@@ -1,33 +1,31 @@
-" last modified 2014–11–23
+" last modified 2014-11-25
 
 func! SmartQuotes()
   norm my
 
-  %s/^\s*\`\`\`\s*\%([[:alpha:]]\+\s*\)\?$/ÞtzpListingTzp&/
-  call s:subAlternate(0)
-  g/^ÞtzpListingTzp/ s/$/\=s:subAlternate()
-  g/^ÞtzpListingTzp.*0$/ .,/^ÞtzpListingTzp.*1$/ s/^/ÞtzpPreformattedTzp/
-  v/^ÞtzpPreformattedTzp/ call s:smartQuotesAux()
-  call s:verbatimizeLeadingSpaces()
-  %s/^ÞtzpPreformattedTzp//
-  %s/^ÞtzpListingTzp\(.*\)[01]$/\1/
+  sil! %s/^\s*\`\`\`\s*\%([[:alpha:]]\+\s*\)\?$/ÞtzpListingTzp&/
+  call s:toggleZeroOne(0)
+  sil! g/^ÞtzpListingTzp/ s/$/\=s:toggleZeroOne()
+  sil! g/^ÞtzpListingTzp.*0$/ .,/^ÞtzpListingTzp.*1$/ s/^/ÞtzpPreformattedTzp/
+  sil! v/^ÞtzpPreformattedTzp/ call s:smartQuotesAux()
+  sil! call s:verbatimizeLeadingSpaces()
+  sil! %s/^ÞtzpPreformattedTzp//
+  sil! %s/^ÞtzpListingTzp\(.*\)[01]$/\1/
 
   norm `y
 endfunc
 
-func! s:subAlternate(...)
-  if !exists('b:subAlternateP')
-    let b:subAlternateP = 1
-  endif
+func! s:toggleZeroOne(...)
   if a:0
-    let b:subAlternateP = 1
+    let b:toggleZeroOneValue = 1
   else
-    let b:subAlternateP = !b:subAlternateP
-    return b:subAlternateP
+    let b:toggleZeroOneValue = !b:toggleZeroOneValue
+    return b:toggleZeroOneValue
   endif
 endfunc
 
 func! s:verbatimizeLeadingSpaces()
+  " convert all but the 1st leading space to u+00a0
   while 1
     let b:leadingSpacesLeft = 0
     g/^\s\s*\s\S/ let b:leadingSpacesLeft = 1
@@ -101,5 +99,3 @@ func! s:smartQuotesAux()
       s:^\(\s.*\S\)\s\{0,1}$:\1  :
     endif
 endfunc
-
-au bufwritepre *.txt sil! call SmartQuotes()
