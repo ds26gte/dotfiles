@@ -2,8 +2,6 @@
 
 au bufread,bufnewfile *.lisp call s:lisp_options()
 
-au bufread,bufnewfile *.rkt,*.scm doau bufread pretend.lisp
-
 func! s:lisp_options()
   setl lisp
 
@@ -11,3 +9,6 @@ func! s:lisp_options()
   syn region comment start="#|" end="|#"
   syn region string oneline start="[\\]\@<!\"" skip="\\[\\\"]" end="\""
 endfunc
+
+au bufread,bufnewfile *.lfe,*.rkt,*.scm
+      \ doau bufread pretend.lisp

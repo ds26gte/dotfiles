@@ -3,7 +3,7 @@
 au bufread,bufnewfile *.txt call s:txtOptions()
 
 func! s:txtOptions()
-  let b:txtType = 0
+  let b:txtType = 'default'
   if expand('%:t') =~ '^pico.\d\+$'
     let b:txtType = 'email'
   endif

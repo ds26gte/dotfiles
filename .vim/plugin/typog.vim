@@ -48,8 +48,9 @@ func! s:smartQuotesAux()
     s:\(^\|\s\|(\|\[\|^\*\|\s\*\)':\1‘:g
 
     " closing " becomes u+201d
+    " unless preceded by \
 
-    s:":”:g
+    s:\\\@<!":”:g
 
     " closing ' becomes u+2019
 
