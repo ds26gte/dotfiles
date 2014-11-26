@@ -15,9 +15,16 @@ func! TxtHilite()
   syn match title "^#\+\s.*"
 
   " footnotes
-  syn match title "†\S\+\%([:punct:]\)\@<!"
-  syn region title start="^†" end="‡$"
+  if !&nu
+    syn match title "†\S\+\%([:punct:]\)\@<!"
+    syn region title start="^†" end="‡$"
+  endif
 
   " code display
   syn region title start="^\s*```[^`]*$" end="^\s*````\s*$"
+
+  " email quote
+  if &nu
+    syn region comment oneline start="^>" end="$"
+  endif
 endfunc

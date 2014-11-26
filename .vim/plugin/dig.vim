@@ -1,4 +1,4 @@
-"last modified 2014-11-26
+" last modified 2014-11-26
 
 func! s:xdigFunc(biliteral, num, ...)
   exec "let l:dnum = " . a:num

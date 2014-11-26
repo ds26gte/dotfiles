@@ -18,7 +18,6 @@ func! s:alpineOptions()
   nn D dg$
 
   call TxtHilite()
-  syn region comment oneline start="^>" end="$"
 
   exec 'au bufwritepre ' . expand('%') . ' call SmartQuotes()'
 endfunc

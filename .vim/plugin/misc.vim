@@ -1,4 +1,4 @@
-"last modified 2014-11-26
+" last modified 2014-11-26
 "set cedit=<esc>
 "set dy+=lastline
 "set exrc "doesn't work!

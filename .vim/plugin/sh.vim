@@ -1,4 +1,4 @@
-"last modified 2014-11-25
+" last modified 2014-11-26
 
 au bufread,bufnewfile *.sh call s:sh_options()
 
