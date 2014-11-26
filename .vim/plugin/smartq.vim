@@ -1,26 +1,27 @@
-" last modified 2014-11-25
+" last modified 2014-11-26
 
 func! SmartQuotes()
   norm my
 
-  sil! %s/^\s*\`\`\`\s*\%([[:alpha:]]\+\s*\)\?$/ÞtzpListingTzp&/
-  call s:toggleZeroOne(0)
-  sil! g/^ÞtzpListingTzp/ s/$/\=s:toggleZeroOne()
-  sil! g/^ÞtzpListingTzp.*0$/ .,/^ÞtzpListingTzp.*1$/ s/^/ÞtzpPreformattedTzp/
+  sil! %s/^\s*```\s*\%([[:alpha:]]\+\s*\)\?$/ÞtzpListingTzp&/
+  call s:toggle01(0)
+  sil! g/^ÞtzpListingTzp/ s/^ÞtzpListingTzp/\=submatch(0) . s:toggle01()/
+  sil! %s/^\(ÞtzpListingTzp1\s*\)\(```\s*\)$/\1`\2/
+  sil! g/^ÞtzpListingTzp0/ .,/^ÞtzpListingTzp1/ s/^/ÞtzpPreformattedTzp/
   sil! v/^ÞtzpPreformattedTzp/ call s:smartQuotesAux()
   sil! call s:verbatimizeLeadingSpaces()
   sil! %s/^ÞtzpPreformattedTzp//
-  sil! %s/^ÞtzpListingTzp\(.*\)[01]$/\1/
+  sil! %s/^ÞtzpListingTzp[01]//
 
   norm `y
 endfunc
 
-func! s:toggleZeroOne(...)
+func! s:toggle01(...)
   if a:0
-    let b:toggleZeroOneValue = 1
+    let b:toggle01Value = 1
   else
-    let b:toggleZeroOneValue = !b:toggleZeroOneValue
-    return b:toggleZeroOneValue
+    let b:toggle01Value = !b:toggle01Value
+    return b:toggle01Value
   endif
 endfunc
 
