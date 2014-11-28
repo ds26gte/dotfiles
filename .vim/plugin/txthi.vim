@@ -16,8 +16,8 @@ func! TxtHilite()
 
   " footnotes
   if &tw
-    syn match title "†\S\+\%([:punct:]\)\@<!"
-    syn region title start="^†" end="‡$"
+    syn match title "(†[^()[:space:]]*)"
+    syn region title start="(†[^)]*\($\|[[:space:](]\)" end="†)"
   endif
 
   " code display

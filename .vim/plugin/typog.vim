@@ -1,22 +1,26 @@
-" last modified 2014-11-26
+" last modified 2014-11-28
 
-func! s:typogNicetiesFunc()
+func! TypographicNiceties()
+  if b:txtType == 'ascii'
+    return
+  endif
+
   norm my
 
-  %s/^\s*```\s*\%([[:alpha:]]\+\s*\)\?$/ÞtzpListingTzp&/
+  sil! %s:Þ:&tzpThornTzp:g
+  sil! %s:^\s*```\+\s*\%(\S\+\s*\)\?$:ÞtzpListingTzp&:
   call s:toggle01(0)
-  g/^ÞtzpListingTzp/ s/^ÞtzpListingTzp/\=submatch(0) . s:toggle01()/
-  %s/^\(ÞtzpListingTzp1\s*\)\(```\s*\)$/\1`\2/
-  g/^ÞtzpListingTzp0/ .,/^ÞtzpListingTzp1/ s/^/ÞtzpPreformattedTzp/
-  v/^ÞtzpPreformattedTzp/ call s:typogNicetiesAux()
-  call s:verbatimizeLeadingSpaces()
-  %s/^ÞtzpPreformattedTzp//
-  %s/^ÞtzpListingTzp[01]//
+  sil! g:^ÞtzpListingTzp: s:^ÞtzpListingTzp:\=submatch(0) . s:toggle01():
+  sil! %s:^\(ÞtzpListingTzp1\s*\)\(```\s*\)$:\1`\2:
+  sil! g:^ÞtzpListingTzp0: .,/^ÞtzpListingTzp1/ s:^:ÞtzpPreformattedTzp:
+  sil! v:^ÞtzpPreformattedTzp: call s:typogNicetiesAux()
+  sil! call s:verbatimizeLeadingSpaces()
+  sil! %s:^ÞtzpPreformattedTzp::
+  sil! %s:^ÞtzpListingTzp[01]::
+  sil! %s:\(Þ\)tzpThornTzp:\1:g
 
   norm `y
 endfunc
-
-com! TypographicNiceties sil! call s:typogNicetiesFunc()
 
 func! s:toggle01(...)
   if a:0
@@ -31,9 +35,9 @@ func! s:verbatimizeLeadingSpaces()
   " convert all but the 1st leading space to u+00a0
   while 1
     let b:leadingSpacesLeft = 0
-    g/^\s\s*\s\S/ let b:leadingSpacesLeft = 1
+    g:^\s\s*\s\S: let b:leadingSpacesLeft = 1
     if b:leadingSpacesLeft
-      %s/^\(\s\s*\)\s\(\S\)/\1 \2/  " space here is actually u+00a0
+      %s:^\(\s\s*\)\s\(\S\):\1 \2:  " space here is actually u+00a0
     else
       break
     endif
@@ -41,6 +45,10 @@ func! s:verbatimizeLeadingSpaces()
 endfunc
 
 func! s:typogNicetiesAux()
+    " save some "s
+    s:^\.\s*TH\s\+"\(.\{-}\)"\s*$:.TH ÞtzpDoubleQuoteTzp\1ÞtzpDoubleQuoteTzp:
+    s:\\":\\ÞtzpDoubleQuoteTzp:g
+
     " opening " becomes u+201c
 
     s:\(^\|\s\|(\|\[\|^\*\|\s\*\)":\1“:g
@@ -50,13 +58,15 @@ func! s:typogNicetiesAux()
     s:\(^\|\s\|(\|\[\|^\*\|\s\*\)':\1‘:g
 
     " closing " becomes u+201d
-    " unless preceded by \
 
-    s:\\\@<!":”:g
+    s:":”:g
 
     " closing ' becomes u+2019
 
     s:':’:g
+
+    " restore saved "s
+    s:ÞtzpDoubleQuoteTzp:":g
 
     " --- preceded by {bol, space} and
     " followed by {space, eol}
@@ -98,10 +108,22 @@ func! s:typogNicetiesAux()
 
     " line with leading space also gets 2 trailing spaces
     if !&tw
-      " but not for alpine
+      " but not for email
     else
       s:^\(\s.*\S\)\s\{0,1}$:\1  :
     endif
+endfunc
+
+func! Asciiize()
+  let b:txtType = 'ascii'
+
+  sil! s: : :g
+  sil! s:[⋆•]:*:g
+  sil! s:[‘’]:':g
+  sil! s:[“”]:":g
+  sil! s:―:---:g
+  sil! s:—:--:g
+  sil! s:[–−]:-:g
 endfunc
 
 func! s:xdigFunc(biliteral, num, ...)

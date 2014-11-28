@@ -1,4 +1,4 @@
-" last modified 2014-11-26
+" last modified 2014-11-28
 
 au bufread,bufnewfile *.txt call s:txtOptions()
 
@@ -30,7 +30,7 @@ func! s:txtOptions()
 
   call TxtHilite()
 
-  exec 'au bufwritepre ' . expand('%') . ' TypographicNiceties'
+  exec 'au bufwritepre ' . expand('%') . ' call TypographicNiceties()'
 endfunc
 
 au bufread,bufnewfile /tmp/pico.*,*.md,COMMIT_EDITMSG

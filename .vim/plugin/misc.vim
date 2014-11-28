@@ -1,12 +1,21 @@
-" last modified 2014-11-26
+" last modified 2014-11-27
+"set bk
 "set cedit=<esc>
 "set dy+=lastline
+"set ep=
 "set exrc "doesn't work!
+"set ffs-=dos
 "set isf-=! "why exactly?
 "set lbr
 "set mouse=a
+"set nf-=octal
 "set noswf
 "set nowarn
+"set para+=FSFE
+"set sbr=⌇
+"set sect+=*\ SS
+"set tag=./tags;~
+"set title
 "set ts=4
 hi cursorlinenr ctermfg=148
 hi diffadd ctermbg=17
@@ -22,7 +31,6 @@ ino <tab> <c-p>
 ino jj <esc>
 set acd
 set ai
-set bk
 set bs=indent,eol,start
 set cf
 set com-=mb:*
@@ -30,25 +38,17 @@ set cot+=longest
 set cpt+=k./*.txt
 set dict=/usr/share/dict/words
 set dy=lastline
-set ep=
 set et
-set ffs-=dos
 set hid
 set hls
 set inf
 set is
 set lcs+=nbsp:·
 set ls=2
-set nf-=octal
-set para+=FSFE
 set pm=~~
 set ru
-set sbr=⌇
 set scs
-set sect+=*\ SS
 set sw=2
-set tag=./tags;~
-set title
 set vi+=%
 set wic
 set wim=list:longest
