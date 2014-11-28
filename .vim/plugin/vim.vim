@@ -1,12 +1,12 @@
-" last modified 2014-11-26
+" last modified 2014-11-28
 
-au bufread,bufnewfile *.vim call s:vim_options()
+au bufread,bufnewfile *.vim call s:vimOptions()
 
 au bufread,bufnewfile .{ex,{,n}vim}rc doau bufread pretend.vim
 
 au bufread,bufnewfile txt2page{,_pdf} doau bufread pretend.vim
 
-func! s:vim_options()
+func! s:vimOptions()
   setl fo-=r
 
   ru indent/vim.vim

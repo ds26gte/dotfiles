@@ -1,8 +1,8 @@
-" last modified 2014-11-26
+" last modified 2014-11-28
 
-au bufread,bufnewfile *.lisp call s:lisp_options()
+au bufread,bufnewfile *.lisp call s:lispOptions()
 
-func! s:lisp_options()
+func! s:lispOptions()
   setl lisp
 
   syn region comment oneline start=";" end="$"

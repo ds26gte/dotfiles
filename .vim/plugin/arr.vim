@@ -1,8 +1,8 @@
-" last modified 2014-11-26
+" last modified 2014-11-28
 
-au bufread,bufnewfile *.arr call s:arr_options()
+au bufread,bufnewfile *.arr call s:arrOptions()
 
-func! s:arr_options()
+func! s:arrOptions()
   setl isk+=-
 
   syn region comment oneline start="#" end="$"

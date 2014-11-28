@@ -1,8 +1,8 @@
-" last modified 2014-11-26
+" last modified 2014-11-28
 
-au bufread,bufnewfile *[Mm]akefile call s:makefile_options()
+au bufread,bufnewfile *[Mm]akefile call s:makefileOptions()
 
-func! s:makefile_options()
+func! s:makefileOptions()
   setl lcs=tab:•·
   setl list
   setl noet

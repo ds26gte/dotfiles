@@ -1,8 +1,8 @@
-" last modified 2014-11-26
+" last modified 2014-11-28
 
-au bufread,bufnewfile *.java call s:java_options()
+au bufread,bufnewfile *.java call s:javaOptions()
 
-func! s:java_options()
+func! s:javaOptions()
   setl mp=javac\ %
   setl cin
   setl cino=j1

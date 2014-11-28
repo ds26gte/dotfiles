@@ -1,7 +1,7 @@
-"last modified 2014-09-29
+"last modified 2014-11-28
 
-au bufread,bufnewfile *.sql call s:sql_options()
+au bufread,bufnewfile *.sql call s:sqlOptions()
 
-func! s:sql_options()
+func! s:sqlOptions()
   ru indent/sql.vim
 endfunc

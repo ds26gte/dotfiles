@@ -1,8 +1,8 @@
-"last modified 2014-11-17
+"last modified 2014-11-28
 
-au bufread,bufnewfile ~/public_html/pyret-lang*/** call s:pyret_options()
+au bufread,bufnewfile ~/public_html/pyret-lang*/** call s:pyretOptions()
 
-func! s:pyret_options()
+func! s:pyretOptions()
   "setl sua+=.js,.arr
 
   setl path=.
@@ -14,15 +14,15 @@ func! s:pyret_options()
         \,~/public_html/pyret-lang.wiki
 endfunc
 
-au bufread,bufnewfile ~/public_html/pyret-lang/**/*.js call s:pyret_js_options()
+au bufread,bufnewfile ~/public_html/pyret-lang/**/*.js call s:pyretJsOptions()
 
-func! s:pyret_js_options()
+func! s:pyretJsOptions()
   setl mp=cd\ ~/public_html/pyret-lang;make
 endfunc
 
-au bufread,bufnewfile ~/public_html/pyret-lang/docs/written/**.scrbl call s:pyret_scrbl_options()
+au bufread,bufnewfile ~/public_html/pyret-lang/docs/written/**.scrbl call s:pyretScrblOptions()
 
-func! s:pyret_scrbl_options()
+func! s:pyretScrblOptions()
   setl mp=cd\ ~/public_html/pyret-lang/docs/written;make
 endfunc
 

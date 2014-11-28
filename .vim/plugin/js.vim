@@ -1,8 +1,8 @@
-" last modified 2014-11-26
+" last modified 2014-11-28
 
-au bufread,bufnewfile *.js call s:js_options()
+au bufread,bufnewfile *.js call s:jsOptions()
 
-func! s:js_options()
+func! s:jsOptions()
   setl cin
   setl cino=j1,J1
 
