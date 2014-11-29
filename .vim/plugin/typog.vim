@@ -9,8 +9,8 @@ func! TypographicNiceties()
 
   sil! %s:Þ:&tzpThornTzp:g
   sil! %s:^\s*```\+\s*\%(\S\+\s*\)\?$:ÞtzpListingTzp&:
-  call s:toggle01(0)
-  sil! g:^ÞtzpListingTzp: s:^ÞtzpListingTzp:\=submatch(0) . s:toggle01():
+  call Toggle01(0)
+  sil! g:^ÞtzpListingTzp: s:^ÞtzpListingTzp:\=submatch(0) . Toggle01():
   sil! %s:^\(ÞtzpListingTzp1\s*\)\(```\s*\)$:\1`\2:
   sil! g:^ÞtzpListingTzp0: .,/^ÞtzpListingTzp1/ s:^:ÞtzpPreformattedTzp:
   sil! v:^ÞtzpPreformattedTzp: call s:typogNicetiesAux()
@@ -22,7 +22,7 @@ func! TypographicNiceties()
   norm `y
 endfunc
 
-func! s:toggle01(...)
+func! Toggle01(...)
   if a:0
     let b:toggle01Value = 1
   else

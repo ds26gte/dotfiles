@@ -7,8 +7,8 @@ func! s:javaOptions()
   setl cin
   setl cino=j1
 
-  syn region comment oneline start="//" end="$"
-  syn region comment start="/\*" end="\*/"
+  syn region comment oneline start='//' end='$'
+  syn region comment start='/\*' end='\*/'
 endfunc
 
 au bufwritepost *.java make

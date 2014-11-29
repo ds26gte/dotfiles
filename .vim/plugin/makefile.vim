@@ -8,5 +8,5 @@ func! s:makefileOptions()
   setl noet
   setl ts=4
 
-  syn match errormsg "^ \+"
+  syn match errormsg '^ \+'
 endfunc

@@ -11,9 +11,9 @@ func! s:vimOptions()
 
   ru indent/vim.vim
 
-  syn region comment oneline start="\s\@<=\"" end="$"
-  syn match comment "^\s*\".*$"
-  syn region string oneline start="[\\]\@<!\"" skip="\\[\\\"]" end="\""
-  syn region string oneline start="[\\]\@<!'" skip="\\[\\']" end="'"
-  syn match comment "^\".*$"
+  syn region comment oneline start='\s\@<="' end='$'
+  syn match comment '^\s*".*$'
+  syn region string oneline start='[\\]\@<!"' skip='\\[\\"]' end='"'
+  syn region string oneline start='[\\]\@<!\'' skip='\\[\\\']' end='\''
+  syn match comment '^".*$'
 endfunc
