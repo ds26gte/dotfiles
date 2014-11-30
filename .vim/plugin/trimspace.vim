@@ -1,4 +1,4 @@
-" last modified 2014-11-25
+" last modified 2014-11-30
 
 au bufwritepre * call s:trimspace()
 
@@ -6,8 +6,8 @@ func! s:trimspace()
   norm mx
 
   if !&tw
-    " tw == 0 for code and alpine;
-    " those are the cases where we want to remove trailing spaces
+    " &tw is 0 for code and email;
+    " remove trailing spaces for them
     sil! %s/\s\+$//
   endif
 

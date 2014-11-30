@@ -1,18 +1,24 @@
-" last modified 2014-11-28
+" last modified 2014-11-30
 
 au bufread,bufnewfile *.txt call s:txtOptions()
 
 func! s:txtOptions()
-  let b:txtType = 'default'
+  if expand('%:t') =~ '^wb1913_.\{-}\.txt$'
+    return
+  endif
+
+  let l:txtType = 'default'
+
   if expand('%:t') =~ '^pico.\d\+$'
-    let b:txtType = 'email'
+    let l:txtType = 'email'
   endif
 
-  if b:txtType != 'email'
+  if l:txtType == 'default'
     setl tw=65
+    setl mp=txt2page\ %
   endif
 
-  if b:txtType == 'email'
+  if l:txtType == 'email'
     setl co=72
     setl lbr
     setl nu
@@ -30,7 +36,7 @@ func! s:txtOptions()
 
   call TxtHilite()
 
-  exec 'au bufwritepre ' . expand('%') . ' call TypographicNiceties()'
+  exec 'au bufwritepre' expand('%') 'call TypographicNiceties()'
 endfunc
 
 au bufread,bufnewfile /tmp/pico.*,*.md,COMMIT_EDITMSG

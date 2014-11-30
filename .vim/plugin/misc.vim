@@ -1,4 +1,4 @@
-" last modified 2014-11-27
+" last modified 2014-11-29
 "set bk
 "set cedit=<esc>
 "set dy+=lastline
@@ -12,7 +12,6 @@
 "set noswf
 "set nowarn
 "set para+=FSFE
-"set sbr=⌇
 "set sect+=*\ SS
 "set tag=./tags;~
 "set title
@@ -43,10 +42,12 @@ set hid
 set hls
 set inf
 set is
+set isf-=#
 set lcs+=nbsp:·
 set ls=2
 set pm=~~
 set ru
+set sbr=⌇
 set scs
 set sw=2
 set vi+=%

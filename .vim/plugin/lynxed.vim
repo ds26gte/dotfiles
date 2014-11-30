@@ -1,4 +1,4 @@
-"last change 2014-11-11
+"last change 2014-11-30
 
 "needed only if called from within lynx
 
@@ -33,7 +33,7 @@ func! s:txt_go_to_source_file()
     setl mp=panhtml\ %
   endif
   "when writing source file, remember to refresh the html
-  exec 'au bufwritepost ' . expand('%') . ' call s:remember_to_refresh_html()'
+  exec 'au bufwritepost' expand('%') 'call s:remember_to_refresh_html()'
 endfunc
 
 func! s:remember_to_refresh_html()
@@ -47,7 +47,7 @@ au vimleave * call s:back_to_lynx()
 
 func! s:back_to_lynx()
   for file in s:lynx_source_files
-    exec 'b ' . file
+    exec 'b' file
     lcd %:p:h
     make
   endfor
