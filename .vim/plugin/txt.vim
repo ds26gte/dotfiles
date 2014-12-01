@@ -1,24 +1,36 @@
-" last modified 2014-11-30
+" last modified 2014-12-01
 
 au bufread,bufnewfile *.txt call s:txtOptions()
 
 func! s:txtOptions()
-  if expand('%:t') =~ '^wb1913_.\{-}\.txt$'
+  if &ft == 'help'
     return
   endif
 
-  let l:txtType = 'default'
+  let b:txtType = 'default'
 
   if expand('%:t') =~ '^pico.\d\+$'
-    let l:txtType = 'email'
+    let b:txtType = 'email'
   endif
 
-  if l:txtType == 'default'
+  if expand('%:e') == 'wd'
+    let b:txtType = '4docx'
+  endif
+
+  if b:txtType != 'email'
     setl tw=65
+  endif
+
+  if b:txtType == 'default'
     setl mp=txt2page\ %
   endif
 
-  if l:txtType == 'email'
+  if b:txtType == '4docx'
+    setl mp=pandoc\ -f\ markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris\ %\ -o\ %:r.docx
+    exec 'au bufwritepost' expand('%') 'make'
+  endif
+
+  if b:txtType == 'email'
     setl co=72
     setl lbr
     setl nu
@@ -39,5 +51,5 @@ func! s:txtOptions()
   exec 'au bufwritepre' expand('%') 'call TypographicNiceties()'
 endfunc
 
-au bufread,bufnewfile /tmp/pico.*,*.md,COMMIT_EDITMSG
+au bufread,bufnewfile /tmp/pico.*,*.md,*.wd,COMMIT_EDITMSG
       \ doau bufread pretend.txt

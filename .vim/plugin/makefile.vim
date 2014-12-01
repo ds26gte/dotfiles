@@ -1,12 +1,10 @@
-" last modified 2014-11-28
+" last modified 2014-11-30
 
 au bufread,bufnewfile *[Mm]akefile call s:makefileOptions()
 
 func! s:makefileOptions()
-  setl lcs=tab:•·
-  setl list
   setl noet
-  setl ts=4
+  setl sw=0
 
   syn match errormsg '^ \+'
 endfunc

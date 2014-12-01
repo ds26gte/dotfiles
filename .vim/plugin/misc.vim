@@ -1,4 +1,4 @@
-" last modified 2014-11-29
+" last modified 2014-11-30
 "set bk
 "set cedit=<esc>
 "set dy+=lastline
@@ -31,6 +31,7 @@ ino jj <esc>
 set acd
 set ai
 set bs=indent,eol,start
+set cb+=autoselectplus
 set cf
 set com-=mb:*
 set cot+=longest

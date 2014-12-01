@@ -1,8 +1,8 @@
-"last modified 2014-11-18
+"last modified 2014-11-30
 
-com! -nargs=* GenerateUnicode call GenerateUnicodeFn(<f-args>)
+com! -nargs=* UnicodeChart call s:unicodeChartFunc(<f-args>)
 
-function! GenerateUnicodeFn(first, ...)
+function! s:unicodeChartFunc(first, ...)
   e ~/tmp/unicode.tmp
   %d
   let l:i = str2nr(a:first, 16)
