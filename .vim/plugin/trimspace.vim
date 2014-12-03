@@ -5,7 +5,7 @@ au bufwritepre * call s:trimspace()
 func! s:trimspace()
   norm mx
 
-  if !&tw || &mp !~ '^pan'
+  if &mp !~ '^pan'
     " remove trailing spaces
     sil! %s/\s\+$//
   endif
