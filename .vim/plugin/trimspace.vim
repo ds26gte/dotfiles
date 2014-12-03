@@ -1,13 +1,12 @@
-" last modified 2014-11-30
+" last modified 2014-12-03
 
 au bufwritepre * call s:trimspace()
 
 func! s:trimspace()
   norm mx
 
-  if !&tw
-    " &tw is 0 for code and email;
-    " remove trailing spaces for them
+  if !&tw || &mp !~ '^pan'
+    " remove trailing spaces
     sil! %s/\s\+$//
   endif
 

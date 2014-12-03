@@ -1,4 +1,4 @@
-" last modified 2014-11-30
+" last modified 2014-12-03
 
 func! TypographicNiceties()
   if exists('b:pureAscii')
@@ -16,9 +16,7 @@ func! TypographicNiceties()
   sil! v:^ÞtzpPreformattedTzp: call s:smartQuotesEtc()
   sil! %s:^\(•\s\):\r&:
   sil! v/./,/./-j
-  if &tw
-    sil! call s:verbatimizeLeadingSpaces()
-  endif
+  sil! call s:verbatimizeLeadingSpaces()
   sil! %s:^ÞtzpPreformattedTzp::
   sil! %s:^ÞtzpListingTzp[01]::
   sil! %s:\(Þ\)tzpThornTzp:\1:g
@@ -37,6 +35,9 @@ endfunc
 
 func! s:verbatimizeLeadingSpaces()
   " convert all but the 1st leading space to u+00a0
+  if &mp !~ '^pan'
+    return
+  endif
   while 1
     let b:leadingSpacesLeft = 0
     g:^\s\s*\s\S: let b:leadingSpacesLeft = 1
@@ -102,10 +103,10 @@ func! s:smartQuotesEtc()
 
   s:^\*\(\s\):•\1:
 
+  if &mp =~ '^pan'
     " * becomes u+22c6
     s:\*:⋆:g
 
-  if &tw
     " bol-number-dot-space: make space verbatim
 
     s:^\(\d\+\.\)\s:\1 :
