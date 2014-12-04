@@ -31,4 +31,5 @@ func! s:ccrypt_bufwritepost()
     u
     setl nobin
     call setpos('.', b:save_cursor)
+    execute ":redraw!"
 endfunc
