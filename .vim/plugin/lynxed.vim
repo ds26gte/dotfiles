@@ -1,4 +1,4 @@
-"last change 2014-11-30
+"last change 2014-12-04
 
 "needed only if called from within lynx
 
@@ -30,7 +30,12 @@ func! s:txt_go_to_source_file()
   if generated_by_txt2page_p
     setl mp=txt2page\ %
   elseif generated_by_pandoc_p
-    setl mp=panhtml\ %
+    setl mp=pandoc
+          \\ -f\ markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris
+          \\ -t\ html5
+          \\ -c\ default.css
+          \\ -s
+          \\ %\ -o\ %:r.html
   endif
   "when writing source file, remember to refresh the html
   exec 'au bufwritepost' expand('%') 'call s:remember_to_refresh_html()'
