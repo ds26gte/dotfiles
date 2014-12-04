@@ -1,4 +1,4 @@
-"last modified 2014-12-02
+"last modified 2014-12-04
 "from vim.wikia.com/wiki/Encryption
 
 au bufreadpre *.cpt call s:ccrypt_bufreadpre()
@@ -30,6 +30,7 @@ endfunc
 func! s:ccrypt_bufwritepost()
     u
     setl nobin
+    setl nomod
     call setpos('.', b:save_cursor)
-    execute ":redraw!"
+    redraw!
 endfunc
