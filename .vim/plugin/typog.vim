@@ -14,8 +14,6 @@ func! TypographicNiceties()
   sil! %s:^\(ÞtzpListingTzp1\s*\)\(```\s*\)$:\1`\2:
   sil! g:^ÞtzpListingTzp0: .,/^ÞtzpListingTzp1/ s:^:ÞtzpPreformattedTzp:
   sil! v:^ÞtzpPreformattedTzp: call s:smartQuotesEtc()
-  sil! %s:^\(•\s\):\r&:
-  sil! v/./,/./-j
   sil! call s:verbatimizeLeadingSpaces()
   sil! %s:^ÞtzpPreformattedTzp::
   sil! %s:^ÞtzpListingTzp[01]::
@@ -98,13 +96,13 @@ func! s:smartQuotesEtc()
 
   s:\(^\|\s\)-\(\s*\.\?[0–9]\):\1−\2:g
 
-  " * following bol and followed by space
-  " becomes bullet (u+2022)
-
-  s:^\*\(\s\):•\1:
-
   if &mp =~ '^pan'
-    " * becomes u+22c6
+    " * following bol and followed by space
+    " becomes bullet (u+2022)
+
+    s:^\*\(\s\):•\1:
+
+    " other *s become u+22c6
     s:\*:⋆:g
 
     " bol-number-dot-space: make space verbatim
