@@ -16,26 +16,39 @@ func! s:txt_go_to_source_file()
   let generated_by_txt2page_p = 0
   let generated_by_pandoc_p = 0
   "check if html file was generated
-  1,5g/^Generated from .\{-} by txt2page/
+  sil! 1,5g/^Generated from .\{-} by txt2page/
         \ let generated_by_txt2page_p = 1
-  1,5g/^Generated from .\{-} by pandoc/
+  sil! 1,8g/<meta name="generator" content="pandoc">/
         \ let generated_by_pandoc_p = 1
   if !generated_by_txt2page_p && !generated_by_pandoc_p
     return
   endif
   "if generated, edit source file
-  0
-  /^Generated from/
-  norm 2wgf
   if generated_by_txt2page_p
+    0
+    /^Generated from/
+    norm 2wgf
     setl mp=txt2page\ %
   elseif generated_by_pandoc_p
-    setl mp=pandoc
-          \\ -f\ markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris
-          \\ -t\ html5
-          \\ -c\ default.css
-          \\ -s
-          \\ %\ -o\ %:r.html
+    let l:source_file = ''
+    let l:old_su = &su
+    let &su .= ',.cpt,.docx,.html'
+    for l:source_file_try in glob(expand('%:r') . '.*', 0, 1)
+      if filereadable(l:source_file_try)
+        let l:source_file = l:source_file_try
+        break
+      endif
+    endfor
+    let &su = l:old_su
+    if l:source_file != ''
+      exec 'e' l:source_file
+      setl mp=pandoc
+            \\ -f\ markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris
+            \\ -t\ html5
+            \\ -c\ default.css
+            \\ -s
+            \\ %\ -o\ %:r.html
+    endif
   endif
   "when writing source file, remember to refresh the html
   exec 'au bufwritepost' expand('%') 'call s:remember_to_refresh_html()'
