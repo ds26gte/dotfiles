@@ -1,13 +1,14 @@
-" last modified 2014-12-03
+" last modified 2014-12-05
 
 au bufwritepre * call s:trimspace()
 
 func! s:trimspace()
   norm mx
 
-  if &mp !~ '^pan'
-    " remove trailing spaces
+  if !&tw
+    " for code, remove all trailing spaces
     sil! %s/\s\+$//
+    " for text, typog.vim takes over
   endif
 
   " if last line blank, tack on bogus nonblank line

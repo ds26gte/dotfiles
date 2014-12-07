@@ -1,6 +1,6 @@
-" last modified 2014-12-04
+" last modified 2014-12-06
 
-au bufread,bufnewfile *.wd call s:libreOfficeOptions()
+au bufread,bufnewfile *.lo call s:libreOfficeOptions()
 
 func! s:libreOfficeOptions()
   doau bufread pretend.txt
@@ -10,4 +10,4 @@ func! s:libreOfficeOptions()
         \\ %\ -o\ %:r.docx
 endfunc
 
-au bufwritepost *.wd make | redraw
+au bufwritepost *.lo make | redraw

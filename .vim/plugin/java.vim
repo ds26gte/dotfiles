@@ -1,4 +1,4 @@
-" last modified 2014-11-28
+" last modified 2014-12-06
 
 au bufread,bufnewfile *.java call s:javaOptions()
 

@@ -1,4 +1,4 @@
-" last modified 2014-11-30
+" last modified 2014-12-06
 "set bk
 "set cedit=<esc>
 "set dy+=lastline

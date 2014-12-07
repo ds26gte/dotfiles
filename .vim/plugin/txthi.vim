@@ -1,4 +1,4 @@
-" last modified 2014-11-28
+" last modified 2014-12-06
 
 func! TxtHilite()
   " URLs
@@ -16,16 +16,14 @@ func! TxtHilite()
   syn match title '^#\+\s.*'
 
   " footnotes
-  if &tw
-    syn match title '(†[^()[:space:]]*)'
-    syn region title start='(†[^)]*\($\|[[:space:](]\)' end='†)'
-  endif
+  syn match title '(†[^()[:space:]]*)'
+  syn region title start='(†[^)]*\($\|[[:space:](]\)' end='†)'
 
   " code display
   syn region title start='^\s*```[^`]*$' end='^\s*````\s*$'
 
   " email quote
-  if !&tw
+  if expand('%:t') =~ '^pico\.\d\+$d'
     syn region comment oneline start='^>' end='$'
   endif
 endfunc

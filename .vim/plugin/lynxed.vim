@@ -28,6 +28,7 @@ func! s:txt_go_to_source_file()
     0
     /^Generated from/
     norm 2wgf
+    doau bufread pretend.txt "shouldn't be necessary!
     setl mp=txt2page\ %
   elseif generated_by_pandoc_p
     let l:source_file = ''
@@ -42,6 +43,7 @@ func! s:txt_go_to_source_file()
     let &su = l:old_su
     if l:source_file != ''
       exec 'e' l:source_file
+      doau bufread pretend.txt
       setl mp=pandoc
             \\ -f\ markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris
             \\ -t\ html5

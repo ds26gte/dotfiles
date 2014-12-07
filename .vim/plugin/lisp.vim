@@ -1,11 +1,11 @@
-" last modified 2014-11-29
+" last modified 2014-12-06
 
 au bufread,bufnewfile *.lisp call s:lispOptions()
 
 func! s:lispOptions()
-  setl lisp
-  setl isk+==,*,>,?
   setl def=^\\s*(def\\S*
+  setl isk+==,*,>,?
+  setl lisp
 
   syn region comment oneline start=';' end='$'
   syn region comment start='#|' end='|#'

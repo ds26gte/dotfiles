@@ -1,4 +1,4 @@
-# last modified 2014-09-08
+# last modified 2014-12-07
 
 # .docx files written from libreoffice don't have
 # word/webSettings.xml, which trips pandoc when the latter uses
@@ -7,10 +7,6 @@
 
 if test ! -f reference.docx
 then echo reference.docx not found; exit
-fi
-
-if test -n "$(unzip -l reference.docx|grep word/webSettings.xml|head -n 1)"
-then echo reference.docx already has word/webSettings.xml; exit
 fi
 
 here=$(pwd)
@@ -23,7 +19,11 @@ cd $tmpdir
 unzip -q reference.docx
 
 cd word
-cp -p settings.xml webSettings.xml
+if test ! -f webSettings.xml
+then cp -p settings.xml webSettings.xml
+else echo reference.docx already has webSettings.xml
+fi
+sed -i -e 's/Consolas/Ubuntu Mono/g' styles.xml
 cd ..
 
 rm reference.docx

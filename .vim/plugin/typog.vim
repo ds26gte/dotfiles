@@ -1,20 +1,32 @@
-" last modified 2014-12-03
+" last modified 2014-12-06
 
 func! TypographicNiceties()
-  if exists('b:pureAscii')
+  if exists('b:pure_ascii') && b:pure_ascii
     return
   endif
 
   norm my
 
   sil! %s:Þ:&tzpThornTzp:g
-  sil! %s:^\s*```\+\s*\%(\S\+\s*\)\?$:ÞtzpListingTzp&:
+  sil! %s:^\s*\(```\+\s*\%(\S\+\s*\)\?\)$:ÞtzpListingTzp\1:
   call Toggle01(0)
   sil! g:^ÞtzpListingTzp: s:^ÞtzpListingTzp:\=submatch(0) . Toggle01():
   sil! %s:^\(ÞtzpListingTzp1\s*\)\(```\s*\)$:\1`\2:
   sil! g:^ÞtzpListingTzp0: .,/^ÞtzpListingTzp1/ s:^:ÞtzpPreformattedTzp:
+
   sil! v:^ÞtzpPreformattedTzp: call s:smartQuotesEtc()
-  sil! call s:verbatimizeLeadingSpaces()
+
+  if expand('%:t') =~ '^pico\.\d\+$'
+    " flushleft lines should end in space;
+    " nonflushleft lines should not
+    sil! v:^ÞtzpPreformattedTzp: s:^\S.*\S$:& :
+    sil! s:^ \(.*\S\) \+$: \1:
+  endif
+
+  if &mp =~ '^pan'
+    sil! call s:verbatimizeLeadingSpaces()
+  endif
+
   sil! %s:^ÞtzpPreformattedTzp::
   sil! %s:^ÞtzpListingTzp[01]::
   sil! %s:\(Þ\)tzpThornTzp:\1:g
@@ -32,15 +44,19 @@ func! Toggle01(...)
 endfunc
 
 func! s:verbatimizeLeadingSpaces()
-  " convert all but the 1st leading space to u+00a0
-  if &mp !~ '^pan'
-    return
-  endif
+  " for nonflushleft lines
+  %s:^ : : " ensure leading space is real space, not u+00a0
+  " add 2 trailing spaces after
+  %s:^ \(.*\S\) \{0,1}$: \1  :
+  " for flushleft lines, remove all trailing space
+  %s:^\(\S.*\S\)\s\+$:\1:
+  " convert all but 1st leading space to u+00a0
   while 1
     let b:leadingSpacesLeft = 0
-    g:^\s\s*\s\S: let b:leadingSpacesLeft = 1
+    " second space in brackets is actually u+00a0
+    g:^ [  ]* \S: let b:leadingSpacesLeft = 1
     if b:leadingSpacesLeft
-      %s:^\(\s\s*\)\s\(\S\):\1 \2:  " space here is actually u+00a0
+      %s:^ \([  ]*\) \(\S\): \1 \2: " space after \1 is actually u+00a0
     else
       break
     endif
@@ -48,9 +64,13 @@ func! s:verbatimizeLeadingSpaces()
 endfunc
 
 func! s:smartQuotesEtc()
-  " save some "s
+  " save some troff "s
   s:^\.\s*TH\s\+"\(.\{-}\)"\s*$:.TH ÞtzpDoubleQuoteTzp\1ÞtzpDoubleQuoteTzp:
   s:\\":\\ÞtzpDoubleQuoteTzp:g
+
+  " save some tex "s
+  s:^\(\s*\\font.\{-}\)"\(.\{-}\)":\1ÞtzpDoubleQuoteTzp\2ÞtzpDoubleQuoteTzp:
+  s:\(\\char\)":\1ÞtzpDoubleQuoteTzp:g
 
   " opening " becomes u+201c
 
@@ -109,13 +129,11 @@ func! s:smartQuotesEtc()
 
     s:^\(\d\+\.\)\s:\1 :
 
-    " line with leading space also gets 2 trailing spaces,
-    s:^\(\s.*\S\)\s\{0,1}$:\1  :
   endif
 endfunc
 
 func! Asciiize()
-  let b:pureAscii = 1
+  let b:pure_ascii = 1
 
   sil! s: : :g
   sil! s:[⋆•]:*:g
