@@ -1,4 +1,4 @@
-" last modified 2014-12-06
+" last modified 2014-12-09
 
 func! TypographicNiceties()
   if exists('b:pure_ascii') && b:pure_ascii
@@ -8,19 +8,23 @@ func! TypographicNiceties()
   norm my
 
   sil! %s:Þ:&tzpThornTzp:g
-  sil! %s:^\s*\(```\+\s*\%(\S\+\s*\)\?\)$:ÞtzpListingTzp\1:
+  sil! %s:^[  ]*\(```\+\s*\%(\S\+\s*\)\?\)$:ÞtzpListingTzp\1:
   call Toggle01(0)
   sil! g:^ÞtzpListingTzp: s:^ÞtzpListingTzp:\=submatch(0) . Toggle01():
   sil! %s:^\(ÞtzpListingTzp1\s*\)\(```\s*\)$:\1`\2:
   sil! g:^ÞtzpListingTzp0: .,/^ÞtzpListingTzp1/ s:^:ÞtzpPreformattedTzp:
+
+  sil! g:^ÞtzpPreformattedTzp: s: : :g
+  sil! g:^ÞtzpPreformattedTzp: s:[  ]\+$::
 
   sil! v:^ÞtzpPreformattedTzp: call s:smartQuotesEtc()
 
   if expand('%:t') =~ '^pico\.\d\+$'
     " flushleft lines should end in space;
     " nonflushleft lines should not
+    sil! %s:\s\{2,}$: :
     sil! v:^ÞtzpPreformattedTzp: s:^\S.*\S$:& :
-    sil! s:^ \(.*\S\) \+$: \1:
+    sil! %s:^ \(.*\S\) \+$: \1:
   endif
 
   if &mp =~ '^pan'
@@ -69,7 +73,7 @@ func! s:smartQuotesEtc()
   s:\\":\\ÞtzpDoubleQuoteTzp:g
 
   " save some tex "s
-  s:^\(\s*\\font.\{-}\)"\(.\{-}\)":\1ÞtzpDoubleQuoteTzp\2ÞtzpDoubleQuoteTzp:
+  s:\(\\font.\{-}\)"\(.\{-}\)":\1ÞtzpDoubleQuoteTzp\2ÞtzpDoubleQuoteTzp:
   s:\(\\char\)":\1ÞtzpDoubleQuoteTzp:g
 
   " opening " becomes u+201c

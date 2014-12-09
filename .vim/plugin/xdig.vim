@@ -1,4 +1,4 @@
-" last modified 2014-12-04
+" last modified 2014-12-08
 Xdig ** 0x22c6 "star
 Xdig .- 0x2212 "minus
 Xdig :P 0x1f61c "tongue out
@@ -8,6 +8,7 @@ Xdig ap 0x2708 "AirPlane
 Xdig bm 0x22a5 "BottoM
 Xdig bu 0x2022 "BUllet
 Xdig bv 0x2615 "BeVerage
+Xdig c. 0x00b7 "Center dot
 Xdig da 0x2020 "DAgger
 Xdig dd 0x2021 "Double Dagger
 Xdig dg 0x00b0 "DeGree

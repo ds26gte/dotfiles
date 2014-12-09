@@ -23,7 +23,7 @@ if test ! -f webSettings.xml
 then cp -p settings.xml webSettings.xml
 else echo reference.docx already has webSettings.xml
 fi
-sed -i -e 's/Consolas/Ubuntu Mono/g' styles.xml
+sed -i -e 's/Consolas\|Ubuntu Mono/Courier/g' styles.xml
 cd ..
 
 rm reference.docx

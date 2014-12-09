@@ -1,4 +1,4 @@
-"last modified 2014-11-28
+"last modified 2014-12-08
 
 au bufread,bufnewfile ~/public_html/pyret-lang*/** call s:pyretOptions()
 
@@ -8,6 +8,7 @@ func! s:pyretOptions()
   setl path=.
         \,~/public_html/pyret-lang/src/js/base
         \,~/public_html/pyret-lang/src/js/trove
+        \,~/public_html/pyret-lang/lib/js-numbers/src
         \,~/public_html/pyret-lang/tests/pyret/tests
         \,~/public_html/pyret-lang/src/arr/base
         \,~/public_html/pyret-lang/docs/written/trove
