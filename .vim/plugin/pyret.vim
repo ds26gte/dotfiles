@@ -1,4 +1,4 @@
-"last modified 2014-12-08
+"last modified 2014-12-10
 
 au bufread,bufnewfile ~/public_html/pyret-lang*/** call s:pyretOptions()
 
@@ -15,7 +15,7 @@ func! s:pyretOptions()
         \,~/public_html/pyret-lang.wiki
 endfunc
 
-au bufread,bufnewfile ~/public_html/pyret-lang/**/*.js call s:pyretJsOptions()
+au bufread,bufnewfile ~/public_html/pyret-lang/**/*.{arr,js} call s:pyretJsOptions()
 
 func! s:pyretJsOptions()
   setl mp=cd\ ~/public_html/pyret-lang;make
@@ -27,4 +27,4 @@ func! s:pyretScrblOptions()
   setl mp=cd\ ~/public_html/pyret-lang/docs/written;make
 endfunc
 
-au bufwritepost ~/public_html/pyret-lang/**/*.{arr,js} make
+au bufwritepost ~/public_html/pyret-lang/**/*.{arr,js,scrbl} make | redraw

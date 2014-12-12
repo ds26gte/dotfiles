@@ -1,4 +1,4 @@
-" last modified 2014-12-09
+" last modified 2014-12-10
 "set bk
 "set cedit=<esc>
 "set dy+=lastline
@@ -46,10 +46,12 @@ set is
 set isf-=#
 set lcs=nbsp:·,trail:·
 set ls=2
+set para+=``
 set pm=~~
 set ru
 set sbr=⌇
 set scs
+set sect+=#\ ##
 set sw=2
 set vi+=%
 set wic
