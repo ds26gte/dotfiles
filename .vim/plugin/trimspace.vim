@@ -1,4 +1,4 @@
-" last modified 2014-12-05
+" last modified 2014-12-12
 
 au bufwritepre * call s:trimspace()
 
@@ -8,7 +8,9 @@ func! s:trimspace()
   if !&tw
     " for code, remove all trailing spaces
     sil! %s/\s\+$//
-    " for text, typog.vim takes over
+  else
+    " for others, no need ever for more than 2 trailing spaces
+    sil! %s/ \{3,-}$/  /
   endif
 
   " if last line blank, tack on bogus nonblank line

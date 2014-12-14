@@ -1,4 +1,4 @@
-" last modified 2014-12-10
+" last modified 2014-12-14
 "set bk
 "set cedit=<esc>
 "set dy+=lastline
@@ -53,6 +53,7 @@ set sbr=⌇
 set scs
 set sect+=#\ ##
 set sw=2
+set tw=66
 set vi+=%
 set wic
 set wim=list:longest

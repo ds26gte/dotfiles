@@ -7,17 +7,23 @@ func! s:alpine_options()
   setl mp=:
 endfunc
 
-func! Alpine_spaces()
+func! Email_compatible()
   " all spaces are plain
   %s/ / /g
   " no need for more than 1 trailing space
   %s/ \{2,}$/ /
   " line with just space becomes blank
-  %s/^ $//
+  %s/^\(\%(> \?\)*\) \+$/\1/
   " flushleft line not already ending in space should add it
-  %s/^\%(> \)*[^ >].* \@<!$/& /
-  " nonflushleft line ending in space should lose it
-  %s/^\(\%(> \)* .*\) $/\1/
-  " if its previous line ends in space, it should lose it
-  g/^\%(> \)* / -1s/ $//
+  %s/^\%(\%(> \?\)* \)\?[^ >].* \@<!$/& /
+  " nonflushleft line should lose trailing space
+  %s/^\(\%(\%(> \?\)* \)\? .\{-}\) \+$/\1/
+  " its previous line should lose trailing space too
+  g/^\%(\%(> \?\)* \)\? / -1s/ \+$//
+  " line with just emdash should lose trailing space
+  %s/^\(\%(\%(> \?\)* \)\?—\) \+$/\1/
+  " its previous line should lose trailing space too
+  g/^\%(\%(> \?\)* \)\?—/ -1s/ \+$//
+  " last line loses trailing space
+  $ s/ \+$//
 endfunc

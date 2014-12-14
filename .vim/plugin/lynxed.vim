@@ -1,4 +1,4 @@
-"last change 2014-12-08
+"last change 2014-12-14
 
 "needed only if called from within lynx
 
@@ -43,7 +43,7 @@ func! s:txt_go_to_source_file()
     let &su = l:old_su
     if l:source_file != ''
       exec 'e' l:source_file
-      doau bufread pretend.txt
+      doau bufread pretend.md
       setl mp=pandoc
             \\ -f\ markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris
             \\ -t\ html5

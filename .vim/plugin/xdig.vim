@@ -1,4 +1,4 @@
-" last modified 2014-12-08
+" last modified 2014-12-14
 Xdig ** 0x22c6 "star
 Xdig .- 0x2212 "minus
 Xdig :P 0x1f61c "tongue out
@@ -26,6 +26,7 @@ Xdig pc 0x2761 "Pilcrow Curved
 Xdig pi 0x00b6 "PIlcrow
 Xdig q- 0x2015 "Quotation dash
 Xdig qd 0x220e "QeD
+Xdig r. 0x16eb "Runic single punctuation
 Xdig ra 0x27e9 "Right Angle
 Xdig rt 0x2023 "Right Triangle
 Xdig sk 0x2620 "SKull

@@ -1,3 +1,4 @@
+#alias man='PATH=/usr/local/bin:$PATH MANWIDTH=80 man --nh --nj'
 alias ..='cd ..'
 alias .2='..;..'
 alias .3='.2;..'
@@ -41,12 +42,12 @@ alias l.='ls -d .*'
 alias l='ls -l'
 alias la='ls -Ad .*'
 alias latex=pdflatex
-alias lo=libreoffice
+alias lo=lowriter
 alias ls='ls --color=auto -F'
 alias ly=lynx
 alias lynx='COLUMNS=80 lynx -editor=vim -vikeys'
 alias m=less
-alias man='PATH=/usr/local/bin:$PATH MANWIDTH=80 man --nh --nj'
+alias man='PATH=/usr/bin:$PATH MANWIDTH=80 man --nh --nj'
 alias md=mkdir
 alias minc='(printf "%.2f\n" $(echo $(cat|wc -w)/$(wordsperminute)|bc -l)) <'
 alias mo=less
@@ -55,14 +56,17 @@ alias osubgrade='ubgrade;sudo update-manager -d'
 alias p='cd ..'
 alias paideia='man paideia'
 alias passecho='echo "                                             "'
+alias pfandoc='TEMP() { g=${1%.*}; pandoc -f markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris $1 -o $g.pdf; unset -f TEMP; }; TEMP'
+alias phandoc='TEMP() { g=${1%.*}; pandoc -f markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris -t html5 -c default.css -s $1 -o $g.html; unset -f TEMP; }; TEMP'
 alias ping='ping -c 5'
 alias pp='p;p'
 alias ppp='pp;p'
 alias pppp='pp;pp'
-alias preg='htm;cd pregexp'
+alias preg='src;cd pregexp'
 alias pregt='preg;cd tmp'
 alias prun='prunedir ../..'
 alias pw=pwd
+alias pwandoc='TEMP() { g=${1%.*}; pandoc -f markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris $1 -o $g.docx; unset -f TEMP; }; TEMP'
 alias py='node ~/public_html/pyret-lang/build/phase1/main-wrapper.js'
 alias pycr='cr ~/public_html/pyret-lang/src/web/repl.html'
 alias pyj='pymake;py j.arr'
@@ -75,6 +79,7 @@ alias rebuildccl='ccl --eval "(ubuntu-rebuild)" --eval "(quit)"'
 alias rmr='rm -fr'
 alias scmvi='src;cd scmindent'
 alias sl=ls
+alias sos='cd;cd sos'
 alias spellc='TEMP() { cat "$@"|aspell -a|grep "^&"|sed -e "s:^&\s*\(\S\+\).*:\1:"|sort -u; unset -f TEMP; }; TEMP'
 alias src='cd;cd src'
 alias sxl='src;cd scmxlate'
@@ -87,18 +92,18 @@ alias t3p='src;cd txt2page'
 alias t3pe='t3p;cd eg'
 alias t=txt2page
 alias testrn='py ~/public_html/pyret-lang/tests/pyret/tests/test-roughnum.arr'
-alias tex=pdftex
+alias tex=xetex
+alias texmf='cd;cd texmf/tex/'
 alias tmac='cd /usr/local/share/groff/current/tmac'
 alias tmp='cd;cd tmp'
 alias ubgrade='sudo apt-get update;sudo apt-get upgrade;sudo apt-get dist-upgrade'
 alias ui=/usr/bin/vi
 alias uvi=/usr/bin/vi
-alias vialias='vi ~/.aliases.more;realias'
+alias vialias='vi ~/.aliases;realias'
 alias view='view -c "setl lbr sbr= nowrite"'
 alias vimf='cd;cd .vim/plugin'
 alias vip='ps -ef|grep " vi"|grep -v grep'
 alias vu=evince
 alias wget='wget -c'
 alias whathavei='aptitude versions "~i"'
-alias word=lowriter
 alias wordsperminute='echo 124' # 140?

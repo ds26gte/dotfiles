@@ -1,4 +1,4 @@
-# last change 2014-12-04
+# last change 2014-12-14
 
 set -o vi
 
@@ -11,7 +11,7 @@ shopt -s autocd
 # in ~/.inputrc put
 # set completion-ignore-case on
 
-export PATH=.:$PATH
+export PATH=.:/usr/local/heroku/bin:$PATH
 
 . ~/.env
 

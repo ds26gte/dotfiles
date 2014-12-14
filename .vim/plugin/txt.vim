@@ -1,4 +1,4 @@
-" last modified 2014-12-08
+" last modified 2014-12-12
 
 au bufread,bufnewfile *.txt call s:txtOptions()
 

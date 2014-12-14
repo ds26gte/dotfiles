@@ -18,52 +18,22 @@ func! TypographicNiceties()
   sil! g:^\.[^#A-Z]: s:^:ÞtzpPreformattedTzp:
 
   sil! g:^ÞtzpPreformattedTzp: s: : :g
-  sil! g:^ÞtzpPreformattedTzp: s:[  ]\+$::
 
   sil! v:^ÞtzpPreformattedTzp: call s:smartquotes_etc()
 
-  if expand('%:t') =~ '^pico\.\d\+$'
-    sil! call Alpine_spaces()
-  elseif &mp =~ '^pan'
-    sil! call s:hard_spaces()
-  else
-    sil! call s:default_spaces()
+  sil! call Email_compatible()
+
+  if exists('b:special_typography')
+    exec 'sil! call' b:special_typography . '()'
   endif
+
+  sil! g:^ÞtzpPreformattedTzp: s:[  ]\+$::
 
   sil! %s:^ÞtzpPreformattedTzp::
   sil! %s:^ÞtzpListingTzp[01]::
   sil! %s:\(Þ\)tzpThornTzp:\1:g
 
   norm `y
-endfunc
-
-func! s:default_spaces()
-  " all spaces are plain
-  %s: : :g
-  " remove all trailing spaces
-  %s: \+$::
-endfunc
-
-func! s:hard_spaces()
-  " no need for more than 2 trailing spaces
-  %s: \{3,}$:  :
-  " remove all trailing u+00a0s
-  %s: \+$::
-  " for nonflushleft lines
-  " ensure leading space is real space, not u+00a0
-  %s:^ : :
-  " and add 2 trailing spaces after
-  %s:^ \(.*\S\) \{0,1}$: \1  :
-  " for flushleft (and displayed code) lines, remove all trailing space
-  g:^\S: s:[  ]\+$::
-  " for blank lines, remove all space
-  %s:^[  ]\+$::
-  " convert all but 1st leading space to u+00a0
-  %s:\%(^ [  ]*\)\@<= : :g
-  " convert all internal u+00a0s to regular spaces
-  %s:\%([^  ].*\)\@<= : :g
-  " bol-number-dot-space: convert space to u+00a0
-  %s:^\(\d\+\.\) :\1 :
 endfunc
 
 func! s:smartquotes_etc()
@@ -119,16 +89,6 @@ func! s:smartquotes_etc()
 
   s:\(^\|[  ]\)-\([  ]*\.\?[0–9]\):\1−\2:g
 
-  if &mp =~ '^pan'
-    " * following bol and followed by space
-    " becomes bullet (u+2022)
-
-    s:^\*\([  ]\):•\1:
-
-    " other *s become u+22c6
-    s:\*:⋆:g
-
-  endif
 endfunc
 
 func! Asciiize()
