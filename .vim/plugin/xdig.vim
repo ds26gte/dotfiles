@@ -17,6 +17,7 @@ Xdig fl 0x2698 "FLower
 Xdig ft 0x2032 "FeeT
 Xdig gr 0x2699 "GeaR
 Xdig he 0x2767 "HEdera
+Xdig hm 0x2388 "HelM
 Xdig in 0x2033 "INches
 Xdig la 0x27e8 "Left Angle
 Xdig m- 0x2014 "eM dash
@@ -28,6 +29,7 @@ Xdig q- 0x2015 "Quotation dash
 Xdig qd 0x220e "QeD
 Xdig r. 0x16eb "Runic single punctuation
 Xdig ra 0x27e9 "Right Angle
+Xdig rf 0x203b "ReFerence mark
 Xdig rt 0x2023 "Right Triangle
 Xdig sk 0x2620 "SKull
 Xdig sm 0x263a "SMiley

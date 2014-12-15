@@ -1,4 +1,4 @@
-" last modified 2014-12-06
+" last modified 2014-12-14
 
 func! TxtHilite()
   " URLs
@@ -14,6 +14,9 @@ func! TxtHilite()
 
   " headers
   syn match title '^#\+\s.*'
+
+  " emphasis
+  syn match title '⎈.\{-}⎈'
 
   " footnotes
   syn match title '(†[^()[:space:]]*)'

@@ -1,4 +1,4 @@
-" last modified 2014-12-12
+" last modified 2014-12-14
 
 func! TypographicNiceties()
   if exists('b:pure_ascii') && b:pure_ascii
@@ -83,6 +83,10 @@ func! s:smartquotes_etc()
   " - directly between two digits becomes en dash (u+2013)
 
   s:\(\d\)-\(\d\):\1–\2:g
+
+  " en dashes flanking a number revert to hyphens
+  s:–\([0-9.]\+\)[-–]:-\1-:g
+  s:-\([0-9.]\+\)–:-\1-:g
 
   " - preceded by {bol, space} and
   " followed by opt spaces and then number becomes minus (u+2212)
