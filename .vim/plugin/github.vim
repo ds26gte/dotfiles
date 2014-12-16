@@ -1,4 +1,4 @@
-" last modified 2014-12-12
+" last modified 2014-12-16
 
 au bufread,bufnewfile *.md,COMMIT_EDITMSG call s:github_options()
 
@@ -36,9 +36,9 @@ func! GitHub_compatible()
   " bol-number-dot-space: convert space to u+00a0
   %s:^\(\d\+\.\) :\1 :
   " * following bol and followed by space becomes u+2022
-  %s:^\*\([  ]\):•\1:
+  "%s:^\*\([  ]\):•\1:
   " other *s become u+22c6
-  %s:\*:⋆:g
+  "%s:\*:⋆:g
 endfunc
 
 au bufread,bufnewfile COMMIT_EDITMSG setl mp=:

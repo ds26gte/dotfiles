@@ -1,4 +1,4 @@
-" last modified 2014-12-12
+" last modified 2014-12-16
 
 au bufread,bufnewfile /tmp/pico.* call s:alpine_options()
 
@@ -14,6 +14,8 @@ func! Email_compatible()
   %s/ \{2,}$/ /
   " line with just space becomes blank
   %s/^\(\%(> \?\)*\) \+$/\1/
+  " its preceding line should lose trailing space
+  g/^\%(\%(> \?\)*\)\$/ -1s/ \+$//
   " flushleft line not already ending in space should add it
   %s/^\%(\%(> \?\)* \)\?[^ >].* \@<!$/& /
   " nonflushleft line should lose trailing space
