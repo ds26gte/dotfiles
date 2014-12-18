@@ -1,4 +1,4 @@
-" last modified 2014-12-14
+" last modified 2014-12-18
 
 func! TxtHilite()
   " URLs
@@ -13,7 +13,7 @@ func! TxtHilite()
   syn match title '\./[^[:space:]()<>&]\+\%([[:punct:]]\)\@<!'
 
   " headers
-  syn match title '^#\+\s.*'
+  syn match title '^\.\?#\+\s.*'
 
   " emphasis
   syn match title '⎈.\{-}⎈'
@@ -23,7 +23,7 @@ func! TxtHilite()
   syn region title start='(†[^)]*\($\|[[:space:](]\)' end='†)'
 
   " code display
-  syn region title start='^\s*```[^`]*$' end='^\s*````\s*$'
+  syn region title start='^\.\?\s*```[^`]*$' end='^\.\?\s*````\s*$'
 
   " email quote
   if expand('%:t') =~ '^pico\.\d\+$d'

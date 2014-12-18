@@ -13,7 +13,7 @@ func! TypographicNiceties()
   sil! %s:^\.[  ]*\(```\+\):ÞtzpListingTzp.\1:
   call Toggle01(0)
   sil! g:^ÞtzpListingTzp: s:^ÞtzpListingTzp:\=submatch(0) . Toggle01():
-  sil! %s:^\(ÞtzpListingTzp1\s*\)\(```\s*\)$:\1`\2:
+  sil! %s:^\(ÞtzpListingTzp1\s*\.\?```\)\s*$:\1`:
   sil! g:^ÞtzpListingTzp0: .,/^ÞtzpListingTzp1/ s:^:ÞtzpPreformattedTzp:
   sil! %s:^\(ÞtzpPreformattedTzp\)ÞtzpListingTzp[01]:\1:
   sil! g:^\.[^#A-Z]: s:^:ÞtzpPreformattedTzp:
