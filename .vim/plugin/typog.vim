@@ -1,4 +1,4 @@
-" last modified 2014-12-14
+" last modified 2014-12-18
 
 func! TypographicNiceties()
   if exists('b:pure_ascii') && b:pure_ascii
@@ -15,22 +15,21 @@ func! TypographicNiceties()
   sil! g:^ÞtzpListingTzp: s:^ÞtzpListingTzp:\=submatch(0) . Toggle01():
   sil! %s:^\(ÞtzpListingTzp1\s*\)\(```\s*\)$:\1`\2:
   sil! g:^ÞtzpListingTzp0: .,/^ÞtzpListingTzp1/ s:^:ÞtzpPreformattedTzp:
+  sil! %s:^\(ÞtzpPreformattedTzp\)ÞtzpListingTzp[01]:\1:
   sil! g:^\.[^#A-Z]: s:^:ÞtzpPreformattedTzp:
 
   sil! g:^ÞtzpPreformattedTzp: s: : :g
 
   sil! v:^ÞtzpPreformattedTzp: call s:smartquotes_etc()
 
-  sil! call Email_compatible()
-
   if exists('b:special_typography')
     exec 'sil! call' b:special_typography . '()'
+    sil! g:^ÞtzpPreformattedTzp: s:[  ]\+$::
+  else
+    sil! %s/[  ]\+$//
   endif
 
-  sil! g:^ÞtzpPreformattedTzp: s:[  ]\+$::
-
   sil! %s:^ÞtzpPreformattedTzp::
-  sil! %s:^ÞtzpListingTzp[01]::
   sil! %s:\(Þ\)tzpThornTzp:\1:g
 
   norm `y

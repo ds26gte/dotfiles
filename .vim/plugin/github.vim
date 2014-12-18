@@ -1,4 +1,4 @@
-" last modified 2014-12-16
+" last modified 2014-12-17
 
 au bufread,bufnewfile *.md,COMMIT_EDITMSG call s:github_options()
 
@@ -12,7 +12,8 @@ func! s:github_options()
         \\ -t\ html5
         \\ -c\ default.css
         \\ -s
-        \\ %\ -o\ %:r.html
+        \\ %
+        \\ -o\ %:r.html
 endfunc
 
 func! GitHub_compatible()
