@@ -1,4 +1,4 @@
-" last modified 2014-12-18
+" last modified 2015-01-06
 
 func! TypographicNiceties()
   if exists('b:pure_ascii') && b:pure_ascii
@@ -37,7 +37,7 @@ endfunc
 
 func! s:smartquotes_etc()
   " save some troff "s
-  s:^\.\s*TH\s\+"\(.\{-}\)"\s*$:.TH ÞtzpDoubleQuoteTzp\1ÞtzpDoubleQuoteTzp:
+  s:^\.\s*TH\s\+"\(.\{-}\)":.TH ÞtzpDoubleQuoteTzp\1ÞtzpDoubleQuoteTzp:
   s:\\":\\ÞtzpDoubleQuoteTzp:g
 
   " save some tex "s

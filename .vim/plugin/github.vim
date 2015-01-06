@@ -1,6 +1,6 @@
-" last modified 2014-12-17
+" last modified 2015-01-06
 
-au bufread,bufnewfile *.md,COMMIT_EDITMSG call s:github_options()
+au bufread,bufnewfile *.md call s:github_options()
 
 func! s:github_options()
   doau bufread pretend.txt
@@ -36,6 +36,8 @@ func! GitHub_compatible()
   %s:\%([^  ].*\)\@<= : :g
   " bol-number-dot-space: convert space to u+00a0
   %s:^\(\d\+\.\) :\1 :
+  " underscore becomes u+2017
+  %s:_:‗:g
   " * following bol and followed by space becomes u+2022
   "%s:^\*\([  ]\):•\1:
   " other *s become u+22c6
