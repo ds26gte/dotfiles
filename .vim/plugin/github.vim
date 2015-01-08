@@ -43,5 +43,3 @@ func! GitHub_compatible()
   " other *s become u+22c6
   "%s:\*:⋆:g
 endfunc
-
-au bufread,bufnewfile COMMIT_EDITMSG setl mp=:

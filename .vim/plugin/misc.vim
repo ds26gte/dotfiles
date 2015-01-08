@@ -31,7 +31,6 @@ ino jj <esc>
 set acd
 set ai
 set bs=indent,eol,start
-set cb+=autoselectplus
 set cf
 set com-=mb:*
 set cot+=longest
@@ -58,3 +57,4 @@ set vi+=%
 set wic
 set wim=list:longest
 set ww+=h,l,<,>,[,]
+sil! set cb+=autoselectplus
