@@ -1,4 +1,4 @@
-" last modified 2015-01-06
+" last modified 2015-01-10
 
 func! TypographicNiceties()
   if exists('b:pure_ascii') && b:pure_ascii
@@ -9,10 +9,10 @@ func! TypographicNiceties()
 
   sil! %s:Þ:&tzpThornTzp:g
 
-  sil! %s:^[  ]*\(```\+\s*\%(\S\+\s*\)\?\)$:ÞtzpListingTzp\1:
-  sil! %s:^\.[  ]*\(```\+\):ÞtzpListingTzp.\1:
+  sil! %s:^\(\.\?\)[  ]*\(```\+\):ÞtzpListingTzp\1\2:
   call Toggle01(0)
   sil! g:^ÞtzpListingTzp: s:^ÞtzpListingTzp:\=submatch(0) . Toggle01():
+  sil! %s:^\(ÞtzpListingTzp0\s*\.\?```\)`\+:\1:
   sil! %s:^\(ÞtzpListingTzp1\s*\.\?```\)\s*$:\1`:
   sil! g:^ÞtzpListingTzp0: .,/^ÞtzpListingTzp1/ s:^:ÞtzpPreformattedTzp:
   sil! %s:^\(ÞtzpPreformattedTzp\)ÞtzpListingTzp[01]:\1:
