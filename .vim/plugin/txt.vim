@@ -1,4 +1,4 @@
-" last modified 2014-12-12
+" last modified 2015-01-18
 
 au bufread,bufnewfile *.txt call s:txtOptions()
 
@@ -7,7 +7,8 @@ func! s:txtOptions()
     return
   endif
 
-  setl mp=txt2page\ %
+  "setl mp=txt2page\ %
+  setl mp=:
   setl tw=65
 
   call TxtHilite()

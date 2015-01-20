@@ -1,4 +1,4 @@
-" last modified 2015-01-10
+" last modified 2015-01-15
 
 func! TypographicNiceties()
   if exists('b:pure_ascii') && b:pure_ascii
@@ -94,6 +94,10 @@ func! s:smartquotes_etc()
 
 endfunc
 
+func! Ascii()
+  let b:pure_ascii = 1
+endfunc
+
 func! Asciiize()
   let b:pure_ascii = 1
 
@@ -101,9 +105,9 @@ func! Asciiize()
   sil! s:[⋆•]:*:g
   sil! s:[‘’]:':g
   sil! s:[“”]:":g
-  sil! s:―:---:g
-  sil! s:—:--:g
-  sil! s:[–−]:-:g
+  sil! s:―:---:g "quot dash
+  sil! s:—:--:g "em dash
+  sil! s:[–−]:-:g "en dash, minus
 endfunc
 
 func! Toggle01(...)
