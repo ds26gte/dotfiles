@@ -26,7 +26,13 @@ ul:		normal:			brown
 address:	normal:			magenta
 title:		normal:			magenta
 tt:		dim:			brightmagenta:	black
-h1:		bold:			yellow:		blue
+#h1:		bold:			yellow:		blue
+h1:		bold:			brightblue
+h2:		bold:			brightmagenta
+h3:		bold:			yellow:		blue
+h4:		bold:			yellow:		blue
+h5:		bold:			yellow:		blue
+h6:		bold:			yellow:		blue
 label:		normal:			magenta
 q:		normal:			yellow:		magenta
 small:		dim:			default
