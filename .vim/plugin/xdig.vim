@@ -1,4 +1,4 @@
-" last modified 2014-12-14
+" last modified 2015-01-23
 Xdig ** 0x22c6 "star
 Xdig .- 0x2212 "minus
 Xdig :P 0x1f61c "tongue out
@@ -13,6 +13,8 @@ Xdig da 0x2020 "DAgger
 Xdig dd 0x2021 "Double Dagger
 Xdig dg 0x00b0 "DeGree
 Xdig eh 0x2619 "HEdera reversed
+Xdig er 0x01dd "schwa
+Xdig eS 0x1d4a "Superscript schwa
 Xdig fl 0x2698 "FLower
 Xdig ft 0x2032 "FeeT
 Xdig gr 0x2699 "GeaR
@@ -23,6 +25,7 @@ Xdig la 0x27e8 "Left Angle
 Xdig m- 0x2014 "eM dash
 Xdig n- 0x2013 "eN dash
 Xdig nv 0x2630 "NaVicon
+Xdig od 0x0307 "OverDot
 Xdig pc 0x2761 "Pilcrow Curved
 Xdig pi 0x00b6 "PIlcrow
 Xdig q- 0x2015 "Quotation dash

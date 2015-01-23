@@ -1,4 +1,4 @@
-" last modified 2014-12-18
+" last modified 2015-01-22
 
 func! TxtHilite()
   " URLs
@@ -23,7 +23,7 @@ func! TxtHilite()
   syn region title start='(†[^)]*\($\|[[:space:](]\)' end='†)'
 
   " code display
-  syn region title start='^\.\?\s*```[^`]*$' end='^\.\?\s*````\s*$'
+  syn region title start='^\.\?\s*```[^`]*$' end='^\.\?\s*````\?\s*$'
 
   " email quote
   if expand('%:t') =~ '^pico\.\d\+$d'
