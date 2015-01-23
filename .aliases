@@ -21,6 +21,7 @@ alias cdlibsrc='pyl;cd lib/js-numbers/src'
 alias cdtests='pyl;cd tests/pyret/tests'
 alias cdtrove='pyl;cd src/js/trove'
 alias cp='cp -p'
+alias cpo='htm;cd code.pyret.org'
 alias cr=google-chrome
 alias cx='chmod +x'
 alias datein='TZ=Asia/Kolkata date'

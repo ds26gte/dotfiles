@@ -1,4 +1,4 @@
-" last modified 2015-01-15
+" last modified 2015-01-23
 
 func! TypographicNiceties()
   if exists('b:pure_ascii') && b:pure_ascii
@@ -24,7 +24,6 @@ func! TypographicNiceties()
 
   if exists('b:special_typography')
     exec 'sil! call' b:special_typography . '()'
-    sil! g:^ÞtzpPreformattedTzp: s:[  ]\+$::
   else
     sil! %s/[  ]\+$//
   endif
