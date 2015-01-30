@@ -1,4 +1,4 @@
-" last modified 2015-01-23
+" last modified 2015-01-30
 
 func! TypographicNiceties()
   if exists('b:pure_ascii') && b:pure_ascii
@@ -117,9 +117,3 @@ func! Toggle01(...)
     return b:toggle01Value
   endif
 endfunc
-
-func! s:xdig_fn(biliteral, hexnum, ...)
-  exec 'dig' a:biliteral str2nr(a:hexnum, 16)
-endfunc
-
-com! -nargs=* Xdig call s:xdig_fn(<f-args>)

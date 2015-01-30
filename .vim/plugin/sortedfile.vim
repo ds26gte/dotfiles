@@ -9,4 +9,3 @@ au bufwritepre .exrc doau bufwritepre .vimrc
 au bufwritepre .gitignore doau bufwritepre .vimrc
 au bufwritepre misc.vim doau bufwritepre .vimrc
 au bufwritepre paideia.txt doau bufwritepre .vimrc
-au bufwritepre xdig.vim doau bufwritepre .vimrc
