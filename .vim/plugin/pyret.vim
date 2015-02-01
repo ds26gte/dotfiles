@@ -1,4 +1,4 @@
-" last modified 2014-12-14
+" last modified 2015-02-01
 
 au bufread,bufnewfile *.arr call s:arrOptions()
 
@@ -8,4 +8,6 @@ func! s:arrOptions()
 
   syn region comment oneline start='#' end='$'
   syn region string oneline start='[\\]\@<!"' skip='\\[\\"]' end='"'
+
+  ru indent/pyret.vim
 endfunc
