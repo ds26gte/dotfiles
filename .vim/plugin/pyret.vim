@@ -1,32 +1,11 @@
-"last modified 2015-01-06
+" last modified 2014-12-14
 
-au bufread,bufnewfile ~/public_html/pyret-lang*/** call s:pyretOptions()
+au bufread,bufnewfile *.arr call s:arrOptions()
 
-func! s:pyretOptions()
-  "setl sua+=.js,.arr
+func! s:arrOptions()
+  setl isk+=-
+  setl tw=0
 
-  setl path=.
-        \,~/public_html/pyret-lang/src/js/base
-        \,~/public_html/pyret-lang/src/js/trove
-        \,~/public_html/pyret-lang/lib/js-numbers/src
-        \,~/public_html/pyret-lang/tests/pyret/tests
-        \,~/public_html/pyret-lang/src/arr/base
-        \,~/public_html/pyret-lang/docs/written/trove
-        \,~/public_html/pyret-lang.wiki
+  syn region comment oneline start='#' end='$'
+  syn region string oneline start='[\\]\@<!"' skip='\\[\\"]' end='"'
 endfunc
-
-au bufread,bufnewfile ~/public_html/pyret-lang/**/*.{arr,js} call s:pyretJsOptions()
-
-func! s:pyretJsOptions()
-  setl mp=cd\ ~/public_html/pyret-lang;make
-endfunc
-
-au bufread,bufnewfile ~/public_html/pyret-lang/docs/written/**.scrbl call s:pyretScrblOptions()
-
-func! s:pyretScrblOptions()
-  setl mp=cd\ ~/public_html/pyret-lang/docs/written;make
-endfunc
-
-au bufwritepost ~/public_html/pyret-lang/**/*.{arr,js,scrbl} make | redraw
-
-au bufread,bufnewfile *.jss doau bufread pretend.js
