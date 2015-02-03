@@ -24,7 +24,8 @@ alias cp='cp -p'
 alias cpo='htm;cd code.pyret.org'
 alias cr=google-chrome
 alias cx='chmod +x'
-alias datein='TZ=Asia/Kolkata date'
+alias dateindia='TZ=Asia/Kolkata date'
+alias dateseattle='TZ=America/Los_Angeles date'
 alias diff=colordiff
 alias dotf='src;cd dotfiles'
 alias dvimf='src;cd dotfiles/.vim/plugin'
@@ -42,6 +43,7 @@ alias htm='cd;cd public_html'
 alias info='info --vi-keys'
 alias iv=vi
 alias j=jobs
+alias julia='julia -q --color=no'
 alias k='kill -9'
 alias l.='ls -d .*'
 alias l='ls -l'
@@ -57,9 +59,11 @@ alias md=mkdir
 alias minc='(printf "%.2f\n" $(echo $(cat|wc -w)/$(wordsperminute)|bc -l)) <'
 alias mo=less
 alias more=less
+alias octave='octave -q'
 alias osubgrade='ubgrade;sudo update-manager -d'
 alias p='cd ..'
 alias paideia='man paideia'
+alias panslide='TEMP() { g=${1%.*}; pandoc -f markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris -t revealjs -V revealjs-url:$HOME/.pandoc/reveal.js -H $HOME/.pandoc/revealjsfont.css -o $g.html $1; unset -f TEMP; }; TEMP'
 alias pfandoc='TEMP() { g=${1%.*}; pandoc -f markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris $1 -o $g.pdf; unset -f TEMP; }; TEMP'
 alias phandoc='TEMP() { g=${1%.*}; if test -f default.css; then cssf=default.css; else cssf=/home/ds26gte/default.css; fi; pandoc -f markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris -t html5 -c $cssf -s $1 -o $g.html; unset -f TEMP; }; TEMP'
 alias ping='ping -c 5'
@@ -110,6 +114,7 @@ alias uvi=/usr/bin/vi
 alias vialias='vi ~/.aliases;realias'
 alias view='view -c "setl lbr sbr= nowrite"'
 alias vimf='cd;cd .vim/plugin'
+alias vimrt='cd /usr/local/share/vim/vim74'
 alias vip='ps -ef|grep " vi"|grep -v grep'
 alias vu=evince
 alias wget='wget -c'
