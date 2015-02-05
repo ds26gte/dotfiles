@@ -1,4 +1,4 @@
-" last modified 2014-12-12
+" last modified 2015-02-05
 
 au bufwritepre * call s:trimspace()
 
@@ -10,7 +10,7 @@ func! s:trimspace()
     sil! %s/\s\+$//
   else
     " for others, no need ever for more than 2 trailing spaces
-    sil! %s/ \{3,-}$/  /
+    sil! %s/ \{3,}$/  /
   endif
 
   " if last line blank, tack on bogus nonblank line
