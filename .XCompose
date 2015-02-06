@@ -1,8 +1,9 @@
  include "/usr/share/X11/locale/en_US.UTF-8/Compose"
-# last modified 2015-02-05
+# last modified 2015-02-06
 <Multi_key> <1> <apostrophe> : "′"
 <Multi_key> <2> <apostrophe> : "″"
 <Multi_key> <a> <asterisk> : "α"
+<Multi_key> <A> <plus> : "ℵ"
 <Multi_key> <b> <asterisk> : "β"
 <Multi_key> <b> <v> : "☕"
 <Multi_key> <C> <asterisk> : "Ξ"
@@ -22,8 +23,8 @@
 <Multi_key> <h> <asterisk> : "θ"
 <Multi_key> <h> <e> : "❧"
 <Multi_key> <i> <asterisk> : "ι"
-<Multi_key> <i> <i> : "ʝ"
 <Multi_key> <i> <n> : "∫"
+<Multi_key> <j> <j> : "ʝ"
 <Multi_key> <k> <asterisk> : "κ"
 <Multi_key> <L> <asterisk> : "Λ"
 <Multi_key> <l> <asterisk> : "λ"
