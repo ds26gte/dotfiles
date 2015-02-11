@@ -1,4 +1,4 @@
-" last modified 2015-01-23
+" last modified 2015-02-11
 
 au bufread,bufnewfile *.md call s:github_options()
 
@@ -34,12 +34,12 @@ func! GitHub_compatible()
   %s:\%(^ [  ]*\)\@<= : :g
   " convert all internal u+00a0s to regular spaces
   %s:\%([^  ].*\)\@<= : :g
-  " bol-number-dot-space: convert space to u+00a0
-  %s:^\(\d\+\.\) :\1 :
-  " underscore becomes u+2017, except in code display
-  v:^ÞtzpPreformattedTzp: s:_:‗:g
   " code displays don't need trailing spaces
   g:^ÞtzpPreformattedTzp: s:[  ]\+$::
+  " underscore becomes u+2017, except in code display
+  "v:^ÞtzpPreformattedTzp: s:_:‗:g
+  " bol-number-dot-space: convert space to u+00a0
+  "%s:^\(\d\+\.\) :\1 :
   " * following bol and followed by space becomes u+2022
   "%s:^\*\([  ]\):•\1:
   " other *s become u+22c6
