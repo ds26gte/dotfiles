@@ -1,4 +1,4 @@
-"last modified 2014-11-06
+"last modified 2015-02-11
 
 set bg=dark
 set term=xterm-256color
@@ -11,8 +11,8 @@ hi nontext ctermfg=58
 hi search ctermbg=none ctermfg=100
 hi statusline cterm=none ctermbg=235 ctermfg=247
 hi statuslinenc cterm=none ctermbg=235 ctermfg=242
-hi tabline cterm=none ctermbg=237 ctermfg=247
+hi tablinesel cterm=none ctermbg=237 ctermfg=247
 hi tablinefill cterm=none ctermbg=237
-hi tablinesel cterm=none ctermbg=237 ctermfg=242
+hi tabline cterm=none ctermbg=237 ctermfg=242
 hi title ctermfg=66
 hi warningmsg ctermfg=196
