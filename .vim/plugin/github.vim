@@ -36,12 +36,4 @@ func! GitHub_compatible()
   %s:\%([^  ].*\)\@<= : :g
   " code displays don't need trailing spaces
   g:^ÞtzpPreformattedTzp: s:[  ]\+$::
-  " underscore becomes u+2017, except in code display
-  "v:^ÞtzpPreformattedTzp: s:_:‗:g
-  " bol-number-dot-space: convert space to u+00a0
-  "%s:^\(\d\+\.\) :\1 :
-  " * following bol and followed by space becomes u+2022
-  "%s:^\*\([  ]\):•\1:
-  " other *s become u+22c6
-  "%s:\*:⋆:g
 endfunc
