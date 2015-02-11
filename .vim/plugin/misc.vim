@@ -1,4 +1,4 @@
-" last modified 2015-02-01
+" last modified 2015-02-09
 "set bk
 "set cedit=<esc>
 "set dy+=lastline
@@ -53,6 +53,7 @@ set sbr=⌇
 set scs
 set sect+=SS#\ ##
 set sw=2
+set swb+=useopen
 set tw=65
 set vi+=%
 set wic
