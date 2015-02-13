@@ -1,0 +1,136 @@
+.\" last modified 2015-02-13
+.
+.\" don't load if not groff
+
+.if !\n(.g .nx
+.
+.\" don't load more than once
+.
+.if d evaljl4troff:already_setup .nx
+.
+.if '\*[AUXF]'' .ds AUXF .trofftemp
+.
+.de evaljl4troff:snippets
+. sy touch \\*[evaljl4troff:file]
+. sy julia \\*[evaljl4troff:file]
+..
+.
+.nr evaljl4troff:already_setup 0
+.
+.de evaljl4troff:setup
+. if \\n[evaljl4troff:already_setup] .return
+. nr evaljl4troff:already_setup 1
+. if !\\n[.U] .return
+. ds evaljl4troff:file \\*[AUXF].jl
+. evaljl4troff:snippets
+. nr evaljl4troff:count 0
+. open evaljl4troff:port \\*[AUXF].jl
+. write evaljl4troff:port function evaljl4troff_preamble(f)
+. write evaljl4troff:port   global EVALJL
+. write evaljl4troff:port   EVALJL = open(f, "w")
+. write evaljl4troff:port   println(EVALJL, ".ecr")
+. write evaljl4troff:port end
+. write evaljl4troff:port function evaljl4troff_postamble()
+. write evaljl4troff:port   global EVALJL
+. write evaljl4troff:port   println(EVALJL, ".ecs")
+. write evaljl4troff:port   println(EVALJL, ".ds evaljl4troff:status done")
+. write evaljl4troff:port   close(EVALJL)
+. write evaljl4troff:port end
+..
+.
+.ds evaljl4troff:status try
+.
+.de eval
+. evaljl4troff:setup
+. nr evaljl4troff:count +1
+. ie !'\\n*[evaljl4troff:status]'rerun' \{\
+.  so \\*[AUXF]_jl_\\n[evaljl4troff:count].tmp
+.  if !'\\*[evaljl4troff:status]'done' .evaljl4troff:usage
+. \}
+. if !'\\*[evaljl4troff:status]'done' \[rh]eval\[lh]
+. eo
+. de evaljl4troff:text endeval
+..
+.
+.de endeval
+. ec
+. if !\\n[.U] .return
+. write evaljl4troff:port evaljl4troff_preamble("\\*[AUXF]_jl_\\n[evaljl4troff:count].tmp")
+. eo
+. writem evaljl4troff:port evaljl4troff:text
+. write evaljl4troff:port evaljl4troff_postamble()
+. ec
+..
+.
+.de evaljl4troff:usage
+. ds evaljl4troff:status rerun
+. tm Return groff with -U
+..
+.\" last modified 2015-02-13
+.
+.\" don't load if not groff
+.
+.if !\n(.g .nx
+.
+.\" don't load more than once
+.
+.if d evaljl4troff:already_setup .nx
+.
+.if '\*[AUXF]'' .ds AUXF .trofftemp
+.
+.de evaljl4troff:snippets
+. sy touch \\*[evaljl4troff:file]
+. sy julia \\*[evaljl4troff:file]
+..
+.
+.nr evaljl4troff:already_setup 0
+.
+.de evaljl4troff:setup
+. if \\n[evaljl4troff:already_setup] .return
+. nr evaljl4troff:already_setup 1
+. if !\\n[.U] .return
+. ds evaljl4troff:file \\*[AUXF].jl
+. evaljl4troff:snippets
+. nr evaljl4troff:count 0
+. open evaljl4troff:port \\*[AUXF].jl
+. write evaljl4troff:port function evaljl4troff_preamble(f)
+. write evaljl4troff:port   global EVALJL
+. write evaljl4troff:port   EVALJL = open(f, "w")
+. write evaljl4troff:port   println(EVALJL, ".ecr")
+. write evaljl4troff:port end
+. write evaljl4troff:port function evaljl4troff_postamble()
+. write evaljl4troff:port   global EVALJL
+. write evaljl4troff:port   println(EVALJL, ".ecs")
+. write evaljl4troff:port   println(EVALJL, ".ds evaljl4troff:status done")
+. write evaljl4troff:port   close(EVALJL)
+. write evaljl4troff:port end
+..
+.
+.ds evaljl4troff:status try
+.
+.de eval
+. evaljl4troff:setup
+. nr evaljl4troff:count +1
+. ie !'\\n*[evaljl4troff:status]'rerun' \{\
+.  so \\*[AUXF]_jl_\\n[evaljl4troff:count].tmp
+.  if !'\\*[evaljl4troff:status]'done' .evaljl4troff:usage
+. \}
+. if !'\\*[evaljl4troff:status]'done' \[rh]eval\[lh]
+. eo
+. de evaljl4troff:text endeval
+..
+.
+.de endeval
+. ec
+. if !\\n[.U] .return
+. write evaljl4troff:port evaljl4troff_preamble("\\*[AUXF]_jl_\\n[evaljl4troff:count].tmp")
+. eo
+. writem evaljl4troff:port evaljl4troff:text
+. write evaljl4troff:port evaljl4troff_postamble()
+. ec
+..
+.
+.de evaljl4troff:usage
+. ds evaljl4troff:status rerun
+. tm Return groff with -U
+..
