@@ -1,4 +1,4 @@
-"last modified 2015-01-06
+"last modified 2015-02-19
 
 au bufread,bufnewfile ~/public_html/pyret-lang*/** call s:pyretOptions()
 
@@ -27,6 +27,8 @@ func! s:pyretScrblOptions()
   setl mp=cd\ ~/public_html/pyret-lang/docs/written;make
 endfunc
 
-au bufwritepost ~/public_html/pyret-lang/**/*.{arr,js,scrbl} make | redraw
+"au bufwritepost ~/public_html/pyret-lang/**/*.{arr,js,scrbl} make | redraw
+
+"au bufwritepost ~/public_html/pyret-lang/**/*.{scrbl} make | redraw
 
 au bufread,bufnewfile *.jss doau bufread pretend.js
