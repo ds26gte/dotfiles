@@ -1,6 +1,3 @@
-#alias man='man --nh --nj'
-#alias man='PATH=/usr/bin:$PATH MANWIDTH=80 man --nh --nj'
-#alias man='PATH=/usr/local/bin:$PATH MANWIDTH=80 man --nh --nj'
 alias ..='cd ..'
 alias .2='..;..'
 alias .3='.2;..'
@@ -33,6 +30,7 @@ alias ei=/usr/bin/vi
 alias excel=localc
 alias ff=firefox
 alias gc='rm *~ .*~'
+alias getpyl='git clone https://github.com/brownplt/pyret-lang'
 alias gitpu='git pull'
 alias groffinstall='src;cd groff;./configure;make;sudo make install'
 alias h=history
@@ -81,6 +79,7 @@ alias pycr='cr $PYRETHOME/src/web/repl.html'
 alias pyj='pymake;py j.arr'
 alias pyl='cd $PYRETHOME'
 alias pymake='(pyl;make install;make)'
+alias pymkdoc='(pyl;make docs)'
 alias pyok='pyl;make test'
 alias pys='pyl;cd docs/written/builtin'
 alias pysmake='(pys;p;make)'
@@ -105,7 +104,7 @@ alias t3p='src;cd txt2page'
 alias t3pe='t3p;cd eg'
 alias t=txt2page
 alias testrn='py $PYRETHOME/tests/pyret/tests/test-roughnum.arr'
-alias tex=xetex
+alias tex=luatex
 alias texmf='cd;cd texmf/tex/'
 alias tmac='cd /usr/share/groff/current/tmac'
 alias tmp='cd;cd tmp'

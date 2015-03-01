@@ -1,9 +1,9 @@
-" last modified 2014-12-08
+" last modified 2015-03-01
 
 au bufread,bufnewfile *.tex call s:texOptions()
 
 func! s:texOptions()
-  "doau bufread pretend.txt
+  doau bufread pretend.txt
 
-  setl mp=tex2page.lisp\ %
+  "setl mp=tex2page.lisp\ %
 endfunc

@@ -1,4 +1,4 @@
-" last modified 2015-02-18
+" last modified 2015-02-21
 "set bk
 "set cedit=<esc>
 "set dy+=lastline
@@ -16,16 +16,6 @@
 "set tag=./tags;~
 "set title
 "set ts=4
-hi cursorlinenr ctermfg=148
-hi diffadd ctermbg=17
-hi diffchange ctermbg=53
-hi diffdelete ctermbg=23 ctermfg=none
-hi difftext cterm=none ctermbg=124
-hi link comment nontext
-hi link string title
-hi matchparen ctermbg=24
-hi pmenu ctermfg=0 ctermbg=94
-hi pmenusel ctermfg=0 ctermbg=214
 ino <tab> <c-p>
 ino jj <esc>
 set acd
@@ -40,6 +30,7 @@ set dy=lastline
 set et
 set hid
 set hls
+set ic
 set inf
 set is
 set isf-=#
@@ -61,3 +52,4 @@ set wic
 set wim=list:longest
 set ww+=h,l,<,>,[,]
 sil! set cb+=autoselectplus
+sil! set cm=blowfish2
