@@ -108,6 +108,7 @@ alias tex=luatex
 alias texmf='cd;cd texmf/tex/'
 alias tmac='cd /usr/share/groff/current/tmac'
 alias tmp='cd;cd tmp'
+alias trf='cd;cd groffinputs/font/devps'
 alias ubgrade='sudo apt-get update;sudo apt-get upgrade;sudo apt-get dist-upgrade'
 alias ui=/usr/bin/vi
 alias uvi=/usr/bin/vi
