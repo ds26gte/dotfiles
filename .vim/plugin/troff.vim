@@ -1,12 +1,12 @@
-" last modified 2015-03-02
+" last modified 2015-03-03
 
 au bufread,bufnewfile *.ms call s:troffOptions()
 
 func! s:troffOptions()
-  exec 'au bufwritepre' expand('%') 'sil! call TroffTypographicNiceties()'
+  exec 'au bufwritepre' expand('%') 'sil! call s:troffTypographicNiceties()'
 endfunc
 
-func! TroffTypographicNiceties()
+func! s:troffTypographicNiceties()
   norm my
 
   %s:\s\+$::
@@ -24,7 +24,9 @@ func! TroffTypographicNiceties()
   g:^ÞtzpListingTzp0: .,/^ÞtzpListingTzp1/ s:^:ÞtzpPreformattedTzp:
   %s:^\(ÞtzpPreformattedTzp\)ÞtzpListingTzp[01]:\1:
 
-  v:^ÞtzpPreformattedTzp: call TroffTypographicNicetiesAux()
+  g:^ÞtzpPreformattedTzp: call s:troffTypographicNicetiesInsideCodeEnv()
+
+  v:^ÞtzpPreformattedTzp: call s:troffTypographicNicetiesOutsideCodeEnv()
 
   %s:^ÞtzpPreformattedTzp::
   %s:ÞtzpThornTzp:Þ:g
@@ -32,7 +34,11 @@ func! TroffTypographicNiceties()
   norm `y
 endfunc
 
-func! TroffTypographicNicetiesAux()
+func! s:troffTypographicNicetiesInsideCodeEnv()
+  s:\\:∖:g
+endfunc
+
+func! s:troffTypographicNicetiesOutsideCodeEnv()
 
   " save some \, "
 

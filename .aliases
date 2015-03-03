@@ -38,7 +38,6 @@ alias heirinstall='src;cd heirloom-doctools;make;make install'
 alias hgvi='(src; cd vim; hg pull)'
 alias hspellc='TEMP() { cat "$@"|hunspell|grep "^&"|sed -e "s:^&\s*\(\S\+\).*:\1:"|sort -u; unset -f TEMP; }; TEMP'
 alias htm='cd;cd public_html'
-alias info='info --vi-keys'
 alias iv=vi
 alias j=jobs
 alias julia='julia -q --color=no'
@@ -57,6 +56,7 @@ alias md=mkdir
 alias minc='(printf "%.2f\n" $(echo $(cat|wc -w)/$(wordsperminute)|bc -l)) <'
 alias mo=less
 alias more=less
+alias mytmac='cd;cd groffinputs/tmac'
 alias octave='octave -q'
 alias osubgrade='ubgrade;sudo update-manager -d'
 alias p='cd ..'
