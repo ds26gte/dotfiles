@@ -1,4 +1,4 @@
-"last change 2014-12-14
+"last change 2015-03-05
 
 "needed only if called from within lynx
 
@@ -28,8 +28,8 @@ func! s:txt_go_to_source_file()
     0
     /^Generated from/
     norm 2wgf
+    doau bufread pretend.txt "shouldn't be needed, but is!
     setl mp=txt2page\ %
-    doau bufread pretend.txt "shouldn't be needed!
   elseif generated_by_pandoc_p
     let l:source_file = ''
     let l:old_su = &su

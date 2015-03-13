@@ -1,9 +1,17 @@
-" last modified 2015-03-03
+" last modified 2015-03-13
 
 au bufread,bufnewfile *.ms call s:troffOptions()
 
 func! s:troffOptions()
   exec 'au bufwritepre' expand('%') 'sil! call s:troffTypographicNiceties()'
+
+  syn region fxterm99 oneline start='^\.\*' end='$'
+
+  syn region fxterm68 start='\\fI' end='\\fP'
+  syn region fxterm33 start='\\fB' end='\\fP'
+
+  syn region fxterm65 start='\\fC' end='\\fP'
+  syn region fxterm65 start='^\.```$' end='^\.````'
 endfunc
 
 func! s:troffTypographicNiceties()
@@ -44,6 +52,7 @@ func! s:troffTypographicNicetiesOutsideCodeEnv()
 
   s:^\.\\":.ÞtzpBackslashTzpÞtzpDoubleQuoteTzp:g
   s:\\\(\[u[0-9A-C]\{4}\]\):ÞtzpBackslashTzp\1:g
+  s:\\\(f[BCIP]\):ÞtzpBackslashTzp\1:g
 
   " opening ", ' become u+201c, u+2018 resply
 

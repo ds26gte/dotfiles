@@ -1,7 +1,7 @@
-"last modified 2015-02-21
+"last modified 2015-03-10
 
 set bg=dark
-set term=xterm-256color
+sil! set term=xterm-256color
 
 hi cursorlinenr ctermfg=148
 hi diffadd ctermbg=17

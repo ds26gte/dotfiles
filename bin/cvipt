@@ -1,4 +1,4 @@
-# last modified 2014-09-15
+# last modified 2015-03-11
 # ex:tw=0
 
 # cvipt foo.cpt
@@ -22,10 +22,11 @@ fi
 
 rm -fr ~/tmp/.ccrypt.tmp
 
-/usr/bin/vi -N -m ~/tmp/.ccrypt.tmp \
-  -c "set noswf" \
+vi \
+  -c "set nocompatible noacd noswf nowrite" \
+  -c "e ~/tmp/.ccrypt.tmp" \
   -c "sil r !ccrypt -c -E crypticnonsense $f" \
-  -c "sil v/./,/./-j" \
+  -c "sil! v/./,/./-j" \
   -c "sil 1 g/^$/d" \
   -c "set nomod" \
   -c "nmap ZQ :sil set nomod <bar> sil w !ccrypt -e -E crypticnonsense > $f<cr>" \
