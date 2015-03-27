@@ -1,17 +1,19 @@
-" last modified 2015-03-13
+" last modified 2015-03-27
 
 au bufread,bufnewfile *.ms call s:troffOptions()
 
 func! s:troffOptions()
   exec 'au bufwritepre' expand('%') 'sil! call s:troffTypographicNiceties()'
 
-  syn region fxterm99 oneline start='^\.\*' end='$'
+  call TxtHilite()
+
+  syn region fxterm99 oneline start='^\.=' end='$'
 
   syn region fxterm68 start='\\fI' end='\\fP'
   syn region fxterm33 start='\\fB' end='\\fP'
 
   syn region fxterm65 start='\\fC' end='\\fP'
-  syn region fxterm65 start='^\.```$' end='^\.````'
+  syn region fxterm65 start='^\.\s*EX$' end='^\.\s*EE$'
 endfunc
 
 func! s:troffTypographicNiceties()
@@ -21,22 +23,22 @@ func! s:troffTypographicNiceties()
 
   %s:Þ:ÞtzpThornTzp:g
 
-  %s:^\s*\(```\+\)$:.\1:g
-  %s:^\.\s\+\(```\+\)$:.\1:g
-  %s:^\(\.```\+\).*:ÞtzpListingTzp\1:
-  call Toggle01(0)
-  g:^ÞtzpListingTzp: s:^ÞtzpListingTzp:\=submatch(0) . Toggle01():
-  %s:^\(ÞtzpListingTzp0\.```\)`\+:\1:
-  %s:^\(ÞtzpListingTzp1\.````\)`\+:\1:
-  %s:^\(ÞtzpListingTzp1\.```\)$:\1`:
-  g:^ÞtzpListingTzp0: .,/^ÞtzpListingTzp1/ s:^:ÞtzpPreformattedTzp:
-  %s:^\(ÞtzpPreformattedTzp\)ÞtzpListingTzp[01]:\1:
+  g:^\.EX$: .,/^\.EE$/ s:^:ÞtzpPreformattedTzp:
 
-  g:^ÞtzpPreformattedTzp: call s:troffTypographicNicetiesInsideCodeEnv()
+  " g:^ÞtzpPreformattedTzp: call s:troffTypographicNicetiesInsideCodeEnv()
+
+  g:^\.ig\s\+##$: .,/^\.##$/ s:^:ÞtzpPreformattedTzp:
+
+  g:^\.eval$: .,/^\.endeval$/ s:^:ÞtzpPreformattedTzp:
+
+  %s:^\(\.\*\):ÞtzpSectionTzp\1:
+
+  %s:^\.:ÞtzpPreformattedTzp\0:
 
   v:^ÞtzpPreformattedTzp: call s:troffTypographicNicetiesOutsideCodeEnv()
 
   %s:^ÞtzpPreformattedTzp::
+  %s:^ÞtzpSectionTzp::
   %s:ÞtzpThornTzp:Þ:g
 
   norm `y
@@ -50,9 +52,13 @@ func! s:troffTypographicNicetiesOutsideCodeEnv()
 
   " save some \, "
 
-  s:^\.\\":.ÞtzpBackslashTzpÞtzpDoubleQuoteTzp:g
-  s:\\\(\[u[0-9A-C]\{4}\]\):ÞtzpBackslashTzp\1:g
-  s:\\\(f[BCIP]\):ÞtzpBackslashTzp\1:g
+  " s:^\.\\":.ÞtzpBackslashTzpÞtzpDoubleQuoteTzp:g
+  " s:\\\(\[u[0-9A-C]\{4}\]\):ÞtzpBackslashTzp\1:g
+  " s:\\\(f[BCIP]\):ÞtzpBackslashTzp\1:g
+  " s:\\\(\*\[\):ÞtzpBackslashTzp\1:g
+
+  " save some "
+  s:\(\\\w*\)":\1ÞtzpDoubleQuoteTzp:g
 
   " opening ", ' become u+201c, u+2018 resply
 
@@ -76,11 +82,11 @@ func! s:troffTypographicNicetiesOutsideCodeEnv()
 
   " \ becomes u+2216
 
-  s:\\:∖:g
+  " s:\\:∖:g
 
   " restore saved \s
 
-  s:ÞtzpBackslashTzp:\\:g
+  " s:ÞtzpBackslashTzp:\\:g
 
   " --- preceded by {bol, space, :} and
   " followed by {space, eol}
