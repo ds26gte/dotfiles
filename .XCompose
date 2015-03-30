@@ -1,5 +1,5 @@
  include "/usr/share/X11/locale/en_US.UTF-8/Compose"
-# last modified 2015-03-26
+# last modified 2015-03-29
 <Multi_key> <0> <parenleft>: "∝"
 <Multi_key> <1> <apostrophe> : "′"
 <Multi_key> <2> <apostrophe> : "″"
@@ -66,6 +66,7 @@
 <Multi_key> <slash> <minus> : "†"
 <Multi_key> <t> <asterisk> : "τ"
 <Multi_key> <t> <e> : "∃"
+<Multi_key> <T> <h> <a> : "ಠ"
 <Multi_key> <underscore> <k> : "ₖ" 
 <Multi_key> <underscore> <minus> : "₋" 
 <Multi_key> <underscore> <n> : "ₙ"

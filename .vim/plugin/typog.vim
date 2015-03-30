@@ -1,4 +1,4 @@
-" last modified 2015-01-30
+" last modified 2015-03-29
 
 func! TypographicNiceties()
   if exists('b:pure_ascii') && b:pure_ascii
@@ -16,9 +16,11 @@ func! TypographicNiceties()
   sil! %s:^\(ÞtzpListingTzp1\s*\.\?```\)\s*$:\1`:
   sil! g:^ÞtzpListingTzp0: .,/^ÞtzpListingTzp1/ s:^:ÞtzpPreformattedTzp:
   sil! %s:^\(ÞtzpPreformattedTzp\)ÞtzpListingTzp[01]:\1:
-  sil! g:^\.[^#A-Z]: s:^:ÞtzpPreformattedTzp:
+  sil! g:^\.[^=#A-Z]: s:^:ÞtzpPreformattedTzp:
 
   sil! g:^ÞtzpPreformattedTzp: s: : :g
+
+  sil! %s:^[  ]:ÞtzpPreformattedTzp\0:
 
   sil! v:^ÞtzpPreformattedTzp: call s:smartquotes_etc()
 
