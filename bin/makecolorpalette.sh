@@ -5,7 +5,7 @@ makepalettefile() {
     rm -f $f
     for i in {1..255}
     do
-        j=$(printf "%02X" $i)
+        j=$(printf "%02x" $i)
         echo hi def $1cterm$j cterm$1g=$i
         echo syn keyword $1cterm$j $1cterm$j
     done >> $f
