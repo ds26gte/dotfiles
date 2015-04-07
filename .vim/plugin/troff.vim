@@ -1,4 +1,4 @@
-" last modified 2015-03-27
+" last modified 2015-04-07
 
 au bufread,bufnewfile *.ms call s:troffOptions()
 
@@ -7,7 +7,7 @@ func! s:troffOptions()
 
   call TxtHilite()
 
-  syn region fxterm99 oneline start='^\.=' end='$'
+  syn region fxterm172 oneline start='^\.=' end='$'
 
   syn region fxterm68 start='\\fI' end='\\fP'
   syn region fxterm33 start='\\fB' end='\\fP'
@@ -88,12 +88,6 @@ func! s:troffTypographicNicetiesOutsideCodeEnv()
 
   " s:ÞtzpBackslashTzp:\\:g
 
-  " --- preceded by {bol, space, :} and
-  " followed by {space, eol}
-  " becomes quot dash (u+2015)
-
-  s:\(^\|[ :]\)---\([ ]\|$\):\1―\2:g
-
   " -- preceded by {bol, space, :} and
   " followed by {space, comma, closing-quote, eol}
   " becomes em dash (u+2014)
@@ -103,14 +97,6 @@ func! s:troffTypographicNicetiesOutsideCodeEnv()
   " -- followed by closing quote becomes em dash
 
   s:--\([’”]\):—\1:g
-
-  " - directly between two digits becomes en dash (u+2013)
-
-  s:\(\d\)-\(\d\):\1–\2:g
-
-  " en dashes flanking a number revert to hyphens
-  s:–\([0-9.]\+\)[-–]:-\1-:g
-  s:-\([0-9.]\+\)–:-\1-:g
 
   " - preceded by {bol, space} and
   " followed by opt spaces and then number becomes minus (u+2212)
