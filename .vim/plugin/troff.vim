@@ -7,13 +7,13 @@ func! s:troffOptions()
 
   call TxtHilite()
 
-  syn region fxterm172 oneline start='^\.=' end='$'
+  syn region fctermAC oneline start='^\.=' end='$'
 
-  syn region fxterm68 start='\\fI' end='\\fP'
-  syn region fxterm33 start='\\fB' end='\\fP'
+  syn region fcterm44 start='\\fI' end='\\fP'
+  syn region fcterm21 start='\\fB' end='\\fP'
 
-  syn region fxterm65 start='\\fC' end='\\fP'
-  syn region fxterm65 start='^\.\s*EX$' end='^\.\s*EE$'
+  syn region fcterm41 start='\\fC' end='\\fP'
+  syn region fcterm41 start='^\.\s*EX$' end='^\.\s*EE$'
 endfunc
 
 func! s:troffTypographicNiceties()

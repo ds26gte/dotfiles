@@ -1,12 +1,13 @@
-# last modified 2014-08-09
+# last modified 2015-04-07
 
 makepalettefile() {
-    f=$1xterm256colors.vim
+    f=$1ctermcolors.vim
     rm -f $f
     for i in {1..255}
     do
-        echo hi def $1xterm$i cterm$1g=$i
-        echo syn keyword $1xterm$i $1xterm$i
+        j=$(printf "%02X" $i)
+        echo hi def $1cterm$j cterm$1g=$i
+        echo syn keyword $1cterm$j $1cterm$j
     done >> $f
     echo au bufread $f so % >> $f
 }
