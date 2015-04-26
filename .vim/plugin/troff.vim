@@ -7,7 +7,7 @@ func! s:troffOptions()
 
   call TxtHilite()
 
-  syn region fctermAC oneline start='^\.=' end='$'
+  syn region fctermac oneline start='^\.=' end='$'
 
   syn region fcterm44 start='\\fI' end='\\fP'
   syn region fcterm21 start='\\fB' end='\\fP'

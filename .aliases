@@ -34,6 +34,7 @@ alias dateindia='TZ=Asia/Kolkata date'
 alias dateseattle='TZ=America/Los_Angeles date'
 alias diff=colordiff
 alias dnld='cd;cd downloads'
+alias do-release-upgrade='sudo do-release-upgrade'
 alias dotf='src;cd dotfiles'
 alias dvimf='src;cd dotfiles/.vim/plugin'
 alias e4t='htm;cd eval4tex'
@@ -49,6 +50,7 @@ alias g=troff2page
 alias gc='rm *~ .*~'
 alias getpyl='git clone https://github.com/brownplt/pyret-lang'
 alias gitpu='git pull'
+alias groff='groff -U'
 alias groffinstall='src;cd groff;./configure;make;sudo make install'
 alias h=history
 alias heirinstall='src;cd heirloom-doctools;make;make install'
