@@ -1,4 +1,4 @@
-# last modified 2014-12-07
+# last modified 2015-04-25
 
 # .docx files written from libreoffice don't have
 # word/webSettings.xml, which trips pandoc when the latter uses
@@ -23,7 +23,6 @@ if test ! -f webSettings.xml
 then cp -p settings.xml webSettings.xml
 else echo reference.docx already has webSettings.xml
 fi
-sed -i -e 's/Consolas\|Ubuntu Mono/Courier/g' styles.xml
 cd ..
 
 rm reference.docx
