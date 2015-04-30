@@ -1,4 +1,4 @@
-" last modified 2015-03-29
+" last modified 2015-04-27
 
 func! TypographicNiceties()
   if exists('b:pure_ascii') && b:pure_ascii
@@ -68,25 +68,25 @@ func! s:smartquotes_etc()
   " followed by {space, eol}
   " becomes quot dash (u+2015)
 
-  s:\(^\|[  :]\)---\([  ]\|$\):\1―\2:g
+  " s:\(^\|[  :]\)---\([  ]\|$\):\1―\2:g
 
   " -- preceded by {bol, space, :} and
   " followed by {space, comma, closing-quote, eol}
   " becomes em dash (u+2014)
 
-  s:\(^\|[  :]\)--\([  ,’”]\|$\):\1—\2:g
+  s=\(^\|[  :]\)--\([  ,’”]\|$\)=\1—\2=g
 
   " -- followed by closing quote becomes em dash
 
-  s:--\([’”]\):—\1:g
+  " s:--\([’”]\):—\1:g
 
   " - directly between two digits becomes en dash (u+2013)
 
-  s:\(\d\)-\(\d\):\1–\2:g
+  " s:\(\d\)-\(\d\):\1–\2:g
 
   " en dashes flanking a number revert to hyphens
-  s:–\([0-9.]\+\)[-–]:-\1-:g
-  s:-\([0-9.]\+\)–:-\1-:g
+  " s:–\([0-9.]\+\)[-–]:-\1-:g
+  " s:-\([0-9.]\+\)–:-\1-:g
 
   " - preceded by {bol, space} and
   " followed by opt spaces and then number becomes minus (u+2212)
@@ -106,7 +106,7 @@ func! Asciiize()
   sil! s:[⋆•]:*:g
   sil! s:[‘’]:':g
   sil! s:[“”]:":g
-  sil! s:―:---:g "quot dash
+  " sil! s:―:---:g "quot dash
   sil! s:—:--:g "em dash
   sil! s:[–−]:-:g "en dash, minus
 endfunc

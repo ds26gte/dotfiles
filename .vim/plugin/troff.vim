@@ -1,4 +1,4 @@
-" last modified 2015-04-07
+" last modified 2015-04-30
 
 au bufread,bufnewfile *.ms call s:troffOptions()
 
@@ -93,10 +93,6 @@ func! s:troffTypographicNicetiesOutsideCodeEnv()
   " becomes em dash (u+2014)
 
   s:\(^\|[ :]\)--\([ ,’”]\|$\):\1—\2:g
-
-  " -- followed by closing quote becomes em dash
-
-  s:--\([’”]\):—\1:g
 
   " - preceded by {bol, space} and
   " followed by opt spaces and then number becomes minus (u+2212)
