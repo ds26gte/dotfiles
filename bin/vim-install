@@ -1,8 +1,6 @@
-# last modified 2015-01-27
+# last modified 2015-05-04
 
 cd ~/src/vim
-
-hg up -v
 
 ./configure \
 --disable-gui \
