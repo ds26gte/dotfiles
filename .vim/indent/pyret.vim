@@ -1,7 +1,7 @@
 " Vim indent file
 " Language:	Pyret
 " Maintainer:	Dorai Sitaram <ds26gte@yahoo.com>
-" Last Change:	2015-02-02
+" Last Change:	2015-05-06
 
 " Only load this indent file when no other was loaded.
 if exists("b:did_indent")
@@ -10,7 +10,7 @@ endif
 let b:did_indent = 1
 
 " Some preliminary setting
-setlocal indentkeys=!,o,O=end,=case,=else,=elseif,=catch
+setlocal indentkeys=!,o,O,=case,=catch,=else,=elseif,=end
 
 setlocal indentexpr=GetPyretIndent(v:lnum)
 
@@ -19,9 +19,9 @@ if exists("*GetPyretIndent")
   finish
 endif
 
-let s:pyretIndentOpeners = '^\s*\(check\|data\|for\|fun\|if\|else\|elseif\|case\|while\|switch\|try\|catch\)\>'
+let s:pyretIndentOpeners = '^\s*\(ask\|case\|cases\|catch\|check\|data\|else\|elseif\|for\|fun\|if\|switch\|try\|while\)\>'
 
-let s:pyretIndentClosers = '^\s*\(end\|else\|elseif\|case\|catch\)\>'
+let s:pyretIndentClosers = '^\s*\(case\|catch\|else\|elseif\|end\)\>'
 
 function GetPyretIndent(lnum)
   let plnum = a:lnum - 1

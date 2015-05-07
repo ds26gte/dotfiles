@@ -150,6 +150,7 @@ alias vu=evince
 alias wes='htm;cd wescheme2012'
 alias wescomp='wes;cd war-src/js/compiler'
 alias wesjsnum='wes;cd war-src/js/js-runtime'
+alias wesmake='wes;build-console-and-editor.rkt;ant runserver'
 alias wget='wget -c'
 alias whathavei='aptitude versions "~i"'
 alias word=lowriter
