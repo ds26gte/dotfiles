@@ -1,4 +1,4 @@
-" last modified 2015-04-30
+" last modified 2015-05-07
 
 au bufread,bufnewfile *.ms call s:troffOptions()
 
@@ -7,7 +7,7 @@ func! s:troffOptions()
 
   call TxtHilite()
 
-  syn region fctermac oneline start='^\.=' end='$'
+  syn region header oneline start='^\.=' end='$'
 
   syn region fcterm44 start='\\fI' end='\\fP'
   syn region fcterm21 start='\\fB' end='\\fP'

@@ -1,26 +1,34 @@
-" last modified 2015-03-26
+" last modified 2015-05-07
 
 func! TxtHilite()
+
   " URLs
-  syn match title '\<[[:alpha:]-]\+://[^[:space:]()<>]\+\%([[:punct:]⟩]\)\@<!\%(([[:alnum:]]\+)\|/\|\)'
-  syn match title '\<mailto:[[:alnum:].]\+@[[:alnum:]]\+\.[[:alpha:]]\+\>'
-  syn match title '\<[[:alnum:].-]\+\.\%(biz\|com\|co\.[[:lower:]]\{2}\|edu\|net\|org\|[[:lower:]]\{2}\%(js\|on\)\@<!\)\%(/[^[:space:]()<>]\+\%([[:punct:]]\)\@<!\%(([[:alnum:]]\+)\|/\|\)\|\>\)'
-  syn match title '\<[[:alnum:].]\+@[[:alnum:].]\+\.\%(ca\|com\|edu\|in\|net\|org\|us\)\>'
+  syn match url '\<[[:alpha:]-]\+://[^[:space:]()<>]\+\%([[:punct:]⟩]\)\@<!\%(([[:alnum:]]\+)\|/\|\)'
+  syn match url '\<mailto:[[:alnum:].]\+@[[:alnum:]]\+\.[[:alpha:]]\+\>'
+  syn match url '\<[[:alnum:].-]\+\.\%(biz\|com\|co\.[[:lower:]]\{2}\|edu\|net\|org\|[[:lower:]]\{2}\%(js\|on\)\@<!\)\%(/[^[:space:]()<>]\+\%([[:punct:]]\)\@<!\%(([[:alnum:]]\+)\|/\|\)\|\>\)'
+  syn match url '\<[[:alnum:].]\+@[[:alnum:].]\+\.\%(ca\|com\|edu\|in\|net\|org\|us\)\>'
 
   " pathnames starting with ./
-  syn match title '"\./.\{-}"'
-  syn match title '“\./.\{-}”'
-  syn match title '\./[^[:space:]()<>&]\+\%([[:punct:]]\)\@<!'
+  syn match url '"\./.\{-}"'
+  syn match url '“\./.\{-}”'
+  syn match url '\./[^[:space:]()<>&]\+\%([[:punct:]]\)\@<!'
 
   " headers
-  syn match title '^\.\?#\+\s.*'
+  syn match header '^#\+\s.*'
+  syn match header '^\.=\+\s.*'
 
   " emphasis
   syn match title '⎈.\{-}⎈'
 
+  " quote
+
+  syn region quoted start='‹‹‹' end='›››'
+
   " footnotes
   syn match title '(†[^()[:space:]]*)'
   syn region title start='(†[^)]*\($\|[[:space:](]\)' end='†)'
+
+  syn region title start='^\.FS' end='^\.FE'
 
   " code display
   syn region title start='^\.\?\s*```[^`]*$' end='^\.\?\s*````\?\s*$'

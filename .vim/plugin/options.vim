@@ -1,4 +1,4 @@
-" last modified 2015-05-01
+" last modified 2015-05-07
 "set bk
 "set cedit=<esc>
 "set dy+=lastline
@@ -7,6 +7,7 @@
 "set ffs-=dos
 "set isf-=! "why exactly?
 "set lbr
+"set ls=2
 "set mouse=a
 "set nf-=octal
 "set noswf
@@ -33,7 +34,6 @@ set inf
 set is
 set isf-=#
 set lcs=nbsp:·,trail:·
-set ls=2
 set para+=EXEEFSFE``
 set path=.,**,,
 set pm=~~

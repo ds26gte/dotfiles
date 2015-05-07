@@ -1,28 +1,36 @@
-"last modified 2015-03-10
+"last modified 2015-05-07
 
 set bg=dark
 sil! set term=xterm-256color
 
-hi cursorlinenr ctermfg=148
+"hi url cterm=underline
+"hi! link moremsg fctermab
+"hi! link statusline fcterm20
+"hi! link statuslinenc fcterm18
+"hi! link url fcterm60 "5e
 hi diffadd ctermbg=17
 hi diffchange ctermbg=53
 hi diffdelete ctermbg=23 ctermfg=none
 hi difftext cterm=none ctermbg=124
-hi directory ctermfg=32
-hi linenr ctermfg=237 "136
-hi link comment nontext
-hi link string title
 hi matchparen ctermbg=24
-hi modemsg cterm=none ctermfg=242
-hi moremsg ctermfg=171
-hi nontext ctermfg=58
+hi moremsg cterm=reverse ctermfg=NONE
 hi pmenu ctermfg=0 ctermbg=94
 hi pmenusel ctermfg=0 ctermbg=214
-hi search ctermbg=none ctermfg=100
 hi statusline cterm=none ctermbg=235 ctermfg=247
 hi statuslinenc cterm=none ctermbg=235 ctermfg=242
 hi tabline cterm=none ctermbg=237 ctermfg=242
 hi tablinefill cterm=none ctermbg=237
 hi tablinesel cterm=none ctermbg=237 ctermfg=247
-hi title ctermfg=66
-hi warningmsg ctermfg=196
+hi! link comment fcterm3c "3a
+hi! link cursorlinenr fcterm94
+hi! link directory fcterm20
+hi! link header fcterm5e
+hi! link linenr fctermed "88
+hi! link modemsg fctermf2
+hi! link nontext fcterm3a
+hi! link quoted fctermef
+hi! link search fcterm64
+hi! link string fcterm42
+hi! link title fcterm42
+hi! link url fctermf1
+hi! link warningmsg fctermc4

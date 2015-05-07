@@ -1,4 +1,4 @@
-"last modified 2015-02-21
+"last modified 2015-05-07
 
 if has('eval')
   finish
@@ -10,5 +10,5 @@ set dy=lastline
 set ep=sjindent
 set fp=par\ -q\ -w65
 set ic
-set ls=2
+"set ls=2
 set tw=65
