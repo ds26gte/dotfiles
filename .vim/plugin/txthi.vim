@@ -1,4 +1,4 @@
-" last modified 2015-05-07
+" last modified 2015-05-08
 
 func! TxtHilite()
 
@@ -18,7 +18,7 @@ func! TxtHilite()
   syn match header '^\.=\+\s.*'
 
   " emphasis
-  syn match title '⎈.\{-}⎈'
+  syn match emphasis '⎈.\{-}⎈'
 
   " quote
 
@@ -31,7 +31,7 @@ func! TxtHilite()
   syn region title start='^\.FS' end='^\.FE'
 
   " code display
-  syn region title start='^\.\?\s*```[^`]*$' end='^\.\?\s*````\?\s*$'
+  syn region display start='^\.\?\s*```[^`]*$' end='^\.\?\s*````\?\s*$'
 
   " email quote
   if expand('%:t') =~ '^pico\.\d\+$d'

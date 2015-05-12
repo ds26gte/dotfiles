@@ -1,4 +1,4 @@
-" last modified 2015-05-07
+" last modified 2015-05-12
 
 au bufread,bufnewfile *.ms call s:troffOptions()
 
@@ -9,11 +9,11 @@ func! s:troffOptions()
 
   syn region header oneline start='^\.=' end='$'
 
-  syn region fcterm44 start='\\fI' end='\\fP'
-  syn region fcterm21 start='\\fB' end='\\fP'
+  syn region emphasis start='\\fI' end='\\fP'
+  syn region emphasis start='\\fB' end='\\fP'
 
-  syn region fcterm41 start='\\fC' end='\\fP'
-  syn region fcterm41 start='^\.\s*EX$' end='^\.\s*EE$'
+  syn region display start='\\fC' end='\\fP'
+  syn region display start='^\.\s*EX$' end='^\.\s*EE$'
 endfunc
 
 func! s:troffTypographicNiceties()
