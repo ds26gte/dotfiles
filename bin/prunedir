@@ -1,7 +1,7 @@
 #!/bin/bash
 # prunedir
 # Dorai Sitaram
-# Last modified 2014-08-19
+# Last modified 2015-05-11
 #
 # Usage:
 #
@@ -62,5 +62,5 @@ prunecwdagainst() {
   done
 }
 
-cd $here
-prunecwdagainst $there
+cd "$here"
+prunecwdagainst "$there"
