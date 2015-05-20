@@ -1,5 +1,7 @@
-"last modified 2014-12-04
+"last modified 2015-05-20
 "from vim.wikia.com/wiki/Encryption
+
+au bufnewfile *.cpt call s:ccrypt_bufnewfile()
 
 au bufreadpre *.cpt call s:ccrypt_bufreadpre()
 
@@ -8,6 +10,11 @@ au bufreadpost *.cpt call s:ccrypt_bufreadpost()
 au bufwritepre *.cpt call s:ccrypt_bufwritepre()
 
 au bufwritepost *.cpt call s:ccrypt_bufwritepost()
+
+func! s:ccrypt_bufnewfile()
+  call s:ccrypt_bufreadpre()
+  call s:ccrypt_bufreadpost()
+endfunc
 
 func! s:ccrypt_bufreadpre()
     setl bin
