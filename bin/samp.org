@@ -4,17 +4,7 @@ Neque amet architecto occaecati delectus sint qui aut. Beatae vel
 omnis quis voluptas aperiam facere ea. Unde ratione molestiae
 necessitatibus nisi voluptatem.
 
-=rplacd #!false=
-
-~rplacd #!false~
-
-=set! \= assignment=
-
-~set! \~ assignment~
-
 ~set! ~=~ assignment~
-
-==set! = assignment==
 
 ** header
 
