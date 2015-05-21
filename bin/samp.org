@@ -6,9 +6,11 @@ necessitatibus nisi voluptatem.
 
 =rplacd #!false=
 
-~rplacd #!false=
+~rplacd #!false~
 
 =set! \= assignment=
+
+~set! \~ assignment~
 
 ** header
 
