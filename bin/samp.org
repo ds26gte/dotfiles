@@ -12,6 +12,10 @@ necessitatibus nisi voluptatem.
 
 ~set! \~ assignment~
 
+~set! ~=~ assignment~
+
+==set! = assignment==
+
 ** header
 
 Sed eum quas ad. Qui praesentium et dolorem inventore nam rerum.
