@@ -13,7 +13,7 @@ tenetur animi et dolores.
 Dolores ipsum vero molestiae impedit corporis amet. Deserunt sed
 reiciendis est. Cumque ab tenetur in odit beatae ad.
 
-+BEGIN_VERSE
+#+BEGIN_VERSE
 roses are red
 violets are blue
 most poems rhyme
@@ -23,12 +23,12 @@ roses are red
 violets are blue
 most poems rhyme
 this one doesn't
-+END_VERSE
+#+END_VERSE
 
 Sint nemo nisi quo. Autem ipsum quaerat quia. Ut consectetur
 tempora sed.
 
-+BEGIN_SRC
+#+BEGIN_SRC
 (define factorial
   (lambda (n)
     (if (= n 0)
@@ -40,13 +40,13 @@ tempora sed.
     (if (= n 0)
         1
         (* n (factorial (- n 1))))))
-+END_SRC
+#+END_SRC
 
 Corporis aut nisi ipsum est autem et reprehenderit quia. Veniam
 autem veniam dolorem delectus rem sunt. Illum accusamus
 exercitationem et dolorem. Ut autem reiciendis voluptatum ut eos
 atque. Rem quidem in omnis modi.
-+
+#+
 
 Impedit aliquam doloremque libero aspernatur sequi officiis
 veniam. Modi quidem et sed est. A doloremque sunt ipsam sint
