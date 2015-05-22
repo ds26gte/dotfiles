@@ -1,4 +1,4 @@
-" last modified 2015-01-06
+" last modified 2015-05-20
 
 au bufread,bufnewfile *.lo call s:libreOfficeOptions()
 
@@ -12,3 +12,5 @@ func! s:libreOfficeOptions()
         \\ %
         \\ -o\ %:r.docx
 endfunc
+
+au bufwritepost *.lo make | redraw

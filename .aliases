@@ -38,7 +38,7 @@ alias diff=colordiff
 alias dnld='cd;cd downloads'
 alias do-release-upgrade='sudo do-release-upgrade'
 alias dotf='src;cd dotfiles'
-alias dvimf='src;cd dotfiles/.vim/plugin'
+alias dvimf='src;cd dotfiles/.nvim/plugin'
 alias e4t='htm;cd eval4tex'
 alias e4tt='e4t;cd tmp'
 alias ei=/usr/bin/vi
@@ -148,7 +148,7 @@ alias ui=/usr/bin/vi
 alias uvi=/usr/bin/vi
 alias vialias='vi ~/.aliases;realias'
 alias view='view -c "setl lbr sbr= nowrite"'
-alias vimf='cd;cd .vim/plugin'
+alias vimf='cd;cd .nvim/plugin'
 alias vimrt='cd /usr/local/share/vim/vim74'
 alias vip='ps -ef|grep " vi"|grep -v grep'
 alias vu=evince
