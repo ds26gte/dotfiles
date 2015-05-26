@@ -1,4 +1,5 @@
  include "/usr/share/X11/locale/en_US.UTF-8/Compose"
+# <Multi_key> <backslash> <backslash> : "⧹"
 # last modified 2015-05-25
 <Multi_key> <0> <parenleft>: "∝"
 <Multi_key> <1> <apostrophe> : "′"
@@ -10,7 +11,7 @@
 <Multi_key> <b> <asterisk> : "β"
 <Multi_key> <b> <t> : "⚘"
 <Multi_key> <b> <v> : "☕"
-<Multi_key> <backslash> <backslash> : "⧹"
+<Multi_key> <backslash> <backslash> : "∖"
 <Multi_key> <C> <asterisk> : "Ξ"
 <Multi_key> <c> <asterisk> : "ξ"
 <Multi_key> <c> <c> <w> <c> <i> : "∳"
