@@ -1,4 +1,4 @@
-" last modified 2015-05-22
+" last modified 2015-05-25
 set acd
 set ai
 set cf
@@ -8,6 +8,7 @@ set cpt+=k./*.txt
 set dict=/usr/share/dict/words
 set dy=lastline
 set et
+set exrc
 set hid
 set hls
 set ic
@@ -15,6 +16,7 @@ set inf
 set is
 set isf-=#
 set lcs=nbsp:·,trail:·
+set mouse=a
 set para+=EXEEFSFE``
 set path=.,**,,
 set pm=~~
