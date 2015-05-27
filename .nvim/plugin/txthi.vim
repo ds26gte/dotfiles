@@ -1,4 +1,4 @@
-" last modified 2015-05-25
+" last modified 2015-05-26
 
 func! TxtHilite()
 
@@ -31,7 +31,7 @@ func! TxtHilite()
   syn region title start='^\.FS' end='^\.FE'
 
   " code display
-  syn region display start='^\.\s*EX$' end='^\.\s*EE$'
+  syn region display start='^\.\s*EX.*$' end='^\.\s*EE$'
   syn region display start='^\.\?\s*```[^`]*$' end='^\.\?\s*````\?\s*$'
 
   " email quote

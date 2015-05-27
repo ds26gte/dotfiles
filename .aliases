@@ -1,3 +1,7 @@
+#alias ghvi='(srcvim;gitpu)'
+#alias pfandoc='TEMP() { g=${1%.*}; pandoc -f markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris $1 -o $g.pdf; unset -f TEMP; }; TEMP'
+#alias phandoc='TEMP() { g=${1%.*}; if test -f default.css; then cssf=default.css; else cssf=/home/ds26gte/default.css; fi; pandoc -f markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris -t html5 -c $cssf -s $1 -o $g.html; unset -f TEMP; }; TEMP'
+#alias pwandoc='TEMP() { g=${1%.*}; pandoc -f markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris $1 -o $g.docx; unset -f TEMP; }; TEMP'
 alias ..='cd ..'
 alias .2='..;..'
 alias .3='.2;..'
@@ -53,7 +57,6 @@ alias g=troff2page
 alias gc='rm *~ .*~'
 alias getpyl='git clone https://github.com/brownplt/pyret-lang'
 alias getwescheme='htm;rm -fr wescheme2012;git clone https://github.com/bootstrapworld/wescheme2012;cd wescheme2012;git submodule init;git submodule update'
-alias ghvi='(srcvim;gitpu)'
 alias gitpu='git pull'
 alias groff='groff -U'
 alias h=history
@@ -70,7 +73,7 @@ alias la='ls -Ad .*'
 alias latex=pdflatex
 alias lfece='lfec -o ../ebin'
 alias lfedoc='src;cd lfe/doc'
-alias lfelessons='htm;cd erllib/lfelessons/doc'
+alias lfelessons='src;cd lfelessons/doc'
 alias lo=lowriter
 alias ls='ls --color=auto -F'
 alias ly=lynx
@@ -94,8 +97,6 @@ alias p='cd ..'
 alias paideia='man paideia'
 alias panslide='TEMP() { g=${1%.*}; pandoc -f markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris -t revealjs -V revealjs-url:$HOME/.pandoc/reveal.js -H $HOME/.pandoc/revealjsfont.css -o $g.html $1; unset -f TEMP; }; TEMP'
 alias pca='src;cd mpca'
-alias pfandoc='TEMP() { g=${1%.*}; pandoc -f markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris $1 -o $g.pdf; unset -f TEMP; }; TEMP'
-alias phandoc='TEMP() { g=${1%.*}; if test -f default.css; then cssf=default.css; else cssf=/home/ds26gte/default.css; fi; pandoc -f markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris -t html5 -c $cssf -s $1 -o $g.html; unset -f TEMP; }; TEMP'
 alias ping='ping -c 5'
 alias pp='p;p'
 alias ppp='pp;p'
@@ -104,7 +105,6 @@ alias preg='src;cd pregexp'
 alias pregt='preg;cd tmp'
 alias prun='prunedir ../..'
 alias pw=pwd
-alias pwandoc='TEMP() { g=${1%.*}; pandoc -f markdown-line_blocks-raw_html-subscript-superscript+autolink_bare_uris $1 -o $g.docx; unset -f TEMP; }; TEMP'
 alias py='node $PYRETHOME/build/phase1/main-wrapper.js'
 alias pyboot='(pyl;make new-bootstrap)'
 alias pycr='cr $PYRETHOME/src/web/repl.html'
@@ -134,7 +134,7 @@ alias t1=tex2page
 alias t2=tex2page.lisp
 alias t2p='src;cd tex2page'
 alias t2pd='t2p;cd dialects'
-alias t3p='htm;cd txt2page'
+alias t3p='src;cd txt2page'
 alias t3pe='t3p;cd eg'
 alias t3pt='t3p;cd tmac'
 alias t=txt2page

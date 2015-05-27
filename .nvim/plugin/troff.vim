@@ -1,4 +1,4 @@
-" last modified 2015-05-12
+" last modified 2015-05-26
 
 au bufread,bufnewfile *.ms call s:troffOptions()
 
@@ -23,7 +23,7 @@ func! s:troffTypographicNiceties()
 
   %s:Þ:ÞtzpThornTzp:g
 
-  g:^\.EX$: .,/^\.EE$/ s:^:ÞtzpPreformattedTzp:
+  g:^\.EX: .,/^\.EE$/ s:^:ÞtzpPreformattedTzp:
 
   " g:^ÞtzpPreformattedTzp: call s:troffTypographicNicetiesInsideCodeEnv()
 
