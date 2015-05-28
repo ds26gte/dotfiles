@@ -1,5 +1,3 @@
-" last modified 2015-05-25
+" last modified 2015-05-28
 
-au bufread,bufnewfile sos/*.txt setl mp=txt2page\ -Tdocx
-
-au bufwritepost sos/*.txt make | redraw
+au bufwritepost */sos/*.txt call jobstart("txt2page -Tdocx " . expand("%"))

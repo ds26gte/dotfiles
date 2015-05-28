@@ -1,4 +1,4 @@
-" last modified 2015-05-25
+" last modified 2015-05-27
 set acd
 set ai
 set cf
@@ -24,7 +24,8 @@ set pvh=5
 set ru
 set sbr=⌇
 set scs
-set sect+=SS#\ ##
+set sect+=SS=\ ==
+set spl=en_us
 set sw=2
 set swb+=useopen
 set tw=65
