@@ -1,4 +1,8 @@
-" last modified 2015-01-09
+" last modified 2015-05-28
+
+if !&modelines
+  finish
+endif
 
 au bufwritepre * call s:timestamp()
 

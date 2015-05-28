@@ -1,7 +1,4 @@
-"last modified 2015-05-08
-
-set bg=dark
-sil! set term=xterm-256color
+"last modified 2015-05-28
 
 "hi header cterm=bold ctermfg=232 ctermbg=245
 "hi moremsg cterm=reverse ctermfg=NONE

@@ -1,6 +1,7 @@
-" last modified 2015-05-27
+" last modified 2015-05-28
 set acd
 set ai
+set bg=dark
 set cf
 set com-=mb:*
 set cot+=longest
