@@ -1,0 +1,36 @@
+*moby.txt*
+
+moby.vim is a Vim file that lets you use the Moby thesaurus from
+Project Gutenberg as Vim's 'thesaurus'.
+
+*moby-installation*
+
+Put the file moby.vim in one of your Vim plugin directories,
+e.g., ~/.vim/plugin.
+
+In your vimrc or via a file in a plugin directory, set the option
+'thesaurus' (aka 'tsr') to the pathname that you want to contain
+the Moby thesaurus.
+
+When you call Vim next, it will automatically take care to get
+the Moby thesaurus from the Gutenberg site, name it to what the
+'tsr' option says, and make minor modifications to it so that
+Vim's thesaurus commands can deal with it.
+
+(Notably, Vim considers each line in the thesaurus file as a list
+of synonyms separated by spaces or commas or apostrophes. Our
+function call keeps the commas as-is, but converts the spaces and
+apostrophes into non-separating characters. This allows synonyms
+to be phrases with spaces in them, or words or phrases with
+apostrophes in them.)
+
+The thesaurus gets downloaded and installed only once.  moby.vim
+can be discarded after that.
+
+*moby-usage*
+
+|i_CTRL-X_CTRL-T| to consult the thesaurus.
+
+Last modified: 2015-05-30
+
+ vi:ft=help
