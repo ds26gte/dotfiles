@@ -1,4 +1,4 @@
-"last modified 2015-05-28
+"last modified 2015-05-31
 
 "hi header cterm=bold ctermfg=232 ctermbg=245
 "hi moremsg cterm=reverse ctermfg=NONE
@@ -24,7 +24,9 @@ hi statuslinenc cterm=none ctermbg=235 ctermfg=242
 hi tabline cterm=none ctermbg=237 ctermfg=242
 hi tablinefill cterm=none ctermbg=237
 hi tablinesel cterm=none ctermbg=237 ctermfg=247
-hi! link comment statuslinenc
+hi! link colorcolumn bcterme9
+"hi! link comment statuslinenc
+hi! link comment fctermef
 hi! link directory fcterm20
 hi! link linenr fctermed
 hi! link modemsg fctermf2
