@@ -1,4 +1,4 @@
-" last modified 2015-04-02
+" last modified 2015-05-29
 
 au bufread,bufnewfile *.txt call s:txtOptions()
 
@@ -13,7 +13,9 @@ func! s:txtOptions()
 
   call TxtHilite()
 
-  exec 'au bufwritepre' expand('%') 'call TypographicNiceties()'
+  if &bh == ''
+    exec 'au bufwritepre' expand('%') 'call TypographicNiceties()'
+  endif
 
   "exec 'au bufwritepost' expand('%') 'make | redraw'
 endfunc
