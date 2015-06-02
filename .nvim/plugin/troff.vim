@@ -1,4 +1,4 @@
-" last modified 2015-05-26
+" last modified 2015-06-02
 
 au bufread,bufnewfile *.ms call s:troffOptions()
 
@@ -13,7 +13,7 @@ func! s:troffOptions()
   syn region emphasis start='\\fB' end='\\fP'
 
   syn region display start='\\fC' end='\\fP'
-  syn region display start='^\.\s*EX$' end='^\.\s*EE$'
+  syn region display start='^\.\s*EX' end='^\.\s*EE$'
 endfunc
 
 func! s:troffTypographicNiceties()
@@ -68,11 +68,9 @@ func! s:troffTypographicNicetiesOutsideCodeEnv()
 
   s:ÞtzpOpeningQuoteTzp':‘:g
 
-  " closing " becomes u+201d
+  " closing ", ' become u+201d, u+2019 resply
 
   s:":”:g
-
-  " closing ' becomes u+2019
 
   s:':’:g
 
