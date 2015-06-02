@@ -1,43 +1,64 @@
-"last modified 2015-05-20
-"from vim.wikia.com/wiki/Encryption
+" last modified 2015-06-02
+" see http://vim.wikia.com/wiki/Encryption
 
 au bufnewfile *.cpt call s:ccrypt_bufnewfile()
 
-au bufreadpre *.cpt call s:ccrypt_bufreadpre()
+au bufreadpre,filewritepre *.cpt call s:ccrypt_bufreadpre()
 
-au bufreadpost *.cpt call s:ccrypt_bufreadpost()
+au bufreadpost,filewritepost *.cpt call s:ccrypt_bufreadpost()
 
-au bufwritepre *.cpt call s:ccrypt_bufwritepre()
+au bufwritepre,filewritepre *.cpt call s:ccrypt_bufwritepre()
 
-au bufwritepost *.cpt call s:ccrypt_bufwritepost()
+au bufwritepost,filewritepost *.cpt call s:ccrypt_bufwritepost()
 
 func! s:ccrypt_bufnewfile()
-  call s:ccrypt_bufreadpre()
-  call s:ccrypt_bufreadpost()
+  set vi=
+  setl noswf
+  let s:crypticnonsense = inputsecret('Password: ')
 endfunc
 
 func! s:ccrypt_bufreadpre()
-    setl bin
-    setl vi=
-    setl noswf
+  set vi=
+  setl bin
+  setl noswf
 endfunc
 
 func! s:ccrypt_bufreadpost()
-    let $crypticnonsense = inputsecret("Password: ")
-    sil %!ccrypt -c -E crypticnonsense
-    setl nobin
+  let s:crypticnonsense = inputsecret('Password: ')
+  let $crypticnonsense = s:crypticnonsense
+  set nostmp
+  sil! %!ccrypt -c -E crypticnonsense
+  set stmp&
+  let $crypticnonsense = 0xDEAD
+  if v:shell_error
+    sil! u
+    echo 'Error! Press any key to continue...'
+    call getchar()
+    return
+  endif
+  setl nobin
 endfunc
 
 func! s:ccrypt_bufwritepre()
-    let b:save_cursor = getpos(".")
-    setl bin
-    %!ccrypt -e -E crypticnonsense
+  let b:save_cursor = getpos('.')
+  setl bin
+  let $crypticnonsense = s:crypticnonsense
+  set nostmp
+  %!ccrypt -e -E crypticnonsense
+  set stmp&
+  let $crypticnonsense = 0xDEAD
+  if v:shell_error
+    sil! u
+    echo 'Error! Press any key to continue...'
+    call getchar()
+    return
+  endif
 endfunc
 
 func! s:ccrypt_bufwritepost()
-    u
-    setl nobin
-    setl nomod
-    call setpos('.', b:save_cursor)
-    redraw!
+  u
+  setl nobin
+  setl nomod
+  call setpos('.', b:save_cursor)
+  redraw!
 endfunc
