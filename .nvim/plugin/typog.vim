@@ -1,6 +1,10 @@
-" last modified 2015-04-27
+" last modified 2015-06-01
 
 func! TypographicNiceties()
+  if &bh != '' || &ft == 'help'
+    return
+  endif
+
   if exists('b:pure_ascii') && b:pure_ascii
     return
   endif
@@ -14,6 +18,7 @@ func! TypographicNiceties()
   sil! g:^ÞtzpListingTzp: s:^ÞtzpListingTzp:\=submatch(0) . Toggle01():
   sil! %s:^\(ÞtzpListingTzp0\s*\.\?```\)`\+:\1:
   sil! %s:^\(ÞtzpListingTzp1\s*\.\?```\)\s*$:\1`:
+  sil! g:^\.\s*EX: .,/^\.\s*EE$/ s:^:ÞtzpPreformattedTzp:
   sil! g:^ÞtzpListingTzp0: .,/^ÞtzpListingTzp1/ s:^:ÞtzpPreformattedTzp:
   sil! %s:^\(ÞtzpPreformattedTzp\)ÞtzpListingTzp[01]:\1:
   sil! g:^\.[^=#A-Z]: s:^:ÞtzpPreformattedTzp:
