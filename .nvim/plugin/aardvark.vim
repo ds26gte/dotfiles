@@ -1,0 +1,36 @@
+" last modified 2015-05-30
+set acd
+set ai
+set bg=dark
+set cc=80
+set cf
+set cot+=longest
+set cpt+=k./*.txt
+set dict=/usr/share/dict/words
+set dy=lastline
+set et
+set hid
+set hls
+set ic
+set inf
+set is
+set isf-=#
+set lcs=nbsp:␣,trail:·
+set mouse=a
+set pa=.,**,,
+set para+=EXEEFSFE
+set pm=~~
+set pvh=5
+set ru
+set sbr=⌇
+set scs
+set sect+=SS=\ ==
+set spl=en_us
+set sw=2
+set swb+=useopen
+set tsr=~/.nvim/moby/mthesaur.txt
+set tw=65
+set vi+=%
+set wic
+set wig=*.docx,*.dvi,*.eps,*.JPG,*.jpg,*.pdf,*.png,*.ps
+set ww+=h,l,<,>,[,]
