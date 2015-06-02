@@ -1,12 +1,12 @@
-" last modified 2015-02-05
+" last modified 2015-05-29
 
 au bufwritepre * call s:trimspace()
 
 func! s:trimspace()
   norm mx
 
-  if !&tw
-    " for code, remove all trailing spaces
+  if !&tw || &ft == 'help'
+    " for code and vim help, remove all trailing spaces
     sil! %s/\s\+$//
   else
     " for others, no need ever for more than 2 trailing spaces
