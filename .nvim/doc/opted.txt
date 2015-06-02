@@ -1,0 +1,59 @@
+*opted.txt*
+
+opted.vim is a Vim plugin for consulting the Online Plain Text
+English Dictionary (OPTED),
+http://www.mso.anu.edu.au/~ralph/OPTED.
+
+The OPTED is a public-domain dictionary based on the etext compiled
+by Project Gutenberg from the 1913 version of Webster's
+Unabridged Dictionary. It has about 180k entries.
+
+*opted-installation*
+
+Put the file opted.vim in one of your Vim plugin directories,
+e.g., ~/.vim/plugin.
+
+That's it.
+
+*opted-usage*
+
+From Vim, you may now use the command `gm` to open up a tab with
+a window into the OPTED.
+
+This OPTED window is the result of obtaining (via `wget`) and
+transforming the original OPTED files into Vim-suitable `.txt`
+and `tags` files. This transformation is a time-consuming
+process, but it need be done only once, and thus happens only the
+first time `gm` is called.  (To avoid an unseemly delay when you
+try to consult the dictionary for the very first time from Vim,
+you could pre-build the `.txt` and `tags` files by calling
+
+vim -c "norm gm" -c q
+
+from your Unix command line.)
+
+Once in the OPTED window, you may use any of Vim's several |tags|
+commands to specify a dictionary headword as a tag. E.g.,
+
+:tj lexicon
+
+or
+
+:tj /lexicon
+
+(The first call to `gm` helpfully writes out a first |:tj| for
+you on the Vim command line.)
+
+Vim allows both completion and regular expressions on tags, so
+you don't have to have the spelling down pat. Jumping to the tag
+will show the definition of the headword.  You can also browse
+around the thus-obtained definition with the usual Vim
+|navigation| commands.
+
+You may also simply use `gm` for all searches without having to
+use explicit tab commands. At all times, there is at most one tab
+dedicated to the OPTED.
+
+Last modified: 2015-05-30
+
+ vi:ft=help
