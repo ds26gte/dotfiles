@@ -1,11 +1,15 @@
 " opted.vim
 " Dorai Sitaram
-" Last Change: 2015-02-19
+" Last Change: 2015-06-03
 
 " Plugin for consulting the Online Plain Text English Dictionary
 " (http://www.mso.anu.edu.au/~ralph/OPTED).
 
-let s:opted_dir = expand("<sfile>:h:h") . "/opted"
+if &tsr == ''
+  finish
+endif
+
+let s:opted_dir = fnamemodify(&tsr, ':h')
 
 func! s:opted_html_to_txt(in, out)
   exec 'e ' . a:out
