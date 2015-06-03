@@ -1,4 +1,4 @@
-" last modified 2015-06-02
+" last modified 2015-06-03
 " see www.noah.org/wiki/Password_Safe_with_Vim_and_OpenSSL
 
 au bufreadpre,filereadpre *.aes call s:opqReadPre()
@@ -71,5 +71,6 @@ endfunc
 func! s:opqWritePost()
   sil! u
   setl nobin
+  setl nomod
   redraw!
 endfunc
