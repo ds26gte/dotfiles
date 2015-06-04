@@ -1,6 +1,6 @@
-" last modified 2015-05-28
+" last modified 2015-06-03
 
-au bufenter $VIMRUNTIME/doc/*.txt,**opted/wb*.txt call s:pagingOptions()
+au bufenter **doc/*.txt,**dict/wb*.txt call s:pagingOptions()
 
 au bufenter $VIMRUNTIME/doc/*.txt call s:helpOptions()
 

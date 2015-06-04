@@ -1,57 +1,111 @@
 " Vim indent file
-" Language:	Pyret
-" Maintainer:	Dorai Sitaram <ds26gte@yahoo.com>
-" Last Change:	2015-05-06
+" Language:    Pyret
+" Maintainer:  Dorai Sitaram, ds26gte.github.io
+" Last Change: 2015-06-03
 
-" Only load this indent file when no other was loaded.
 if exists("b:did_indent")
   finish
 endif
 let b:did_indent = 1
 
-" Some preliminary setting
-setlocal indentkeys=!,o,O,=case,=catch,=else,=elseif,=end
+setl indentexpr=GetPyretIndent(v:lnum)
 
-setlocal indentexpr=GetPyretIndent(v:lnum)
+setl indentkeys=0{,0},!,o,O,=\|,=case,=catch,=else,=elseif,=end
 
-" Only define the function once.
 if exists("*GetPyretIndent")
   finish
 endif
 
-let s:pyretIndentOpeners = '^\s*\(ask\|case\|cases\|catch\|check\|data\|else\|elseif\|for\|fun\|if\|switch\|try\|while\)\>'
+let s:pyretIndentOpeningWords = 'ask\|cases\|catch\|check\|data\|for\|fun\|if\|sharing\|switch\|try\|while'
 
-let s:pyretIndentClosers = '^\s*\(case\|catch\|else\|elseif\|end\)\>'
+let s:pyretIndentMiddleWords = 'case\|catch\|else\|elseif\|sharing\|where'
 
-function GetPyretIndent(lnum)
-  let plnum = a:lnum - 1
+let s:pyretIndentClosingWords = 'end'
 
-  " Search backwards for the first non-empty line.
-  while plnum > 0 && getline(plnum) =~ '^\s*$'
-    let plnum = plnum - 1
+"let s:pyretIndentColon = '\(#.*\)\@<!:\s*$'
+
+let s:pyretIndentOpeningBrace = '\(#.*\)\@<!{\s*$'
+
+let s:pyretIndentClosingBrace = '\(#.*\)\@<!}\s*$'
+
+let s:pyretIndentFunctionStart = '\(#.*\)\@<!):\s*$'
+
+let s:pyretIndentPipe = '^\s*|'
+
+let s:pyretIndentOpeners = '^\s*\(' . s:pyretIndentOpeningWords . '\>\)'
+      \. '\|' . s:pyretIndentMiddleWords
+      \. '\|' . s:pyretIndentOpeningBrace
+      \. '\|' . s:pyretIndentFunctionStart
+
+let s:pyretIndentClosers = '^\s*\(' . s:pyretIndentClosingWords . '\>\)'
+      \. '\|' . s:pyretIndentMiddleWords
+      \. '\|' . s:pyretIndentClosingBrace
+
+func! s:PyretIndentClosingPipe(cnum)
+  let l:pnum = a:cnum - 1
+  let l:unmatchedEnds = 0
+  while l:pnum > 0
+    let l:pLine = getline(l:pnum)
+    if l:pLine =~ s:pyretIndentPipe
+      if l:unmatchedEnds == 0
+        return 1
+      endif
+    elseif l:pLine =~ s:pyretIndentClosers && l:pLine !~ s:pyretIndentOpeners
+      let l:unmatchedEnds += 1
+    elseif l:pLine =~ s:pyretIndentOpeners && l:pLine !~ s:pyretIndentClosers
+      if l:unmatchedEnds <= 0
+        return 0
+      else
+        let l:unmatchedEnds -= 1
+      endif
+    endif
+    let l:pnum -= 1
+  endwhile
+endfunc
+
+func! GetPyretIndent(cnum)
+  let l:pnum = a:cnum - 1
+
+  while l:pnum > 0 && getline(l:pnum) =~ '^\s*$'
+    let l:pnum -= 1
   endwhile
 
-  if plnum == 0
-    " This is the first non-empty line, use zero indent.
+  if l:pnum == 0
     return 0
   endif
 
-  let curind = indent(plnum)
+  let l:suggIndent = indent(l:pnum)
 
-  " If the current line is a stop-block statement...
-  if getline(a:lnum) =~ s:pyretIndentClosers
-    " See if this line does not follow the line right after an openblock
-    if getline(plnum) =~ s:pyretIndentOpeners
-    else
-	let curind = curind - &sw
+  let l:cLine = getline(a:cnum)
+  let l:pLine = getline(l:pnum)
+
+  if l:cLine =~ s:pyretIndentClosers
+    if l:pLine !~ s:pyretIndentOpeners
+      let l:suggIndent -= &sw
+      if l:pLine !~ s:pyretIndentPipe && s:PyretIndentClosingPipe(a:cnum)
+        let l:suggIndent -= &sw
+      endif
     endif
-"  endif
 
-  " If the previous line opened a block
-  elseif getline(plnum) =~ s:pyretIndentOpeners
-      let curind = curind + &sw
+  elseif l:cLine =~ s:pyretIndentOpeners
+    if l:pLine =~ s:pyretIndentOpeners || l:pLine =~ s:pyretIndentPipe
+      let l:suggIndent += &sw
+    endif
+
+  elseif l:cLine =~ s:pyretIndentPipe
+    if l:pLine =~ s:pyretIndentOpeners
+      let l:suggIndent += &sw
+    elseif l:pLine =~ s:pyretIndentPipe
+      "stay put
+    else
+      let l:suggIndent -= &sw
+    endif
+
+  else
+    if l:pLine =~ s:pyretIndentOpeners || l:pLine =~ s:pyretIndentPipe
+      let l:suggIndent += &sw
+    endif
   endif
 
-  " If we got to here, it means that the user takes the standardversion, so we return it
-  return curind
-endfunction
+  return l:suggIndent
+endfunc

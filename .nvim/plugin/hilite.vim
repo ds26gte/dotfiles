@@ -1,4 +1,4 @@
-"last modified 2015-05-31
+"last modified 2015-06-03
 
 "hi header cterm=bold ctermfg=232 ctermbg=245
 "hi moremsg cterm=reverse ctermfg=NONE
@@ -30,7 +30,8 @@ hi! link comment fctermef
 hi! link directory fcterm20
 hi! link linenr fctermed
 hi! link modemsg fctermf2
-hi! link moremsg statusline
+"hi! link moremsg statusline
+hi! link moremsg bcterme9
 hi! link nontext fcterm61
 hi! link question moremsg
 hi! link emphasis header

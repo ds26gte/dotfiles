@@ -1,4 +1,4 @@
-" last modified 2015-05-30
+" last modified 2015-06-04
 set acd
 set ai
 set bg=dark
@@ -16,6 +16,7 @@ set inf
 set is
 set isf-=#
 set lcs=nbsp:␣,trail:·
+set ls=2
 set mouse=a
 set pa=.,**,,
 set para+=EXEEFSFE
@@ -28,7 +29,7 @@ set sect+=SS=\ ==
 set spl=en_us
 set sw=2
 set swb+=useopen
-set tsr=~/.nvim/moby/mthesaur.txt
+set tsr=~/tmp/dict/mthesaur.tsr
 set tw=65
 set vi+=%
 set wic
