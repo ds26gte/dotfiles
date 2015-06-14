@@ -1,15 +1,14 @@
-" last modified 2015-06-02
+" last modified 2015-06-14
 " see http://vim.wikia.com/wiki/Encryption
 
-au bufnewfile *.cpt call s:ccrypt_bufnewfile()
-
-au bufreadpre,filewritepre *.cpt call s:ccrypt_bufreadpre()
-
-au bufreadpost,filewritepost *.cpt call s:ccrypt_bufreadpost()
-
-au bufwritepre,filewritepre *.cpt call s:ccrypt_bufwritepre()
-
-au bufwritepost,filewritepost *.cpt call s:ccrypt_bufwritepost()
+aug ccrypt
+  au!
+  au bufnewfile *.cpt call s:ccrypt_bufnewfile()
+  au bufreadpre,filewritepre *.cpt call s:ccrypt_bufreadpre()
+  au bufreadpost,filewritepost *.cpt call s:ccrypt_bufreadpost()
+  au bufwritepre,filewritepre *.cpt call s:ccrypt_bufwritepre()
+  au bufwritepost,filewritepost *.cpt call s:ccrypt_bufwritepost()
+aug END
 
 func! s:ccrypt_bufnewfile()
   set vi=
