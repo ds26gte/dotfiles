@@ -1,0 +1,69 @@
+# Last modified 2018-06-17
+# Dorai Sitaram
+
+# Converts an adoc file to an HTML file that is suitable for
+# emailing to a Kindle
+
+if test $# -eq 0
+then echo $0 needs an argument file; exit
+fi
+
+# Assume last argument is the adoc file.
+# Get its basename g
+
+g=${@: -1}
+g=${g##*/}
+g=${g%.*}
+
+asciidoctor -a data-uri "$@"
+
+vim -e -u NONE -s $g.html <<"EOF"
+
+func! Addstyle()
+i
+<style>
+body {text-align: left}
+h1,h2,h3,h4,h5,h6 {color: #666666}
+#footer {padding-top: 1.25em; padding-bottom: 1.25em}
+#footer-text {font-size: 80%; text-align: right; font-style: italic}
+.verseblock {white-space: pre}
+table {border-collapse: collapse}
+table.tableblock,th.tableblock,td.tableblock {border: 1px solid #dedede}
+th,td {padding: 10px}
+th.halign-left,td.halign-left {text-align: left}
+th.halign-right,td.halign-right {text-align: right}
+th.halign-center,td.halign-center {text-align: center}
+th.valign-top,td.valign-top {text-align: top}
+th.valign-bottom,td.valign-bottom {text-align: bottom}
+th.valign-middle,td.valign-middle {text-align: middle}
+p.tableblock {margin: 0}
+@media not amzn-kf8 {
+body {margin-left: 8%; margin-right: 8%}
+h1,h2,h3,h4,h5,h6 {font-family: sans-serif}
+}
+</style>
+.
+endfunc
+
+1,10g/^<!--.*if IE/d
+
+1,/^<body/ g/^<link rel="stylesheet"/d
+
+g/^<pre class="content">/ .,/<\/pre>/ s:</pre>::
+
+%s/^<pre class="content">//
+
+%s/^\(<pre>\) /\1\&#xa0;/
+
+%s:\(.\)\(</pre>\)$:\1\r\2:
+
+g/^<div class="verseblock">/ .,+1j!
+
+g/^<style>/ .,/^<\/style>/ d
+
+/^<\/head>/ call Addstyle()
+
+x
+EOF
+
+utf8htmlentity $g.html

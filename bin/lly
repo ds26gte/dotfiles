@@ -1,0 +1,29 @@
+# last modified 2018-02-04
+# Dorai Sitaram
+
+if test $# -ne 1
+then echo $0 needs one argument file; exit
+fi
+
+col=65
+
+f=$1
+g=${f##*/}
+basef=${g%.*}
+ext=${g##*.}
+
+ly='lynx -editor=vim -vikeys'
+
+if test "$ext" = "html"
+then COLUMNS=$col $ly $f
+
+elif test "$ext" = "md"
+then
+  pandoc -o $basef.adoc $f
+  kadoc $basef.adoc
+  COLUMNS=$col $ly $basef.html
+
+else
+  kadoc $f
+  COLUMNS=$col $ly $basef.html
+fi

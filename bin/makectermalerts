@@ -1,0 +1,57 @@
+# last modified 2018-08-04
+
+cd ~/.config/nvim/plugin
+
+cp -p c12h22o11.vim ../after/plugin/c12h22o11.vim
+
+cd ../after/plugin
+
+sed -i -e '
+/^[^h]/d
+/^hi clear/d
+/^hi!/d
+s/gui/cterm/g
+
+s/black/0/g
+s/silver/7/g
+s/gray\>/8/g
+s/white/15/g
+
+s/gray0/16/g
+s/gray3\>/232/g
+s/gray7\>/233/g
+
+s/gray11/234/g
+s/gray15/235/g
+s/gray19/236/g
+s/gray23/237/g
+s/gray27/238/g
+s/gray30/239/g
+s/gray34/240/g
+s/gray35/241/g
+s/gray37/59/g
+s/gray39/241/g
+s/gray40/242/g
+s/gray42/242/g
+s/gray46/243/g
+s/gray50/244/g
+s/gray53/102/g
+s/gray54/245/g
+s/gray58/246/g
+s/gray62/247/g
+s/gray66/248/g
+s/gray69/145/g
+s/gray70/249/g
+s/gray74/250/g
+s/gray78/251/g
+s/gray82/252/g
+s/gray84/188/g
+s/gray85/253/g
+s/gray89/254/g
+s/gray93/255/g
+
+s/gray100/231/g
+
+/^\s*$/d
+
+' c12h22o11.vim

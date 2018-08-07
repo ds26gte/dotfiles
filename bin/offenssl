@@ -1,0 +1,19 @@
+# last modified 2018-07-15
+
+f=$1
+g=${f##*/}
+ext=${g##*.}
+
+if test "$ext" = "az"
+then
+  what=d
+  outfile=${g%.az}
+else
+  what=e
+  outfile=$g.az
+fi
+
+echo -n 'Supply password... '
+openssl aes-256-cbc -md sha256 -a -$what -salt -pass stdin -in $f -out $outfile
+
+rm $f
