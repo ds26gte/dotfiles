@@ -1,10 +1,11 @@
-" Last modified 2018-08-04
+" Last modified 2018-08-11
 ino jj <esc>
-nmap <c-k> <c-w>
+nno <c-k> <c-w>
 no! <c-h> <c-w>
 set acd
 set bg=dark
 set bri
+set briopt+=shift:2
 set cb=unnamedplus
 set cf
 set cot+=longest
@@ -16,7 +17,7 @@ set ic
 set lbr
 set nojs
 set noswf
-set pa=.,**,,
+set pa=.,./**,./../**,./../../**,./../../../**,$HOME/**
 set sbr=↪\ "
 set scs
 set so=2

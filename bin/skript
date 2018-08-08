@@ -1,0 +1,20 @@
+# last modified 2018-08-09
+# Dorai Sitaram
+
+if test $# -ne 0; then
+  f=$1
+  rm -f $f
+else
+  f=typescript
+  while true; do
+    if test ! -f $f; then
+      break
+    else
+      n=$(expr $n + 1)
+    fi
+    f=typescript$n
+  done
+fi
+
+script $f
+sed -i -e 's/\r$//' $f

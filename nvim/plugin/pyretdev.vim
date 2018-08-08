@@ -1,10 +1,4 @@
-" Last modified 2018-08-04
-
-au bufread,bufnewfile **/public_html/**.{arr,bnf,jarr,js,js.*} call s:pyretOptions()
-
-func! s:pyretOptions()
-  setl pa^=$PYRETHOME/**,$PYRETHOME/../code.pyret.org/**
-endfunc
+" last modified 2018-08-11
 
 au bufread,bufnewfile **/public_html/*.js.* do bufread .js
 

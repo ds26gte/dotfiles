@@ -1,8 +1,8 @@
-"last modified 2018-01-24
+" last modified 2018-08-19
+" Dorai Sitaram
 
 func! s:removeHardbreaksWithinGrafs()
-  let l:saved_fo = &l:fo
-
+  let l:savedFo = &l:fo
   setl fo+=w
 
   sil! %s/\s\+$//
@@ -11,28 +11,21 @@ func! s:removeHardbreaksWithinGrafs()
 
   sil! %s/^\s\+$//
 
-  sil! %s/^$/\r/
-
   "at every non-blank line, reformat up to paragraph end
   g/\s$/ norm vipJ
 
-  "remove any blank lines at bof
-  1 g/^$/ .,/./j
-
-  "remove any blank lines at eof
-  $ g/^$/ ?.?,.j
-
-  "collapse consecutive blanks lines to one
-  v/./ .,/./-1 j
-
   %s/\s\+$//
 
-  let &l:fo = l:saved_fo
+  let &l:fo = l:savedFo
 endfunc
 
 com! Softwrap sil call s:removeHardbreaksWithinGrafs()
 
 func! s:yankForGmail()
+  if !exists('b:autocopySet')
+    let b:autocopySet = 1
+    au bufwritepost <buffer> sil call s:yankForGmail()
+  endif
   call s:removeHardbreaksWithinGrafs()
   %y
   u

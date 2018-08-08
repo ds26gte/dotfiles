@@ -1,22 +1,15 @@
-" last modified 2018-07-31
+" last modified 2018-08-09
+" Dorai Sitaram
 
 let s:viewCounter = 0
 
 func! ViewCmdOutput(cmd, args)
-  let l:oldTmpFile = split(&bdir, ',')[-1] . '/view.' . a:cmd . '.tmp.' . s:viewCounter
   let s:viewCounter += 1
-  let l:tmpFile = split(&bdir, ',')[-1] . '/view.' . a:cmd . '.tmp.' . s:viewCounter
-  if bufexists(l:tmpFile)
-    exec 'sb ' l:tmpFile
-  elseif bufexists(l:oldTmpFile)
-    exec 'sb ' l:oldTmpFile
-    exec 'e ' l:tmpFile
-  else
-    exec 'tabe ' l:tmpFile
-  endif
+  let l:tmpFile = split(&bdir, ',')[-1] . '/view.' .
+        \ a:cmd . '.tmp.' . s:viewCounter
+  exec 'tabe ' l:tmpFile
   sil exec '%!' . a:cmd . ' ' . a:args
-  setl nobl nomod
-  setf help
+  setl nobl nomod ro
   let b:viewCmd = a:cmd
   nmap <buffer> K :call ViewCmdOutput(b:viewCmd, expand("<cword>"))<cr>
 endfunc

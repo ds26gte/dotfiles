@@ -1,4 +1,4 @@
-# last modified 2018-08-05
+# last modified 2018-08-09
 alias ..='cd ..'
 alias .2='..;..'
 alias .3='.2;..'
@@ -83,7 +83,6 @@ alias htmpb='htm;cd tmpb'
 alias htmpc='htm;cd tmpc'
 alias htmpco='htmpc;cd code.pyret.org'
 alias htmppyl='htmp;cd pyret-lang'
-alias ist='TZ=Asia/Calcutta date'
 alias iv=vi
 alias j=jobs
 alias k='kill -9'
@@ -98,7 +97,6 @@ alias ls='ls -F'
 alias ly=lynx
 alias lynx='COLUMNS=80 lynx -editor=nvim -vikeys'
 alias m=more
-alias madoc='TEMP() { pandoc -o ${1%.*}.adoc $1; }; TEMP'
 alias md=mkdir
 alias merg='mergedir ../..;prun'
 alias minc='(printf "%.2f\n" $(echo $(cat|wc -w)/$(wordsperminute)|bc -l)) <'
@@ -168,6 +166,7 @@ alias repymake='pyl;pylclean;npm install;make;make test;finished'
 alias respyro='pyl;make;spyro'
 alias rmr='rm -fr'
 alias sadoc=adocslidy
+alias script=skript
 alias seagate='cd /media/ds26gte/S*'
 alias shadadir='cd ~/.local/share/nvim/shada'
 alias skyro='newspy kode.pyret.org'

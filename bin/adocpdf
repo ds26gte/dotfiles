@@ -1,0 +1,14 @@
+# last modified 2018-08-12
+# Dorai Sitaram
+
+g=${@: -1}
+g=${g##*/}
+g=${g%.*}
+
+if test $# -eq 1; then
+  weasycss="-a stylesheet=$HOME/bin/weasyprint.css"
+fi
+
+asciidoctor $weasycss "$@"
+
+weasyprint $g.html $g.pdf

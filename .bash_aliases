@@ -1,4 +1,4 @@
-# last change 2018-08-05
+# last change 2018-08-20
 
 set -o vi
 
@@ -12,7 +12,7 @@ shopt -s autocd
 
 . ~/.aliases
 
-if test "$TERM" != tmux-256color; then
+if test "$VIM" = "" -a "$TERM" != tmux-256color; then
   tmux new -s $USER-$$
   exit
 fi
