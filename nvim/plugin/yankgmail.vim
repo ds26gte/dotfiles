@@ -1,4 +1,4 @@
-" last modified 2018-08-19
+" last modified 2018-08-20
 " Dorai Sitaram
 
 func! s:removeHardbreaksWithinGrafs()
@@ -31,4 +31,4 @@ func! s:yankForGmail()
   u
 endfunc
 
-com! YGmail sil call s:yankForGmail() 
+com! Ygmail sil call s:yankForGmail()

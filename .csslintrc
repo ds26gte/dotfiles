@@ -1,0 +1,12 @@
+{
+  "ignore": [
+    "compatible-vendor-prefixes",
+    "empty-rules",
+    "fallback-colors",
+    "ids",
+    "important",
+    "order-alphabetical",
+    "overqualified-elements",
+    "zero-units"
+  ]
+}

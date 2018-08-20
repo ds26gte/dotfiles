@@ -1,4 +1,5 @@
-# last modified 2018-08-17
+# Last modified 2018-08-22
+# Dorai Sitaram
 
 cd ~/.config/nvim/plugin
 
@@ -16,7 +17,6 @@ s/silver/7/g
 s/gray\>/8/g
 s/black/16/g
 s/gray0/16/g
-s/#00005f/17/g
 s/\<blue4\>/18/g
 s/darkblue/18/g
 s/navy\>/18/g
@@ -53,6 +53,7 @@ s/#5f005f/53/g
 s/indigo/54/g
 s/#5f5f00/58/g
 s/gray37/59/g
+s/chartreuse4/64/g
 s/palegreen4/65/g
 s/\<slategray4/66/g
 s/lightskyblue4/66/g
@@ -72,8 +73,9 @@ s/deeppink4/89/g
 s/darkmagenta/90/g
 s/magenta4/90/g
 s/webpurple/90/g
+s/darkviolet/92/g
 s/orange4/94/g
-s/#875f5f/95/g
+s/pink4/95/g
 s/\<slateblue1/99/g
 s/yellow4/100/g
 s/gold4/100/g
@@ -82,6 +84,7 @@ s/burlywood4/101/g
 s/navajowhite4/101/g
 s/gray53/102/g
 s/lightslateblue/105/g
+s/darkseagreen/108/g
 s/yellowgreen/113/g
 s/palegreen3/114/g
 s/chartreuse1/118/g
@@ -91,6 +94,8 @@ s/lightgreen/120/g
 s/palegreen2/120/g
 s/aquamarine1/122/g
 s/aquamarine\>/122/g
+s/cadetblue1/123/g
+s/darkslategray1/123/g
 s/\<purple/129/g
 s/webpurple/129/g
 s/mediumpurple1/141/g
@@ -98,8 +103,10 @@ s/darkgray/145/g
 s/gray69/145/g
 s/lightskyblue2/153/g
 s/red2/160/g
+s/debianred/161/g
 s/mediumorchid1/171/g
 s/orchid\>/176/g
+s/goldenrod\>/178/g
 s/plum/182/g
 s/gainsboro/188/g
 s/gray84/188/g
@@ -112,6 +119,11 @@ s/deeppink1/198/g
 s/\<magenta\>/201/g
 s/fuchsia/201/g
 s/magenta1/201/g
+s/indianred1/203/g
+s/brown1/203/g
+s/firebrick1/203/g
+s/tomato1/203/g
+s/tomato\>/203/g
 s/darkorange/208/g
 s/\<coral/209/g
 s/coral1/209/g

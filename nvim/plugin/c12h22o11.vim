@@ -1,4 +1,4 @@
-" last modified 2018-08-19
+" last modified 2018-08-21
 " Dorai Sitaram
 
 set bg=dark
@@ -7,7 +7,7 @@ set tgc
 hi diffadd guibg=none guifg=mediumpurple1
 hi diffchange guibg=none guifg=orchid
 hi diffdelete gui=none guibg=none guifg=darkcyan
-hi difftext guibg=none guifg=red
+hi difftext guibg=none guifg=tomato
 hi directory guifg=royalblue1
 hi endofbuffer guifg=gray30
 hi errormsg gui=bold guibg=darkred

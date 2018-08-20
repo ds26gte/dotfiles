@@ -1,4 +1,7 @@
-// last modified: 2018-08-19
+/* last modified: 2018-08-23 */
 {
-  "esversion" : 6
+  "eqeqeq": true,
+  "esversion": 6,
+  "sub": true,
+  "undef": true
 }

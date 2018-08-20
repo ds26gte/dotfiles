@@ -1,5 +1,9 @@
-# last modified 2018-08-09
+# last modified 2018-08-26
 # Dorai Sitaram
+
+if test ! -z $SCRIPT_ALREADY_RUNNING; then
+  echo script already running; exit
+fi
 
 if test $# -ne 0; then
   f=$1
@@ -16,5 +20,10 @@ else
   done
 fi
 
+export SCRIPT_ALREADY_RUNNING=1
+
 script $f
+
+export SCRIPT_ALREADY_RUNNING=
+
 sed -i -e 's/\r$//' $f

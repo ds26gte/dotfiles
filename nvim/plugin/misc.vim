@@ -1,4 +1,4 @@
-" last modified 2018-08-19
+" last modified 2018-08-20
 
 au bufread * sil! norm g`"
 
@@ -42,14 +42,15 @@ syn off
 
 au bufwritepost **/tmspeech/*.adoc sil! make
 
-sil! GHplugin mhinz/vim-signify
-sil! GHplugin tpope/vim-fugitive
+GHplugin mhinz/vim-signify
 
-sil! GHplugin walm/jshint.vim
+GHplugin tpope/vim-fugitive
 
-sil! GHplugin misterbuckley/vim-definitive
+GHplugin walm/jshint.vim
 
-sil! Plugin ~/src/neoscmindent
+GHplugin misterbuckley/vim-definitive
+
+Plugin ~/src/neoscmindent
 
 com! Sum !plus %
 
