@@ -1,4 +1,4 @@
-# Last modified 2018-08-22
+# Last modified 2018-08-29
 # Dorai Sitaram
 
 cd ~/.config/nvim/plugin
@@ -98,6 +98,7 @@ s/cadetblue1/123/g
 s/darkslategray1/123/g
 s/\<purple/129/g
 s/webpurple/129/g
+s/mediumorchid\>/134/g
 s/mediumpurple1/141/g
 s/darkgray/145/g
 s/gray69/145/g
@@ -105,7 +106,7 @@ s/lightskyblue2/153/g
 s/red2/160/g
 s/debianred/161/g
 s/mediumorchid1/171/g
-s/orchid\>/176/g
+s/\<orchid\>/176/g
 s/goldenrod\>/178/g
 s/plum/182/g
 s/gainsboro/188/g
@@ -133,6 +134,7 @@ s/palevioletred1/211/g
 s/orchid1/213/g
 s/\<orange/214/g
 s/\<orange1/214/g
+s/sandybrown/215/g
 s/lightsalmon1/216/g
 s/lightsalmon\>/216/g
 s/\<gold/220/g

@@ -1,10 +1,11 @@
-" last modified 2018-08-21
+" last modified 2018-09-01
 " Dorai Sitaram
 
 setl com=b://,sb:////,eb:////
 setl dict=/usr/share/dict/words
 setl inf
 setl mp=kadoc\ %\ >/dev/null
+setl sect+=~\ "
 setl tw=65
 
 "ino <buffer> "` “

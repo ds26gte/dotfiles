@@ -1,5 +1,5 @@
 /*
- * last modified 2018-08-12
+ * last modified 2018-09-01
  * Dorai Sitaram
  */
 
@@ -63,6 +63,14 @@ div.paragraph:first-child > p {
 }
 
 td p {
+  text-indent: 0;
+}
+
+.title {
+  margin-top: .75em;
+}
+
+.title + p {
   text-indent: 0;
 }
 

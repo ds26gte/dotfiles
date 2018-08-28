@@ -1,4 +1,4 @@
-" last modified 2018-08-20
+" last modified 2018-08-31
 
 au bufread * sil! norm g`"
 
@@ -46,9 +46,9 @@ GHplugin mhinz/vim-signify
 
 GHplugin tpope/vim-fugitive
 
-GHplugin walm/jshint.vim
-
 GHplugin misterbuckley/vim-definitive
+
+GHplugin walm/jshint.vim
 
 Plugin ~/src/neoscmindent
 
