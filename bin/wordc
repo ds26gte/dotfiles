@@ -1,0 +1,49 @@
+# last modified 2018-09-07
+# Dorai Sitaram
+
+# If $WORD_COUNT_FORMAT is 'minute', show the number of minutes and seconds taken to speak the file.
+# If it's 'degree', show the degrees rotated by the Earth during the speech.
+
+# Set $WORDS_PER_MINUTE to the number of words spoken per minute. Default: 124.
+
+# It's ok to use the plural 'minutes' or 'degrees'.
+
+# If $WORD_COUNT_FORMAT is something else or unset, show the number of words in the file.
+
+# E.g., a file that's 930 words long takes 7'30" to speak, or an Earth rotation of 1.875deg.
+
+f=$1
+
+n=$(wc -w $f)
+
+n=${n% $f}
+
+if test x$WORD_COUNT_FORMAT = x; then
+  wcformat=word
+else
+  wcformat=$WORD_COUNT_FORMAT
+fi
+
+wcformat=${wcformat%s}
+
+if test x$WORDS_PER_MINUTE = x; then
+  wpm=124
+else
+  wpm=$WORDS_PER_MINUTE
+fi
+
+if test x$wcformat = xminute; then
+  minutes=$(echo $n / $wpm | bc)
+  wholeminutes=${minutes%.*}
+  if test x$wholeminutes = x; then
+    wholeminutes=0
+  fi
+  seconds=$(echo \($minutes - $wholeminutes\) \* 60 | bc)
+  printf "%d'%02.f\"\n" $wholeminutes $seconds
+elif test x$wcformat = xdegree; then
+  minutes=$(echo $n / $wpm | bc)
+  earthdegrees=$(echo $minutes / 4 | bc)
+  printf "%.2fdeg\n" $earthdegrees
+else
+  echo $n
+fi

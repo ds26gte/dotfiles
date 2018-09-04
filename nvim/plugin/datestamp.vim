@@ -1,8 +1,9 @@
-" last modified 2018-07-24
+" last modified 2018-09-07
+" Dorai Sitaram
 
-au bufwritepre * call Timestamp()
+au bufwritepre * call Datestamp()
 
-func! Timestamp()
+func! Datestamp()
   norm mx
   $
   sil! /\c^.*last\s\+\%(change\|modified\|update\)\&^.*\<\d\{4}[-]\d\{2}[-]\d\{2}\>/

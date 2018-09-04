@@ -1,0 +1,15 @@
+# Last modified 2018-09-07
+# Dorai Sitaram
+
+if test $# -eq 0
+then opt=""; f="-"
+else opt="-i"; f=$1
+fi
+
+todayhyph=$(date +"%Y-%m-%d")
+todaynohyph=$(date +"%Y%m%d")
+
+sed $opt -e '
+s/\([Ll]ast \+\([Cc]hange\|[Mm]odified\|[Uu]pdate\) \+\)[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}/\1'$todayhyph'/
+s/\([Ll]ast \+\([Cc]hange\|[Mm]odified\|[Uu]pdate\) \+\)[0-9]\{8\}/\1'$todaynohyph'/
+' "$f"

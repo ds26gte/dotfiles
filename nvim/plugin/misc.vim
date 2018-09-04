@@ -1,4 +1,4 @@
-" last modified 2018-08-31
+" last modified 2018-09-07
 
 au bufread * sil! norm g`"
 
@@ -34,13 +34,17 @@ sil! au termopen * sp /tmp/viSessionHasOpenTerminalBuffers | %d | setl mod | clo
 
 au filetype vim setl fo-=r isk+=:
 
+au filetype make setl list
+
+au filetype asciidoc setl com=b://,sb:////,eb://// inf tw=65
+
 let g:signify_vcs_list = ['git']
 
 let g:loaded_man = 1
 
 syn off
 
-au bufwritepost **/tmspeech/*.adoc sil! make
+au bufwritepost **/tmspeech/*.adoc sil !kadoc % >/dev/null
 
 GHplugin mhinz/vim-signify
 

@@ -5,12 +5,13 @@
 *Z*
 *lisp*
 .netrwhist*
-bin/[^abegilmopstuvwxy]*
+bin/[^abdegilmopstuvwxy]*
 bin/a[^d]*
+bin/d[^a]*
 bin/e[^r]*
 bin/g[^i]*
 bin/i[^c]*
-bin/l[^il]*
+bin/l[^ily]*
 bin/m[^ae]*
 bin/o[^fp]*
 bin/p[^br]*
@@ -20,7 +21,7 @@ bin/ta[^r]*
 bin/tex[^d]*
 bin/u[^t]*
 bin/v[^iu]*
-bin/w[^e]*
+bin/w[^eo]*
 dump.rdb
 nvim/pack
 vimgists/

@@ -1,0 +1,22 @@
+# last modified 2018-09-04
+# Dorai Sitaram
+
+if test $# -ne 1; then
+  echo Requires one arg; exit
+fi
+
+f=$1
+ext=${f##*/}
+ext=${ext##*.}
+
+if test x$ext = xcss; then
+  csslint --config=$HOME/.csslintrc $f
+elif test x$ext = xhtml; then
+  htmlhint --nocolor $f
+elif test x$ext = xjs; then
+  jshint $f
+elif test x$ext = xjson; then
+  jsonlint -q $f
+else
+  echo No linter supplied for .$ext
+fi 

@@ -1,4 +1,4 @@
-" last modified 2018-08-11
+" last modified 2018-09-07
 
 au bufread,bufnewfile **/public_html/*.js.* do bufread .js
 
@@ -11,6 +11,8 @@ au bufread,bufnewfile *.arr setf pyret
 au filetype pyret setl isk+=- isk-=:
 
 au bufread,bufnewfile *.scrbl setl ft=
+
+au bufwritepost status*.adoc sil !yank4gmail %
 
 com! Gios e ~/src/ds26gte.github.io/patch/wescheme-ops.adoc
 com! Pz e ~/public_html/pyret-lang/tests/pyret/tests/test-parse-errors.arr
