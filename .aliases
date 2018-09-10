@@ -1,4 +1,4 @@
-# last modified 2018-09-04
+# last modified 2018-09-12
 alias ..='cd ..'
 alias .2='..;..'
 alias .3='.2;..'
@@ -84,6 +84,7 @@ alias htmpco='htmpc;cd code.pyret.org'
 alias htmppyl='htmp;cd pyret-lang'
 alias iv=vi
 alias j=jobs
+alias julia='julia --banner=no --color=no'
 alias k='kill -9'
 alias kadoc=adockindle
 alias killshada='rm ~/.local/share/nvim/shada/*'

@@ -1,4 +1,4 @@
-" last modified 2018-09-07
+" last modified 2018-09-15
 
 au bufread,bufnewfile **/public_html/*.js.* do bufread .js
 
@@ -11,6 +11,8 @@ au bufread,bufnewfile *.arr setf pyret
 au filetype pyret setl isk+=- isk-=:
 
 au bufread,bufnewfile *.scrbl setl ft=
+
+au bufread,bufnewfile status*.adoc setl spell
 
 au bufwritepost status*.adoc sil !yank4gmail %
 

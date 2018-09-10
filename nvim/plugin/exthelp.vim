@@ -1,4 +1,4 @@
-" last modified 2018-08-09
+" last modified 2018-09-15
 " Dorai Sitaram
 
 let s:viewCounter = 0
@@ -13,6 +13,8 @@ func! ViewCmdOutput(cmd, args)
   let b:viewCmd = a:cmd
   nmap <buffer> K :call ViewCmdOutput(b:viewCmd, expand("<cword>"))<cr>
 endfunc
+
+let g:loaded_man = 1
 
 com! -nargs=1 -complete=shellcmd Man call ViewCmdOutput("man", <q-args>)
 

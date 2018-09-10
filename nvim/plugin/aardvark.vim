@@ -1,11 +1,8 @@
-" Last modified 2018-09-07
+" Last modified 2018-09-15
 ino jj <esc>
 nno <c-k> <c-w>
-nno \l :!lynt<space>%<cr>
-nno \t :!wordc<space>%<cr>
 no! <c-h> <c-w>
 set acd
-set bg=dark
 set bri
 set briopt+=shift:2
 set cb=unnamedplus
@@ -31,6 +28,9 @@ set swb+=usetab
 set wic
 set wig=*.docx,*.dvi,*.eps,*.gif,*.jpeg,*.JPG,*.jpg,*.min.js,*.o,*.odt,*.otf,*.pdf,*.png,*.ps,*.so,*.ttf,*.zo
 set wim=list:longest,full
+sil !mv -n {.,}*.????-??-??T??:??~ ~/.local/share/nvim/backup 2> /dev/null
+sil !rm -f {.,}*.????-??-??T??:??~
+sil! let &pm = strftime('.%Y-%m-%dT%H:%M~')
 sil! set icm=split
 sil! set mouse=a
 sil! set sd^=<0,/0,% 

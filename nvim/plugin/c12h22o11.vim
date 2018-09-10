@@ -1,42 +1,49 @@
-" last modified 2018-08-21
+" last modified 2018-09-17
 " Dorai Sitaram
 
 set bg=dark
 set tgc
 
-hi diffadd guibg=none guifg=mediumpurple1
-hi diffchange guibg=none guifg=orchid
-hi diffdelete gui=none guibg=none guifg=darkcyan
-hi difftext guibg=none guifg=tomato
-hi directory guifg=royalblue1
-hi endofbuffer guifg=gray30
-hi errormsg gui=bold guibg=darkred
-hi foldcolumn guibg=none guifg=palegreen4
-hi folded guibg=none guifg=palegreen4
-hi linenr guifg=gray40
-hi modemsg gui=none guifg=gray40
-hi moremsg gui=none guifg=yellowgreen
-hi nontext gui=none guifg=coral
-hi normal guibg=gray15 guifg=gray78
-hi pmenu guibg=gray23
-hi question gui=none guifg=yellowgreen
-hi search guibg=none guifg=mistyrose2
-hi signcolumn guibg=none
-hi specialkey guifg=steelblue2
-hi statusline gui=none guibg=gray11 guifg=gray42
-hi statuslinenc gui=none guibg=gray11 guifg=gray34
-hi title gui=none guifg=navajowhite
-hi vertsplit gui=none guifg=gray23
-hi visual guibg=deepskyblue4
+hi diffadd guifg=NONE guibg=#004477
+hi diffchange guifg=NONE guibg=#330088
+hi diffdelete guifg=NONE guibg=#007777
+hi difftext guifg=NONE guibg=#770000
+hi directory guifg=#00ccee
+hi folded guibg=NONE guifg=#0077ff
+hi nontext gui=NONE guifg=#00ddff
+hi normal guibg=#262626 guifg=#c7c7c7
+hi pmenusbar guibg=#666666
+hi pmenuthumb guibg=#999999
+hi search guibg=NONE guifg=#aaaaff
+hi statusline gui=NONE guibg=NONE guifg=#777777
+hi statuslinenc gui=NONE guibg=NONE guifg=#666666
+hi title guifg=#0099dd
+hi visual guibg=#005588
 
 hi! link cursorlinenr linenr
+hi! link endofbuffer statuslinenc
+hi! link errormsg visual
+hi! link foldcolumn normal
 hi! link incsearch visual
+hi! link linenr statusline
+hi! link modemsg statuslinenc
+hi! link moremsg normal
+hi! link pmenu normal
 hi! link pmenusel visual
+hi! link question normal
+hi! link signcolumn normal
 hi! link spellbad difftext
 hi! link spellcap nontext
 hi! link spelllocal visual
 hi! link spellrare specialkey
 hi! link tabline statuslinenc
-hi! link tablinefill statusline
+hi! link tablinefill statuslinenc
 hi! link tablinesel statusline
-hi! link warningmsg errormsg
+hi! link vertsplit statuslinenc
+hi! link warningmsg visual
+hi! link wildmenu visual
+
+hi normal ctermbg=235 ctermfg=251
+hi statusline cterm=NONE ctermbg=NONE ctermfg=243
+hi statuslinenc cterm=NONE ctermbg=NONE ctermfg=242
+hi visual ctermbg=24
