@@ -1,4 +1,4 @@
-" last modified 2018-09-17
+" last modified 2018-09-18
 " Dorai Sitaram
 
 set bg=dark
@@ -42,8 +42,3 @@ hi! link tablinesel statusline
 hi! link vertsplit statuslinenc
 hi! link warningmsg visual
 hi! link wildmenu visual
-
-hi normal ctermbg=235 ctermfg=251
-hi statusline cterm=NONE ctermbg=NONE ctermfg=243
-hi statuslinenc cterm=NONE ctermbg=NONE ctermfg=242
-hi visual ctermbg=24

@@ -1,0 +1,15 @@
+# Last modified 2018-09-17
+# Dorai Sitaram
+
+cd
+cp /etc/lynx/lynx.lss .lynx.lss
+
+sed -i -e '
+s/^normal:/#\0/
+s/^default:/#\0/
+/^h1:/ s/yellow:.*/brightblue/
+' .lynx.lss
+
+echo '
+h2: bold: brightmagenta
+' >> .lynx.lss

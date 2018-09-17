@@ -1,10 +1,8 @@
-" last modified 2018-09-15
+" last modified 2018-09-18
 
 au bufread,bufnewfile **/public_html/*.js.* do bufread .js
 
 au bufread,bufnewfile *.jarr do bufread .js
-
-au bufread,bufnewfile cpo-heroku do bufread binNot/pretend.sh
 
 au bufread,bufnewfile *.arr setf pyret
 
