@@ -1,4 +1,4 @@
-# last modified 2018-09-22
+# last modified 2018-09-26
 alias ..='cd ..'
 alias .2='..;..'
 alias .3='.2;..'
@@ -40,6 +40,7 @@ alias cpyro='cheapspy code.pyret.org'
 alias cr=google-chrome
 alias cur='htm;cd current'
 alias curr='src;cd curr'
+alias currlib='curr; cd lib'
 alias cx='chmod +x'
 alias di=diff
 alias did='vi -c \$ -c let\ b:dontAddTimestamp=1 -c s/\$/\\r/ -c r!date -c s/\$/\\r\\r/ -c startinsert ~/did.adoc'
@@ -54,6 +55,7 @@ alias finished='mpg123 ~/public_html/alice-parker/Sorrow\ and\ Gladness.mp3'
 alias fstart='cpo-ensure-env;foreman start'
 alias fy='xclip -selection clipboard -i'
 alias fys='(spycolt;fy check.arr)'
+alias g=git
 alias gcd='find . -name dump.rdb -delete'
 alias gclone='TEMP() { git clone https://github.com/$1; }; TEMP'
 alias gdi='git diff'
@@ -169,6 +171,8 @@ alias rmr='rm -fr'
 alias sadoc=adocslidy
 alias script=skript
 alias seagate='cd /media/ds26gte/S*'
+alias sendtogmail='TEMP() { echo att | mutt -s att -a $1 -- $(gmailaddress); }; TEMP'
+alias sendtokindle='TEMP() { f=$1; if test x${f##*.} != xhtml; then adockindle $f; f=${f%.*}.html; fi; echo ebook | mutt -s ebook -a $f -- $(kindleaddress); }; TEMP'
 alias shadadir='cd ~/.local/share/nvim/shada'
 alias skyro='newspy kode.pyret.org'
 alias sl=ls

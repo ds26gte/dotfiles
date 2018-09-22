@@ -1,4 +1,4 @@
-" last modified 2018-08-09
+" last modified 2018-10-01
 " Dorai Sitaram
 
 ":UnicodeChart N
@@ -11,7 +11,11 @@ com! -nargs=* UnicodeChart call s:unicodeChartFunc(<f-args>)
 
 func! s:unicodeChartFunc(first, ...)
   let l:tmpFile = split(&bdir, ',')[-1] . '/view.unicode.tmp.1'
-  exec 'tabe ' l:tmpFile
+  if bufexists(l:tmpFile)
+    exec 'sb ' l:tmpFile
+  else
+    exec 'tabe ' l:tmpFile
+  endif
   %d
   let l:i = str2nr(a:first, 16)
   if a:0 == 0

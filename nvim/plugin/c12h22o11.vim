@@ -1,4 +1,4 @@
-" last modified 2018-09-18
+" last modified 2018-09-22
 " Dorai Sitaram
 
 set bg=dark
@@ -6,10 +6,11 @@ set tgc
 
 hi diffadd guifg=NONE guibg=#004477
 hi diffchange guifg=NONE guibg=#330088
-hi diffdelete guifg=NONE guibg=#007777
+hi diffdelete gui=NONE guifg=NONE guibg=#007777
 hi difftext guifg=NONE guibg=#770000
 hi directory guifg=#00ccee
 hi folded guibg=NONE guifg=#0077ff
+hi msgseparator guibg=#000000
 hi nontext gui=NONE guifg=#00ddff
 hi normal guibg=#262626 guifg=#c7c7c7
 hi pmenusbar guibg=#666666
@@ -22,9 +23,9 @@ hi visual guibg=#005588
 
 hi! link cursorlinenr linenr
 hi! link endofbuffer statuslinenc
-hi! link errormsg visual
+hi! link errormsg difftext
 hi! link foldcolumn normal
-hi! link incsearch visual
+hi! link incsearch difftext
 hi! link linenr statusline
 hi! link modemsg statuslinenc
 hi! link moremsg normal

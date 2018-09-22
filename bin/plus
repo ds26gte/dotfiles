@@ -1,0 +1,14 @@
+# last modified 2018-09-27
+# Dorai Sitaram
+
+f=$1
+
+sed -e 's/[^-0-9.*]/ /g' $f |
+  sed -e 's/\.$//' |
+  sed -e 's/^\. / /' |
+  sed -e 's/ \. / /g' |
+  sed -e '/^ *$/d' |
+  sed -e 's/$/ +/' |
+  sed -e '1s/^/print(/' |
+  sed -e '$s/+$/)/' |
+  lua 

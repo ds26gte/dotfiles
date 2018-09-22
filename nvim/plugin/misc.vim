@@ -1,4 +1,4 @@
-" last modified 2018-09-22
+" last modified 2018-10-01
 
 ino <tab> <c-n>
 
@@ -10,8 +10,6 @@ tno <esc> <c-\><c-n>
 
 " when called in read-only mode (-R)
 if &uc == 10000 | nmap q :q<cr> | endif
-
-"set dip+=iwhite
 
 au termopen * startinsert
 
@@ -33,9 +31,9 @@ au filetype vim setl fo-=r isk+=:
 
 au filetype make setl list
 
-au filetype asciidoc setl com=b://,sb:////,eb://// inf tw=65
+au filetype asciidoc setl cpt+=k inf tw=65 | call UniCycleBuf()
 
-au bufwritepost **/tmspeech/*.adoc sil !kadoc % >/dev/null
+au bufwritepost **/tmspeech/*.ad sil !kadoc % >/dev/null
 
 let g:signify_vcs_list = ['git']
 
@@ -47,7 +45,16 @@ GHplugin tpope/vim-fugitive
 
 GHplugin misterbuckley/vim-definitive
 
+GHplugin vim-scripts/UniCycle
+
 Plugin ~/src/neoscmindent
+
+func! UniCycleBuf()
+  "inoremap <buffer> - -<Esc>:call UniCycleHyphen()<CR>a
+  "inoremap <buffer> . .<Esc>:call UniCyclePeriod()<CR>a
+  inoremap <buffer> ' x<Esc>:call UniCycleApostrophe()<CR>a
+  inoremap <buffer> " x<Esc>:call UniCycleQuote()<CR>a
+endfunc
 
 com! Sum !plus %
 
@@ -56,3 +63,5 @@ com! Tmspeech e ~/src/tmspeech/utopia.adoc
 com! Vimc e ~/.config/nvim/plugin/c12h22o11.vim
 
 com! Vimp e ~/.config/nvim/plugin/misc.vim
+
+com! Htmlbeautify %!html-beautify -f -
