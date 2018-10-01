@@ -1,4 +1,4 @@
-" last modified 2018-10-01
+" last modified 2018-10-02
 
 ino <tab> <c-n>
 
@@ -15,7 +15,7 @@ au termopen * startinsert
 
 "au termopen * setl scbk=-1 | startinsert
 
-au termopen * sp /tmp/viSessionHasOpenTerminalBuffers | setl mod | close
+au termopen * sp +setl\ mod /tmp/viSessionHasOpenTerminalBuffers | close
 
 au bufread * sil! norm g`"
 
@@ -25,29 +25,25 @@ au bufread,bufnewfile **/bin/* if expand('%:t') !~ '\.' | setl ft=sh | endif
 
 au bufread,bufnewfile view.*tmp.* setf help
 
-au bufread,bufnewfile *.ad setl ft=asciidoc
-
 au filetype vim setl fo-=r isk+=:
 
 au filetype make setl list
 
-au filetype asciidoc setl cpt+=k inf tw=65 | call UniCycleBuf()
-
-au bufwritepost **/tmspeech/*.ad sil !kadoc % >/dev/null
-
-let g:signify_vcs_list = ['git']
-
-let is_mzscheme = 1
+au bufwritepost **/tmspeech/*.adoc sil !kadoc % >/dev/null
 
 GHplugin mhinz/vim-signify
+
+let g:signify_vcs_list = ['git']
 
 GHplugin tpope/vim-fugitive
 
 GHplugin misterbuckley/vim-definitive
 
-GHplugin vim-scripts/UniCycle
-
 Plugin ~/src/neoscmindent
+
+let is_mzscheme = 1
+
+GHplugin vim-scripts/UniCycle
 
 func! UniCycleBuf()
   "inoremap <buffer> - -<Esc>:call UniCycleHyphen()<CR>a
@@ -55,6 +51,8 @@ func! UniCycleBuf()
   inoremap <buffer> ' x<Esc>:call UniCycleApostrophe()<CR>a
   inoremap <buffer> " x<Esc>:call UniCycleQuote()<CR>a
 endfunc
+
+au filetype asciidoc setl cpt+=k inf tw=65 | call UniCycleBuf()
 
 com! Sum !plus %
 

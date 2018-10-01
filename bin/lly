@@ -1,4 +1,4 @@
-# last modified 2018-09-25
+# last modified 2018-10-01
 # Dorai Sitaram
 
 if test $# -ne 1
@@ -19,11 +19,11 @@ then COLUMNS=$col $ly $f
 
 elif test "$ext" = "md"
 then
-  if test $basef.ad -ot $f
-  then pandoc -t asciidoc -o $basef.ad $f
+  if test $basef.adoc -ot $f
+  then pandoc -t asciidoc -o $basef.adoc $f
   fi
-  if test $basef.html -ot $basef.ad
-  then kadoc $basef.ad
+  if test $basef.html -ot $basef.adoc
+  then kadoc $basef.adoc
   fi
   COLUMNS=$col $ly $basef.html
 
