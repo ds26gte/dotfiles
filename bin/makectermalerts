@@ -1,0 +1,37 @@
+# Last modified 2018-09-27
+# Dorai Sitaram
+
+cd ~/.config/nvim/plugin
+
+cp c12h22o11.vim ../after/plugin
+
+cd ../after/plugin
+
+sed -i -e '
+/^[^h]/d
+/^hi clear/d
+/^hi!/d
+
+s/gui/cterm/g
+
+s/#000000/0/g
+s/#770000/1/g
+s/#004477/24/g
+s/#005588/24/g
+s/#007777/30/g
+s/#0099dd/32/g
+s/#0077ff/33/g
+s/#00ccee/45/g
+s/#00ddff/45/g
+s/#330088/54/g
+s/#aaaaff/147/g
+s/#262626/235/g
+s/#444444/238/g
+s/#666666/242/g
+s/#777777/243/g
+s/#999999/246/g
+s/#c7c7c7/251/g
+
+/^\s*$/d
+
+' c12h22o11.vim

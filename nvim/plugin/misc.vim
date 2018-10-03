@@ -1,4 +1,4 @@
-" last modified 2018-10-02
+" last modified 2018-10-05
 
 ino <tab> <c-n>
 
@@ -25,7 +25,7 @@ au bufread,bufnewfile **/bin/* if expand('%:t') !~ '\.' | setl ft=sh | endif
 
 au bufread,bufnewfile view.*tmp.* setf help
 
-au filetype vim setl fo-=r isk+=:
+au filetype vim setl fo-=ro isk+=:
 
 au filetype make setl list
 
@@ -53,6 +53,10 @@ func! UniCycleBuf()
 endfunc
 
 au filetype asciidoc setl cpt+=k inf tw=65 | call UniCycleBuf()
+
+GHplugin walm/jshint.vim
+
+GHplugin godlygeek/tabular
 
 com! Sum !plus %
 

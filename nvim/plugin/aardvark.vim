@@ -1,10 +1,9 @@
-" Last modified 2018-10-01
+" Last modified 2018-10-05
 ino jj <esc>
 nno <c-k> <c-w>
 no! <c-h> <c-w>
 set acd
 set bri
-set briopt+=shift:2
 set cb=unnamedplus
 set cf
 set cot+=longest
@@ -25,7 +24,7 @@ set spl=en_us
 set sw=2
 set swb+=usetab
 set wic
-set wig=*.docx,*.dvi,*.eps,*.min.js,*.o,*.odt,*.otf,*.pdf,*.ps,*.so,*.ttf,*.zo
+set wig=*.docx,*.dvi,*.eps,*.min.js,*.o,*.odt,*.otf,*.ps,*.so,*.ttf,*.zo
 set wim=list:longest,full
 sil !mv -n {.,}*.????-??-??T??:??~ ~/.local/share/nvim/backup 2> /dev/null
 sil !rm -f {.,}*.????-??-??T??:??~

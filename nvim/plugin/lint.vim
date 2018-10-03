@@ -1,4 +1,4 @@
-" last modified 2018-09-10
+" last modified 2018-10-05
 " Dorai Sitaram
 
 func! Lint()
@@ -7,7 +7,11 @@ func! Lint()
   elseif &ft == 'html'
     !htmlhint --nocolor %
   elseif &ft == 'javascript'
-    !jshint %
+    if exists(':JSHint')
+      JSHint
+    else
+      !jshint %
+    endif
   elseif &ft == 'json'
     !jsonlint -q %
   else
