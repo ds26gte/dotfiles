@@ -1,4 +1,4 @@
-" last modified 2018-08-18
+" last modified 2019-01-26
 " Dorai Sitaram
 
 func! s:lorem (...)
@@ -6,15 +6,15 @@ func! s:lorem (...)
   let l:savedTw = &l:tw
   setl ft= tw=65
   let l:n = a:0 ? a:1 : 1
-  let l:onBlankLine = 0
+  let l:onBlankLine = v:false
   if match(getline(line('.')), '^\s*$') >= 0
-    let l:onBlankLine = 1
+    let l:onBlankLine = v:true
   endif
-  let l:precedingBlankLine = 0
+  let l:precedingBlankLine = v:false
   if line('.') == line('$')
-    let l:precedingBlankLine = 1
+    let l:precedingBlankLine = v:true
   elseif match(getline(line('.') + 1), '^\s*$') >= 0
-    let l:precedingBlankLine = 1
+    let l:precedingBlankLine = v:true
   endif
   if !l:onBlankLine
     s/$/\r

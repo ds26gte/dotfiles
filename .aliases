@@ -1,4 +1,4 @@
-# last modified 2018-10-11
+# last modified 2019-01-25
 alias 1='fg %1'
 alias 2='fg %2'
 alias 3='fg %3'
@@ -14,6 +14,7 @@ alias apt-add-repository='sudo apt-add-repository'
 alias aslide='asciidoc -b slidy -a linkcss -a stylesheet=myslidy.css'
 alias bdir='cd;cd .local/share/nvim/backup'
 alias bin='cd;cd bin'
+alias bkp='mv -n {.,}*.????-??-??T??:??~ ~/.local/share/nvim/backup 2> /dev/null'
 alias c=clear
 alias cd..='cd ..'
 alias cdarrb='pyl;cd src/arr/base'
@@ -22,6 +23,10 @@ alias cdarrt='pyl;cd src/arr/trove'
 alias cdjsb='pyl;cd src/js/base'
 alias cdjst='pylsrc;cd js/trove'
 alias cdtests='pyl;cd tests/pyret/tests'
+alias cmb='gh;cd codemirror-blocks'
+alias cmbmakem='ghcmb;rmr node_modules dist build;npm install;npm run build-debug'
+alias cmbmake='cmbmakem;cp dist/CodeMirrorBlocks-pyret.js ~/public_html/code.pyret.org/src/web/js;spyjs;js-beautify -r CodeMirrorBlocks-pyret.js'
+alias cmbmakey='ghcmb;rmr node_modules dist build yarn.lock;yarn;npm run build-debug;cp dist/CodeMirrorBlocks-pyret.js ~/public_html/code.pyret.org/src/web/js;spyjs;js-beautify -r CodeMirrorBlocks-pyret.js'
 alias cp='cp -p'
 alias cpo-ensure-env='cpo;test -e .env || cp -p ~/Dropbox/env.cpo.google .env'
 alias cpo='htm;cd code.pyret.org'
@@ -32,6 +37,7 @@ alias currlib='curr; cd lib'
 alias cx='chmod +x'
 alias di=diff
 alias did='vi -c \$ -c s/\$/\\r/ -c r!date -c s/\$/\\r\\r/ -c startinsert ~/did.adoc'
+alias dif=diff
 alias diff=colordiff
 alias dnld='cd;cd downloads'
 alias do-release-upgrade='sudo do-release-upgrade'
@@ -49,6 +55,7 @@ alias gex='gls --others'
 alias gh='cd;cd src'
 alias ghbin='dotf;cd bin'
 alias ghcmb='gh;cd codemirror-blocks'
+alias ghtmp='gh;cd tmp'
 alias gio='src;cd ds26gte.github.io'
 alias gios='gio;cd patch'
 alias gitpush='git push origin $(git rev-parse --abbrev-ref HEAD)'
@@ -79,7 +86,7 @@ alias ls='ls -F'
 alias ly=lynx
 alias lynx='COLUMNS=80 lynx -editor=nvim -vikeys'
 alias m=less
-alias madoc='TEMP() { pandoc -o ${1%.m*}.adoc $1; }; TEMP'
+alias makectermapprentice='vimpa;cd Apprentice/colors;sed -ne "39,115p" apprentice.vim|sed -ne '/hi/p' > ~/c12h22o11.vim;vimap;mv ~/c12h22o11.vim .'
 alias md=mkdir
 alias merg='mergedir ../..;prun'
 alias minc='(printf "%.2f\n" $(echo $(cat | wc -w)/$(wordsperminute) | bc -l)) <'
@@ -87,6 +94,8 @@ alias mkhcpo='htm;rm -fr code.pyret.org;git clone https://github.com/brownplt/co
 alias mkmcpo='htm;cd ds26gte;rm -fr code.pyret.org;git clone https://github.com/ds26gte/code.pyret.org;cd code.pyret.org;cp .env.example .env;git submodule init;git submodule update;foreman run npm install;foreman start'
 alias mkpcpo='htm;cd ds26gte;rm -fr code.pyret.org;git clone https://github.com/ds26gte/code.pyret.org;cd code.pyret.org;git checkout horizon;cp .env.example .env;git submodule init;git submodule update;foreman run npm install;foreman start'
 alias mkscpo='htm;cd ds26gte/code.pyret.org;cp .env.example .env;git submodule init;git submodule update;foreman run npm install;foreman start'
+alias mmspyro='cmbmake;mspyro'
+alias mspyro='cpo;make clean;spyro'
 alias nuhi='cpo;heroku local:run npm start'
 alias oldpymake='pyl;npm install;make;make test;finished'
 alias opymake='pyl;make test-clean;rm -fr node_modules;make clean;make install;make;make all-pyret-test;finished'
@@ -144,7 +153,6 @@ alias sadoc=adocslidy
 alias script=skript
 alias seagate='cd /media/ds26gte/S*'
 alias sendtogmail='TEMP() { echo att | mutt -s att -a $1 -- $(gmailaddress); }; TEMP'
-alias sendtokindle='TEMP() { f=$1; if test x${f##*.} != xhtml; then adockindle $f; f=${f%.*}.html; fi; echo ebook | mutt -s ebook -a $f -- $(kindleaddress); }; TEMP'
 alias shadadir='cd ~/.local/share/nvim/shada'
 alias skyro='newspy kode.pyret.org'
 alias sl=ls
@@ -175,6 +183,7 @@ alias ubgrade='sudo apt update;sudo apt upgrade;sudo apt dist-upgrade'
 alias ui=vim.tiny
 alias v=view
 alias vd='vi -Rd'
+alias vdiff=vimdiff
 alias vialias='vi ~/.aliases;realias'
 alias vid='vi -d'
 alias view='view -c "setl lbr sbr= nowrite"'

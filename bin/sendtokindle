@@ -1,0 +1,22 @@
+# last modified 2018-11-12
+# Dorai Sitaram
+
+# have script kindleaddress that does
+# echo yourhandle@kindle.com
+
+f=$1
+
+ext=${f##*.}
+
+if test x$ext == xadoc
+then
+  adockindle $f
+  f=${f%.adoc}.html
+elif test x$ext == xepub
+then
+  g=${f%.epub}.png
+  cp -p $f $g
+  f=$g
+fi
+
+echo ebook | mutt -s ebook -a $f -- $(kindleaddress)

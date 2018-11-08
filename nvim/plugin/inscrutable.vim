@@ -1,9 +1,7 @@
-" last modified 2018-07-29
+" last modified 2018-11-30
 " from www.noah.org/wiki/Password_Safe_with_Vim_and_OpenSSL
 " but (a) with ui more like vim's :X, and
 " (b) only for .aes
-
-set bsk+=*.aes
 
 au bufreadpre,filereadpre *.aes call s:opqReadPre()
 
@@ -81,4 +79,4 @@ endfunc
 
 func! ChangePassword()
   let s:crypticNonsense = inputsecret('New password: ')
-endfunc 
+endfunc

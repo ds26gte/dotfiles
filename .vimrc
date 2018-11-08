@@ -1,7 +1,4 @@
-" last modified 2018-10-03
-set ai
-set bo=all
-set ls=2
+" last modified 2018-12-04
 sil !date +"set pm=.\%Y-\%m-\%dT\%H:\%M~" > ~/.patchmode.vim
 sil !test \! -d ~/.vim && ln -sf ~/.config/nvim ~/.vim
 sil ru! plugin/aardvark.vim

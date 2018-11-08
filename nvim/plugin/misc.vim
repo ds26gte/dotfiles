@@ -1,12 +1,6 @@
-" last modified 2018-10-05
+" last modified 2019-01-26
 
 ino <tab> <c-n>
-
-tno <c-h> <c-w>
-
-tno <c-v><esc> <esc>
-
-tno <esc> <c-\><c-n>
 
 " when called in read-only mode (-R)
 if &uc == 10000 | nmap q :q<cr> | endif
@@ -29,34 +23,24 @@ au filetype vim setl fo-=ro isk+=:
 
 au filetype make setl list
 
+au filetype javascript setl sua+=.js,.jsx
+
 au bufwritepost **/tmspeech/*.adoc sil !kadoc % >/dev/null
 
-GHplugin mhinz/vim-signify
+au vimleave * sil !mv -n {.,}*.????-??-??T??:??~ ~/.local/share/nvim/backup 2> /dev/null
 
-let g:signify_vcs_list = ['git']
-
-GHplugin tpope/vim-fugitive
-
-GHplugin misterbuckley/vim-definitive
-
-Plugin ~/src/neoscmindent
-
-let is_mzscheme = 1
-
-GHplugin vim-scripts/UniCycle
-
-func! UniCycleBuf()
+func! Unicyclebuf()
   "inoremap <buffer> - -<Esc>:call UniCycleHyphen()<CR>a
   "inoremap <buffer> . .<Esc>:call UniCyclePeriod()<CR>a
   inoremap <buffer> ' x<Esc>:call UniCycleApostrophe()<CR>a
   inoremap <buffer> " x<Esc>:call UniCycleQuote()<CR>a
 endfunc
 
-au filetype asciidoc setl cpt+=k inf tw=65 | call UniCycleBuf()
+au filetype asciidoc setl cpt+=k inf tw=65 | call Unicyclebuf()
 
-GHplugin walm/jshint.vim
+let signify_vcs_list = ['git']
 
-GHplugin godlygeek/tabular
+colo apprentice
 
 com! Sum !plus %
 

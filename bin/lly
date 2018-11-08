@@ -1,4 +1,4 @@
-# last modified 2018-10-01
+# last modified 2018-11-08
 # Dorai Sitaram
 
 if test $# -ne 1
@@ -20,7 +20,7 @@ then COLUMNS=$col $ly $f
 elif test "$ext" = "md"
 then
   if test $basef.adoc -ot $f
-  then pandoc -t asciidoc -o $basef.adoc $f
+  then kramdoc -o $basef.adoc $f
   fi
   if test $basef.html -ot $basef.adoc
   then kadoc $basef.adoc
