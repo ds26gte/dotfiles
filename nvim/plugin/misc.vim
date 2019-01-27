@@ -1,4 +1,4 @@
-" last modified 2019-01-26
+" last modified 2019-01-27
 
 ino <tab> <c-n>
 
@@ -25,7 +25,7 @@ au filetype make setl list
 
 au filetype javascript setl sua+=.js,.jsx
 
-au bufwritepost **/tmspeech/*.adoc sil !kadoc % >/dev/null
+au bufwritepost **/tmspeech/*.adoc sil !kadoc %
 
 au vimleave * sil !mv -n {.,}*.????-??-??T??:??~ ~/.local/share/nvim/backup 2> /dev/null
 

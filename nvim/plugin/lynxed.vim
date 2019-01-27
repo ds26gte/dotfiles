@@ -1,7 +1,7 @@
-" Last change 2019-01-26
+" last modified 2019-01-28
 " Dorai Sitaram
 
-" Needed only if called from within lynx
+" needed only if called from within lynx
 
 if $LYNX_VERSION == ""
   finish
@@ -12,16 +12,16 @@ let s:adocSourceFilesThatMustBeHTMLed = []
 au bufenter *.html call s:goToSourceFile()
 
 func! s:goToSourceFile()
-  let l:generatedByAsciidoctorP = v:false
+  let l:generatedByAsciidoctorP = 0
   " check if html file was generated
   sil! 1,8g/^<meta name="generator" content="Asciidoctor.\{-}">/
-        \ let l:generatedByAsciidoctorP = v:true
+        \ let l:generatedByAsciidoctorP = 1
   if !l:generatedByAsciidoctorP
     return
   endif
   " if generated, edit source file
   let l:sourceFile = ''
-  for l:sourceFileTry in glob(expand('%:r') . '.[at]*', v:false, v:true)
+  for l:sourceFileTry in glob(expand('%:r') . '.[at]*', 0, 1)
     " look only at extensions that match [at]*, e.g,
     " ad[oc], asc[iidoc], t[e]xt
     if fnamemodify(l:sourceFileTry, ':e') =~ '^.[^desx]\|^..[^cotx]\|[^cdt]$'

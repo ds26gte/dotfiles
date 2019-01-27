@@ -1,4 +1,4 @@
-" last modified 2019-01-26
+" last modified 2019-01-28
 " Dorai Sitaram
 
 let tex_flavor = 'tex'
@@ -6,9 +6,9 @@ let tex_flavor = 'tex'
 au filetype tex setl tw=65 | call Unicyclebuf()
 
 func! s:latexboilerplate()
-  let l:doit = v:true
+  let l:doit = 1
   norm mx
-  sil 1g/^\\documentclass/let l:doit = v:false
+  sil 1g/^\\documentclass/let l:doit = 0
   if l:doit
     0a
     ZZZZZremoveme \documentclass{article}
@@ -21,10 +21,20 @@ func! s:latexboilerplate()
 
     ZZZZZremoveme \begin{document}
 .
-    1,16s/^\s*ZZZZZremoveme\s//
+    1,/^\s*ZZZZZremoveme\s\\begin{document}\s*$/s/^\s*ZZZZZremoveme\s//
     $s/$/\r\\end{document}/
   endif
   norm `x
 endfunc
 
 com! LXboilerplate call s:latexboilerplate()
+
+func! s:latexme()
+  let l:doit = 0
+  sil 1,5g/^\s*\\documentclass/ let l:doit = 1
+  if l:doit
+    sil !latex %
+  endif
+endfunc
+
+au filetype tex au bufwritepost <buffer> call s:latexme()

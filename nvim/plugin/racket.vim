@@ -1,8 +1,10 @@
-" last modified 2018-09-12
+" last modified 2019-01-31
 " Dorai Sitaram
 
-au filetype scheme call s:racketHouseStyle()
-
-func! s:racketHouseStyle()
-  setl lw+=call-with-input-file,datum->syntax,fluid-let,for,syntax/loc,syntax-parse,with-input-from-file
-endfunc
+au filetype scheme,lisp setl lw+=
+      \call-with-input-file,call-with-output-file,
+      \datum->syntax,
+      \fluid-let,for,
+      \syntax/loc,syntax-parse,
+      \tex-def-prim,
+      \with-input-from-file

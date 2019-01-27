@@ -1,4 +1,4 @@
-# last modified 2019-01-25
+# last modified 2019-02-01
 alias 1='fg %1'
 alias 2='fg %2'
 alias 3='fg %3'
@@ -24,14 +24,15 @@ alias cdjsb='pyl;cd src/js/base'
 alias cdjst='pylsrc;cd js/trove'
 alias cdtests='pyl;cd tests/pyret/tests'
 alias cmb='gh;cd codemirror-blocks'
-alias cmbmakem='ghcmb;rmr node_modules dist build;npm install;npm run build-debug'
 alias cmbmake='cmbmakem;cp dist/CodeMirrorBlocks-pyret.js ~/public_html/code.pyret.org/src/web/js;spyjs;js-beautify -r CodeMirrorBlocks-pyret.js'
+alias cmbmakem='ghcmb;rmr node_modules dist build;npm install;npm run build-debug'
 alias cmbmakey='ghcmb;rmr node_modules dist build yarn.lock;yarn;npm run build-debug;cp dist/CodeMirrorBlocks-pyret.js ~/public_html/code.pyret.org/src/web/js;spyjs;js-beautify -r CodeMirrorBlocks-pyret.js'
 alias cp='cp -p'
 alias cpo-ensure-env='cpo;test -e .env || cp -p ~/Dropbox/env.cpo.google .env'
 alias cpo='htm;cd code.pyret.org'
 alias cpyro='cheapspy code.pyret.org'
 alias cr=google-chrome
+alias curr-reorg='src;cd curr-reorg'
 alias curr='src;cd curr'
 alias currlib='curr; cd lib'
 alias cx='chmod +x'

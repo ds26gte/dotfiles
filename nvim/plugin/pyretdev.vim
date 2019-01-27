@@ -1,4 +1,4 @@
-" last modified 2018-10-01
+" last modified 2019-02-01
 
 au filetype pyret setl isk+=-
 
@@ -9,6 +9,8 @@ au bufread,bufnewfile *.jarr do bufread .js
 au bufread,bufnewfile *.arr setf pyret
 
 au bufread,bufnewfile *.scrbl setl ft=
+
+au bufread,bufnewfile *.adoc? setf asciidoc
 
 au bufread,bufnewfile status-*.adoc setl spell
 

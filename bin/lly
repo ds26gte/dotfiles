@@ -1,4 +1,4 @@
-# last modified 2018-11-08
+# last modified 2019-01-28
 # Dorai Sitaram
 
 if test $# -ne 1
@@ -12,24 +12,19 @@ g=${f##*/}
 basef=${g%.*}
 ext=${g##*.}
 
-ly='lynx -editor=vim -vikeys'
-
 if test "$ext" = "html"
-then COLUMNS=$col $ly $f
+then COLUMNS=$col lynx -editor=vim -vikeys $f
 
 elif test "$ext" = "md"
 then
   if test $basef.adoc -ot $f
   then kramdoc -o $basef.adoc $f
   fi
-  if test $basef.html -ot $basef.adoc
-  then kadoc $basef.adoc
-  fi
-  COLUMNS=$col $ly $basef.html
+  $0 $basef.adoc
 
 else
   if test $basef.html -ot $f
   then kadoc $f
   fi
-  COLUMNS=$col $ly $basef.html
+  $0 $basef.html
 fi
