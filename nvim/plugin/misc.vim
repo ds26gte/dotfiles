@@ -1,4 +1,4 @@
-" last modified 2019-01-27
+" last modified 2019-02-19
 
 ino <tab> <c-n>
 
@@ -17,36 +17,43 @@ au bufread,bufnewfile .aliases*,.bash*,.env* setl ft=sh
 
 au bufread,bufnewfile **/bin/* if expand('%:t') !~ '\.' | setl ft=sh | endif
 
-au bufread,bufnewfile view.*tmp.* setf help
-
 au filetype vim setl fo-=ro isk+=:
 
 au filetype make setl list
 
 au filetype javascript setl sua+=.js,.jsx
 
-au bufwritepost **/tmspeech/*.adoc sil !kadoc %
-
 au vimleave * sil !mv -n {.,}*.????-??-??T??:??~ ~/.local/share/nvim/backup 2> /dev/null
 
-func! Unicyclebuf()
-  "inoremap <buffer> - -<Esc>:call UniCycleHyphen()<CR>a
-  "inoremap <buffer> . .<Esc>:call UniCyclePeriod()<CR>a
-  inoremap <buffer> ' x<Esc>:call UniCycleApostrophe()<CR>a
-  inoremap <buffer> " x<Esc>:call UniCycleQuote()<CR>a
-endfunc
-
-au filetype asciidoc setl cpt+=k inf tw=65 | call Unicyclebuf()
+au vimleave * sil !rm -f {.,}*.????-??-??T??:??~
 
 let signify_vcs_list = ['git']
+
+func! s:colorscheme_mods()
+  " pmenusel shouldn't obscure underlayer when 'pb' set
+
+  exec 'hi pmenusel guibg=' synIDattr(hlID('pmenu'), 'bg')
+
+  let l:preferred_fg = synIDattr(hlID('title'), 'fg')
+  if empty(l:preferred_fg)
+    let l:preferred_fg = synIDattr(hlID('identifier'), 'fg')
+  endif
+  exec 'hi pmenusel guifg=' l:preferred_fg
+
+  if synIDattr(hlID('pmenusel'), 'reverse')
+    hi pmenusel gui=none
+  endif
+endfunc
+
+au colorscheme * call s:colorscheme_mods()
+
+au colorscheme apprentice hi! link whitespace errormsg
+
+au colorscheme janah hi normal guifg=gray73
 
 colo apprentice
 
 com! Sum !plus %
-
-com! Tmspeech e ~/src/tmspeech/utopia.adoc
-
-com! Vimc e ~/.config/nvim/plugin/c12h22o11.vim
 
 com! Vimp e ~/.config/nvim/plugin/misc.vim
 

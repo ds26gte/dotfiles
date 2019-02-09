@@ -1,10 +1,9 @@
-" Last modified 2019-01-11
+" Last modified 2019-02-18
 ino jj <esc>
+let &pm = strftime('.%Y-%m-%dT%H:%M~')
 nno <c-k> <c-w>
 no! <c-h> <c-w>
 set acd
-set bg=dark
-set bo=error,esc
 set bri
 set bsk+=*.aes
 set cb=unnamedplus
@@ -16,13 +15,19 @@ set dy-=msgsep
 set et
 set hid
 set ic
+set icm=split
 set lbr
+set lcs+=tab:<->
+set lcs-=tab:>\ "
+set mouse=a
 set nohls
 set nojs
 set noswf
 set pa=.,./**,./../**,./../../**,./../../../**,$HOME/**
+set pb=41
 set sbr=↪\ "
 set scs
+set sd^=<0,/0,%
 set sect+=~\ *\ -\ --
 set so=2
 set spl=en_us
@@ -32,12 +37,6 @@ set tgc
 set wic
 set wig=*.docx,*.dvi,*.eps,*.min.js,*.o,*.odt,*.otf,*.ps,*.so,*.ttf,*.zo
 set wim=list:longest,full
-sil !mv -n {.,}*.????-??-??T??:??~ ~/.local/share/nvim/backup 2> /dev/null
-sil !rm -f {.,}*.????-??-??T??:??~
-sil! let &pm = strftime('.%Y-%m-%dT%H:%M~')
-sil! set icm=split
-sil! set mouse=a
-sil! set sd^=<0,/0,%
 tno <c-h> <c-w>
 tno <c-v><esc> <esc>
 tno <esc> <c-\><c-n>

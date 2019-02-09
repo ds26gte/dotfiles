@@ -1,9 +1,9 @@
-" last modified 2019-01-28
+" last modified 2019-02-15
 " Dorai Sitaram
 
 let tex_flavor = 'tex'
 
-au filetype tex setl tw=65 | call Unicyclebuf()
+au filetype tex setl tw=65 | call UniCycleTyping()
 
 func! s:latexboilerplate()
   let l:doit = 1
@@ -31,7 +31,12 @@ com! LXboilerplate call s:latexboilerplate()
 
 func! s:latexme()
   let l:doit = 0
-  sil 1,5g/^\s*\\documentclass/ let l:doit = 1
+  let l:lastline = line('.')
+  if l:lastline > 5
+    sil 1,5g/^\s*\\documentclass/ let l:doit = 1
+  else
+    sil 1,$g/^\s*\\documentclass/ let l:doit = 1
+  endif
   if l:doit
     sil !latex %
   endif

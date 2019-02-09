@@ -1,4 +1,4 @@
-# last modified 2019-02-01
+# last modified 2019-02-18
 alias 1='fg %1'
 alias 2='fg %2'
 alias 3='fg %3'
@@ -87,7 +87,7 @@ alias ls='ls -F'
 alias ly=lynx
 alias lynx='COLUMNS=80 lynx -editor=nvim -vikeys'
 alias m=less
-alias makectermapprentice='vimpa;cd Apprentice/colors;sed -ne "39,115p" apprentice.vim|sed -ne '/hi/p' > ~/c12h22o11.vim;vimap;mv ~/c12h22o11.vim .'
+alias maketinyvimrc='(echo "sil !date +\"set pm=.\%Y-\%m-\%dT\%H:\%M~\" > ~/.patchmode.vim" > ~/.vimrc; echo "sil !mv -n {.,}*.????-??-??T??:??~ ~/.local/share/nvim/backup 2> /dev/null" >> ~/.vimrc; echo "sil !rm -f {.,}*.????-??-??T??:??~" >> ~/.vimrc; echo "so ~/.patchmode.vim" >> ~/.vimrc; echo >> ~/.vimrc; sed -e "/^set \(icm\|lcs\|mouse\|pb\|sd\)/d" -e "/^\(\"\|let\)/d" ~/.config/nvim/plugin/aardvark.vim >> ~/.vimrc; echo "set bo=all" >> ~/.vimrc; echo "set lcs+=tab:>-" >> ~/.vimrc; echo >> ~/.vimrc; vimpa; cd awesome-vim-colorschemes/colors; sed -ne "39,115p" apprentice.vim | sed -e "s/^  *//" | grep "^\(hi\|set\)" | sed -e "s/ *gui[^ ]*//g" >> ~/.vimrc)'
 alias md=mkdir
 alias merg='mergedir ../..;prun'
 alias minc='(printf "%.2f\n" $(echo $(cat | wc -w)/$(wordsperminute) | bc -l)) <'

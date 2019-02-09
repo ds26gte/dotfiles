@@ -1,4 +1,4 @@
-" last modified 2019-01-28
+" last modified 2019-02-13
 " Dorai Sitaram
 
 let s:viewCounter = 0
@@ -10,6 +10,7 @@ func! ViewCmdOutput(cmd, args)
   exec 'tabe ' l:tmpFile
   sil exec '%!' . a:cmd . ' ' . a:args
   setl nobl nomod ro
+  setf help
   let b:viewCmd = a:cmd
   nmap <buffer> K :call ViewCmdOutput(b:viewCmd, expand("<cword>"))<cr>
 endfunc

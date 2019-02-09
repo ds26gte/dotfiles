@@ -1,4 +1,4 @@
-" last modified 2018-11-30
+" last modified 2019-02-17
 " from www.noah.org/wiki/Password_Safe_with_Vim_and_OpenSSL
 " but (a) with ui more like vim's :X, and
 " (b) only for .aes
@@ -13,20 +13,22 @@ au bufwritepost,filewritepost *.aes call s:opqWritePost()
 
 au bufnewfile *.aes call s:opqNewFile()
 
-func! s:opqNewFile()
+func! s:opqSetOptions()
   set cb=
   set secure
   set vi=
+  set sd=
   setl noswf
+endfunc
+
+func! s:opqNewFile()
+  call s:opqSetOptions()
   let s:crypticNonsense = inputsecret('Password: ')
 endfunc
 
 func! s:opqReadPre()
-  set cb=
-  set secure
-  set vi=
+  call s:opqSetOptions()
   setl bin
-  setl noswf
 endfunc
 
 func! s:opqReadPost()
