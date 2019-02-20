@@ -1,13 +1,19 @@
-" last modified 2019-02-16
+" last modified 2019-02-25
 
-func! UniCycleTyping()
-  "inoremap <buffer> - -<Esc>:call UniCycleHyphen()<CR>a
-  "inoremap <buffer> . .<Esc>:call UniCyclePeriod()<CR>a
+func! UniCycleOn()
+  " don't mess with hyphen and dot
   inoremap <buffer> ' x<Esc>:call UniCycleApostrophe()<CR>a
   inoremap <buffer> " x<Esc>:call UniCycleQuote()<CR>a
 endfunc
 
-au filetype asciidoc setl cpt+=k inf tw=65 | call UniCycleTyping()
+func! UniCycleOff()
+  iunmap '
+  iunmap "
+endfunc
+
+au filetype asciidoc setl cpt+=k inf tw=65
+
+au filetype asciidoc UniCycleOn
 
 au bufread,bufnewfile *.adoc? setf asciidoc
 
@@ -16,6 +22,8 @@ au bufread,bufnewfile status-*.adoc setl spell
 au bufwritepost **/tmspeech/*.adoc sil !kadoc %
 
 au bufwritepost status-*.adoc sil !yank4gmail %
+
+au bufread,bufnewfile **/curr-reorg/**/*.adoc UniCycleOff
 
 com! Tmspeech e ~/src/tmspeech/utopia.adoc
 

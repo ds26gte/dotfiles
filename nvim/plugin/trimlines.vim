@@ -1,6 +1,10 @@
-" last modified 2018-08-03
+" last modified 2019-02-21
 
-com! Trimlines call s:trimlines()
+func! s:noTrailingSpaces()
+  norm mx
+  %s/\s\+$//
+  norm `x
+endfunc
 
 func! s:trimlines()
   " don't do in diff-mode, as it could corrupt file-writes
@@ -10,16 +14,20 @@ func! s:trimlines()
 
   norm mx
 
-  sil! %s/\s\+$//
+  %s/\s\+$//
 
   " at file ends, if blank line found, collapse it with all its
   " adjacent consecutive blank lines
 
-  sil 1 g/^$/ .,/./j
+  1 g/^$/ .,/./j
 
-  sil $ g/^$/ ?.?,.j
+  $ g/^$/ ?.?,.j
 
-  sil v/./,/./-j
+  v/./,/./-j
 
   norm `x
 endfunc 
+
+com! NoTrailingSpaces sil! call s:noTrailingSpaces()
+
+com! Trimlines sil! call s:trimlines()

@@ -1,0 +1,70 @@
+# last modified 2019-02-19
+# Dorai Sitaram
+
+define pow(x, a) {
+  e(l(x) * a)
+}
+
+pi = 4*a(1)
+e1 = e(1)
+phi = (sqrt(5) + 1)/2
+
+tau = 2*pi
+
+m = 1
+kg = 1
+s = 1
+
+cm = 10^-2 * m
+mm = 10^-3 * m
+um = 10^-3 * mm
+nm = 10^-3 * um
+km = 1000 * m
+
+g = 10^-3 * kg
+mg = 10^-3 * g
+ug = 10^-3 * mg
+t = 1000 * kg
+
+ml = cm^3
+l = 1000 * ml
+
+in = 2.54 * cm
+ft = 12 * in
+yd = 3 * ft
+mi = 1760 * yd
+nmi = 1852 * m
+
+lb = .45359237 * kg
+oz = (1/16) * lb
+ton = 2000 * lb
+
+min = 60*s
+h = 60*min
+dy = 24*h
+wk = 7*dy
+yr = 365*dy
+
+ac = 4840 * yd^2
+
+gal = 231 * in^3
+qt = (1/4) * gal
+pt = (1/2) * qt
+cup = (1/2) * pt
+floz = (1/8) * cup
+
+newton = kg * m/s^2
+joule = newton * m
+watt = joule/s
+
+cal = 4.184 * joule
+kcal = 1000 * cal
+
+btu = lb * 5/9 * kcal
+therm = 10000 * btu
+
+hp = 746 * watt
+
+c = 299792458 * m/s
+
+ly = c*yr

@@ -1,4 +1,4 @@
-" last modified 2019-02-19
+" last modified 2019-02-23
 
 ino <tab> <c-n>
 
@@ -23,35 +23,14 @@ au filetype make setl list
 
 au filetype javascript setl sua+=.js,.jsx
 
-au vimleave * sil !mv -n {.,}*.????-??-??T??:??~ ~/.local/share/nvim/backup 2> /dev/null
-
-au vimleave * sil !rm -f {.,}*.????-??-??T??:??~
-
-let signify_vcs_list = ['git']
-
-func! s:colorscheme_mods()
-  " pmenusel shouldn't obscure underlayer when 'pb' set
-
-  exec 'hi pmenusel guibg=' synIDattr(hlID('pmenu'), 'bg')
-
-  let l:preferred_fg = synIDattr(hlID('title'), 'fg')
-  if empty(l:preferred_fg)
-    let l:preferred_fg = synIDattr(hlID('identifier'), 'fg')
-  endif
-  exec 'hi pmenusel guifg=' l:preferred_fg
-
-  if synIDattr(hlID('pmenusel'), 'reverse')
-    hi pmenusel gui=none
-  endif
+func! s:vimleave_hook()
+  !mv -n {.,}*.????-??-??T??:??~ ~/.local/share/nvim/backup 2> /dev/null
+  !rm -f {.,}*.????-??-??T??:??~
 endfunc
 
-au colorscheme * call s:colorscheme_mods()
+au vimleave * sil call s:vimleave_hook()
 
-au colorscheme apprentice hi! link whitespace errormsg
-
-au colorscheme janah hi normal guifg=gray73
-
-colo apprentice
+let signify_vcs_list = ['git']
 
 com! Sum !plus %
 

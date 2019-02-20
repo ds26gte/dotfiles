@@ -1,4 +1,4 @@
-" Last modified 2019-02-18
+" Last modified 2019-02-24
 ino jj <esc>
 let &pm = strftime('.%Y-%m-%dT%H:%M~')
 nno <c-k> <c-w>
@@ -19,7 +19,6 @@ set icm=split
 set lbr
 set lcs+=tab:<->
 set lcs-=tab:>\ "
-set mouse=a
 set nohls
 set nojs
 set noswf
