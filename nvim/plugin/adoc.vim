@@ -1,4 +1,4 @@
-" last modified 2019-02-25
+" last modified 2019-03-01
 
 func! UniCycleOn()
   " don't mess with hyphen and dot
@@ -23,7 +23,7 @@ au bufwritepost **/tmspeech/*.adoc sil !kadoc %
 
 au bufwritepost status-*.adoc sil !yank4gmail %
 
-au bufread,bufnewfile **/curr-reorg/**/*.adoc UniCycleOff
+au bufread,bufnewfile **/curr-reorg/**.adoc UniCycleOff
 
 com! Tmspeech e ~/src/tmspeech/utopia.adoc
 

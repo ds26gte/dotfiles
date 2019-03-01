@@ -1,6 +1,6 @@
-" Last modified 2019-02-24
+" Last modified 2019-03-04
 ino jj <esc>
-let &pm = strftime('.%Y-%m-%dT%H:%M~')
+let &pm = strftime('.%Y-%m-%d-%H-%M~')
 nno <c-k> <c-w>
 no! <c-h> <c-w>
 set acd
