@@ -1,4 +1,4 @@
-" last modified 2019-02-17
+" last modified 2019-03-12
 " Dorai Sitaram
 
 " Showswatch colordesc
@@ -51,4 +51,4 @@ endfunc
 
 com! -nargs=1 Showswatch call s:showswatch(<q-args>)
 
-nmap <leader>c :Showswatch<space>
+nmap <leader>s :Showswatch<space>

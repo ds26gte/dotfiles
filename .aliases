@@ -1,4 +1,4 @@
-# last modified 2019-03-04
+# last modified 2019-03-19
 alias 1='fg %1'
 alias 2='fg %2'
 alias 3='fg %3'
@@ -15,6 +15,7 @@ alias aslide='asciidoc -b slidy -a linkcss -a stylesheet=myslidy.css'
 alias bdir='cd;cd .local/share/nvim/backup'
 alias bin='cd;cd bin'
 alias bkp='mv -n {.,}*.????-??-??-??-??~ ~/.local/share/nvim/backup 2> /dev/null'
+alias bpw=build-pathway
 alias c=clear
 alias cd..='cd ..'
 alias cdarrb='pyl;cd src/arr/base'
@@ -32,7 +33,9 @@ alias cpo-ensure-env='cpo;test -e .env || cp -p ~/Dropbox/env.cpo.google .env'
 alias cpo='htm;cd code.pyret.org'
 alias cpyro='cheapspy code.pyret.org'
 alias cr=google-chrome
+alias cudo='curric;bpw'
 alias curr='src;cd curr'
+alias curric='src;cd curriculum'
 alias currlib='curr; cd lib'
 alias cx='chmod +x'
 alias di=diff
@@ -86,7 +89,6 @@ alias ls='ls -F'
 alias ly=lynx
 alias lynx='COLUMNS=80 lynx -editor=nvim -vikeys'
 alias m=less
-alias maketinyvimrc='(echo "sil !date +\"set pm=.\%Y-\%m-\%d-\%H-\%M~\" > ~/.patchmode.vim" > ~/.vimrc; echo "sil !mv -n {.,}*.????-??-??-??-??~ ~/.local/share/nvim/backup 2> /dev/null" >> ~/.vimrc; echo "sil !rm -f {.,}*.????-??-??-??-??~" >> ~/.vimrc; echo "so ~/.patchmode.vim" >> ~/.vimrc; echo >> ~/.vimrc; sed -e "/^set \(icm\|lcs\|mouse\|pb\|sd\)/d" -e "/^\(\"\|let\)/d" ~/.config/nvim/plugin/aardvark.vim >> ~/.vimrc; echo "set bo=all" >> ~/.vimrc; echo "set lcs+=tab:>-" >> ~/.vimrc; echo >> ~/.vimrc; vimpa; cat $(find . -name apprentice.vim | head -1) | sed -ne "1,/^ *else/p" | sed -e "s/^  *//" | grep "^\(hi\|set\)" | sed -e "s/ *gui[^ ]*//g" >> ~/.vimrc)'
 alias md=mkdir
 alias merg='mergedir ../..;prun'
 alias minc='(printf "%.2f\n" $(echo $(cat | wc -w)/$(wordsperminute) | bc -l)) <'
@@ -147,6 +149,7 @@ alias remakepatkh='kpo;~/bin/kpo-heroku patch-editor;heroku addons:create redisc
 alias remakepatkhNEW='kpo;~/bin/kpo-heroku patch-editor-2;heroku addons:create rediscloud;finished'
 alias remakepatqh='qpo;~/bin/qpo-heroku pyret-editor;heroku addons:create rediscloud;finished'
 alias remix='src;cd curr-reorg'
+alias remixdemo='src;cd remix-demo'
 alias remixdis='remix;cd distribution'
 alias remixdoc='remix;cd distribution/lessons/algebra/langs/en-us'
 alias remixlesson='remix;cd lessons/algebra/langs/en-us'
