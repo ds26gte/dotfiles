@@ -1,9 +1,8 @@
-" Last modified 2019-03-16
+" Last modified 2019-04-14
 au bufread * sil! norm g`"
 au termopen * startinsert | sp +setl\ mod /tmp/viSessionHasOpenTerminalBuffers | close
 au vimleave * !export bkpfiles="*.????-??-??-??-??~ .*.????-??-??-??-??~"; mv -n $bkpfiles ~/.local/share/nvim/backup; rm -f $bkpfiles
 ino <tab> <c-n>
-ino jj <esc>
 let &pm = strftime('.%Y-%m-%d-%H-%M~')
 let signify_vcs_list = ['git']
 nno <c-k> <c-w>

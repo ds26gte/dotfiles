@@ -1,11 +1,11 @@
-" last modified 2019-03-17
+" last modified 2019-04-10
 
 func! Color_mods()
 
   hi normal guibg=gray15 guifg=gray73
   hi pmenusel guibg=none guifg=gold
-  hi statusline guibg=gray20 guifg=gray65
-  hi statuslinenc guibg=gray20 guifg=gray50
+  hi statusline gui=none guibg=gray20 guifg=gray65
+  hi statuslinenc gui=none guibg=gray20 guifg=gray50
 
   hi clear pmenu
   hi moremsg guifg=violet

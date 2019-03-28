@@ -1,4 +1,4 @@
-" Last modified 2019-03-17
+" Last modified 2019-03-28
 " Dorai Sitaram
 
 if !executable('fortune')
@@ -24,4 +24,12 @@ endfunc
 
 com! Ofortuna call s:ofortuna()
 
-au vimenter * if argc() == 0 | call s:ofortuna() | endif
+func! s:viCalledWithNoArgs()
+  if argc() == 0 && !bufexists('/tmp/viSessionHasOpenTerminalBuffers')
+    return 1
+  else
+    return 0
+  endif
+endfunc
+
+au vimenter * if s:viCalledWithNoArgs() | call s:ofortuna() | endif
