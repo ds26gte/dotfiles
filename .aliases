@@ -1,9 +1,10 @@
-# last modified 2019-04-08
+# last modified 2019-05-08
 alias 1='fg %1'
 alias 2='fg %2'
 alias 3='fg %3'
 alias 3restart='sudo shutdown -r now'
 alias 3shutdown='sudo shutdown -h now'
+alias :q=exit
 alias add-apt-repository=apt-add-repository
 alias adoc=asciidoctor
 alias adocss='TEMP() { s=$1; shift; asciidoctor -a stylesheet=~/src/asciidoctor-stylesheet-factory/stylesheets/$s.css "$@"; }; TEMP'
@@ -12,12 +13,15 @@ alias apdf='asciidoctor-pdf -a pdf-stylesdir=/home/ds26gte/asciidoctor-pdf-resou
 alias apdftr='asciidoctor-pdf -a pdf-style=/home/ds26gte/times.yml'
 alias apt-add-repository='sudo apt-add-repository'
 alias aslide='asciidoc -b slidy -a linkcss -a stylesheet=myslidy.css'
+alias batty1='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
+alias batty2='upower -i /org/freedesktop/UPower/devices/battery_BAT1'
 alias bdir='cd;cd .local/share/nvim/backup'
 alias bin='cd;cd bin'
-alias bkp='mv -n {.,}*.????-??-??-??-??~ ~/.local/share/nvim/backup 2> /dev/null'
 alias bpw='curric;build-pathway'
 alias c=clear
 alias cd..='cd ..'
+alias cdbg='bpw pathways/pathwayP'
+alias cgame='bpw pathways/bs-game-pathway'
 alias cp='cp -p'
 alias cr=google-chrome
 alias cudo='curric;bpw'
@@ -65,6 +69,7 @@ alias killshada='rm ~/.local/share/nvim/shada/*'
 alias l.='ls -d .*'
 alias l='ls -l'
 alias la='ls -Ad .*'
+alias latex=lualatex
 alias ls='ls -F'
 alias ly=lynx
 alias lynx='COLUMNS=80 lynx -editor=nvim -vikeys'
