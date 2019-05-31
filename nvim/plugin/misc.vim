@@ -1,4 +1,4 @@
-" last modified 2019-03-12
+" last modified 2019-05-29
 
 " when called in read-only mode (-R)
 if &uc == 10000 | nmap q :q<cr> | endif
@@ -14,6 +14,8 @@ au filetype vim setl fo-=ro isk+=:
 au filetype make setl list
 
 au filetype javascript setl sua+=.js,.jsx
+
+au filetype conf setl ft=sh
 
 com! Sum !plus %
 

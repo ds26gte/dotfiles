@@ -1,4 +1,4 @@
-# last modified 2019-05-08
+# last modified 2019-05-28
 alias 1='fg %1'
 alias 2='fg %2'
 alias 3='fg %3'
@@ -13,6 +13,7 @@ alias apdf='asciidoctor-pdf -a pdf-stylesdir=/home/ds26gte/asciidoctor-pdf-resou
 alias apdftr='asciidoctor-pdf -a pdf-style=/home/ds26gte/times.yml'
 alias apt-add-repository='sudo apt-add-repository'
 alias aslide='asciidoc -b slidy -a linkcss -a stylesheet=myslidy.css'
+alias b='src;cd bee; cd 2019'
 alias batty1='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
 alias batty2='upower -i /org/freedesktop/UPower/devices/battery_BAT1'
 alias bdir='cd;cd .local/share/nvim/backup'
@@ -21,11 +22,15 @@ alias bpw='curric;build-pathway'
 alias c=clear
 alias cd..='cd ..'
 alias cdbg='bpw pathways/pathwayP'
+alias cdme='cd $PWD'
 alias cgame='bpw pathways/bs-game-pathway'
+alias clscript='rm typescript*;script'
 alias cp='cp -p'
 alias cr=google-chrome
 alias cudo='curric;bpw'
 alias curric='src;cd curriculum'
+alias curricd='curric;cd distribution'
+alias curriclib='curric;cd lib'
 alias curricrkt='remix;cd shared/langs/en-us'
 alias cx='chmod +x'
 alias di=diff
@@ -70,6 +75,7 @@ alias l.='ls -d .*'
 alias l='ls -l'
 alias la='ls -Ad .*'
 alias latex=lualatex
+alias lessona='curricd;cd pathwayP/langs/en-us/lessons/lessona/exercises'
 alias ls='ls -F'
 alias ly=lynx
 alias lynx='COLUMNS=80 lynx -editor=nvim -vikeys'
