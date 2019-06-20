@@ -1,4 +1,4 @@
-" last modified 2019-03-29
+" last modified 2019-07-10
 
 au filetype pyret setl isk+=-
 
@@ -12,6 +12,7 @@ au bufread,bufnewfile *.scrbl setl ft=
 
 au bufread,bufnewfile **/curr-reorg/**.adoc let b:turnUniCyclingOff = 1
 
+com! Curr     e ~/src/curriculum/shared/langs/en-us/adoc-preproc.rkt
 com! Gios     e ~/src/ds26gte.github.io/patch/status-2018-09-28.adoc
 com! Py       e ~/public_html/pyret-lang/src/js/trove/parse-pyret.js
 com! Pz       e ~/public_html/pyret-lang/tests/pyret/tests/test-parse-errors.arr

@@ -1,4 +1,4 @@
-# last modified 2019-05-28
+# last modified 2019-07-15
 alias 1='fg %1'
 alias 2='fg %2'
 alias 3='fg %3'
@@ -6,6 +6,7 @@ alias 3restart='sudo shutdown -r now'
 alias 3shutdown='sudo shutdown -h now'
 alias :q=exit
 alias add-apt-repository=apt-add-repository
+alias adoc-preproc='PATHWAYROOTDIR=../../../ ~/src/curriculum/shared/langs/en-us/adoc-preproc.rkt'
 alias adoc=asciidoctor
 alias adocss='TEMP() { s=$1; shift; asciidoctor -a stylesheet=~/src/asciidoctor-stylesheet-factory/stylesheets/$s.css "$@"; }; TEMP'
 alias aman='asciidoctor -b manpage'
@@ -30,6 +31,7 @@ alias cr=google-chrome
 alias cudo='curric;bpw'
 alias curric='src;cd curriculum'
 alias curricd='curric;cd distribution'
+alias curricl='curric;cd lessons'
 alias curriclib='curric;cd lib'
 alias curricrkt='remix;cd shared/langs/en-us'
 alias cx='chmod +x'
@@ -46,8 +48,7 @@ alias fstart='cpo-ensure-env;foreman start'
 alias fy='xclip -selection clipboard -i'
 alias fys='(spycolt;fy check.arr)'
 alias gcd='find . -name dump.rdb -delete'
-alias gdi='git diff'
-alias gex='gls --others'
+alias gex='git ls-files -o'
 alias gh='cd;cd src'
 alias ghbin='dotf;cd bin'
 alias ghtmp='gh;cd tmp'
@@ -58,7 +59,6 @@ alias gl='cd;cd gl'
 alias glg='git log'
 alias gls='git ls-files'
 alias gpul='git pull'
-alias grebi='git rebase -i'
 alias gsta='git status -uno'
 alias gtt=gnome-tweak-tool
 alias h=history

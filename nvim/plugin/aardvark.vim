@@ -1,4 +1,4 @@
-" Last modified 2019-04-14
+" Last modified 2019-06-20
 au bufread * sil! norm g`"
 au termopen * startinsert | sp +setl\ mod /tmp/viSessionHasOpenTerminalBuffers | close
 au vimleave * !export bkpfiles="*.????-??-??-??-??~ .*.????-??-??-??-??~"; mv -n $bkpfiles ~/.local/share/nvim/backup; rm -f $bkpfiles
@@ -21,6 +21,7 @@ set hid
 set ic
 set icm=split
 set lbr
+set ls=0
 set mouse=ar
 set nohls
 set nojs

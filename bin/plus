@@ -1,13 +1,19 @@
-# last modified 2018-10-01
+# last modified 2019-06-20
 # Dorai Sitaram
 
 f=$1
 
-sed -e 's/[^-0-9.*]/ /g' $f |
+cat $f |
+  sed -e 's/\([a-zA-Z]\)-/\1/g' |
+  sed -e 's/-\([a-zA-Z]\)/\1/g' |
+  sed -e 's/\([a-zA-Z]\)[0-9][0-9]*/\1/g' |
+  sed -e 's/[0-9][0-9]*\([a-zA-Z]\)/\1/g' |
+  sed -e 's/[^-0-9.*]/ /g' |
   sed -e 's/[-.]$//' |
-  sed -e 's/^[-.] / /' |
-  sed -e 's/ [-.] / /g' |
+  sed -e 's/^[.] / /' |
+  sed -e 's/ [.] / /g' |
   sed -e '/^ *$/d' |
+  sed -e 's/\([^ *]\)  *\([^ *]\)/\1 + \2/' |
   sed -e 's/$/ +/' |
   sed -e '1s/^/print(/' |
   sed -e '$s/+$/)/' |
