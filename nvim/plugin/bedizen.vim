@@ -1,9 +1,10 @@
-" last modified 2019-06-20
+" last modified 2019-07-30
 
 func! Color_mods()
 
-  hi pmenusel guifg=gold
-  hi! link whitespace errormsg
+  hi! link pmenusel number
+  hi! link specialkey number
+  hi! link whitespace number
 
 endfunc
 

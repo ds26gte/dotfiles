@@ -1,4 +1,4 @@
-" last modified 2018-08-16
+" last modified 2019-07-28
 " Dorai Sitaram
 
 func! s:ensurePlugin(repo)
@@ -14,4 +14,4 @@ endfunc
 
 com! -nargs=1 Plugin call s:ensurePlugin(<q-args>)
 
-com! -nargs=1 GHplugin call s:ensurePlugin('https://github.com/' . <q-args>)
+com! -nargs=1 GHplugin Plugin https://github.com/<args>
