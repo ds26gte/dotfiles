@@ -1,4 +1,4 @@
-" last modified 2019-02-17
+" last modified 2019-08-30
 " from www.noah.org/wiki/Password_Safe_with_Vim_and_OpenSSL
 " but (a) with ui more like vim's :X, and
 " (b) only for .aes
@@ -19,6 +19,7 @@ func! s:opqSetOptions()
   set vi=
   set sd=
   setl noswf
+  exec 'set bsk+=*.' . expand('%:e')
 endfunc
 
 func! s:opqNewFile()

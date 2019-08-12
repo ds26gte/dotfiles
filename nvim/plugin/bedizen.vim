@@ -1,10 +1,11 @@
-" last modified 2019-07-30
+" last modified 2019-08-30
 
 func! Color_mods()
 
-  hi! link pmenusel number
-  hi! link specialkey number
-  hi! link whitespace number
+  hi pmenusel ctermbg=238 ctermfg=200 guibg=gray27 guifg=hotpink
+  hi search ctermfg=none ctermbg=17 guifg=none guibg=#000035
+  hi specialkey ctermfg=179 guifg=darkgoldenrod
+  hi whitespace ctermfg=20 guifg=mediumblue
 
 endfunc
 

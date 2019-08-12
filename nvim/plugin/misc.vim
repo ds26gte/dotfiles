@@ -1,7 +1,24 @@
-" last modified 2019-05-29
+" last modified 2019-08-30
 
 " when called in read-only mode (-R)
 if &uc == 10000 | nmap q :q<cr> | endif
+
+if !isdirectory('/gpfs')
+  "not on Brown machine
+  set tgc
+endif
+
+if &tgc | set pb=41 | endif
+
+ino <s-tab> <c-p>
+
+if $SSH_CONNECTION && !$DISPLAY
+  "in chromebook
+  no! <c-h> <c-w>
+  tno <c-h> <c-w>
+endif
+
+let signify_vcs_list = ['git']
 
 "au termopen * setl scbk=-1
 
@@ -17,8 +34,10 @@ au filetype javascript setl sua+=.js,.jsx
 
 au filetype conf setl ft=sh
 
+com! Htmlbeautify %!html-beautify -f -
+
 com! Sum !plus %
 
-com! Vimp e ~/.config/nvim/plugin/misc.vim
+com! Trimfile !trimfile %
 
-com! Htmlbeautify %!html-beautify -f -
+com! Vimp e ~/.config/nvim/plugin/misc.vim

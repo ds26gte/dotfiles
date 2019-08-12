@@ -1,9 +1,25 @@
-# last modified 2019-06-20
+# last modified 2019-08-12
 # Dorai Sitaram
 
 f=$1
 
+# remove lines starting with semicolon as comments
+# minus (hyphen) immediately after alpha removed
+# minus imly before alpha removed
+# digit sequence imly after alpha removed
+# digit seq imly before alpha removed
+# non-alpha removed
+# trailing minus and point removed
+# leading point followed by space removed
+# point flanked by spaces removed
+# all-space lines removed
+# insert plus between two numbers on same line
+# plus added after each line
+# put print( before first line and ) after last line
+# give to Lua
+
 cat $f |
+  sed -e '/^ *;/d' |
   sed -e 's/\([a-zA-Z]\)-/\1/g' |
   sed -e 's/-\([a-zA-Z]\)/\1/g' |
   sed -e 's/\([a-zA-Z]\)[0-9][0-9]*/\1/g' |
@@ -17,4 +33,4 @@ cat $f |
   sed -e 's/$/ +/' |
   sed -e '1s/^/print(/' |
   sed -e '$s/+$/)/' |
-  lua 
+  lua
