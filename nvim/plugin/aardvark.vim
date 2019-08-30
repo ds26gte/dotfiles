@@ -17,6 +17,7 @@ set et
 set hid
 set ic
 set lbr
+set lcs=
 set mouse=ar
 set nojs
 set noswf
@@ -30,6 +31,7 @@ set swb+=usetab
 set tgc
 set wic
 set wig=*.docx,*.dvi,*.eps,*.min.js,*.o,*.odt,*.otf,*.ps,*.so,*.ttf,*.zo
+set lcs= | set lcs+=tab:▶▷,trail:█,nbsp:◆
 sil! au termopen * startinsert | sp +setl\ mod /tmp/viSessionHasOpenTerminalBuffers | close
 sil! set icm=split
 sil! set sd+=%
