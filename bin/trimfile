@@ -1,8 +1,8 @@
-# Last modified 2019-08-26
+# Last modified 2019-08-30
 # Dorai Sitaram
 
 trimfile1() {
-  nvim -e -u NONE -s "$1" << "  EOF"
+  vi -u NONE -es "$1" << "  EOF"
   
   "remove spaces at end of lines
   %s/\s\+$//

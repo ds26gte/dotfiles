@@ -6,4 +6,3 @@ endif
 
 no! <c-h> <c-w>
 tno <c-h> <c-w>
-

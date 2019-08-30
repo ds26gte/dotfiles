@@ -1,4 +1,4 @@
-# last modified 2018-09-07
+# last modified 2019-08-30
 # Dorai Sitaram
 
 if test x$DISPLAY = x; then
@@ -13,7 +13,7 @@ tmpf=~/tmp/.tmp.$$
 
 cp -p $1 $tmpf
 
-nvim -es $tmpf <<EOF
+vi -u NONE -es $tmpf <<EOF
 
 set fo+=w
 
