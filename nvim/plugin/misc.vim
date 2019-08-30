@@ -3,11 +3,6 @@
 " when called in read-only mode (-R)
 if &uc == 10000 | nmap q :q<cr> | endif
 
-if !isdirectory('/gpfs')
-  "not on Brown machine
-  set tgc
-endif
-
 if &tgc | set pb=41 | endif
 
 ino <s-tab> <c-p>

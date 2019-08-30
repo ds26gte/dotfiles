@@ -27,6 +27,7 @@ set so=2
 set spl=en_us
 set sw=2
 set swb+=usetab
+set tgc
 set wic
 set wig=*.docx,*.dvi,*.eps,*.min.js,*.o,*.odt,*.otf,*.ps,*.so,*.ttf,*.zo
 sil! au termopen * startinsert | sp +setl\ mod /tmp/viSessionHasOpenTerminalBuffers | close
