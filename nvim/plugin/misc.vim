@@ -7,12 +7,6 @@ if &tgc | set pb=41 | endif
 
 ino <s-tab> <c-p>
 
-if $SSH_CONNECTION && !$DISPLAY
-  "in chromebook
-  no! <c-h> <c-w>
-  tno <c-h> <c-w>
-endif
-
 let signify_vcs_list = ['git']
 
 "au termopen * setl scbk=-1
