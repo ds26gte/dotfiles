@@ -1,4 +1,4 @@
-# last modified 2019-08-24
+# last modified 2019-08-30
 alias 1='fg %1'
 alias 2='fg %2'
 alias 3='fg %3'
@@ -60,6 +60,7 @@ alias gitpush='git push origin $(git rev-parse --abbrev-ref HEAD)'
 alias gl='cd;cd gl'
 alias glg='git log'
 alias gls='git ls-files'
+alias gpfs='cd /gpfs/main/authen/sys/web/cs/web/sites/bootstrapworld.org'
 alias gpul='git pull'
 alias gsta='git status -uno'
 alias gtt=gnome-tweak-tool
