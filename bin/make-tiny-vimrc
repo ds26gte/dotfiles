@@ -11,10 +11,15 @@ fi
 sed \
   -e "/^set \([a-dlmt]\|s[bp]\)/d" \
   -e "/^sil/d" \
+  -e "s/^au colorscheme \* //" \
   -e "s/^au vimleave \*/sil/" \
   -e "/^\(au\|let\|try\)/d" \
   -e "/^ino.*tab/d" \
-  ~/.config/nvim/plugin/aardvark.vim >> ~/.vimrc
+  ~/.config/nvim/plugin/aardvark.vim > ~/.vimrc
+
 echo "set bo=all" >> ~/.vimrc
+echo "set hl+=s:nontext,S:directory,n:moremsg,v:incsearch,#:nontext,*:directory,_:clear" >> ~/.vimrc
+echo "set ls=2" >> ~/.vimrc
+echo "set wim=list:full" >> ~/.vimrc
 echo "sil !date +\"set pm=.\%Y-\%m-\%d-\%H-\%M~\" > ~/.patchmode.vim" >> ~/.vimrc
 echo "so ~/.patchmode.vim" >> ~/.vimrc

@@ -1,9 +1,8 @@
-" last modified 2019-02-15
+" last modified 2019-09-02
 " Dorai Sitaram
 
 let tex_flavor = 'tex'
 
-au filetype tex setl tw=65 | call UniCycleTyping()
 
 func! s:latexboilerplate()
   let l:doit = 1
@@ -41,5 +40,14 @@ func! s:latexme()
     sil !latex %
   endif
 endfunc
+
+func! Smartquotes()
+  ino <buffer> "` “
+  ino <buffer> `" ”
+  ino <buffer> '` ‘
+  ino <buffer> `' ’
+endfunc
+
+au filetype nroff,tex setl tw=65 | call Smartquotes()
 
 au filetype tex au bufwritepost <buffer> call s:latexme()

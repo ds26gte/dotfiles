@@ -1,15 +1,4 @@
-" last modified 2019-03-12
-
-func! UniCycleTyping()
-  " don't mess with hyphen and dot
-  inoremap <buffer> ' x<Esc>:call UniCycleApostrophe()<CR>a
-  inoremap <buffer> " x<Esc>:call UniCycleQuote()<CR>a
-endfunc
-
-func! UniCycleTypingOff()
-  iunmap '
-  iunmap "
-endfunc
+" last modified 2019-09-02
 
 func! AdocFold()
   let l:line = getline(v:lnum)
@@ -31,10 +20,6 @@ func! s:adocOptions()
   setl inf
   setl tw=65
 
-  if exists('b:turnUniCyclingOff') && b:turnUniCyclingOff
-  else
-    call UniCycleTyping()
-  endif
 endfunc
 
 au filetype asciidoc call s:adocOptions()
