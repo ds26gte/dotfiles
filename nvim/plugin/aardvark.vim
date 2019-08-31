@@ -1,9 +1,11 @@
-" Last modified 2019-08-30
+" Last modified 2019-08-31
 au bufread * sil! norm g`"
-au vimleave * !export bkpfiles="*.????-??-??-??-??~ .*.????-??-??-??-??~"; mv -n $bkpfiles ~/.local/share/nvim/backup; rm -f $bkpfiles
+au colorscheme * hi normal ctermfg=250 ctermbg=235 guifg=gray73 guibg=gray15
+au vimleave * !export bkpfiles="*.????-??-??-??-??~ .*.????-??-??-??-??~"; mv -n $bkpfiles ~/.local/share/nvim/backup 2>/dev/null; rm -f $bkpfiles
 ino <tab> <c-n>
 ino jj <esc>
 let &pm = strftime('.%Y-%m-%d-%H-%M~')
+let signify_vcs_list = ['git']
 nno <c-k> <c-w>
 set acd
 set bri
@@ -17,12 +19,11 @@ set et
 set hid
 set ic
 set lbr
-set lcs=
 set mouse=ar
 set nojs
 set noswf
 set pa=.,./**,./../**,./../../**,./../../../**,$HOME/**
-set sbr=↪\ "
+set sbr=█\ "
 set scs
 set so=2
 set spl=en_us
@@ -31,9 +32,9 @@ set swb+=usetab
 set tgc
 set wic
 set wig=*.docx,*.dvi,*.eps,*.min.js,*.o,*.odt,*.otf,*.ps,*.so,*.ttf,*.zo
-set lcs= | set lcs+=tab:▶▷,trail:█,nbsp:◆
 sil! au termopen * startinsert | sp +setl\ mod /tmp/viSessionHasOpenTerminalBuffers | close
 sil! set icm=split
 sil! set sd+=%
 tno <c-v><esc> <esc>
 tno <esc> <c-\><c-n>
+try | if $VICOLOR == '' | let $VICOLOR = 'default' | endif | colo $VICOLOR | endtry

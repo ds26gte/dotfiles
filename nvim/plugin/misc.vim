@@ -1,13 +1,7 @@
-" last modified 2019-08-30
+" last modified 2019-08-31
 
 " when called in read-only mode (-R)
 if &uc == 10000 | nmap q :q<cr> | endif
-
-if &tgc | set pb=41 | endif
-
-ino <s-tab> <c-p>
-
-let signify_vcs_list = ['git']
 
 "au termopen * setl scbk=-1
 

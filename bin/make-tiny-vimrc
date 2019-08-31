@@ -1,25 +1,20 @@
-# last modified 2019-03-12
+# last modified 2019-08-31
 
 # Create a .vimrc from my nvim config that's usable with Ubuntu's tiny vim
 
-echo "sil !date +\"set pm=.\%Y-\%m-\%d-\%H-\%M~\" > ~/.patchmode.vim" > ~/.vimrc
-echo "so ~/.patchmode.vim" >> ~/.vimrc
-echo >> ~/.vimrc
+if test -f ~/.vimrc; then
+  if head -1 ~/.vimrc|grep -v 'Last modified' >/dev/null; then
+    echo .vimrc not modified; exit
+  fi
+fi
 
-echo "sil !mv -n {.,}*.????-??-??-??-??~ ~/.local/share/nvim/backup 2> /dev/null" >> ~/.vimrc
-echo "sil !rm -f {.,}*.????-??-??-??-??~" >> ~/.vimrc
-echo >> ~/.vimrc
-
-sed -e "/^set \(icm\|lcs\|mouse\|pb\|sd\)/d" \
-  -e "/^\(\"\|au\|let\)/d" \
+sed \
+  -e "/^set \([a-dlmt]\|s[bp]\)/d" \
+  -e "/^sil/d" \
+  -e "s/^au vimleave \*/sil/" \
+  -e "/^\(au\|let\|try\)/d" \
   -e "/^ino.*tab/d" \
   ~/.config/nvim/plugin/aardvark.vim >> ~/.vimrc
 echo "set bo=all" >> ~/.vimrc
-echo "set lcs+=tab:>-" >> ~/.vimrc
-echo >> ~/.vimrc
-
-cat $(find ~/src/dotfiles/nvim/pack/3rdpartyplugins -name apprentice.vim | head -1) |
-  sed -ne "1,/^ *else/p" |
-  sed -e "s/^  *//" |
-  grep "^\(hi\|set\)" |
-  sed -e "s/ *gui[^ ]*//g" >> ~/.vimrc
+echo "sil !date +\"set pm=.\%Y-\%m-\%d-\%H-\%M~\" > ~/.patchmode.vim" >> ~/.vimrc
+echo "so ~/.patchmode.vim" >> ~/.vimrc
