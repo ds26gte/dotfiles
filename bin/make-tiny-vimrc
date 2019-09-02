@@ -1,9 +1,9 @@
-# last modified 2019-08-31
+# last modified 2019-09-03
 
 # Create a .vimrc from my nvim config that's usable with Ubuntu's tiny vim
 
 if test -f ~/.vimrc; then
-  if head -1 ~/.vimrc|grep -v 'Last modified' >/dev/null; then
+  if head -1 ~/.vimrc|grep -v 'aardvark\.vim' >/dev/null; then
     echo .vimrc not modified; exit
   fi
 fi
@@ -17,9 +17,10 @@ sed \
   -e "/^ino.*tab/d" \
   ~/.config/nvim/plugin/aardvark.vim > ~/.vimrc
 
+echo "hi visual ctermfg=255 ctermbg=68" >> ~/.vimrc
+echo "hi tablinesel ctermbg=59" >> ~/.vimrc
 echo "set bo=all" >> ~/.vimrc
-echo "set hl+=s:nontext,S:directory,n:moremsg,v:incsearch,#:nontext,*:directory,_:clear" >> ~/.vimrc
+echo "set hl+=s:clear,S:clear,n:clear,*:clear,_:clear" >> ~/.vimrc
 echo "set ls=2" >> ~/.vimrc
-echo "set wim=list:full" >> ~/.vimrc
 echo "sil !date +\"set pm=.\%Y-\%m-\%d-\%H-\%M~\" > ~/.patchmode.vim" >> ~/.vimrc
 echo "so ~/.patchmode.vim" >> ~/.vimrc

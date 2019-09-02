@@ -1,4 +1,4 @@
-" Last modified 2019-08-31
+" aardvark.vim, last modified 2019-09-03
 au bufread * sil! norm g`"
 au colorscheme * hi normal ctermfg=250 ctermbg=235 guifg=gray73 guibg=gray15
 au vimleave * !export bkpfiles="*.????-??-??-??-??~ .*.????-??-??-??-??~"; mv -n $bkpfiles ~/.local/share/nvim/backup 2>/dev/null; rm -f $bkpfiles
@@ -23,7 +23,7 @@ set mouse=ar
 set nojs
 set noswf
 set pa=.,./**,./../**,./../../**,./../../../**,$HOME/**
-set sbr=█\ "
+set sbr=...\ "
 set scs
 set so=2
 set spl=en_us
@@ -32,9 +32,10 @@ set swb+=usetab
 set tgc
 set wic
 set wig=*.docx,*.dvi,*.eps,*.min.js,*.o,*.odt,*.otf,*.ps,*.so,*.ttf,*.zo
+set wim=longest:list,full
 sil! au termopen * startinsert | sp +setl\ mod /tmp/viSessionHasOpenTerminalBuffers | close
+sil! colo $VICOLOR
 sil! set icm=split
 sil! set sd+=%
 tno <c-v><esc> <esc>
 tno <esc> <c-\><c-n>
-try | if $VICOLOR == '' | let $VICOLOR = 'default' | endif | colo $VICOLOR | endtry
