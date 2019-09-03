@@ -1,20 +1,26 @@
-# last modified 2019-09-03
+# last modified 2019-09-04
 
 # Create a .vimrc from my nvim config that's usable with Ubuntu's tiny vim
 
 if test -f ~/.vimrc; then
-  if head -1 ~/.vimrc|grep -v 'aardvark\.vim' >/dev/null; then
-    echo .vimrc not modified; exit
+  cp -p ~/.vimrc ~/.vimrc.sav
+  if head -1 ~/.vimrc | grep -v 'aardvark\.vim'; then
+    echo .vimrc not from aardvark.vim, not modified; exit
+  fi
+  if test ~/.vimrc -nt ~/.config/nvim/plugin/aardvark.vim; then
+    echo .vimrc newer than aardvark.vim, not modified; exit
   fi
 fi
 
 sed \
+  -e "1s/aardvark/extracted from \0/" \
+  -e "/^ino.*tab/d" \
   -e "/^set \([a-dlmt]\|s[bp]\)/d" \
   -e "/^sil/d" \
+  -e "/^tno/d" \
   -e "s/^au colorscheme \* //" \
   -e "s/^au vimleave \*/sil/" \
   -e "/^\(au\|let\|try\)/d" \
-  -e "/^ino.*tab/d" \
   ~/.config/nvim/plugin/aardvark.vim > ~/.vimrc
 
 echo "hi visual ctermfg=255 ctermbg=68" >> ~/.vimrc
@@ -22,5 +28,7 @@ echo "hi tablinesel ctermbg=59" >> ~/.vimrc
 echo "set bo=all" >> ~/.vimrc
 echo "set hl+=s:clear,S:clear,n:clear,*:clear,_:clear" >> ~/.vimrc
 echo "set ls=2" >> ~/.vimrc
+echo "set rtp^=/usr/share/nvim/runtime" >> ~/.vimrc
+echo "set wim=longest:list" >> ~/.vimrc
 echo "sil !date +\"set pm=.\%Y-\%m-\%d-\%H-\%M~\" > ~/.patchmode.vim" >> ~/.vimrc
 echo "so ~/.patchmode.vim" >> ~/.vimrc

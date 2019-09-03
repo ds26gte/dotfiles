@@ -1,4 +1,4 @@
-" last modified 2019-07-10
+" last modified 2019-09-03
 
 au filetype pyret setl isk+=-
 
@@ -16,7 +16,8 @@ com! Curr     e ~/src/curriculum/shared/langs/en-us/adoc-preproc.rkt
 com! Gios     e ~/src/ds26gte.github.io/patch/status-2018-09-28.adoc
 com! Py       e ~/public_html/pyret-lang/src/js/trove/parse-pyret.js
 com! Pz       e ~/public_html/pyret-lang/tests/pyret/tests/test-parse-errors.arr
-com! Remixrkt e ~/src/curriculum/shared/langs/en-us/function-directives.rkt
+com! Remixlib e ~/src/curriculum/lib/function-directives.rkt
+com! Remixrkt e ~/src/curriculum/shared/langs/en-us/curriculum.css
 com! Spy      e ~/public_html/code.pyret.org/src/web/js/beforePyret.js
 com! Trove    e ~/public_html/code.pyret.org/src/web/js/trove/image-lib.js
 com! Wesed    e ~/public_html/wescheme2012/war-src/js/openEditor/editor.js

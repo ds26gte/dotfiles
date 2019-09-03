@@ -123,6 +123,7 @@ alias swapdir='cd;cd .local/share/nvim/swap'
 alias tmp='cd;cd tmp'
 alias tmspeech='src;cd tmspeech'
 alias ubgrade='sudo apt update;sudo apt upgrade;sudo apt dist-upgrade'
+alias ui=vim.tiny
 alias v=view
 alias vd='vi -Rd'
 alias vdiff=vimdiff
