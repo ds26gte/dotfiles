@@ -1,4 +1,4 @@
-# last modified 2019-09-03
+# last modified 2019-09-11
 alias 1='fg %1'
 alias 2='fg %2'
 alias 3='fg %3'
@@ -34,7 +34,7 @@ alias curricd='remix;cd distribution'
 alias curricl='remix;cd lessons'
 alias curriclib='remix;cd lib'
 alias curricp='remix;cd pathways'
-alias curricrkt='curric;cd shared/langs/en-us'
+alias curricshare='curric;cd shared/langs/en-us'
 alias currperm='gpfs;find distribution -type d|xargs chmod g+r,o+rx;cd distribution;find . -type f|xargs chmod g+r,o+r'
 alias cx='chmod +x'
 alias di=diff
@@ -108,7 +108,7 @@ alias remixl='remix;cd lessons'
 alias remixlesson='remix;cd lessons/algebra/langs/en-us'
 alias remixlib=curriclib
 alias remixp=curricp
-alias remixrkt=curricrkt
+alias remixshare=curricshare
 alias rmr='rm -fr'
 alias saadoc='asciidoctor -a data-uri'
 alias sadoc=adocslidy
@@ -135,6 +135,7 @@ alias vimap='vima;cd plugin'
 alias vimd='src;cd dotfiles/nvim'
 alias vimdiff='vi -d'
 alias vimf='vimd;cd ftplugin'
+alias vimht='vi -c "helpt ." -cq'
 alias vimp='vimd;cd plugin'
 alias vimpa='vimd;cd pack/3rdpartyplugins/start'
 alias vimrt='cd /usr/share/nvim/runtime'

@@ -1,0 +1,37 @@
+# Last modified 2019-09-09
+# Dorai Sitaram
+
+vimf=~/tmp/trim-digraphs.vim
+digf=~/.config/nvim/after/plugin/moredig.vim
+
+if test ! -f $digf; then
+  exit
+fi
+
+cat > $vimf << EOF
+
+func! TrimDigraphs()
+  let @r = ""
+  norm ^ww"ryw
+  let @s = "" . @r
+  norm ^is END
+  norm ^"ryl
+  s/^./\=char2nr(@r)
+  s/^\(\d\+\)\s\+END.*DigraphNew\s\+\(..\).*/dig \2 \1/
+endfunc 
+
+EOF
+
+vi -es $digf << EOF
+
+so $vimf
+
+g/DigraphNew/ call TrimDigraphs()
+
+x
+EOF
+
+tmpf=$(mktemp)
+cp $digf $tmpf
+sort $tmpf > $digf
+rm $tmpf

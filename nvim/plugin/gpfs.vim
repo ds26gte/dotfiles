@@ -4,7 +4,7 @@ if !isdirectory('/gpfs')
   finish
 endif
 
-com! Bash let viTerminalBufferCount +=1 | exec 'ter /bin/bash -s \#' . viTerminalBufferCount
+com! Bash let viTerminalBufferCount += 1 | exec 'ter /bin/bash -s \#' . viTerminalBufferCount
 
 set bo=all
 set hls
