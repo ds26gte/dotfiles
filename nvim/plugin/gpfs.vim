@@ -1,4 +1,4 @@
-" last change 2019-09-06
+" last change 2019-09-12
 
 if !isdirectory('/gpfs')
   finish
@@ -10,5 +10,7 @@ set bo=all
 set hls
 set ls=2
 set notgc
+
+nno <leader>f :e<space>
 
 syn off
