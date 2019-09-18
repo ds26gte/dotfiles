@@ -1,4 +1,4 @@
-# last modified 2019-09-12
+# last modified 2019-09-19
 alias 1='fg %1'
 alias 2='fg %2'
 alias 3='fg %3'
@@ -20,7 +20,7 @@ alias batty2='upower -i /org/freedesktop/UPower/devices/battery_BAT1'
 alias bdir='cd;cd .local/share/nvim/backup'
 alias bin='cd;cd bin'
 alias bpw='remix;build-pathway'
-alias bpwdebug='(bpw pathways/pathwayP)'
+alias bpwdebug='(bpw pathways/pathwayP --nopdf --debug)'
 alias c=clear
 alias cd..='cd ..'
 alias cdbg='bpw pathways/pathwayP'

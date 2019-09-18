@@ -1,4 +1,4 @@
-" last modified 2019-09-13
+" last modified 2019-09-17
 " Dorai Sitaram
 
 au filetype scheme,lisp call s:racketOptions()
@@ -19,8 +19,8 @@ func! s:racketWords()
         \datum->syntax,
         \fluid-let,
         \for,
-        \syntax/loc,
         \syntax-parse,
+        \syntax/loc,
         \tex-def-prim,
         \with-input-from-file,
         \write-null-wrapper,

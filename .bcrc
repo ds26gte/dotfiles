@@ -1,4 +1,4 @@
-# last modified 2019-02-19
+# last modified 2019-09-18
 # Dorai Sitaram
 
 define pow(x, a) {
@@ -11,15 +11,31 @@ phi = (sqrt(5) + 1)/2
 
 tau = 2*pi
 
-m = 1
-kg = 1
 s = 1
+ph = 1
+lb = 1
+
+ns = 10^-9 * s
+
+min = 60*s
+h = 60*min
+dy = 24*h
+wk = 7*dy
+yr = 365*dy
+
+c = 10^9 * ph/s
+
+ly = c*yr
+
+m = 10^9 * ph / 299792458
 
 cm = 10^-2 * m
 mm = 10^-3 * m
 um = 10^-3 * mm
 nm = 10^-3 * um
 km = 1000 * m
+
+kg = lb/.45359237
 
 g = 10^-3 * kg
 mg = 10^-3 * g
@@ -33,17 +49,11 @@ in = 2.54 * cm
 ft = 12 * in
 yd = 3 * ft
 mi = 1760 * yd
+lg = 3 * mi
 nmi = 1852 * m
 
-lb = .45359237 * kg
 oz = (1/16) * lb
 ton = 2000 * lb
-
-min = 60*s
-h = 60*min
-dy = 24*h
-wk = 7*dy
-yr = 365*dy
 
 ac = 4840 * yd^2
 
@@ -52,6 +62,8 @@ qt = (1/4) * gal
 pt = (1/2) * qt
 cup = (1/2) * pt
 floz = (1/8) * cup
+tbsp = (1/2) * floz
+tsp = (1/3) * tbsp
 
 newton = kg * m/s^2
 joule = newton * m
@@ -64,7 +76,3 @@ btu = lb * 5/9 * kcal
 therm = 10000 * btu
 
 hp = 746 * watt
-
-c = 299792458 * m/s
-
-ly = c*yr

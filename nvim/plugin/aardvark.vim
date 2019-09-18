@@ -1,4 +1,4 @@
-" aardvark.vim, last modified 2019-09-11
+" aardvark.vim, last modified 2019-09-18
 au bufread * sil! norm g`"
 au colorscheme * hi normal ctermfg=250 ctermbg=235 guifg=gray73 guibg=gray15
 au vimleave * !export BKPFILES="*.????-??-??-??-??~ .*.????-??-??-??-??~"; mv -n $BKPFILES ~/.local/share/nvim/backup 2>/dev/null; rm -f $BKPFILES
@@ -7,10 +7,10 @@ ino <tab> <c-n>
 ino jj <esc>
 let &pm = strftime('.%Y-%m-%d-%H-%M~')
 let matchup_matchparen_offscreen = {}
+let netrw_banner = 0
 let signify_vcs_list = ['git']
 let viTerminalBufferCount = 0
 nno <c-k> <c-w>
-nno <leader>f :Files<space>
 set acd
 set bri
 set cb=unnamedplus

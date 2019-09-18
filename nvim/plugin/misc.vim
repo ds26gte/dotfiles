@@ -1,4 +1,4 @@
-" last modified 2019-09-10
+" last modified 2019-09-19
 
 " when called in read-only mode (-R)
 if &uc == 10000 | nmap q :q<cr> | endif
@@ -19,7 +19,7 @@ au filetype conf setl ft=sh
 
 com! Htmlbeautify %!html-beautify -f -
 
-com! -nargs=1 NewDigraph exec "DigraphNew" <q-args> | exec "sil !echo sil DigraphNew" <q-args> ">> ~/.config/nvim/after/plugin/moredig.vim" | !trim-digraph-file
+com! -nargs=1 NewDigraph exec "DigraphNew" <q-args> | exec "sil !echo sil DigraphNew" <q-args> ">> ~/.config/nvim/after/plugin/moredig.vim" | sil !trim-digraph-file
 
 com! Sum !plus %
 

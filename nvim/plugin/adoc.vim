@@ -1,4 +1,4 @@
-" last modified 2019-09-02
+" last modified 2019-09-16
 
 func! AdocFold()
   let l:line = getline(v:lnum)
@@ -11,12 +11,12 @@ endfunc
 
 func! s:adocOptions()
 
-  "setl fdm=expr
   setl com-=fb:-
   setl com-=mb:*
   setl cpt+=k
   setl fde=AdocFold()
-  setl fdl=1
+  setl fdl=6
+  setl fdm=expr
   setl inf
   setl tw=65
 
