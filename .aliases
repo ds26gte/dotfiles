@@ -1,4 +1,5 @@
-# last modified 2019-09-19
+# last modified 2019-09-21
+alias ..='cd ..'
 alias 1='fg %1'
 alias 2='fg %2'
 alias 3='fg %3'
@@ -49,7 +50,6 @@ alias dvimf='src;cd dotfiles/nvim/plugin'
 alias finished='mpg123 ~/public_html/alice-parker/Sorrow\ and\ Gladness.mp3'
 alias fstart='cpo-ensure-env;foreman start'
 alias fy='xclip -selection clipboard -i'
-alias fys='(spycolt;fy check.arr)'
 alias gcd='find . -name dump.rdb -delete'
 alias gdocadoc='TEMP() { f=$1; pandoc $f -o ${f%%.html}.adoc; }; TEMP'
 alias gex='git ls-files -o'
@@ -92,14 +92,13 @@ alias ocurr='src;cd curr'
 alias ocurrlib='ocurr; cd lib'
 alias osubgrade='ubgrade;sudo update-manager -d'
 alias p='cd ..'
-alias paspyro='dialset patch;spyro'
 alias pkgls='dpkg-query -L'
 alias pp='p;p'
 alias ppp='pp;p'
 alias pppp='pp;pp'
 alias prun='prunedir ../..'
 alias pw=pwd
-alias realias='. ~/.aliases'
+alias realias='. ~/src/dotfiles/.aliases'
 alias remix=curric
 alias remixd=curricd
 alias remixdemo='src;cd remix-demo'
@@ -128,7 +127,7 @@ alias ui=vim.tiny
 alias v=view
 alias vd='vi -Rd'
 alias vdiff=vimdiff
-alias vialias='vi ~/.aliases;realias'
+alias vialias='vi ~/src/dotfiles/.aliases;realias'
 alias vid='vi -d'
 alias view='view -c "setl lbr sbr= nowrite"'
 alias vima='vimd;cd after'

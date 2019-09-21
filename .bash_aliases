@@ -1,4 +1,4 @@
-# last change 2019-08-30
+# last change 2019-09-21
 
 set -o vi
 
@@ -8,9 +8,9 @@ shopt -s globstar
 shopt -s nocaseglob
 shopt -s autocd
 
-. ~/.env
+. ~/src/dotfiles/.env
 
-. ~/.aliases
+. ~/src/dotfiles/.aliases
 
 if test ! -d /gpfs -a  "$VIM" = "" -a "$TERM" != tmux-256color; then
   tmux new -s $USER-$$

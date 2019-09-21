@@ -1,9 +1,9 @@
-" last modified 2018-10-05
+" last modified 2019-09-21
 " Dorai Sitaram
 
 func! Lint()
   if &ft == 'css' 
-    !csslint --config=$HOME/.csslintrc %
+    !csslint --config=$HOME/src/dotfiles/.csslintrc %
   elseif &ft == 'html'
     !htmlhint --nocolor %
   elseif &ft == 'javascript'
