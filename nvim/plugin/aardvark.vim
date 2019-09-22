@@ -1,4 +1,4 @@
-" aardvark.vim, last modified 2019-09-18
+" aardvark.vim, last modified 2019-09-23
 au bufread * sil! norm g`"
 au colorscheme * hi normal ctermfg=250 ctermbg=235 guifg=gray73 guibg=gray15
 au vimleave * !export BKPFILES="*.????-??-??-??-??~ .*.????-??-??-??-??~"; mv -n $BKPFILES ~/.local/share/nvim/backup 2>/dev/null; rm -f $BKPFILES
@@ -11,7 +11,6 @@ let netrw_banner = 0
 let signify_vcs_list = ['git']
 let viTerminalBufferCount = 0
 nno <c-k> <c-w>
-set acd
 set bri
 set cb=unnamedplus
 set cf
@@ -26,7 +25,7 @@ set lbr
 set mouse=ar
 set nojs
 set noswf
-set pa=.,./**,./../**,./../../**,./../../../**,$HOME/**
+set pa=.,**
 set sbr=...\ "
 set scs
 set spl=en_us

@@ -1,0 +1,15 @@
+.\" last modified 2019-09-24
+.
+.special linlibertineR
+.
+.mso .grofffontrc
+.
+.am @init
+.mso hp1320.tmac
+.nr PI 1.5m
+.nr LL +.5i
+.nr LT \\n[LL]
+.nr PO -.25i
+.nr PD 0
+.nr GROWPS 3
+..

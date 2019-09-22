@@ -1,4 +1,4 @@
-#last modified 2016-04-25
+#last modified 2019-09-21
 
 if test -z "$VIM"
 then return
@@ -7,4 +7,4 @@ fi
 #do only for bash-within-vim
 
 shopt -s expand_aliases
-. ~/.aliases
+. ~/src/dotfiles/.aliases

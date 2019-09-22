@@ -1,8 +1,7 @@
-" last modified 2019-09-02
+" last modified 2019-09-22
 " Dorai Sitaram
 
 let tex_flavor = 'tex'
-
 
 func! s:latexboilerplate()
   let l:doit = 1
@@ -41,13 +40,7 @@ func! s:latexme()
   endif
 endfunc
 
-func! Smartquotes()
-  ino <buffer> "` “
-  ino <buffer> `" ”
-  ino <buffer> '` ‘
-  ino <buffer> `' ’
-endfunc
 
-au filetype nroff,tex setl tw=65 | call Smartquotes()
+au filetype tex setl tw=65 | call Smartquotes()
 
 au filetype tex au bufwritepost <buffer> call s:latexme()

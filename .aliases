@@ -1,4 +1,5 @@
-# last modified 2019-09-21
+# last modified 2019-09-24
+#alias vu=evince
 alias ..='cd ..'
 alias 1='fg %1'
 alias 2='fg %2'
@@ -50,6 +51,7 @@ alias dvimf='src;cd dotfiles/nvim/plugin'
 alias finished='mpg123 ~/public_html/alice-parker/Sorrow\ and\ Gladness.mp3'
 alias fstart='cpo-ensure-env;foreman start'
 alias fy='xclip -selection clipboard -i'
+alias g2='troff2page.lua'
 alias gcd='find . -name dump.rdb -delete'
 alias gdocadoc='TEMP() { f=$1; pandoc $f -o ${f%%.html}.adoc; }; TEMP'
 alias gex='git ls-files -o'
@@ -88,6 +90,7 @@ alias m=less
 alias md=mkdir
 alias merg='mergedir ../..;prun'
 alias minc='(printf "%.2f\n" $(echo $(cat | wc -w)/$(wordsperminute) | bc -l)) <'
+alias mytmac='dotf;cd tmac'
 alias ocurr='src;cd curr'
 alias ocurrlib='ocurr; cd lib'
 alias osubgrade='ubgrade;sudo update-manager -d'
@@ -99,6 +102,7 @@ alias pppp='pp;pp'
 alias prun='prunedir ../..'
 alias pw=pwd
 alias realias='. ~/src/dotfiles/.aliases'
+alias refvp='vimpa;for f in *;do echo Updating $f;(cd $f;git pull);done'
 alias remix=curric
 alias remixd=curricd
 alias remixdemo='src;cd remix-demo'
@@ -122,6 +126,7 @@ alias startcpo='cpo-ensure-env;rm -fr build node_modules;git submodule init;git 
 alias swapdir='cd;cd .local/share/nvim/swap'
 alias tmp='cd;cd tmp'
 alias tmspeech='src;cd tmspeech'
+alias trf='cd;cd groffinputs/font/devps'
 alias ubgrade='sudo apt update;sudo apt upgrade;sudo apt dist-upgrade'
 alias ui=vim.tiny
 alias v=view
@@ -141,13 +146,15 @@ alias vimpa='vimd;cd pack/3rdpartyplugins/start'
 alias vimrt='cd /usr/share/nvim/runtime'
 alias vinfo='TEMP() { vi -c "Info $*"; unset -f TEMP; }; TEMP'
 alias vip='ps -ef | grep " \(vi\|nvim\)"'
-alias vite='vi +te'
-alias vte='vi +te'
-alias vu=evince
+alias vite='vi +Bash'
+alias vte=vte
 alias wget='wget -c'
 alias whichpkg='dpkg -S'
 alias whp=~/src/wkhtmltox/bin/wkhtmltopdf
 alias wordsperminute='echo 124' # 140?
 alias yfg=yank4gmail
 alias yubgrade='sudo apt update;sudo apt -y upgrade;sudo apt dist-upgrade'
+function gr() { f=${1%.*}.ps; groff -U -ms2 $1 > $f; }
+function vu() { f=$1; if test x${1##*.} = xps; then f=${1%.ps}.pdf; ps2pdf $1 $f; fi; evince $f; }
+function grvu() { gr $1; vu ${1%.*}.ps; }
 source ~/.aliases.more
