@@ -1,4 +1,4 @@
-" last modified 2019-09-19
+" last modified 2019-09-24
 
 " when called in read-only mode (-R)
 if &uc == 10000 | nmap q :q<cr> | endif
@@ -8,6 +8,8 @@ au bufread,bufnewfile .aliases*,.bash*,.env* setl ft=sh
 au bufread,bufnewfile **/bin/* if expand('%:t') !~ '\.' | setl ft=sh | endif
 
 au bufread,bufnewfile view.unicode.tmp.1 syn match title /\<.\>/
+
+au bufread,bufnewfile *.ref setl cpt+=k inf
 
 au filetype vim setl fo-=ro isk+=:
 

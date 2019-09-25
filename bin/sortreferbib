@@ -1,0 +1,32 @@
+# Last Modified 2019-09-24
+# Dorai Sitaram
+
+vi -es $1 <<EOF
+
+setl com-=:%
+
+%s/\s\+$//
+
+g/^./ s/$/Þ/
+
+g/^./ norm vipgJ
+
+g/^$/d
+
+%s/\S\+Þ/ÞÞ\0/
+
+%s/Þ$//
+
+sort i /^.\{-}ÞÞ/
+
+%s/$/\r/
+
+%s/ÞÞ//
+
+%s/Þ/\r/g
+
+$ g/^$/d
+
+x
+
+EOF

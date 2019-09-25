@@ -1,4 +1,4 @@
-# last modified 2019-09-24
+# last modified 2019-09-25
 #alias vu=evince
 alias ..='cd ..'
 alias 1='fg %1'
@@ -47,11 +47,13 @@ alias diff=colordiff
 alias dnld='cd;cd downloads'
 alias do-release-upgrade='sudo do-release-upgrade'
 alias dotf='src;cd dotfiles'
+alias dtmac='dotf;cd tmac'
 alias dvimf='src;cd dotfiles/nvim/plugin'
 alias finished='mpg123 ~/public_html/alice-parker/Sorrow\ and\ Gladness.mp3'
 alias fstart='cpo-ensure-env;foreman start'
 alias fy='xclip -selection clipboard -i'
 alias g2='troff2page.lua'
+alias g3='~/gh/tmp/troff2page/troff2page.lua'
 alias gcd='find . -name dump.rdb -delete'
 alias gdocadoc='TEMP() { f=$1; pandoc $f -o ${f%%.html}.adoc; }; TEMP'
 alias gex='git ls-files -o'
@@ -66,7 +68,9 @@ alias glg='git log'
 alias gls='git ls-files'
 alias gpfs='cd /gpfs/main/authen/sys/web/cs/web/sites/bootstrapworld.org/preview'
 alias gpul='git pull'
+alias grf='groff -U'
 alias gsta='git status -uno'
+alias gtmac='cd;cd groffinputs/tmac'
 alias gtt=gnome-tweak-tool
 alias h=history
 alias htm='cd;cd public_html'
@@ -90,7 +94,7 @@ alias m=less
 alias md=mkdir
 alias merg='mergedir ../..;prun'
 alias minc='(printf "%.2f\n" $(echo $(cat | wc -w)/$(wordsperminute) | bc -l)) <'
-alias mytmac='dotf;cd tmac'
+alias ms2='groff -U -ms2'
 alias ocurr='src;cd curr'
 alias ocurrlib='ocurr; cd lib'
 alias osubgrade='ubgrade;sudo update-manager -d'
@@ -102,6 +106,7 @@ alias pppp='pp;pp'
 alias prun='prunedir ../..'
 alias pw=pwd
 alias realias='. ~/src/dotfiles/.aliases'
+alias refer='refer -p ~/bibliography.ref -P -S -e -l3,2 -sA'
 alias refvp='vimpa;for f in *;do echo Updating $f;(cd $f;git pull);done'
 alias remix=curric
 alias remixd=curricd
@@ -116,6 +121,7 @@ alias remixshare=curricshare
 alias rmr='rm -fr'
 alias saadoc='asciidoctor -a data-uri'
 alias sadoc=adocslidy
+alias sbib='sortreferbib ~/bibliography.ref'
 alias script=skript
 alias seagate='cd /media/ds26gte/S*'
 alias sendtogmail='TEMP() { echo att | mutt -s att -a $1 -- $(gmailaddress); }; TEMP'
@@ -155,6 +161,6 @@ alias wordsperminute='echo 124' # 140?
 alias yfg=yank4gmail
 alias yubgrade='sudo apt update;sudo apt -y upgrade;sudo apt dist-upgrade'
 function gr() { f=${1%.*}.ps; groff -U -ms2 $1 > $f; }
-function vu() { f=$1; if test x${1##*.} = xps; then f=${1%.ps}.pdf; ps2pdf $1 $f; fi; evince $f; }
 function grvu() { gr $1; vu ${1%.*}.ps; }
+function vu() { f=$1; if test x${1##*.} = xps; then f=${1%.ps}.pdf; ps2pdf $1 $f; fi; evince $f; }
 source ~/.aliases.more
