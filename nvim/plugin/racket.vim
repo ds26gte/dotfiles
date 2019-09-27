@@ -1,11 +1,10 @@
-" last modified 2019-09-17
+" last modified 2019-09-30
 " Dorai Sitaram
 
 au filetype scheme,lisp call s:racketOptions()
 
 func! s:racketOptions()
-  "this is so matchit & match-up work correctly for Scheme
-  syn region string start=/\(\\\)\@<!"/ skip=/\\[\\"]/ end=/"/
+  call Identify_string('"')
   syn match string /#\\[(){}\[\]]/
 
   call s:racketWords()

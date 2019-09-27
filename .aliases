@@ -1,4 +1,4 @@
-# last modified 2019-09-25
+# last modified 2019-10-02
 #alias vu=evince
 alias ..='cd ..'
 alias 1='fg %1'
@@ -23,6 +23,7 @@ alias bdir='cd;cd .local/share/nvim/backup'
 alias bin='cd;cd bin'
 alias bpw='remix;build-pathway'
 alias bpwdebug='(bpw pathways/pathwayP --nopdf --debug)'
+alias bpwgame='(bpw pathways/bs-game-pathway --proglang pyret --nopdf --debug)'
 alias c=clear
 alias cd..='cd ..'
 alias cdbg='bpw pathways/pathwayP'
@@ -47,12 +48,18 @@ alias diff=colordiff
 alias dnld='cd;cd downloads'
 alias do-release-upgrade='sudo do-release-upgrade'
 alias dotf='src;cd dotfiles'
-alias dtmac='dotf;cd tmac'
 alias dvimf='src;cd dotfiles/nvim/plugin'
 alias finished='mpg123 ~/public_html/alice-parker/Sorrow\ and\ Gladness.mp3'
 alias fstart='cpo-ensure-env;foreman start'
 alias fy='xclip -selection clipboard -i'
 alias g2='troff2page.lua'
+alias g2p='gh;cd troff2page'
+alias g2pd='g2p;cd doc'
+alias g2pe='g2p;cd examples'
+alias g2pj='gh;cd troff2paje'
+alias g2pl='g2p;cd lua'
+alias g2pm='g2p;cd tmac'
+alias g2ps='g2p;cd src'
 alias g3='~/gh/tmp/troff2page/troff2page.lua'
 alias gcd='find . -name dump.rdb -delete'
 alias gdocadoc='TEMP() { f=$1; pandoc $f -o ${f%%.html}.adoc; }; TEMP'
@@ -88,6 +95,7 @@ alias la='ls -Ad .*'
 alias latex=lualatex
 alias lessona='remixd;cd pathwayP/langs/en-us/lessons/lessona/exercises'
 alias ls='ls -F'
+alias lsna='curricd;cd pathwayP/en-us/lessons/lessonA'
 alias ly=lynx
 alias lynx='COLUMNS=80 lynx -editor=nvim -vikeys'
 alias m=less
@@ -141,6 +149,7 @@ alias vdiff=vimdiff
 alias vialias='vi ~/src/dotfiles/.aliases;realias'
 alias vid='vi -d'
 alias view='view -c "setl lbr sbr= nowrite"'
+alias vilu='vimd;cd lua'
 alias vima='vimd;cd after'
 alias vimap='vima;cd plugin'
 alias vimd='src;cd dotfiles/nvim'

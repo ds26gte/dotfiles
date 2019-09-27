@@ -1,13 +1,16 @@
-.\" last modified 2019-09-24
+.\" last modified 2019-09-27
 .
-.mso .grofffontrc
-.
-.am @init
-.mso hp1320.tmac
-.nr PI 1.5m
+.nr LL 6.5i
+.nr PO 1i
+.nr HM 1i
+.nr FM 1i
 .nr LL +.5i
-.nr LT \\n[LL]
 .nr PO -.25i
+.nr HM -.25i
+.nr FM -.25i
+.nr PI 1.5m
+.nr LT \n[LL]
 .nr PD 0
 .nr GROWPS 3
-..
+.
+.mso .grofffontrc

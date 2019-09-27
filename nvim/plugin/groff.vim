@@ -1,7 +1,7 @@
-" last modified 2019-09-24
+" last modified 2019-10-02
 " Dorai Sitaram
 
-au bufread,bufnewfile *.ms set ft=nroff
+au filetype nroff call s:groffOptions()
 
 func! Smartquotes()
   ino <buffer> "` “
@@ -11,12 +11,11 @@ func! Smartquotes()
 endfunc
 
 func! s:groffOptions()
-  if expand('%:e') != 'tmac'
-    setl tw=65
-    call Smartquotes()
-    syn match vertsplit "^\.PP$"
-    au bufwritepre <buffer> sil call s:groffInsertPP()
-  endif
+  setl tw=65
+  call Smartquotes()
+  hi groffPP guibg=bg guifg=gray27
+  syn match groffPP "^\.PP$"
+  au bufwritepre <buffer> sil call s:groffInsertPP()
 endfunc
 
 func! s:groffInsertPP()
@@ -25,4 +24,3 @@ func! s:groffInsertPP()
   g/^ÞEXLINEÞ/ s/^ÞEXLINEÞ//
 endfunc
 
-au filetype nroff call s:groffOptions()

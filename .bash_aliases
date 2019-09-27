@@ -1,4 +1,4 @@
-# last change 2019-09-21
+# last change 2019-09-28
 
 set -o vi
 
@@ -13,6 +13,6 @@ shopt -s autocd
 . ~/src/dotfiles/.aliases
 
 if test ! -d /gpfs -a  "$VIM" = "" -a "$TERM" != tmux-256color; then
-  tmux new -s $USER-$$
-  exit
+  tmux new -s T$$
+  #exit
 fi
