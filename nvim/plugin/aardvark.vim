@@ -7,6 +7,8 @@ ino <tab> <c-n>
 ino jj <esc>
 let &pm = strftime('.%Y-%m-%d-%H-%M~')
 let matchup_matchparen_offscreen = {}
+let netrw_altv = 1
+let netrw_winsize = 80
 let signify_vcs_list = ['git']
 nno <c-k> <c-w>
 set bri

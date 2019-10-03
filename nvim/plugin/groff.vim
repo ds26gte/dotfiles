@@ -1,4 +1,4 @@
-" last modified 2019-10-02
+" last modified 2019-10-04
 " Dorai Sitaram
 
 au filetype nroff call s:groffOptions()
@@ -15,12 +15,18 @@ func! s:groffOptions()
   call Smartquotes()
   hi groffPP guibg=bg guifg=gray27
   syn match groffPP "^\.PP$"
-  au bufwritepre <buffer> sil call s:groffInsertPP()
+  au bufwritepre <buffer> sil! call s:groffInsertPP()
 endfunc
 
 func! s:groffInsertPP()
-  g/^\.EX/ .,/^\.EE/ s/^/ÞEXLINEÞ/
+  norm mx
+  norm M
+  norm my
+  g/^\.EX/ .,/^\.EE/ s/^/XXX_BLANKLINE_ZZZ/
+  g/^\.eval/ .,/^\.endeval/ s/^/XXX_BLANKLINE_ZZZ/
   g/^\s*$/ s/.*/.PP/
-  g/^ÞEXLINEÞ/ s/^ÞEXLINEÞ//
+  g/^XXX_BLANKLINE_ZZZ/ s/^XXX_BLANKLINE_ZZZ//
+  norm 'y
+  norm z.
+  norm `x
 endfunc
-

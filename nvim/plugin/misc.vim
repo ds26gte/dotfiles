@@ -1,4 +1,4 @@
-" last modified 2019-10-01
+" last modified 2019-10-04
 
 au bufread,bufnewfile .aliases*,.bash*,.env* setl ft=sh
 
@@ -28,15 +28,9 @@ com! -nargs=1 NewDigraph exec "DigraphNew" <q-args> |
 
 com! Sum !plus %
 
-com! Trimfile w | sil exec "!trimfile %" | e!
-
 com! Vimp e ~/.config/nvim/plugin/misc.vim
-
-exec "colo" $VICOLOR
 
 " when called in read-only mode (-R)
 if &uc == 10000 | nmap q :q<cr> | endif
-
-let g:netrw_altv = 1
 
 nno <leader>o :Ofortune<cr>

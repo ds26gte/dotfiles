@@ -1,4 +1,4 @@
-# last modified 2019-10-02
+# last modified 2019-10-04
 #alias vu=evince
 alias ..='cd ..'
 alias 1='fg %1'
@@ -66,6 +66,7 @@ alias gdocadoc='TEMP() { f=$1; pandoc $f -o ${f%%.html}.adoc; }; TEMP'
 alias gex='git ls-files -o'
 alias gh='cd;cd src'
 alias ghbin='dotf;cd bin'
+alias ghclone='TEMP() { git clone https://github.com/$1; unset -f TEMP; }; TEMP'
 alias ghtmp='gh;cd tmp'
 alias gio='src;cd ds26gte.github.io'
 alias gios='gio;cd patch'
@@ -75,7 +76,9 @@ alias glg='git log'
 alias gls='git ls-files'
 alias gpfs='cd /gpfs/main/authen/sys/web/cs/web/sites/bootstrapworld.org/preview'
 alias gpul='git pull'
+alias gr='TEMP() { f=${1%.*}.ps; groff -U -ms2 $1 > $f; unset -f TEMP; }; TEMP'
 alias grf='groff -U'
+alias grvu='TEMP() { gr $1; vu ${1%.*}.ps; unset -f TEMP; }; TMEP'
 alias gsta='git status -uno'
 alias gtmac='cd;cd groffinputs/tmac'
 alias gtt=gnome-tweak-tool
@@ -86,6 +89,9 @@ alias htmpb='htm;cd tmpb'
 alias htmpc='htm;cd tmpc'
 alias iv=vi
 alias j=jobs
+alias k1='k %1'
+alias k2='k %2'
+alias k3='k %3'
 alias k='kill -9'
 alias kadoc=adockindle
 alias killshada='rm ~/.local/share/nvim/shada/*'
@@ -141,6 +147,7 @@ alias swapdir='cd;cd .local/share/nvim/swap'
 alias tmp='cd;cd tmp'
 alias tmspeech='src;cd tmspeech'
 alias trf='cd;cd groffinputs/font/devps'
+alias trimfile='TEMP() { vi -es -c "e $1" -cTrimlines -cw; unset -f TEMP; }; TEMP'
 alias ubgrade='sudo apt update;sudo apt upgrade;sudo apt dist-upgrade'
 alias ui=vim.tiny
 alias v=view
@@ -155,7 +162,7 @@ alias vimap='vima;cd plugin'
 alias vimd='src;cd dotfiles/nvim'
 alias vimdiff='vi -d'
 alias vimf='vimd;cd ftplugin'
-alias vimht='vi -c "helpt ." -cq'
+alias vimht='vi -es -c "helpt ."'
 alias vimp='vimd;cd plugin'
 alias vimpa='vimd;cd pack/3rdpartyplugins/start'
 alias vimrt='cd /usr/share/nvim/runtime'
@@ -163,13 +170,11 @@ alias vinfo='TEMP() { vi -c "Info $*"; unset -f TEMP; }; TEMP'
 alias vip='ps -ef | grep " \(vi\|nvim\)"'
 alias vite='vi +Bash'
 alias vte=vte
+alias vu='TEMP() { f=$1; if test x${1##*.} = xps; then f=${1%.ps}.pdf; ps2pdf $1 $f; fi; evince $f; unset -f TEMP; }; TEMP'
 alias wget='wget -c'
 alias whichpkg='dpkg -S'
 alias whp=~/src/wkhtmltox/bin/wkhtmltopdf
 alias wordsperminute='echo 124' # 140?
 alias yfg=yank4gmail
 alias yubgrade='sudo apt update;sudo apt -y upgrade;sudo apt dist-upgrade'
-function gr() { f=${1%.*}.ps; groff -U -ms2 $1 > $f; }
-function grvu() { gr $1; vu ${1%.*}.ps; }
-function vu() { f=$1; if test x${1##*.} = xps; then f=${1%.ps}.pdf; ps2pdf $1 $f; fi; evince $f; }
 source ~/.aliases.more

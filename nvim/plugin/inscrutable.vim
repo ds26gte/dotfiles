@@ -1,4 +1,4 @@
-" last modified 2019-08-30
+" last modified 2019-10-04
 " from www.noah.org/wiki/Password_Safe_with_Vim_and_OpenSSL
 " but (a) with ui more like vim's :X, and
 " (b) only for .aes
@@ -36,9 +36,10 @@ func! s:opqReadPost()
   setl ul=-1
   let s:crypticNonsense = inputsecret('Password: ')
   %d
-  exec 'norm i' . s:crypticNonsense
   set nostmp
-  sil! %!openssl aes-256-cbc -md sha256 -a -d -salt -pass stdin -in %
+  let $crypticNonsense = s:crypticNonsense
+  sil! %!openssl aes-256-cbc -md sha256 -pbkdf2 -iter 1000 -a -d -salt -pass env:crypticNonsense -in %
+  let $crypticNonsense = 0
   set stmp&
   setl ul&
   redraw!
@@ -58,9 +59,10 @@ endfunc
 func! s:opqWritePre()
   setl bin
   sil! 0go
-  sil! exec 'norm i' . s:crypticNonsense . "\n"
   set nostmp
-  sil! %!openssl aes-256-cbc -md sha256 -a -e -salt -pass stdin
+  let $crypticNonsense = s:crypticNonsense
+  sil! %!openssl aes-256-cbc -md sha256 -pbkdf2 -iter 1000 -a -e -salt -pass env:crypticNonsense
+  let $crypticNonsense = 0
   set stmp&
   redraw!
   if v:shell_error
