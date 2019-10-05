@@ -1,0 +1,12 @@
+# last modified 2019-10-06
+# Dorai Sitaram
+
+if test -z "$INSCRUTABLE"; then
+  echo INSCRUTABLE not set; exit
+fi
+
+read -p "Password: " -s crypticNonsense
+
+export crypticNonsense
+
+$INSCRUTABLE -d -pass env:crypticNonsense -in $1

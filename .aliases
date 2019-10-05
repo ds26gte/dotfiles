@@ -1,4 +1,4 @@
-# last modified 2019-10-04
+# last modified 2019-10-06
 #alias vu=evince
 alias ..='cd ..'
 alias 1='fg %1'
@@ -29,6 +29,7 @@ alias cd..='cd ..'
 alias cdbg='bpw pathways/pathwayP'
 alias cdme='cd $PWD'
 alias cgame='bpw pathways/bs-game-pathway'
+alias closto='cd;cd pCloudDrive'
 alias clscript='rm typescript*;script'
 alias cp='cp -p'
 alias cr=google-chrome
@@ -45,7 +46,7 @@ alias di=diff
 alias did='vi -c \$ -c s/\$/\\r/ -c r!date -c s/\$/\\r\\r/ -c startinsert ~/did.adoc'
 alias dif=diff
 alias diff=colordiff
-alias dnld='cd;cd downloads'
+alias dnld='cd;cd storage/downloads'
 alias do-release-upgrade='sudo do-release-upgrade'
 alias dotf='src;cd dotfiles'
 alias dvimf='src;cd dotfiles/nvim/plugin'
@@ -77,6 +78,7 @@ alias gls='git ls-files'
 alias gpfs='cd /gpfs/main/authen/sys/web/cs/web/sites/bootstrapworld.org/preview'
 alias gpul='git pull'
 alias gr='TEMP() { f=${1%.*}.ps; groff -U -ms2 $1 > $f; unset -f TEMP; }; TEMP'
+alias grebi='git rebase -i'
 alias grf='groff -U'
 alias grvu='TEMP() { gr $1; vu ${1%.*}.ps; unset -f TEMP; }; TMEP'
 alias gsta='git status -uno'
@@ -153,6 +155,7 @@ alias ui=vim.tiny
 alias v=view
 alias vd='vi -Rd'
 alias vdiff=vimdiff
+alias vi=nvim
 alias vialias='vi ~/src/dotfiles/.aliases;realias'
 alias vid='vi -d'
 alias view='view -c "setl lbr sbr= nowrite"'
@@ -169,6 +172,7 @@ alias vimrt='cd /usr/share/nvim/runtime'
 alias vinfo='TEMP() { vi -c "Info $*"; unset -f TEMP; }; TEMP'
 alias vip='ps -ef | grep " \(vi\|nvim\)"'
 alias vite='vi +Bash'
+alias vnote='TEMP() { pushd ~/pCloudDrive/notes; vi $1; popd; }; TEMP'
 alias vte=vte
 alias vu='TEMP() { f=$1; if test x${1##*.} = xps; then f=${1%.ps}.pdf; ps2pdf $1 $f; fi; evince $f; unset -f TEMP; }; TEMP'
 alias wget='wget -c'
@@ -177,4 +181,4 @@ alias whp=~/src/wkhtmltox/bin/wkhtmltopdf
 alias wordsperminute='echo 124' # 140?
 alias yfg=yank4gmail
 alias yubgrade='sudo apt update;sudo apt -y upgrade;sudo apt dist-upgrade'
-source ~/.aliases.more
+source ~/.linuxaliases

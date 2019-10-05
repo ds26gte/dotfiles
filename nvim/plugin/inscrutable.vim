@@ -1,67 +1,67 @@
-" last modified 2019-10-04
+" last modified 2019-10-06
+" Dorai Sitaram
+
 " from www.noah.org/wiki/Password_Safe_with_Vim_and_OpenSSL
 " but (a) with ui more like vim's :X, and
-" (b) only for .aes
+"     (b) only for .aes
+
+if empty($INSCRUTABLE)
+  finish
+endif
+
+" $INSCRUTABLE must be set to an openssl call of your choice
+" with options except: -e/-d, -pass, and -in
 
 au bufreadpre,filereadpre *.aes call s:opqReadPre()
 
-au bufreadpost,filereadpost *.aes call s:opqReadPost()
+au bufreadpost,bufnewfile,filereadpost *.aes call s:opqReadPost()
 
-au bufwritepre,filewritepre *.aes call s:opqWritePre()
+" but file{read,write}{pre,post} settings don't really seem to work
 
-au bufwritepost,filewritepost *.aes call s:opqWritePost()
-
-au bufnewfile *.aes call s:opqNewFile()
-
-func! s:opqSetOptions()
+func! s:opqReadPre()
   set cb=
   set secure
   set vi=
   set sd=
   setl noswf
   exec 'set bsk+=*.' . expand('%:e')
-endfunc
-
-func! s:opqNewFile()
-  call s:opqSetOptions()
+  au bufwritepre,filewritepre <buffer> call s:opqWritePre()
+  au bufwritepost,filewritepost <buffer> call s:opqWritePost()
   let s:crypticNonsense = inputsecret('Password: ')
-endfunc
-
-func! s:opqReadPre()
-  call s:opqSetOptions()
-  setl bin
 endfunc
 
 func! s:opqReadPost()
-  setl ul=-1
-  let s:crypticNonsense = inputsecret('Password: ')
-  %d
-  set nostmp
-  let $crypticNonsense = s:crypticNonsense
-  sil! %!openssl aes-256-cbc -md sha256 -pbkdf2 -iter 1000 -a -d -salt -pass env:crypticNonsense -in %
-  let $crypticNonsense = 0
-  set stmp&
-  setl ul&
-  redraw!
-  if v:shell_error
-    sil! u
-    redraw!
-    echo 'Error: could not decrypt'
-    echo 'Press any key to continue...'
-    call getchar()
-    return
+  if !exists('s:crypticNonsense')
+    call s:opqReadPre()
   endif
-  setl nobin
+  if !(line('$') == 1 && getline(1) == '')
+    "i.e., file isn't empty
+    setl ul=-1
+    %d
+    set nostmp
+    let $crypticNonsense = s:crypticNonsense
+    sil! %!$INSCRUTABLE -d -pass env:crypticNonsense -in %
+    let $crypticNonsense = 0
+    set stmp&
+    setl ul&
+    redraw!
+    if v:shell_error
+      sil! u
+      redraw!
+      echo 'Error: could not decrypt'
+      echo 'Press any key to continue...'
+      call getchar()
+      return
+    endif
+    redraw!
+  endif
   exec 'do bufreadpost' expand('%:r')
-  redraw!
 endfunc
 
 func! s:opqWritePre()
-  setl bin
-  sil! 0go
   set nostmp
   let $crypticNonsense = s:crypticNonsense
-  sil! %!openssl aes-256-cbc -md sha256 -pbkdf2 -iter 1000 -a -e -salt -pass env:crypticNonsense
+  sil! %!$INSCRUTABLE -e -pass env:crypticNonsense
   let $crypticNonsense = 0
   set stmp&
   redraw!
@@ -77,11 +77,15 @@ endfunc
 
 func! s:opqWritePost()
   sil! u
-  setl nobin
   setl nomod
   redraw!
 endfunc
 
 func! ChangePassword()
-  let s:crypticNonsense = inputsecret('New password: ')
+  if exists('s:crypticNonsense')
+    let s:crypticNonsense = inputsecret('New password: ')
+    w
+  else
+    echo 'Not an inscrutable file'
+  endif
 endfunc

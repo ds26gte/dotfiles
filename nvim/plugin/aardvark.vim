@@ -1,7 +1,7 @@
-" aardvark.vim, last modified 2019-10-03
+" aardvark.vim, last modified 2019-10-06
 au bufread * sil! norm g`"
 au colorscheme * hi normal ctermfg=250 ctermbg=235 guifg=gray73 guibg=gray15
-au vimleave * !vimpackrat
+au vimleave * sil !vimpackrat
 cno <expr> %% getcmdtype() == ':' ? expand('%:h') . '/' : '%%'
 ino <tab> <c-n>
 ino jj <esc>
