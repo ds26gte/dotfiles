@@ -1,4 +1,4 @@
-" last modified 2019-10-06
+" last modified 2019-10-08
 " Dorai Sitaram
 
 " from www.noah.org/wiki/Password_Safe_with_Vim_and_OpenSSL
@@ -30,6 +30,14 @@ func! s:opqReadPre()
   let s:crypticNonsense = inputsecret('Password: ')
 endfunc
 
+func! s:crypt(arg)
+  set nostmp
+  let $crypticNonsense = s:crypticNonsense
+  exec "sil! %!" . $INSCRUTABLE . " -pass env:crypticNonsense " . a:arg
+  let $crypticNonsense = 0
+  set stmp&
+endfunc
+
 func! s:opqReadPost()
   if !exists('s:crypticNonsense')
     call s:opqReadPre()
@@ -38,11 +46,7 @@ func! s:opqReadPost()
     "i.e., file isn't empty
     setl ul=-1
     %d
-    set nostmp
-    let $crypticNonsense = s:crypticNonsense
-    sil! %!$INSCRUTABLE -d -pass env:crypticNonsense -in %
-    let $crypticNonsense = 0
-    set stmp&
+    call s:crypt("-in % -d")
     setl ul&
     redraw!
     if v:shell_error
@@ -59,11 +63,7 @@ func! s:opqReadPost()
 endfunc
 
 func! s:opqWritePre()
-  set nostmp
-  let $crypticNonsense = s:crypticNonsense
-  sil! %!$INSCRUTABLE -e -pass env:crypticNonsense
-  let $crypticNonsense = 0
-  set stmp&
+  call s:crypt("-e")
   redraw!
   if v:shell_error
     sil! u

@@ -1,4 +1,4 @@
-# last modified 2017-11-15
+# last modified 2019-10-07
 # Dorai Sitaram
 
 # converts f.adoc to f.html, a Slidy presentation
@@ -11,20 +11,15 @@ slidysite=http://www.w3.org/Talks/Tools/Slidy2
 
 # get slidy.{css,js} into pwd if not already there
 
-if test ! -f slidy.css
-then wget $slidysite/styles/slidy.css
-fi
-
-if test ! -f slidy.js
-then wget $slidysite/scripts/slidy.js
-fi
+test -f slidy.css || wget $slidysite/styles/slidy.css
+test -f slidy.js  || wget $slidysite/scripts/slidy.js
 
 asciidoctor $1
 
 g=${1##*/}
 g=${g%.*}
 
-vim -e -u NONE -s $g.html <<"EOF"
+nvim -u NONE -es $g.html <<"EOF"
 
 func! Addslidefiles()
 i

@@ -1,4 +1,5 @@
-" last modified 2019-10-04
+" last modified 2019-10-07
+" Dorai Sitaram
 
 func! s:noTrailingSpaces()
   norm mx

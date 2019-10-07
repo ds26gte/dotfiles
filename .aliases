@@ -1,4 +1,4 @@
-# last modified 2019-10-06
+# last modified 2019-10-07
 #alias vu=evince
 alias ..='cd ..'
 alias 1='fg %1'
@@ -29,7 +29,6 @@ alias cd..='cd ..'
 alias cdbg='bpw pathways/pathwayP'
 alias cdme='cd $PWD'
 alias cgame='bpw pathways/bs-game-pathway'
-alias closto='cd;cd pCloudDrive'
 alias clscript='rm typescript*;script'
 alias cp='cp -p'
 alias cr=google-chrome
@@ -46,7 +45,7 @@ alias di=diff
 alias did='vi -c \$ -c s/\$/\\r/ -c r!date -c s/\$/\\r\\r/ -c startinsert ~/did.adoc'
 alias dif=diff
 alias diff=colordiff
-alias dnld='cd;cd storage/downloads'
+alias dnld='cd;cd downloads'
 alias do-release-upgrade='sudo do-release-upgrade'
 alias dotf='src;cd dotfiles'
 alias dvimf='src;cd dotfiles/nvim/plugin'
@@ -115,6 +114,8 @@ alias ocurr='src;cd curr'
 alias ocurrlib='ocurr; cd lib'
 alias osubgrade='ubgrade;sudo update-manager -d'
 alias p='cd ..'
+alias pcld='cd;cd pCloudDrive'
+alias pcloud='pcloud >/dev/null 2>&1 &'
 alias pkgls='dpkg-query -L'
 alias pp='p;p'
 alias ppp='pp;p'
