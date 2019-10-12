@@ -1,4 +1,4 @@
-" last modified 2019-09-27
+" last modified 2019-10-12
 " Dorai Sitaram
 
 let tex_flavor = 'tex'
@@ -40,6 +40,11 @@ func! s:latexme()
   endif
 endfunc
 
-au filetype tex setl tw=65 | call Smartquotes()
+func! s:texOptions()
+  setl inf
+  setl tw=65
+  call Smartquotes()
+  au bufwritepost <buffer> call s:latexme()
+endfunc
 
-au filetype tex au bufwritepost <buffer> call s:latexme()
+au filetype tex call s:texOptions()

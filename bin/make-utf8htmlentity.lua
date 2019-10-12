@@ -1,6 +1,6 @@
 #! /usr/bin/env lua
 
--- last modified 2019-09-30
+-- last modified 2019-10-11
 -- Dorai Sitaram
 
 sp_char_list = {
@@ -48,6 +48,7 @@ function utf8_to_html_entity(ss)
   end
   o:write("' $1\n")
   o:close()
+  os.execute("chmod +x utf8htmlentity")
 end
 
 utf8_to_html_entity(sp_char_list)

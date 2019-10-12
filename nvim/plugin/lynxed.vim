@@ -1,4 +1,4 @@
-" last modified 2019-01-28
+" last modified 2019-10-11
 " Dorai Sitaram
 
 " needed only if called from within lynx
@@ -18,6 +18,10 @@ func! s:goToSourceFile()
         \ let l:generatedByAsciidoctorP = 1
   if !l:generatedByAsciidoctorP
     return
+  else
+    let l:adoccmd = 'adockindle'
+    sil! 1,10g/^<link.*fonts\.googleapis\.com/
+          \ let l:adoccmd = 'asciidoctor'
   endif
   " if generated, edit source file
   let l:sourceFile = ''
@@ -37,7 +41,7 @@ func! s:goToSourceFile()
   if l:sourceFile != ''
     exec 'e' l:sourceFile
     setf asciidoc
-    setl mp=adockindle\ %
+    exec 'setl mp=' . l:adoccmd . '\ %'
     " when writing source file, remember to refresh the html
     exec 'au bufwritepost' expand('%') 'call s:rememberToRefreshHTML()'
   endif

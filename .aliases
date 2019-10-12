@@ -1,5 +1,4 @@
-# last modified 2019-10-07
-#alias vu=evince
+# last modified 2019-10-13
 alias ..='cd ..'
 alias 1='fg %1'
 alias 2='fg %2'
@@ -103,6 +102,7 @@ alias latex=lualatex
 alias lessona='remixd;cd pathwayP/langs/en-us/lessons/lessona/exercises'
 alias ls='ls -F'
 alias lsna='curricd;cd pathwayP/en-us/lessons/lessonA'
+alias lsnae='lsna;cd exercises'
 alias ly=lynx
 alias lynx='COLUMNS=80 lynx -editor=nvim -vikeys'
 alias m=less
@@ -111,6 +111,7 @@ alias merg='mergedir ../..;prun'
 alias minc='(printf "%.2f\n" $(echo $(cat | wc -w)/$(wordsperminute) | bc -l)) <'
 alias ms2='groff -U -ms2'
 alias ocurr='src;cd curr'
+alias ocurre='ocurr;cd distribution/courses/algebra/en-us/units/unit1/exercises/Intro-to-Programming'
 alias ocurrlib='ocurr; cd lib'
 alias osubgrade='ubgrade;sudo update-manager -d'
 alias p='cd ..'
