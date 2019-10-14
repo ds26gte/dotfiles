@@ -1,4 +1,4 @@
-" last modified 2019-10-04
+" last modified 2019-10-15
 
 au bufread,bufnewfile .aliases*,.bash*,.env* setl ft=sh
 
@@ -8,7 +8,7 @@ au bufread,bufnewfile view.unicode.tmp.1 syn match title /\<.\>/
 
 au bufread,bufnewfile *.ref setl cpt+=k inf
 
-au colorscheme bubblegum* hi matchparen gui=reverse
+au colorscheme bubblegum-256-dark hi matchparen gui=reverse
 
 au filetype lua,vim setl fo-=ro
 
@@ -19,8 +19,6 @@ au filetype make setl list
 au filetype javascript setl sua+=.js,.jsx
 
 au filetype conf setl ft=sh
-
-com! Htmlbeautify %!html-beautify -f -
 
 com! -nargs=1 NewDigraph exec "DigraphNew" <q-args> |
       \exec "sil !echo sil DigraphNew" <q-args> ">> ~/.config/nvim/after/plugin/moredig.vim" |
