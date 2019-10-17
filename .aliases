@@ -1,4 +1,5 @@
-# last modified 2019-10-14
+# last modified 2019-10-17
+#Dorai Sitaram
 alias ..='cd ..'
 alias 1='fg %1'
 alias 2='fg %2'
@@ -6,13 +7,14 @@ alias 3='fg %3'
 alias 3restart='sudo shutdown -r now'
 alias 3shutdown='sudo shutdown -h now'
 alias :q=exit
+alias adc=asciidoc
 alias add-apt-repository=apt-add-repository
 alias adoc-preproc='PATHWAYROOTDIR=../../../ ~/src/curriculum/shared/langs/en-us/adoc-preproc.rkt'
 alias adoc=asciidoctor
 alias adocss='TEMP() { s=$1; shift; asciidoctor -a stylesheet=~/src/asciidoctor-stylesheet-factory/stylesheets/$s.css "$@"; }; TEMP'
 alias aman='asciidoctor -b manpage'
-alias apdf='asciidoctor-pdf -a pdf-stylesdir=/home/ds26gte/asciidoctor-pdf-resources/themes -a pdf-fontsdir=/home/ds26gte/asciidoctor-pdf-resources/fonts -a pdf-style=adoc'
-alias apdftr='asciidoctor-pdf -a pdf-style=/home/ds26gte/times.yml'
+alias apdf='asciidoctor-pdf -a pdf-fontsdir=/home/ds26gte/.fonts\;/usr/share/fonts/truetype/msttcorefonts\;GEM_FONTS_DIR -a pdf-themesdir=~'
+alias apdft='apdf -a pdf-theme=adoc'
 alias apt-add-repository='sudo apt-add-repository'
 alias aslide='asciidoc -b slidy -a linkcss -a stylesheet=myslidy.css'
 alias b='src;cd bee; cd 2019'
@@ -26,10 +28,13 @@ alias bpwgame='(bpw pathways/bs-game-pathway --proglang pyret --nopdf --debug)'
 alias c=clear
 alias cd..='cd ..'
 alias cdbg='bpw pathways/pathwayP'
+alias cdjsb='pyl;cd src/js/base'
 alias cdme='cd $PWD'
+alias cdtests='pyl;cd tests/pyret/tests'
 alias cgame='bpw pathways/bs-game-pathway'
 alias clscript='rm typescript*;script'
 alias cp='cp -p'
+alias cpo='htm;cd code.pyret.org'
 alias cr=google-chrome
 alias cudo='remix;bpw'
 alias curric='src;cd curriculum'
@@ -40,6 +45,8 @@ alias curricp='remix;cd pathways'
 alias curricshare='curric;cd shared/langs/en-us'
 alias currperm='gpfs;find distribution -type d|xargs chmod g+r,o+rx;cd distribution;find . -type f|xargs chmod g+r,o+r'
 alias cx='chmod +x'
+alias dateindia='TZ=Asia/Calcutta date'
+alias datepacific='TZ=US/Pacific date'
 alias di=diff
 alias did='vi -c \$ -c s/\$/\\r/ -c r!date -c s/\$/\\r\\r/ -c startinsert ~/did.adoc'
 alias dif=diff
@@ -109,12 +116,17 @@ alias m=less
 alias md=mkdir
 alias merg='mergedir ../..;prun'
 alias minc='(printf "%.2f\n" $(echo $(cat | wc -w)/$(wordsperminute) | bc -l)) <'
+alias mo=more
+alias mpca='groff -U -mpca'
 alias ms2='groff -U -ms2'
+alias nscmvi='src;cd neoscmindent'
 alias ocurr='src;cd curr'
 alias ocurre='ocurr;cd distribution/courses/algebra/en-us/units/unit1/exercises/Order-of-Operations'
 alias ocurrlib='ocurr; cd lib'
 alias osubgrade='ubgrade;sudo update-manager -d'
 alias p='cd ..'
+alias passecho='echo "                                             "'
+alias pca='gh;cd mpca'
 alias pcld='cd;cd pCloudDrive'
 alias pcloud='pcloud >/dev/null 2>&1 &'
 alias pkgls='dpkg-query -L'
@@ -123,6 +135,7 @@ alias ppp='pp;p'
 alias pppp='pp;pp'
 alias prun='prunedir ../..'
 alias pw=pwd
+alias pyl='cd $PYRETHOME'
 alias realias='. ~/src/dotfiles/.aliases'
 alias refer='refer -p ~/bibliography.ref -P -S -e -l3,2 -sA'
 alias refvp='vimpa;for f in *;do echo Updating $f;(cd $f;git pull);done'
@@ -140,18 +153,35 @@ alias rmr='rm -fr'
 alias saadoc='asciidoctor -a data-uri'
 alias sadoc=adocslidy
 alias sbib='sortreferbib ~/bibliography.ref'
+alias schelog='src;cd schelog'
+alias scmvi='src;cd scmindent'
 alias script=skript
 alias seagate='cd /media/ds26gte/S*'
 alias sendtogmail='TEMP() { echo att | mutt -s att -a $1 -- $(gmailaddress); }; TEMP'
 alias shadadir='cd ~/.local/share/nvim/shada'
 alias sl=ls
+alias sla='htm;cd slatex'
+alias spyjs='cpo;cd src/web/js'
+alias spyweb='cpo;cd src/web'
 alias src='cd;cd src'
 alias startcpo='cpo-ensure-env;rm -fr build node_modules;git submodule init;git submodule update;foreman run npm install;foreman start'
 alias swapdir='cd;cd .local/share/nvim/swap'
+alias sxl='gh;cd scmxlate'
+alias sxlt='sxl;cd tmp'
+alias t1=tex2page.rkt
+alias t2=tex2page.lisp
+alias t2p='gh;cd tex2page'
+alias t2pd='t2p;cd dialects'
+alias tex=luatex
+alias texlive='cd /usr/local/texlive'
+alias texmf='cd;cd texmf/tex/'
+alias texmp='cd;cd texmf/mp/'
+alias tmac='cd /usr/share/groff/current/tmac'
 alias tmp='cd;cd tmp'
 alias tmspeech='src;cd tmspeech'
 alias trf='cd;cd groffinputs/font/devps'
 alias trimfile='TEMP() { vi -es -c "e $1" -cTrimlines -cw; unset -f TEMP; }; TEMP'
+alias ty='gh;cd tyscheme'
 alias ubgrade='sudo apt update;sudo apt upgrade;sudo apt dist-upgrade'
 alias ui=vim.tiny
 alias v=view

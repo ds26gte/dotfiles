@@ -1,4 +1,4 @@
-# last modified 2019-10-06
+# last modified 2019-10-17
 # Dorai Sitaram
 
 # xxcp file-or-dir target-dir
@@ -15,7 +15,7 @@
 # - if file-or-dir is a dir:
 #   copy encrypted tarball version
 
-if test -z "$INSCRUTABLE"; then
+if test ! "$INSCRUTABLE"; then
   echo INSCRUTABLE not set; exit
 fi
 
@@ -27,7 +27,7 @@ dest=$2
 
 dest=${dest%/}
 
-test -z "$dest" && dest=.
+test ! "$dest" && dest=.
 
 if test ! -d $dest; then
   echo $dest is not a directory; exit
@@ -50,13 +50,12 @@ function inscrutable() {
   $INSCRUTABLE $action -pass env:crypticNonsense -in $source > $target
   }
 
-if test $(file $1 | grep -c 'openssl enc') -ne 0; then
+if file $1 | grep -q 'openssl enc'; then
   fb=${fb%.*}
   getpassword
   inscrutable -d $f $dest/$fb
   cd $dest
-  fbb=${fb%.tar.bz2}
-  if test x$fbb != x$fb; then
+  if echo $fb | grep -q '\.tar.bz2$'; then
     tar jxf $fb
     rm -f $fb
   fi

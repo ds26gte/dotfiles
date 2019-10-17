@@ -1,0 +1,41 @@
+# last modified 2019-10-17
+# Dorai Sitaram
+extends: default
+font:
+  catalog:
+    Times New Roman:
+      normal: Times_New_Roman.ttf
+      bold: Times_New_Roman_Bold.ttf
+      italic: Times_New_Roman_Italic.ttf
+      bold-italic: Times_New_Roman_Bold_Italic.ttf
+    Baskervald:
+      normal: BaskervaldADFStd.ttf
+      italic: BaskervaldADFStd-Italic.ttf
+      bold: BaskervaldADFStd-Bold.ttf
+      bold-italic: BaskervaldADFStd-BoldItalic.ttf
+    Consolas:
+      normal: consola.ttf
+      bold: consolab.ttf
+      italic: consolai.ttf
+      bold-italic: consolaz.ttf
+    M+ 1p Fallback:
+      normal: mplus1p-regular-fallback.ttf
+      bold: mplus1p-regular-fallback.ttf
+      italic: mplus1p-regular-fallback.ttf
+      bold-italic: mplus1p-regular-fallback.ttf
+base:
+  #font-family: Times-Roman
+  font-family: Times New Roman
+  #font-family: Baskervald
+heading:
+  font-family: $base-font-family
+literal:
+  font-family: Consolas
+code:
+  font-family: $literal-font-family
+  background-color: 
+  padding: [0, 0, 0, 20pt]
+  border-width: 0
+  border-radius:
+page:
+  margin: [1in, 1in, 1in, 1in]

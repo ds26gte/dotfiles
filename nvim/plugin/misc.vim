@@ -1,4 +1,5 @@
-" last modified 2019-10-15
+" last modified 2019-10-17
+" Dorai Sitaram
 
 au bufread,bufnewfile .aliases*,.bash*,.env* setl ft=sh
 
@@ -7,8 +8,6 @@ au bufread,bufnewfile **/bin/* if expand('%:t') !~ '\.' | setl ft=sh | endif
 au bufread,bufnewfile view.unicode.tmp.1 syn match title /\<.\>/
 
 au bufread,bufnewfile *.ref setl cpt+=k inf
-
-au colorscheme bubblegum-256-dark hi matchparen gui=reverse
 
 au filetype lua,vim setl fo-=ro
 

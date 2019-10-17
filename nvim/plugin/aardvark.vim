@@ -1,8 +1,10 @@
-" aardvark.vim, last modified 2019-10-06
+" aardvark.vim, last modified 2019-10-17
 au bufread * sil! norm g`"
 au colorscheme * hi normal ctermfg=250 ctermbg=235 guifg=gray73 guibg=gray15
+au colorscheme * run plugin/<amatch>-extra.vim
 au vimleave * sil !vimpackrat
 cno <expr> %% getcmdtype() == ':' ? expand('%:h') . '/' : '%%'
+exec "colo" $VICOLOR
 ino <tab> <c-n>
 ino jj <esc>
 let &pm = strftime('.%Y-%m-%d-%H-%M~')

@@ -1,7 +1,7 @@
-# last modified 2019-09-07
+# last modified 2019-10-17
 # Dorai Sitaram
 
-if test x$DISPLAY = x; then
+if test ! "$DISPLAY"; then
   exit
 fi
 

@@ -1,7 +1,7 @@
-# last modified 2018-08-26
+# last modified 2019-10-17
 # Dorai Sitaram
 
-if test ! -z $SCRIPT_ALREADY_RUNNING; then
+if test "$SCRIPT_ALREADY_RUNNING"; then
   echo script already running; exit
 fi
 
@@ -11,11 +11,8 @@ if test $# -ne 0; then
 else
   f=typescript
   while true; do
-    if test ! -f $f; then
-      break
-    else
-      n=$(expr $n + 1)
-    fi
+    if test ! -f $f; then break; fi
+    let n="n + 1"
     f=typescript$n
   done
 fi

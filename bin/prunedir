@@ -1,7 +1,7 @@
 #!/bin/bash
 # prunedir
 # Dorai Sitaram
-# Last modified 2016-08-07
+# Last modified 2019-10-17
 #
 # Usage:
 #
@@ -22,12 +22,14 @@ fi
 
 here="$(pwd)"
 
-if ! expr "$here" : ".*/$" > /dev/null
+if echo $here | grep -vq '/$'
 then here="$here/"
 fi
+
 cd $1
-there=$(pwd)
-if ! expr "$there" : ".*/$" > /dev/null
+there="$(pwd)"
+
+if echo $there | grep -vq '/$'
 then there="$there/"
 fi
 
@@ -49,7 +51,7 @@ prunecwdagainst() {
       #echo comparing $heref against $theref
       if test ! -f "$theref"
       then echo $theref doesnt exist
-      elif cmp "$heref" "$theref" > /dev/null
+      elif cmp -s "$heref" "$theref"
       then
         echo $heref DELETED
         rm -f "$heref"
@@ -60,7 +62,7 @@ prunecwdagainst() {
     then
       (cd "$heref"; prunecwdagainst "$theref/")
       #echo $heref has $(ls -a $heref|wc -l) elts
-      if test $(ls -a "$heref"|wc -l) -eq 2
+      if ls -a "$heref" | wc -l | grep -q '^2$'
       then echo removing EMPTY DIR $heref
         rm -fr "$heref"
       fi

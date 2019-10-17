@@ -1,10 +1,11 @@
-# last modified 2019-10-03
+# last modified 2019-10-17
+# Dorai Sitaram
 
 # Create a .vimrc from my nvim config that's usable with Ubuntu's tiny vim
 
 if test -f ~/.vimrc; then
   if test "$1" != "--force"; then
-    if head -1 ~/.vimrc | grep -v 'aardvark\.vim'; then
+    if head -1 ~/.vimrc | grep -vq 'aardvark\.vim'; then
       echo .vimrc not from aardvark.vim, not modified; exit
     fi
     if test ~/.vimrc -nt ~/.config/nvim/plugin/aardvark.vim; then
@@ -16,6 +17,8 @@ fi
 
 sed \
   -e "1s/aardvark/extracted from \0/" \
+  -e "/^au colorscheme.*amatch/d" \
+  -e "/^exec/d" \
   -e "/^cno/d" \
   -e "/^com/d" \
   -e "/^ino.*tab/d" \

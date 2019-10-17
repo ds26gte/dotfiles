@@ -1,7 +1,7 @@
-# last modified 2019-10-06
+# last modified 2019-10-17
 # Dorai Sitaram
 
-if test -z "$INSCRUTABLE"; then
+if test ! "$INSCRUTABLE"; then
   echo INSCRUTABLE not set; exit
 fi
 

@@ -1,4 +1,4 @@
-# last modified 2019-08-26
+# last modified 2019-10-17
 # Dorai Sitaram
 
 # If $WORD_COUNT_FORMAT is 'minute', show the number of minutes and seconds taken to speak the file.
@@ -16,7 +16,7 @@ n=$(wc -w $f)
 
 n=${n% $f}
 
-if test x$WORD_COUNT_FORMAT = x; then
+if test ! "$WORD_COUNT_FORMAT"; then
   wcformat=minute
 else
   wcformat=$WORD_COUNT_FORMAT
@@ -24,13 +24,13 @@ fi
 
 wcformat=${wcformat%s}
 
-if test x$WORDS_PER_MINUTE = x; then
+if test ! "$WORDS_PER_MINUTE"; then
   wpm=124
 else
   wpm=$WORDS_PER_MINUTE
 fi
 
-if test x$wcformat = xminute; then
+if test "$wcformat" = minute; then
   minutes=$(echo $n / $wpm | bc)
   wholeminutes=${minutes%.*}
   if test x$wholeminutes = x; then
@@ -38,7 +38,7 @@ if test x$wcformat = xminute; then
   fi
   seconds=$(echo \($minutes - $wholeminutes\) \* 60 | bc)
   printf "%d'%02.f\"\n" $wholeminutes $seconds
-elif test x$wcformat = xdegree; then
+elif test "$wcformat" = degree; then
   minutes=$(echo $n / $wpm | bc)
   earthdegrees=$(echo $minutes / 4 | bc)
   printf "%.2fdeg\n" $earthdegrees
