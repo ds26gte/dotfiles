@@ -1,4 +1,4 @@
-# last modified 2018-09-04
+# last modified 2019-10-18
 # Dorai Sitaram
 
 if test $# -ne 1; then
@@ -9,14 +9,17 @@ f=$1
 ext=${f##*/}
 ext=${ext##*.}
 
-if test x$ext = xcss; then
+if test "$ext" = css; then
   csslint --config=$HOME/.csslintrc $f
-elif test x$ext = xhtml; then
+
+elif test "$ext" = html; then
   htmlhint --nocolor $f
-elif test x$ext = xjs; then
+
+elif test "$ext" = js; then
   jshint $f
-elif test x$ext = xjson; then
+
+elif test "$ext" = json; then
   jsonlint -q $f
-else
-  echo No linter supplied for .$ext
+
+else echo No linter supplied for .$ext
 fi 

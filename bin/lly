@@ -1,8 +1,8 @@
-# last modified 2019-09-04
+# last modified 2019-10-18
 # Dorai Sitaram
 
-if test $# -ne 1
-then echo $0 needs one argument file; exit
+if test $# -ne 1; then
+  echo $0 needs one argument file; exit
 fi
 
 col=65
@@ -12,19 +12,18 @@ g=${f##*/}
 basef=${g%.*}
 ext=${g##*.}
 
-if test "$ext" = "html"
-then COLUMNS=$col lynx -editor=vim -vikeys $f
+if test "$ext" = html; then
+  COLUMNS=$col lynx -editor=vim -vikeys $f
 
-elif test "$ext" = "md" -o "$ext" = "markdown"
-then
-  if test $basef.adoc -ot $f
-  then kramdoc -o $basef.adoc $f
+elif test "$ext" = md -o "$ext" = markdown; then
+  if test $basef.adoc -ot $f; then
+    kramdoc -o $basef.adoc $f
   fi
   $0 $basef.adoc
 
 else
-  if test $basef.html -ot $f
-  then kadoc $f
+  if test $basef.html -ot $f; then
+    kadoc $f
   fi
   $0 $basef.html
 fi

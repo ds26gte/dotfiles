@@ -1,4 +1,4 @@
-" last modified 2019-09-16
+" last modified 2019-10-18
 
 func! AdocFold()
   let l:line = getline(v:lnum)
@@ -20,6 +20,7 @@ func! s:adocOptions()
   setl inf
   setl tw=65
 
+  let b:presenting_slide_separator = '\%(^\|\n\)\ze=\+\s'
 endfunc
 
 au filetype asciidoc call s:adocOptions()

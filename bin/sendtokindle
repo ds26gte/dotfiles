@@ -1,19 +1,19 @@
-# last modified 2018-11-12
+# last modified 2019-10-18
 # Dorai Sitaram
 
-# have script kindleaddress that does
-# echo yourhandle@kindle.com
+# assumes
+# alias kindleaddress='echo yourhandle@kindle.com'
+# where yourhandle is your Kindle ID
 
 f=$1
 
 ext=${f##*.}
 
-if test x$ext == xadoc
-then
+if test "$ext" == adoc; then
   adockindle $f
   f=${f%.adoc}.html
-elif test x$ext == xepub
-then
+
+elif test "$ext" == epub; then
   g=${f%.epub}.png
   cp -p $f $g
   f=$g
