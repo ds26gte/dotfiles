@@ -1,4 +1,4 @@
-# last modified 2019-10-17
+# last modified 2019-10-19
 # Dorai Sitaram
 
 # Create a .vimrc from my nvim config that's usable with Ubuntu's tiny vim
@@ -17,23 +17,21 @@ fi
 
 sed \
   -e "1s/aardvark/extracted from \0/" \
-  -e "/^au colorscheme.*amatch/d" \
   -e "/^exec/d" \
   -e "/^cno/d" \
   -e "/^com/d" \
   -e "/^ino.*tab/d" \
-  -e "/^nno.*Files/d" \
-  -e "/^set \([b-dlt]\|s[bp]\)/d" \
+  -e "/^nno.*:Signify/d" \
+  -e "/^set \([b-dlmt]\|s[bp]\)/d" \
   -e "/^sil/d" \
   -e "/^tno/d" \
-  -e "s/^au colorscheme \* //" \
-  -e "s/^au vimleave \*/sil/" \
+  -e "s/^au vimleave \* //" \
   -e "/^\(au\|let\|try\)/d" \
   ~/.config/nvim/plugin/aardvark.vim > ~/.vimrc
 
 echo "\" additional stuff, just for tiny vim" >> ~/.vimrc
-echo "hi visual ctermfg=255 ctermbg=68" >> ~/.vimrc
-echo "hi tablinesel ctermbg=59" >> ~/.vimrc
+echo "hi visual ctermfg=white ctermbg=darkblue" >> ~/.vimrc
+echo "hi tablinesel ctermfg=251" >> ~/.vimrc
 echo "set bo=all" >> ~/.vimrc
 echo "set hl+=s:clear,S:clear,n:clear,*:clear,_:clear" >> ~/.vimrc
 echo "set ls=2" >> ~/.vimrc

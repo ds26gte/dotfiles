@@ -1,0 +1,9 @@
+" last modified 2019-10-19
+
+" avoid confusing feedback about where cursor is
+hi matchparen gui=reverse
+
+hi whitespace guibg=red
+
+hi diffadded guibg=none
+hi diffremoved guibg=none

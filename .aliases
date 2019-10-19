@@ -1,4 +1,4 @@
-# last modified 2019-10-17
+# last modified 2019-10-19
 #Dorai Sitaram
 alias ..='cd ..'
 alias 1='fg %1'
@@ -73,6 +73,7 @@ alias gex='git ls-files -o'
 alias gh='cd;cd src'
 alias ghbin='dotf;cd bin'
 alias ghclone='TEMP() { git clone https://github.com/$1; unset -f TEMP; }; TEMP'
+alias ghdummy='gh;cd dummy'
 alias ghtmp='gh;cd tmp'
 alias gio='src;cd ds26gte.github.io'
 alias gios='gio;cd patch'
@@ -191,13 +192,14 @@ alias vi=nvim
 alias vialias='vi ~/src/dotfiles/.aliases;realias'
 alias vid='vi -d'
 alias view='view -c "setl lbr sbr= nowrite"'
+alias viht='vi -es -c "helpt ."'
 alias vilu='vimd;cd lua'
 alias vima='vimd;cd after'
 alias vimap='vima;cd plugin'
 alias vimd='src;cd dotfiles/nvim'
 alias vimdiff='vi -d'
 alias vimf='vimd;cd ftplugin'
-alias vimht='vi -es -c "helpt ."'
+alias vimht=viht
 alias vimp='vimd;cd plugin'
 alias vimpa='vimd;cd pack/3rdpartyplugins/start'
 alias vimrt='cd /usr/share/nvim/runtime'

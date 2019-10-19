@@ -1,18 +1,19 @@
-" aardvark.vim, last modified 2019-10-17
+" aardvark.vim, last modified 2019-10-19
 au bufread * sil! norm g`"
-au colorscheme * hi normal ctermfg=250 ctermbg=235 guifg=gray73 guibg=gray15
-au colorscheme * run plugin/<amatch>-extra.vim
+au colorscheme * hi normal guifg=none guibg=none
+au colorscheme * run plugin/<amatch>.txt
+au syntax diff ru syntax/diff.vim
 au vimleave * sil !vimpackrat
 cno <expr> %% getcmdtype() == ':' ? expand('%:h') . '/' : '%%'
-exec "colo" $VICOLOR
+exec 'colo' $VICOLOR
 ino <tab> <c-n>
 ino jj <esc>
 let &pm = strftime('.%Y-%m-%d-%H-%M~')
 let matchup_matchparen_offscreen = {}
-let netrw_altv = 1
-let netrw_winsize = 80
 let signify_vcs_list = ['git']
 nno <c-k> <c-w>
+nno <leader>d :SignifyDiff<cr>
+nno <leader>f :SignifyHunkDiff<cr>
 set bri
 set cb=unnamedplus
 set cf
@@ -24,6 +25,7 @@ set et
 set hid
 set ic
 set lbr
+set mouse=n
 set nojs
 set noswf
 set pa=.,,
