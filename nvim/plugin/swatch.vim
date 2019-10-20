@@ -1,11 +1,13 @@
-" last modified 2019-09-28
+" last modified 2019-10-19
 " Dorai Sitaram
 
 " :Showswatch colordesc
 " brings up a small window showing the color colordesc in four settings:
 " - as fg on normal bg      (C/_),
-" - as bg behind normal fg  (_/C),
 " - as fg on white          (C/W),
+" - as fg on black          (C/B),
+" - as bg behind normal fg  (_/C),
+" - as bg behind white      (W/C),
 " - as bg behind black      (B/C).
 
 " Related map: <leader>s
@@ -21,7 +23,7 @@ func! s:showswatch(colordesc)
     exec 'sb' l:swatchfile
     setl noro
   else
-    exec '1sp' l:swatchfile
+    exec '2sp' l:swatchfile
     setl wfh
     winc J
   endif
@@ -41,19 +43,25 @@ func! s:showswatch(colordesc)
       let l:colorname .= '_' .. l:colorspec
     endif
   endif
-  exec 'hi def FGN' . l:colorname 'guifg=' l:colorspec
-  exec 'hi def BGN' . l:colorname 'guibg=' l:colorspec
-  exec 'hi def FGW' . l:colorname 'guifg=' l:colorspec 'guibg=white'
-  exec 'hi def BGB' . l:colorname 'guibg=' l:colorspec 'guifg=black'
-  exec 'syn match FGN' . l:colorname '"C/_ ' . l:colorname . '"'
-  exec 'syn match BGN' . l:colorname '"_/C ' . l:colorname . '"'
-  exec 'syn match FGW' . l:colorname '"C/W ' . l:colorname . '"'
-  exec 'syn match BGB' . l:colorname '"B/C ' . l:colorname . '"'
-  let l:spc = '"      "'
-  exec '%!echo' l:spc
+  exec 'hi def BGN_FG' . l:colorname 'guifg=' l:colorspec
+  exec 'hi def BGW_FG' . l:colorname 'guifg=' l:colorspec 'guibg=white'
+  exec 'hi def BGB_FG' . l:colorname 'guifg=' l:colorspec 'guibg=black'
+  exec 'hi def FGN_BG' . l:colorname 'guibg=' l:colorspec
+  exec 'hi def FGW_BG' . l:colorname 'guibg=' l:colorspec 'guifg=white'
+  exec 'hi def FGB_BG' . l:colorname 'guibg=' l:colorspec 'guifg=black'
+  exec 'syn match BGN_FG' . l:colorname '"C/_ ' . l:colorname . '"'
+  exec 'syn match BGW_FG' . l:colorname '"C/W ' . l:colorname . '"'
+  exec 'syn match BGB_FG' . l:colorname '"C/B ' . l:colorname . '"'
+  exec 'syn match FGN_BG' . l:colorname '"_/C ' . l:colorname . '"'
+  exec 'syn match FGW_BG' . l:colorname '"W/C ' . l:colorname . '"'
+  exec 'syn match FGB_BG' . l:colorname '"B/C ' . l:colorname . '"'
+  let l:spc = '"    "'
+  exec '%!echo' 
         \ 'C/_ ' . l:colorname l:spc
-        \ '_/C ' . l:colorname l:spc
         \ 'C/W ' . l:colorname l:spc
+        \ 'C/B ' . l:colorname '; echo'
+        \ '_/C ' . l:colorname l:spc
+        \ 'W/C ' . l:colorname l:spc
         \ 'B/C ' . l:colorname
   setl nobl nomod ro
   winc p

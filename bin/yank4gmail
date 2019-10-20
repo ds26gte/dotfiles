@@ -1,4 +1,4 @@
-# last modified 2019-10-17
+# last modified 2019-10-20
 # Dorai Sitaram
 
 if test ! "$DISPLAY"; then
@@ -31,8 +31,7 @@ g/\s$/ norm vipJ
 
 %s/\s\+$//
 
-x
-
+w
 EOF
 
 xclip -selection clipboard -i $tmpf

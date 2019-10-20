@@ -1,4 +1,4 @@
-" last modified 2019-10-15
+" last modified 2019-10-20
 
 au filetype pyret setl isk+=-
 
@@ -9,8 +9,6 @@ au bufread,bufnewfile *.jarr do bufread .js
 au bufread,bufnewfile *.arr setf pyret
 
 au bufread,bufnewfile *.scrbl setl ft=
-
-au bufread,bufnewfile **/curr-reorg/**.adoc let b:turnUniCyclingOff = 1
 
 com! Curr       e ~/src/curriculum/shared/langs/en-us/adoc-preproc.rkt
 com! Gios       e ~/src/ds26gte.github.io/patch/status-2018-09-28.adoc

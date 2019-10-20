@@ -1,9 +1,10 @@
-# last modified 2019-10-02
+# last modified 2019-10-20
+# Dorai Sitaram
 
 BACKUP_DIR=~/.local/share/nvim/backup
 
 BACKUP_EXT=.????-??-??-??-??~
 
-mv -n *$BACKUP_EXT .*$BACKUP_EXT 2> /dev/null
+mv -n {.,}*$BACKUP_EXT $BACKUP_DIR 2> /dev/null
 
-rm -f *$BACKUP_EXT .*$BACKUP_EXT
+rm -f {.,}*$BACKUP_EXT

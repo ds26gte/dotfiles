@@ -1,4 +1,4 @@
-" last modified 2019-10-17
+" last modified 2019-10-20
 " Dorai Sitaram
 
 au bufread,bufnewfile .aliases*,.bash*,.env* setl ft=sh
@@ -9,9 +9,9 @@ au bufread,bufnewfile view.unicode.tmp.1 syn match title /\<.\>/
 
 au bufread,bufnewfile *.ref setl cpt+=k inf
 
-au filetype lua,vim setl fo-=ro
+au cmdlineenter * set noscs
 
-au filetype vim setl isk+=:
+au cmdlineleave * set scs
 
 au filetype make setl list
 
@@ -19,15 +19,20 @@ au filetype javascript setl sua+=.js,.jsx
 
 au filetype conf setl ft=sh
 
-com! -nargs=1 NewDigraph exec "DigraphNew" <q-args> |
-      \exec "sil !echo sil DigraphNew" <q-args> ">> ~/.config/nvim/after/plugin/moredig.vim" |
-      \sil !trim-digraph-file
+com! -nargs=1 NewDigraph sil exec '!trim-digraph-file' <q-args> | ru plugin/moredig.vim
 
 com! Sum !plus %
 
-com! Vimp e ~/.config/nvim/plugin/misc.vim
+com! Vimp exec 'e' s:this_file
 
-" when called in read-only mode (-R)
-if &uc == 10000 | nmap q :q<cr> | endif
+com! Colemak set kmp=colemak | exec 'iunmap jj'
 
-nno <leader>o :Ofortune<cr>
+com! Qwerty set kmp= | exec 'ino jj <esc>'
+
+if &uc == 10000 | nmap q :q<cr> | endif " when called in read-only mode (-R)
+
+let s:this_file = expand('<sfile>')
+
+nno <leader>o :Ofortuna<cr>
+
+sil! exec 'so' system('dpkg-query -L fzf | grep fzf.vim | head -1')

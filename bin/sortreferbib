@@ -1,4 +1,4 @@
-# Last Modified 2019-09-24
+# Last Modified 2019-10-20
 # Dorai Sitaram
 
 vi -es $1 <<EOF
@@ -27,6 +27,5 @@ sort i /^.\{-}ÞÞ/
 
 $ g/^$/d
 
-x
-
+w
 EOF

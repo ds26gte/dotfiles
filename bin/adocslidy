@@ -1,4 +1,4 @@
-# last modified 2019-10-07
+# last modified 2019-10-20
 # Dorai Sitaram
 
 # converts f.adoc to f.html, a Slidy presentation
@@ -19,7 +19,7 @@ asciidoctor $1
 g=${1##*/}
 g=${g%.*}
 
-nvim -u NONE -es $g.html <<"EOF"
+vi -es -u NONE $g.html <<"EOF"
 
 func! Addslidefiles()
 i
@@ -143,5 +143,5 @@ g/<div class="ulist incremental">/ +1s/<ul>/<ul class="incremental">/
 g/^<div id="footer-text">/ .,/^<\/div>/d
 g/^<div id="footer">/ .,/^<\/div>/d
 
-x
+w
 EOF
