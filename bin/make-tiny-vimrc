@@ -1,4 +1,4 @@
-# last modified 2019-10-19
+# last modified 2019-10-20
 # Dorai Sitaram
 
 # Create a .vimrc from my nvim config that's usable with Ubuntu's tiny vim
@@ -17,9 +17,10 @@ fi
 
 sed \
   -e "1s/aardvark/extracted from \0/" \
-  -e "/^exec/d" \
+  -e "/<leader>/d" \
   -e "/^cno/d" \
   -e "/^com/d" \
+  -e "/^exec/d" \
   -e "/^ino.*tab/d" \
   -e "/^nno.*:Signify/d" \
   -e "/^set \([b-dlmt]\|s[bp]\)/d" \

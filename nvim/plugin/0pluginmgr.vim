@@ -1,8 +1,8 @@
-" last modified 2019-07-28
+" last modified 2019-10-21
 " Dorai Sitaram
 
 func! s:ensurePlugin(repo)
-  let l:pkgname = fnamemodify(a:repo, ":t")
+  let l:pkgname = fnamemodify(a:repo, ':t')
   let l:vimdir = split(&rtp, ',')[0]
   let l:pkgsdir = l:vimdir . '/pack/3rdpartyplugins/start'
   let l:pkgdir = l:pkgsdir . '/' . l:pkgname
