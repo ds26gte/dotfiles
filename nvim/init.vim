@@ -1,13 +1,14 @@
-"  aardvark.vim, last modified 2019-10-21
-" Dorai Sitaram
+  "  last modified 2019-10-22
+  " Dorai Sitaram
+  syn off
 au bufread * sil! norm g`"
-au cmdlineenter * set noscs
-au cmdlineleave * set scs
-au filetype pdf exec '%!pdftotext -nopgbrk % -' | setl ro
-au filetype vim setl fo-=ro isk+=:
-au syntax diff ru syntax/diff.vim
+au cmdlineenter * sil! let g:isk_sv = &l:isk | setl isk& noscs
+au cmdlineleave * sil! let &l:isk = g:isk_sv | setl scs
+au filetype gitcommit setl syn=diff
+au syntax diff syn match diffadd '^+.*' | syn match difftext '^-.*'
 au vimleave * sil !vimpackrat
 cno <expr> %% getcmdtype() == ':' ? expand('%:h') . '/' : '%%'
+com! Blame Gblame | setl ma | ma x | sil %s/^.\{-}(// | noh | 'x | vert res 8
 ino <tab> <c-n>
 ino jj <esc>
 let &pm = strftime('.%Y-%m-%d-%H-%M~')

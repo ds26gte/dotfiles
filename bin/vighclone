@@ -1,0 +1,22 @@
+# last modified 2019-10-22
+# Dorai Sitaram
+
+repo=$1
+
+if echo $repo | grep -vq '^[^/]\+/[^/]\+$'; then
+  echo malformed arg $repo; exit
+fi
+
+pkgname=${repo#*/}
+
+packdir=~/.config/nvim/pack/3rdpartyplugins/start
+
+pkgsubdir=$packdir/$pkgname
+
+if test ! -d "$pkgsubdir"; then
+  mkdir -p $pkgsubdir
+  (cd $packdir; git clone https://github.com/$repo)
+else
+  echo; echo $repo
+  (cd $pkgsubdir; git pull)
+fi 

@@ -1,4 +1,4 @@
-# last modified 2019-10-20
+# last modified 2019-10-22
 #Dorai Sitaram
 alias ..='cd ..'
 alias 1='fg %1'
@@ -17,6 +17,7 @@ alias apdf='asciidoctor-pdf -a pdf-fontsdir=/home/ds26gte/.fonts\;/usr/share/fon
 alias apdft='apdf -a pdf-theme=adoc'
 alias apt-add-repository='sudo apt-add-repository'
 alias aslide='asciidoc -b slidy -a linkcss -a stylesheet=myslidy.css'
+alias aspellc='TEMP() { cat "$@" | aspell -a | grep "^&" | sed -e "s:^&\s*\(\S\+\).*:\1:" | sort -u; unset -f TEMP; }; TEMP'
 alias b='src;cd bee; cd 2019'
 alias batty1='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
 alias batty2='upower -i /org/freedesktop/UPower/devices/battery_BAT1'
@@ -55,6 +56,7 @@ alias dnld='cd;cd downloads'
 alias do-release-upgrade='sudo do-release-upgrade'
 alias dotf='src;cd dotfiles'
 alias dvimf='src;cd dotfiles/nvim/plugin'
+alias enchantc='TEMP() { cat "$@" | enchant -a | grep "^&" | sed -e "s:^&\s*\(\S\+\).*:\1:" | sort -u; unset -f TEMP; }; TEMP'
 alias finished='mpg123 ~/public_html/alice-parker/Sorrow\ and\ Gladness.mp3'
 alias fstart='cpo-ensure-env;foreman start'
 alias fy='xclip -selection clipboard -i'

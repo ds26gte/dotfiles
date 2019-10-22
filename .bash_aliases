@@ -1,4 +1,4 @@
-# last change 2019-10-07
+# last change 2019-10-22
 
 set -o vi
 
@@ -16,6 +16,6 @@ if test ! -d /gpfs -a \
   ! -d /sdcard -a  \
   "$VIM" = "" -a \
   "$TERM" != tmux-256color; then
-  tmux new -s T$$
+  tmux new -s t$$
   #exit
 fi
