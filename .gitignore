@@ -5,7 +5,7 @@
 *Z*
 *lisp*
 .netrwhist*
-bin/[^abdegilmopstuvwxy]*
+bin/[^abdegilmoprstuvwxy]*
 bin/a[^d]*
 bin/d[^a]*
 bin/e[^r]*
@@ -19,7 +19,7 @@ bin/s[^ejko]*
 bin/t[^aert]*
 bin/ta[^r]*
 bin/tex[^d]*
-bin/u[^t]*
+bin/u[^pt]*
 bin/v[^iu]*
 bin/w[^eo]*
 dump.rdb

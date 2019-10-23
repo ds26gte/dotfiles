@@ -1,10 +1,11 @@
-" last modified 2019-01-28
+" last modified 2019-10-23
 " Dorai Sitaram
 
-func! s:lorem (...)
-  let l:savedFt = &l:ft
+func! s:lorem(...)
   let l:savedTw = &l:tw
-  setl ft= tw=65
+  setl tw=65
+
+  norm mx
 
   let l:numGrafs = a:0 ? a:1 : 1
 
@@ -22,31 +23,29 @@ func! s:lorem (...)
     let l:precedingBlankLine = 1
   else
     sil .+1g/^\s*$/ let l:precedingBlankLine = 1
+    'x
   endif
 
   if !l:onBlankLine
     s/$/\r
   endif
+  norm my
 
-  norm mx
   if !l:precedingBlankLine
     s/$/\r
-    'x
+    'y
   endif
 
-  exec 'r !lorem -p ' . l:numGrafs
-  norm gq'x
+  exec 'r !lorem -p' l:numGrafs
+  norm gq'y
 
   if l:inEmptyFile
-    norm mx
     1d
-    norm 'x
+  else
+    norm `x
   endif
 
-  norm $
-
   let &l:tw = l:savedTw
-  let &l:ft = l:savedFt
 endfunc
 
 com! -nargs=? Lorem call s:lorem(<args>)

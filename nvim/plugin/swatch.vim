@@ -1,4 +1,5 @@
-" last modified 2019-10-19
+" last modified 2019-10-24
+" created 2019-02-09
 " Dorai Sitaram
 
 " :Showswatch colordesc
@@ -67,6 +68,10 @@ func! s:showswatch(colordesc)
   winc p
 endfunc
 
-com! -nargs=1 Showswatch call s:showswatch(<q-args>)
+func! ListRGBnames(A, L, P)
+  return system('cat ~/bin/rgbnames.txt')
+endfunc
+
+com! -complete=custom,ListRGBnames -nargs=1 Showswatch call s:showswatch(<q-args>)
 
 nmap <leader>s :Showswatch<space>

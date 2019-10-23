@@ -1,23 +1,25 @@
-  "  last modified 2019-10-22
+  "  last modified 2019-10-24
   " Dorai Sitaram
   syn off
 au bufread * sil! norm g`"
+au bufwritepost * sil !updatestamp %
 au cmdlineenter * sil! let g:isk_sv = &l:isk | setl isk& noscs
 au cmdlineleave * sil! let &l:isk = g:isk_sv | setl scs
 au filetype gitcommit setl syn=diff
 au syntax diff syn match diffadd '^+.*' | syn match difftext '^-.*'
-au vimleave * sil !vimpackrat
+au vimleave * sil !vipackrat
 cno <expr> %% getcmdtype() == ':' ? expand('%:h') . '/' : '%%'
 com! Blame Gblame | setl ma | ma x | sil %s/^.\{-}(// | noh | 'x | vert res 8
+com! Ftrim w | sil exec '!trimfile %' | e!
 ino <tab> <c-n>
 ino jj <esc>
 let &pm = strftime('.%Y-%m-%d-%H-%M~')
 let matchup_matchparen_offscreen = {}
 let signify_vcs_list = ['git']
 nno <c-k> <c-w>
-nno <leader><leader>t :tabc<cr>
 nno <leader>d :SignifyDiff<cr>
 nno <leader>f :SignifyHunkDiff<cr>
+nno \\t :tabc<cr>
 set bri
 set cb=unnamedplus
 set cf

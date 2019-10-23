@@ -1,0 +1,28 @@
+# last modified 2019-10-23
+# Dorai Sitaram
+
+f="$1"
+
+prose='last \+\(change\|modified\|update\)'
+
+re1='[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}'
+re2='[0-9]\{4\}[0-9]\{2\}[0-9]\{2\}'
+
+n1=$(grep -n -i "$prose" $f|grep -m 1 $re1|sed -e 's/^\([^:]\+\).*/\1/')
+n2=$(grep -n -i "$prose" $f|grep -m 1 $re2|sed -e 's/^\([^:]\+\).*/\1/')
+
+if test ! "$n1"; then
+  test ! "$n2" && exit
+  which=2
+else
+  which=1
+  test "$n2" && test $n2 -lt $n1 && which=2
+fi
+
+if test $which -eq 1; then
+  n=$n1; re=$re1; today=$(date +"%Y-%m-%d")
+else
+  n=$n2; re=$re2; today=$(date +"%Y%m%d")
+fi
+
+sed -i -e "${n}s/$re/$today/i" "$f"

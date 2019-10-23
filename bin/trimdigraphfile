@@ -1,4 +1,4 @@
-# Last modified 2019-10-20
+# Last modified 2019-10-23
 # Dorai Sitaram
 
 digf=~/.config/nvim/after/plugin/moredig.vim
@@ -6,7 +6,7 @@ digf=~/.config/nvim/after/plugin/moredig.vim
 vi -es << EOF
 
 if !exists(':DigraphNew')
-  GHplugin chrisbra/unicode.vim
+  !vighclone chrisbra/unicode.vim
 endif
 
 EOF

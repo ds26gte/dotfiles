@@ -1,4 +1,4 @@
-" last modified 2019-10-22
+" last modified 2019-10-23
 " Dorai Sitaram
 
 au bufread,bufnewfile .aliases*,.bash*,.env* setl ft=sh
@@ -19,11 +19,13 @@ au filetype pdf exec '%!pdftotext -nopgbrk % -' | setl ro
 
 au filetype vim setl fo-=ro isk+=:
 
-com! -nargs=1 NewDigraph sil exec '!trim-digraph-file' <q-args> | ru plugin/moredig.vim
+com! -nargs=1 NewDigraph sil exec '!trimdigraphfile' <q-args> | ru plugin/moredig.vim
 
 com! Sum !plus %
 
 com! Vimp exec 'e' s:this_file
+
+com! Vinit e ~/.config/nvim/init.vim
 
 if &ro && &uc == 10000 | nmap q :q<cr> | endif
 
