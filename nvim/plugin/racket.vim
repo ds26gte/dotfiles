@@ -1,10 +1,9 @@
-" last modified 2019-10-15
+" last modified 2019-10-26
 " Dorai Sitaram
 
 au filetype scheme,lisp call s:racketOptions()
 
 func! s:racketOptions()
-  call Identify_string('"')
   syn match string /#\\[(){}\[\]]/
 
   call s:racketWords()
