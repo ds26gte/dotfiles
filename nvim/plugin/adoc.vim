@@ -1,4 +1,4 @@
-" last modified 2019-10-18
+" last modified 2019-10-27
 
 func! AdocFold()
   let l:line = getline(v:lnum)
@@ -25,7 +25,7 @@ endfunc
 
 au filetype asciidoc call s:adocOptions()
 
-au bufread,bufnewfile *.adoc? setf asciidoc
+au bufread,bufnewfile *.asc setf asciidoc
 
 au bufread,bufnewfile status-*.adoc setl spell
 

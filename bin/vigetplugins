@@ -1,17 +1,17 @@
-# last modified 2019-10-22
+# last modified 2019-10-29
+# created 2019-10-22
 # Dorai Sitaram
 
 for p in \
   andymass/vim-matchup \
   ds26gte/neoscmindent \
-  flazz/vim-colorschemes \
   guns/xterm-color-table.vim \
   junegunn/fzf.vim \
   mhinz/vim-signify \
   sotte/presenting.vim \
-  tpope/vim-fugitive \
   walm/jshint.vim \
 
 do
+  echo; echo $p
   vighclone $p
 done

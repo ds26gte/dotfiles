@@ -1,4 +1,4 @@
-# last modified 2019-10-23
+# last modified 2019-10-29
 #Dorai Sitaram
 alias ..='cd ..'
 alias 1='fg %1'
@@ -55,6 +55,7 @@ alias diff=colordiff
 alias dnld='cd;cd downloads'
 alias do-release-upgrade='sudo do-release-upgrade'
 alias dotf='src;cd dotfiles'
+alias dsupplex='curricd; cd bs-game-pathway-pyret/en-us/lessons/Supplemental/exercises'
 alias dvimf='src;cd dotfiles/nvim/plugin'
 alias enchantc='TEMP() { cat "$@" | enchant -a | grep "^&" | sed -e "s:^&\s*\(\S\+\).*:\1:" | sort -u; unset -f TEMP; }; TEMP'
 alias finished='mpg123 ~/public_html/alice-parker/Sorrow\ and\ Gladness.mp3'
@@ -114,8 +115,6 @@ alias lessona='remixd;cd pathwayP/langs/en-us/lessons/lessona/exercises'
 alias ls='ls -F'
 alias lsna='curricd;cd pathwayP/en-us/lessons/lessonA'
 alias lsnae='lsna;cd exercises'
-alias ly=lynx
-alias lynx='COLUMNS=80 lynx -editor=nvim -vikeys'
 alias m=less
 alias md=mkdir
 alias merg='mergedir ../..;prun'
@@ -170,6 +169,7 @@ alias spyjs='cpo;cd src/web/js'
 alias spyweb='cpo;cd src/web'
 alias src='cd;cd src'
 alias startcpo='cpo-ensure-env;rm -fr build node_modules;git submodule init;git submodule update;foreman run npm install;foreman start'
+alias supplex='curricl; cd Supplemental/langs/en-us/exercises'
 alias swapdir='cd;cd .local/share/nvim/swap'
 alias sxl='gh;cd scmxlate'
 alias sxlt='sxl;cd tmp'

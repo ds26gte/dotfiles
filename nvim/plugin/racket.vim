@@ -1,4 +1,4 @@
-" last modified 2019-10-26
+" last modified 2019-10-29
 " Dorai Sitaram
 
 au filetype scheme,lisp call s:racketOptions()
@@ -15,6 +15,8 @@ func! s:racketWords()
         \call-with-input-string,
         \call-with-output-file,
         \datum->syntax,
+        \enclose-div,
+        \enclose-span,
         \fluid-let,
         \for,
         \string-append,

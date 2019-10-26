@@ -1,4 +1,4 @@
-# last modified 2019-10-18
+# last modified 2019-10-27
 # Dorai Sitaram
 
 if test $# -ne 1; then
@@ -13,9 +13,9 @@ basef=${g%.*}
 ext=${g##*.}
 
 if test "$ext" = html; then
-  COLUMNS=$col lynx -editor=vim -vikeys $f
+  w3m $f
 
-elif test "$ext" = md -o "$ext" = markdown; then
+elif test "$ext" = markdown -o "$ext" = md -o "$ext" = mkd; then
   if test $basef.adoc -ot $f; then
     kramdoc -o $basef.adoc $f
   fi

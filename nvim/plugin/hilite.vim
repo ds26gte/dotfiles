@@ -1,13 +1,14 @@
-" last modified 2019-10-25
+" last modified 2019-10-27
 "Dorai Sitaram
 hi cursorlinenr guifg=gray60 guibg=gray20
-hi diffadd guibg=#003545
+hi diffadd guibg=#004040
 hi diffchange guibg=#300050
-hi diffdelete gui=none guifg=none guibg=#000035
-hi difftext gui=none guibg=#350000
+hi diffdelete gui=none guifg=none guibg=#000040
+hi difftext gui=none guibg=#400000
 hi endofbuffer guifg=gray40
 hi errormsg gui=bold guibg=#900000
-hi folded guifg=#003545
+hi foldcolumn guibg=gray21
+hi folded guifg=#004040
 hi incsearch gui=none guibg=#900090
 hi linenr guifg=gray50 guibg=gray20
 hi matchparen guibg=#004040
@@ -18,7 +19,7 @@ hi pmenusbar guibg=gray35
 hi pmenusel guifg=black guibg=#e0a020
 hi pmenuthumb guibg=gray60
 hi question gui=none guifg=none guibg=gray20
-hi search guibg=#000035 guifg=none
+hi search guibg=#000040 guifg=none
 hi signcolumn guibg=gray20
 hi statusline gui=none guifg=gray55 guibg=gray20
 hi statuslinenc gui=none guifg=gray45 guibg=gray20

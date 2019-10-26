@@ -1,9 +1,9 @@
-" last modified 2019-10-11
+" last modified 2019-10-26
 " Dorai Sitaram
 
-" needed only if called from within lynx
+" needed only if called from within (text-based) browser
 
-if $LYNX_VERSION == ""
+if $W3M_FILENAME == '' && $LYNX_VERSION == ''
   finish
 endif
 
@@ -54,9 +54,9 @@ func! s:rememberToRefreshHTML()
   endif
 endfunc
 
-au vimleave * call s:backToLynx()
+au vimleave * call s:backToBrowser()
 
-func! s:backToLynx()
+func! s:backToBrowser()
   for file in s:adocSourceFilesThatMustBeHTMLed
     exec 'b' file
     lcd %:p:h

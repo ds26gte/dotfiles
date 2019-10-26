@@ -1,4 +1,4 @@
-" last modified 2019-10-25
+" last modified 2019-10-28
 " Dorai Sitaram
 
 set bri
@@ -58,8 +58,6 @@ let signify_vcs_list = ['git']
 nno <leader>d :SignifyDiff<cr>
 nno <leader>f :SignifyHunkDiff<cr>
 nno \\t :tabc<cr>
-
-com! Blame Gblame | setl ma | ma x | sil %s/^.\{-}(// | noh | 'x | vert res 8
 
 nno <c-k> <c-w>
 

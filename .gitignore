@@ -21,7 +21,7 @@ bin/ta[^r]*
 bin/tex[^d]*
 bin/u[^pt]*
 bin/v[^iu]*
-bin/w[^eo]*
+bin/w[^3eo]*
 dump.rdb
 nvim/pack
 vimgists/
