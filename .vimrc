@@ -1,4 +1,4 @@
-" last modified 2019-10-25
+" last modified 2019-10-30
 " Dorai Sitaram
 
 sil! so ~/.config/nvim/init.vim
@@ -14,6 +14,7 @@ sil !date +"set pm=.\%Y-\%m-\%d-\%Hh\%M~" > ~/.patchmode.vim
 so ~/.patchmode.vim
 
 hi endofbuffer ctermfg=240
+hi linenr ctermfg=242
 hi statusline cterm=none ctermfg=248 ctermbg=237
 hi statuslinenc cterm=none ctermfg=244 ctermbg=237
 hi tabline cterm=none ctermfg=245 ctermbg=237

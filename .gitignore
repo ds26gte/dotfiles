@@ -9,7 +9,7 @@ bin/[^abdegilmoprstuvwxy]*
 bin/a[^d]*
 bin/d[^a]*
 bin/e[^r]*
-bin/g[^i]*
+bin/g[^bi]*
 bin/i[^c]*
 bin/l[^ily]*
 bin/m[^ae]*

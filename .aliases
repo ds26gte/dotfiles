@@ -1,4 +1,4 @@
-# last modified 2019-10-29
+# last modified 2019-10-31
 #Dorai Sitaram
 alias ..='cd ..'
 alias 1='fg %1'
@@ -26,6 +26,7 @@ alias bin='cd;cd bin'
 alias bpw='remix;build-pathway'
 alias bpwdebug='(bpw pathways/pathwayP --nopdf --debug)'
 alias bpwgame='(bpw pathways/bs-game-pathway --proglang pyret --nopdf --debug)'
+alias bpwpdebug='(bpw pathways/pathwayP --proglang pyret --nopdf --debug)'
 alias c=clear
 alias cd..='cd ..'
 alias cdbg='bpw pathways/pathwayP'
@@ -45,6 +46,7 @@ alias curriclib='remix;cd lib'
 alias curricp='remix;cd pathways'
 alias curricshare='curric;cd shared/langs/en-us'
 alias currperm='gpfs;find distribution -type d|xargs chmod g+r,o+rx;cd distribution;find . -type f|xargs chmod g+r,o+r'
+alias currtr='curricp;cd bs-game-pathway/langs/en-us/resources'
 alias cx='chmod +x'
 alias dateindia='TZ=Asia/Calcutta date'
 alias datepacific='TZ=US/Pacific date'
@@ -115,6 +117,7 @@ alias lessona='remixd;cd pathwayP/langs/en-us/lessons/lessona/exercises'
 alias ls='ls -F'
 alias lsna='curricd;cd pathwayP/en-us/lessons/lessonA'
 alias lsnae='lsna;cd exercises'
+alias ly=w3m
 alias m=less
 alias md=mkdir
 alias merg='mergedir ../..;prun'

@@ -1,0 +1,11 @@
+# last modified 2019-10-30
+# Dorai Sitaram
+
+f="$1"
+
+w=5
+
+# show only the committer's name, abbreviated
+
+git blame "$1" |
+  sed -e "s/^[^(]*(\(.\{$w\}\)[^)]*[0-9]\(\s\+[0-9]\+\)/\1\2/"

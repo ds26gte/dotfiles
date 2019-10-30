@@ -1,4 +1,4 @@
-" last modified 2019-10-28
+" last modified 2019-10-30
 " Dorai Sitaram
 
 set bri
@@ -33,11 +33,7 @@ au bufread * sil! norm g`"
 au cmdlineenter * sil! let g:isk_sv = &l:isk | setl isk& noscs
 au cmdlineleave * sil! let &l:isk = g:isk_sv | setl scs
 
-au filetype gitcommit setl syn=diff
-
 syn off
-
-au syntax diff syn match diffadd '^+.*' | syn match difftext '^-.*'
 
 let &pm = strftime('.%Y-%m-%d-%Hh%M~')
 
@@ -52,13 +48,11 @@ cno <expr> %% getcmdtype() == ':' ? expand('%:h') . '/' : '%%'
 ino <tab> <c-n>
 ino jj <esc>
 
+nno <c-k> <c-w>
+
 let matchup_matchparen_offscreen = {}
 
 let signify_vcs_list = ['git']
 nno <leader>d :SignifyDiff<cr>
 nno <leader>f :SignifyHunkDiff<cr>
 nno \\t :tabc<cr>
-
-nno <c-k> <c-w>
-
-sil! exec 'so' system('dpkg-query -L fzf | grep fzf.vim | head -1')
