@@ -1,11 +1,8 @@
-" last modified 2019-10-31
+" last modified 2019-11-01
 " Dorai Sitaram
 
-au bufread,bufnewfile .aliases*,.bash*,.env* setl ft=sh
-
-au bufread,bufnewfile **/bin/* if expand('%:t') !~ '\.' | setl ft=sh | endif
-
-au bufread,bufnewfile view.unicode.tmp.1 syn match title /\<.\>/
+au cmdlineenter * sil! let g:isk_sv = &l:isk | setl isk& noscs
+au cmdlineleave * sil! let &l:isk = g:isk_sv | setl scs
 
 au filetype conf setl ft=sh
 
@@ -25,10 +22,10 @@ com! -nargs=1 NewDigraph sil exec '!trimdigraphfile' <q-args> | ru plugin/moredi
 
 com! Sum !plus %
 
-com! Vimp exec 'e' s:this_file
+com! Vimp exec 'e' s:thisFile
 
 com! Vinit e $MYVIMRC
 
 if &ro && &uc == 10000 | nmap q :q<cr> | endif
 
-let s:this_file = expand('<sfile>')
+let s:thisFile = expand('<sfile>')

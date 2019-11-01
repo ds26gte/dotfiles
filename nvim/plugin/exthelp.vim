@@ -1,4 +1,4 @@
-" last modified 2019-03-19
+" last modified 2019-11-01
 " Dorai Sitaram
 
 let s:viewCounter = 0
@@ -11,7 +11,7 @@ func! ViewCmdOutput(cmd, args)
   sil exec '%!' . a:cmd . ' ' . a:args
   setl ft=help nobl nomod ro
   let b:viewCmd = a:cmd
-  nmap <buffer> K :call ViewCmdOutput(b:viewCmd, expand("<cword>"))<cr>
+  nmap <buffer> K :call ViewCmdOutput(b:viewCmd, expand('<cword>'))<cr>
 endfunc
 
 " always open a help file in its own tab
@@ -20,10 +20,10 @@ au filetype help winc T
 " sidestep default :Man as we have our own
 let g:loaded_man = 1
 
-com! -nargs=1 -complete=shellcmd Man call ViewCmdOutput("man", <q-args>)
+com! -nargs=1 -complete=shellcmd Man call ViewCmdOutput('man', <q-args>)
 
-com! -nargs=1 -complete=shellcmd Info call ViewCmdOutput("info", <q-args>)
+com! -nargs=1 -complete=shellcmd Info call ViewCmdOutput('info', <q-args>)
 
-com! -nargs=1 Dict call ViewCmdOutput("dict", '"' . <q-args> . '"')
+com! -nargs=1 Dict call ViewCmdOutput('dict', '"' . <q-args> . '"')
 
 nmap <leader>w :Dict<space>

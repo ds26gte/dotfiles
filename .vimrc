@@ -1,10 +1,11 @@
-" last modified 2019-10-30
+" last modified 2019-11-01
 " Dorai Sitaram
 
 sil! so ~/.config/nvim/init.vim
 
 set ar
 set bo=all
+set lcs+=tab:>-
 set ls=2
 set rtp^=/usr/share/nvim/runtime
 
@@ -17,7 +18,7 @@ hi endofbuffer ctermfg=240
 hi linenr ctermfg=242
 hi statusline cterm=none ctermfg=248 ctermbg=237
 hi statuslinenc cterm=none ctermfg=244 ctermbg=237
-hi tabline cterm=none ctermfg=245 ctermbg=237
-hi tablinefill cterm=none ctermbg=237
-hi tablinesel cterm=none ctermfg=248 ctermbg=237
 hi visual ctermbg=24
+hi! link tabline statuslinenc
+hi! link tablinefill tabline
+hi! link tablinesel statusline

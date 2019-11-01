@@ -1,4 +1,4 @@
-" last modified 2019-10-30
+" last modified 2019-11-01
 " Dorai Sitaram
 
 set bri
@@ -29,9 +29,6 @@ sil! set icm=split
 sil! set sd+=%
 
 au bufread * sil! norm g`"
-
-au cmdlineenter * sil! let g:isk_sv = &l:isk | setl isk& noscs
-au cmdlineleave * sil! let &l:isk = g:isk_sv | setl scs
 
 syn off
 

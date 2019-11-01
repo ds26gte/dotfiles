@@ -1,18 +1,23 @@
-" last modified 2019-02-13
+" last modified 2019-10-31
+" created 2019-02-09
 " Dorai Sitaram
 
-au filetype css au bufwritepre <buffer> call s:rewriteCSSlineComments()
+au filetype css au bufwritepre <buffer> call s:rewriteCSSLineComments()
 
-func! s:rewriteCSSlineComments()
-  " allow user to use //-style comments, which will be converted
-  " upon file write to the legal but more clumsy /* ... */
+func! s:rewriteCSSLineComments()
+  " //-style line comments, though oh so convenient, are not legal in CSS!
+  " convert them into /* ... */
+
   norm mx
+
+  " assume //-comment is not preceded by :, as that could be a URI
   %s=:\@<!//\s*\(.*\)=/* \1 */=e
+
   norm `x
 endfunc
 
-au filetype css nmap <buffer> <leader>c :call CssUncommentLine()<cr>
+au filetype css nmap <buffer> <leader>c :call CSSUncommentLine()<cr>
 
-func! CssUncommentLine()
-  s=/\*\s\+\(.\{-}\)\s*\*/\s*$=\1=
+func! CSSUncommentLine()
+  s=/\*\s\+\(.\{-}\)\s+\*/\s*$=\1=
 endfunc

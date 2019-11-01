@@ -1,15 +1,11 @@
-# last modified 2019-10-29
+# last modified 2019-11-01
 # created 2019-10-22
 # Dorai Sitaram
 
 for p in \
   andymass/vim-matchup \
   ds26gte/neoscmindent \
-  guns/xterm-color-table.vim \
-  junegunn/fzf.vim \
   mhinz/vim-signify \
-  sotte/presenting.vim \
-  walm/jshint.vim \
 
 do
   echo; echo $p
