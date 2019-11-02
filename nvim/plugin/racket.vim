@@ -1,13 +1,7 @@
-" last modified 2019-10-29
+" last modified 2019-11-03
 " Dorai Sitaram
 
-au filetype scheme,lisp call s:racketOptions()
-
-func! s:racketOptions()
-  syn match string /#\\[(){}\[\]]/
-
-  call s:racketWords()
-endfunc
+au filetype scheme,lisp call s:racketWords()
 
 func! s:racketWords()
   setl lw+=

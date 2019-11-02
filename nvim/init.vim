@@ -1,4 +1,4 @@
-" last modified 2019-11-01
+" last modified 2019-11-02
 " Dorai Sitaram
 
 set bri
@@ -19,6 +19,7 @@ set pa=.,,
 set sbr=...\ "
 set scs
 set spl=en_us
+set spr
 set sw=2
 set swb+=usetab
 set tgc
@@ -46,6 +47,8 @@ ino <tab> <c-n>
 ino jj <esc>
 
 nno <c-k> <c-w>
+
+nno \\0 :%!ftrim<cr>
 
 let matchup_matchparen_offscreen = {}
 

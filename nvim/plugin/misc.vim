@@ -1,4 +1,4 @@
-" last modified 2019-11-01
+" last modified 2019-11-02
 " Dorai Sitaram
 
 au cmdlineenter * sil! let g:isk_sv = &l:isk | setl isk& noscs
@@ -18,8 +18,6 @@ au filetype lua,vim setl fo-=r fo-=o
 
 au syntax diff syn match diffadd '^+.*' | syn match difftext '^-.*'
 
-com! -nargs=1 NewDigraph sil exec '!trimdigraphfile' <q-args> | ru plugin/moredig.vim
-
 com! Sum !plus %
 
 com! Vimp exec 'e' s:thisFile
@@ -27,5 +25,7 @@ com! Vimp exec 'e' s:thisFile
 com! Vinit e $MYVIMRC
 
 if &ro && &uc == 10000 | nmap q :q<cr> | endif
+
+let netrw_winsize = 80
 
 let s:thisFile = expand('<sfile>')

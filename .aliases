@@ -1,4 +1,4 @@
-# last modified 2019-10-31
+# last modified 2019-11-03
 #Dorai Sitaram
 alias ..='cd ..'
 alias 1='fg %1'
@@ -50,6 +50,7 @@ alias currtr='curricp;cd bs-game-pathway/langs/en-us/resources'
 alias cx='chmod +x'
 alias dateindia='TZ=Asia/Calcutta date'
 alias datepacific='TZ=US/Pacific date'
+alias dbugrec='curricd; cd buggy-recipes-wescheme/en-us/lessons/BuggyRecipes/exercises'
 alias di=diff
 alias did='vi -c \$ -c s/\$/\\r/ -c r!date -c s/\$/\\r\\r/ -c startinsert ~/did.adoc'
 alias dif=diff
@@ -62,7 +63,7 @@ alias dvimf='src;cd dotfiles/nvim/plugin'
 alias enchantc='TEMP() { cat "$@" | enchant -a | grep "^&" | sed -e "s:^&\s*\(\S\+\).*:\1:" | sort -u; unset -f TEMP; }; TEMP'
 alias finished='mpg123 ~/public_html/alice-parker/Sorrow\ and\ Gladness.mp3'
 alias fstart='cpo-ensure-env;foreman start'
-alias ftrim='TEMP() { vi -es -c "e $1" -cTrimlines -cw; unset -f TEMP; }; TEMP'
+alias ftrim='sed -e "s/\s\+\$//" -e "/./,/^\$/!d"'
 alias fy='xclip -selection clipboard -i'
 alias g2='troff2page.lua'
 alias g2p='gh;cd troff2page'
@@ -73,6 +74,7 @@ alias g2pl='g2p;cd lua'
 alias g2pm='g2p;cd tmac'
 alias g2ps='g2p;cd src'
 alias g3='~/gh/tmp/troff2page/troff2page.lua'
+alias gblame='TEMP() { local w=3; git blame "$1" | sed -e "s/^[^(]*(\(.\{$w\}\)[^)]*[0-9]\(\s\+[0-9]\+\)/\1\2/"; unset -f TEMP; }; TEMP'
 alias gcd='find . -name dump.rdb -delete'
 alias gdocadoc='TEMP() { f=$1; pandoc $f -o ${f%%.html}.adoc; }; TEMP'
 alias gex='git ls-files -o'
@@ -101,6 +103,7 @@ alias htm='cd;cd public_html'
 alias htmp='htm;cd tmp'
 alias htmpb='htm;cd tmpb'
 alias htmpc='htm;cd tmpc'
+alias ipsum='TEMP() { lorem -p ${1:-1} | fmt -w 65; unset -f TEMP; }; TEMP'
 alias iv=vi
 alias j=jobs
 alias k1='k %1'
@@ -114,6 +117,7 @@ alias l='ls -l'
 alias la='ls -Ad .*'
 alias latex=lualatex
 alias lessona='remixd;cd pathwayP/langs/en-us/lessons/lessona/exercises'
+alias ll.='ls -dl .*'
 alias ls='ls -F'
 alias lsna='curricd;cd pathwayP/en-us/lessons/lessonA'
 alias lsnae='lsna;cd exercises'
@@ -125,6 +129,7 @@ alias minc='(printf "%.2f\n" $(echo $(cat | wc -w)/$(wordsperminute) | bc -l)) <
 alias mo=more
 alias mpca='groff -U -mpca'
 alias ms2='groff -U -ms2'
+alias nnn='nnn -H'
 alias nscmvi='src;cd neoscmindent'
 alias ocurr='src;cd curr'
 alias ocurre='ocurr;cd distribution/courses/algebra/en-us/units/unit1/exercises/Order-of-Operations'
@@ -222,4 +227,4 @@ alias whp=~/src/wkhtmltox/bin/wkhtmltopdf
 alias wordsperminute='echo 124' # 140?
 alias yfg=yank4gmail
 alias yubgrade='sudo apt update;sudo apt -y upgrade;sudo apt dist-upgrade'
-source ~/.linuxaliases
+source ~/.linuxaliases 2>/dev/null
