@@ -1,4 +1,4 @@
-" last modified 2019-11-02
+" last modified 2019-11-04
 " Dorai Sitaram
 
 au cmdlineenter * sil! let g:isk_sv = &l:isk | setl isk& noscs
@@ -25,7 +25,5 @@ com! Vimp exec 'e' s:thisFile
 com! Vinit e $MYVIMRC
 
 if &ro && &uc == 10000 | nmap q :q<cr> | endif
-
-let netrw_winsize = 80
 
 let s:thisFile = expand('<sfile>')

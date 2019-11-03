@@ -1,4 +1,5 @@
-# Last modified 2019-10-23
+# Last modified 2019-11-03
+# Created 2019-10-23
 # Dorai Sitaram
 
 digf=~/.config/nvim/after/plugin/moredig.vim
@@ -21,6 +22,6 @@ endfunc
 
 g/DigraphNew/ call TrimDigraphs()
 
-sort u
+sort /^\S\+\s\+\S\+\s\+/ nu
 w
 EOF

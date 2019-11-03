@@ -1,4 +1,4 @@
-" last modified 2019-11-02
+" last modified 2019-11-05
 " Dorai Sitaram
 
 set bri
@@ -14,6 +14,7 @@ set ic
 set lbr
 set mouse=n
 set nojs
+set nosol
 set noswf
 set pa=.,,
 set sbr=...\ "
@@ -48,7 +49,7 @@ ino jj <esc>
 
 nno <c-k> <c-w>
 
-nno \\0 :%!ftrim<cr>
+let netrw_winsize = float2nr(&co * 0.8)
 
 let matchup_matchparen_offscreen = {}
 
