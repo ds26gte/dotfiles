@@ -1,4 +1,4 @@
-" last modified 2019-11-04
+" last modified 2019-11-05
 " Dorai Sitaram
 
 au cmdlineenter * sil! let g:isk_sv = &l:isk | setl isk& noscs
@@ -17,6 +17,12 @@ au filetype vim setl isk+=:
 au filetype lua,vim setl fo-=r fo-=o
 
 au syntax diff syn match diffadd '^+.*' | syn match difftext '^-.*'
+
+let matchup_matchparen_offscreen = {}
+
+let signify_vcs_list = ['git']
+nno <leader>d :SignifyDiff<cr>
+nno <leader>f :SignifyHunkDiff<cr>
 
 com! Sum !plus %
 

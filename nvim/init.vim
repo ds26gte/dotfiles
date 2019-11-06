@@ -36,6 +36,8 @@ syn off
 
 let &pm = strftime('.%Y-%m-%d-%Hh%M~')
 
+let netrw_winsize = float2nr(&co * 0.8)
+
 au vimleave * sil !BDIR=$HOME/.local/share/nvim/backup
       \ BFF=.????-??-??-??h??~
       \ BFF=".*$BFF *$BFF";
@@ -48,12 +50,4 @@ ino <tab> <c-n>
 ino jj <esc>
 
 nno <c-k> <c-w>
-
-let netrw_winsize = float2nr(&co * 0.8)
-
-let matchup_matchparen_offscreen = {}
-
-let signify_vcs_list = ['git']
-nno <leader>d :SignifyDiff<cr>
-nno <leader>f :SignifyHunkDiff<cr>
 nno \\t :tabc<cr>

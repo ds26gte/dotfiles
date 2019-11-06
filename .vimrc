@@ -46,7 +46,7 @@ so ~/.patchmode.vim
 
 nno \\0 :%!ftrim<cr>
 
-so ~/.config/nvim/plugin/hilite.vim
+so ~/.config/nvim/plugin/hilink.vim
 hi endofbuffer ctermfg=240
 hi statusline cterm=none ctermfg=248 ctermbg=237
 hi statuslinenc cterm=none ctermfg=244 ctermbg=237
