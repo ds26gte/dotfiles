@@ -1,4 +1,4 @@
-# last modified 2019-10-29
+# last modified 2019-11-07
 # created 2019-10-22
 # Dorai Sitaram
 
@@ -14,9 +14,24 @@ packdir=~/.config/nvim/pack/3rdpartyplugins/start
 
 pkgsubdir=$packdir/$pkgname
 
+function updateDoc() {
+  if test -d doc; then
+    cd doc
+    nvim -es -c 'helpt .'
+  fi
+}
+
 if test ! -d "$pkgsubdir"; then
   mkdir -p $pkgsubdir
-  (cd $packdir; git clone https://github.com/$repo)
+  cd $packdir
+  git clone https://github.com/$repo
+  if test -d $pkgname; then
+    cd $pkgname
+    updateDoc
+  fi
 else
-  (cd $pkgsubdir; git pull)
+  cd $pkgsubdir
+  if git pull | head -1 | grep -vq '^Already'; then
+    updateDoc
+  fi
 fi 

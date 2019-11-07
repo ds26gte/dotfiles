@@ -1,4 +1,4 @@
-" last modified 2019-11-05
+" last modified 2019-11-06
 " Dorai Sitaram
 
 au cmdlineenter * sil! let g:isk_sv = &l:isk | setl isk& noscs
@@ -23,6 +23,8 @@ let matchup_matchparen_offscreen = {}
 let signify_vcs_list = ['git']
 nno <leader>d :SignifyDiff<cr>
 nno <leader>f :SignifyHunkDiff<cr>
+
+sil! exec 'so' system('dpkg-query -L fzf | grep fzf.vim | head -1')
 
 com! Sum !plus %
 

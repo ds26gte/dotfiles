@@ -1,10 +1,16 @@
-#last modified 2019-09-21
+# last modified 2019-11-07
+# Dorai Sitaram
 
 if test -z "$VIM"
 then return
 fi
 
-#do only for bash-within-vim
+# do only for bash invoked from within vim
 
 shopt -s expand_aliases
+
+# :grep should recognize **
+
+shopt -s globstar
+
 . ~/src/dotfiles/.aliases

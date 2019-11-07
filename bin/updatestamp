@@ -1,8 +1,20 @@
-# last modified 2019-10-25
+# last modified 2019-11-07
 # created 2019-10-23
 # Dorai Sitaram
 
 f="$1"
+
+# check arg is a file
+
+test -f "$f" || exit
+
+# check file was modified today
+
+today=$(date +%Y%m%d)
+
+filemoddate=$(stat -c %y "$f" | cut -d ' ' -f 1 | sed -e 's/-//g')
+
+test $filemoddate -ge $today || exit
 
 # a datestamp line contains $prose and either $re1 or $re2
 
@@ -13,20 +25,23 @@ re2='\b[0-9]\{8\}\b'
 
 # find the earliest datestamp line in the file
 
-n=$(grep -n -i "$prose" "$f" | grep -m 1 "$re1\\|$re2" | cut -d ":" -f 1)
+n=$(grep -n -i "$prose" "$f" | grep -m 1 "$re1\\|$re2" | cut -d ':' -f 1)
 
-# if none found, exit
+# check file has an existing datestamp
 
-test ! "$n" && exit
+test "$n" || exit
 
-# otherwise modify datestamp to today
+# find replacement datestamp for today, matching format of existing stamp
 
 if sed -ne "${n}p" "$f" | grep -q $re1; then
   re=$re1
-  today=$(date +"%Y-%m-%d")
+  today=$(date +%Y-%m-%d)
 else
   re=$re2
-  today=$(date +"%Y%m%d")
 fi
 
-sed -i -e "${n}s/$re/$today/" "$f"
+# replace datestamp in file, unless it's already been set to today
+
+if sed -ne "${n}p" "$f" | grep -vq $today; then
+  sed -i -e "${n}s/$re/$today/" "$f"
+fi

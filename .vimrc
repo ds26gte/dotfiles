@@ -1,4 +1,4 @@
-" last modified 2019-11-05
+" last modified 2019-11-07
 " Dorai Sitaram
 
 " .vimrc for the tiny Vim that's installed by default in Ubuntu
@@ -38,8 +38,6 @@ nno ciw ebcw
 
 nno gqap }{gq}
 nno gqip }{gq}
-
-au bufwritepost * sil !updatestamp %
 
 sil !date +"set pm=.\%Y-\%m-\%d-\%Hh\%M~" > ~/.patchmode.vim
 so ~/.patchmode.vim
