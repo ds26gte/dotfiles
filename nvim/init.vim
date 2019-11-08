@@ -1,4 +1,4 @@
-" last modified 2019-11-07
+" last modified 2019-11-11
 " Dorai Sitaram
 
 set bri
@@ -37,8 +37,6 @@ syn off
 let &pm = strftime('.%Y-%m-%d-%Hh%M~')
 
 let netrw_winsize = float2nr(&co * 0.8)
-
-au vimleave * bufdo sil !updatestamp %
 
 au vimleave * sil !BDIR=$HOME/.local/share/nvim/backup
       \ BFF=.????-??-??-??h??~

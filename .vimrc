@@ -10,7 +10,20 @@ set bo=all
 set lcs+=tab:>-
 set ls=2
 
-" some fake text objectery
+au vimleave * bufdo !updatestamp %
+
+sil !date +"set pm=.\%Y-\%m-\%d-\%Hh\%M~" > ~/.patchmode.vim
+so ~/.patchmode.vim
+
+nno \\0 :%!ftrim<cr>
+
+so ~/.config/nvim/plugin/hilink.vim
+hi endofbuffer ctermfg=240
+hi statusline cterm=none ctermfg=248 ctermbg=237
+hi statuslinenc cterm=none ctermfg=244 ctermbg=237
+hi visual ctermbg=24
+
+" some text object fakery
 
 nno dap }{d}
 nno das )(d)
@@ -38,14 +51,3 @@ nno ciw ebcw
 
 nno gqap }{gq}
 nno gqip }{gq}
-
-sil !date +"set pm=.\%Y-\%m-\%d-\%Hh\%M~" > ~/.patchmode.vim
-so ~/.patchmode.vim
-
-nno \\0 :%!ftrim<cr>
-
-so ~/.config/nvim/plugin/hilink.vim
-hi endofbuffer ctermfg=240
-hi statusline cterm=none ctermfg=248 ctermbg=237
-hi statuslinenc cterm=none ctermfg=244 ctermbg=237
-hi visual ctermbg=24

@@ -2,7 +2,7 @@
 
 func! AdocFold()
   let l:line = getline(v:lnum)
-  let l:depth = match(getline(v:lnum), '\(^=\+\)\@<=[^=]') + 1
+  let l:depth = match(getline(v:lnum), '\(^==\+\)\@<=[^=]') + 1
   if l:depth > 0
     return ">" . l:depth
   endif
@@ -20,7 +20,11 @@ func! s:adocOptions()
   setl inf
   setl tw=65
 
+  nmap <buffer> [[ :?^=<cr>
+  nmap <buffer> ]] :/^=<cr>
+
   let b:presenting_slide_separator = '\%(^\|\n\)\ze=\+\s'
+
 endfunc
 
 au filetype asciidoc call s:adocOptions()

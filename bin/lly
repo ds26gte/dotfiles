@@ -1,0 +1,29 @@
+# last modified 2019-11-10
+# Dorai Sitaram
+
+if test $# -ne 1; then
+  echo $0 needs one argument file; exit
+fi
+
+col=65
+
+f=$1
+g=${f##*/}
+basef=${g%.*}
+ext=${g##*.}
+
+if test "$ext" = html; then
+  COLUMNS=$col lynx -editor=nvim -vikeys $f
+
+elif test "$ext" = md -o "$ext" = markdown; then
+  if test $basef.adoc -ot $f; then
+    kramdoc -o $basef.adoc $f
+  fi
+  $0 $basef.adoc
+
+else
+  if test $basef.html -ot $f; then
+    asciidoctor -a linkcss $f
+  fi
+  $0 $basef.html
+fi

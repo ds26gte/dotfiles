@@ -1,5 +1,7 @@
-" last modified 2019-11-06
+" last modified 2019-11-12
 " Dorai Sitaram
+
+au vimleave * bufdo sil if bufname('%') != '' | exec "!updatestamp %" | endif
 
 au cmdlineenter * sil! let g:isk_sv = &l:isk | setl isk& noscs
 au cmdlineleave * sil! let &l:isk = g:isk_sv | setl scs
@@ -12,9 +14,9 @@ au filetype javascript setl sua+=.js,.jsx
 
 au filetype make setl list
 
-au filetype vim setl isk+=:
-
 au filetype lua,vim setl fo-=r fo-=o
+
+au filetype vim setl isk+=:
 
 au syntax diff syn match diffadd '^+.*' | syn match difftext '^-.*'
 

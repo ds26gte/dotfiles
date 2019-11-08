@@ -1,4 +1,4 @@
-" last modified 2019-11-06
+" last modified 2019-11-09
 "Dorai Sitaram
 hi diffadd guifg=#00a000 guibg=none
 hi diffchange guifg=#c08080 guibg=none
@@ -17,6 +17,10 @@ hi pmenusbar guibg=gray35
 hi pmenusel guifg=black guibg=#c09000
 hi pmenuthumb guibg=gray60
 hi search guibg=#000040 guifg=none
+hi spellbad gui=none guifg=#f05050
+hi spellcap gui=none guifg=#8080f0
+hi spelllocal gui=none guifg=#00e0e0
+hi spellrare gui=none guifg=#e000e0
 hi statusline gui=none guifg=gray55 guibg=gray20
 hi statuslinenc gui=none guifg=gray45 guibg=gray20
 hi string guifg=#d0b0d0
