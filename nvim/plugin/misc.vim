@@ -1,7 +1,5 @@
-" last modified 2019-11-12
+" last modified 2019-11-13
 " Dorai Sitaram
-
-au vimleave * bufdo sil if bufname('%') != '' | exec "!updatestamp %" | endif
 
 au cmdlineenter * sil! let g:isk_sv = &l:isk | setl isk& noscs
 au cmdlineleave * sil! let &l:isk = g:isk_sv | setl scs
@@ -9,6 +7,8 @@ au cmdlineleave * sil! let &l:isk = g:isk_sv | setl scs
 au filetype conf setl ft=sh
 
 au filetype gitcommit setl syn=diff
+
+au filetype help setl tw=78
 
 au filetype javascript setl sua+=.js,.jsx
 

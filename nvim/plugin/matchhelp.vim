@@ -1,4 +1,4 @@
-" last modified 2019-11-03
+" last modified 2019-11-12
 " created 2019-10-24
 " Dorai Sitaram
 
@@ -22,7 +22,7 @@ func! s:identifyComment(cc)
 endfunc
 
 func! s:identifyLispCharacter()
-  syn match string /#\\[(){}\[\]]/
+  syn match string /#\\[(){}\[\]";]/
 endfunc
 
 "

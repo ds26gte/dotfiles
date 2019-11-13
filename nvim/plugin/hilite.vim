@@ -1,6 +1,6 @@
-" last modified 2019-11-09
+" last modified 2019-11-13
 "Dorai Sitaram
-hi diffadd guifg=#00a000 guibg=none
+hi diffadd guifg=#00d000 guibg=none
 hi diffchange guifg=#c08080 guibg=none
 hi diffdelete gui=none guifg=gray35 guibg=none
 hi difftext gui=none guifg=#e00000 guibg=none

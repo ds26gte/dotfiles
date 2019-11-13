@@ -1,4 +1,4 @@
-# last modified 2019-11-10
+# last modified 2019-11-13
 #Dorai Sitaram
 alias ..='cd ..'
 alias 1='fg %1'
@@ -164,7 +164,6 @@ alias saadoc='asciidoctor -a data-uri'
 alias sadoc=adocslidy
 alias sbib='sortreferbib ~/bibliography.ref'
 alias schelog='src;cd schelog'
-alias scmvi='src;cd scmindent'
 alias script=skript
 alias seagate='cd /media/ds26gte/S*'
 alias sendtogmail='TEMP() { echo att | mutt -s att -a $1 -- $(gmailaddress); }; TEMP'
@@ -175,6 +174,7 @@ alias spyweb='cpo;cd src/web'
 alias src='cd;cd src'
 alias startcpo='cpo-ensure-env;rm -fr build node_modules;git submodule init;git submodule update;foreman run npm install;foreman start'
 alias supplex='curricl; cd Supplemental/langs/en-us/exercises'
+alias svi='src;cd scmindent'
 alias swapdir='cd;cd .local/share/nvim/swap'
 alias tmp='cd;cd tmp'
 alias tmspeech='src;cd tmspeech'

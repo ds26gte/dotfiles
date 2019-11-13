@@ -1,4 +1,4 @@
-" last modified 2019-10-27
+" last modified 2019-11-12
 
 func! AdocFold()
   let l:line = getline(v:lnum)
