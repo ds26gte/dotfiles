@@ -1,10 +1,9 @@
-# last modified 2019-11-01
+# last modified 2019-11-13
 # created 2019-10-22
 # Dorai Sitaram
 
 for p in \
   andymass/vim-matchup \
-  ds26gte/neoscmindent \
   mhinz/vim-signify \
 
 do

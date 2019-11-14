@@ -1,4 +1,4 @@
-# last modified 2019-11-13
+# last modified 2019-11-14
 #Dorai Sitaram
 alias ..='cd ..'
 alias 1='fg %1'
@@ -71,6 +71,7 @@ alias ftrim='sed -e "s/\s\+\$//" -e "/./,/^\$/!d"'
 alias fy='xclip -selection clipboard -i'
 alias gblame='TEMP() { local w=3; git blame "$1" | sed -e "s/^[^(]*(\(.\{$w\}\)[^)]*[0-9]\(\s\+[0-9]\+\)/\1\2/"; unset -f TEMP; }; TEMP'
 alias gcd='find . -name dump.rdb -delete'
+alias gco='git commit'
 alias gdocadoc='TEMP() { f=$1; pandoc $f -o ${f%%.html}.adoc; }; TEMP'
 alias gex='git ls-files -o'
 alias gh='cd;cd src'

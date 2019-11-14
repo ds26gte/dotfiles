@@ -1,9 +1,9 @@
-" last modified 2019-11-13
+" last modified 2019-11-14
 "Dorai Sitaram
 hi diffadd guifg=#00d000 guibg=none
 hi diffchange guifg=#c08080 guibg=none
 hi diffdelete gui=none guifg=gray35 guibg=none
-hi difftext gui=none guifg=#e00000 guibg=none
+hi difftext gui=none guifg=#f05050 guibg=none
 hi endofbuffer guifg=gray40
 hi errormsg gui=bold guibg=#900000
 hi folded guifg=#00b0b0 guibg=gray21
