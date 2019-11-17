@@ -1,4 +1,4 @@
-" last modified 2019-11-07
+" last modified 2019-11-14
 " Dorai Sitaram
 
 " .vimrc for the tiny Vim that's installed by default in Ubuntu
@@ -25,29 +25,40 @@ hi visual ctermbg=24
 
 " some text object fakery
 
+"nno viw hebve
+nno viw wbve
+nno vaw hebvw
+
+nno viW hEBvE
+nno vaW hEBvW
+
+nno vis )(v)b
+nno vas )(v)h
+
+nno vap }{e0v}
+nno vip }{e0v}b$
+
 nno dap }{d}
 nno das )(d)
 
-" not easy to define a pure i-version, but to accommodate muscle memory make
-" it a synonym for the a-version
-
-nno dip }{d}
-nno dis )(d)
-
-nno daW EBdW
-nno daw ebdw
 nno diW EBdE
+nno daW EBdW
+
 nno diw ebde
+nno daw ebdw
 
-nno cap }{c}
-nno cas )(c)
-nno cip }{c}
-nno cis )(c)
-
-nno caW WmkBc`k
-nno caw wmkbc`k
-nno ciW EBcW
 nno ciw ebcw
+nno caw wmkbc`k
 
-nno gqap }{gq}
-nno gqip }{gq}
+nno ciW EBcW
+nno caW WmkBc`k
+
+nmap gqip vipgq
+nmap gqap vapgq
+
+nmap dip vipd
+nmap dap vapd
+nmap cip vipc
+nmap cap vapc
+nmap cis visc
+nmap cas vasc

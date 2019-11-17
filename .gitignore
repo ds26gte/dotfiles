@@ -3,7 +3,6 @@
 *.sav
 *.vim.*
 *Z*
-*lisp*
 .netrwhist*
 bin/[^abdegilmoprstuvwxy]*
 bin/a[^d]*

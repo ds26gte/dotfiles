@@ -1,4 +1,4 @@
-# last modified 2019-11-14
+# last modified 2019-11-15
 #Dorai Sitaram
 alias ..='cd ..'
 alias 1='fg %1'
@@ -11,7 +11,9 @@ alias adc=asciidoc
 alias add-apt-repository=apt-add-repository
 alias adoc-preproc='PATHWAYROOTDIR=../../../ ~/src/curriculum/shared/langs/en-us/adoc-preproc.rkt'
 alias adoc=asciidoctor
+alias adocr='link-reveal.js;asciidoctor -T ~/gh/asciidoctor-reveal.js/templates/slim'
 alias adocss='TEMP() { s=$1; shift; asciidoctor -a stylesheet=~/src/asciidoctor-stylesheet-factory/stylesheets/$s.css "$@"; }; TEMP'
+alias aepub='asciidoctor-epub3 -D ~/kindlelib'
 alias aman='asciidoctor -b manpage'
 alias apdf='asciidoctor-pdf -a pdf-fontsdir=/home/ds26gte/.fonts\;/usr/share/fonts/truetype/msttcorefonts\;GEM_FONTS_DIR -a pdf-themesdir=~'
 alias apdft='apdf -a pdf-theme=adoc'
@@ -31,14 +33,20 @@ alias bpwpdebug='(bpw pathways/pathwayP --proglang pyret --nopdf --debug)'
 alias bugrec='curricl;cd BuggyRecipes/langs/en-us/exercises'
 alias c=clear
 alias cd..='cd ..'
+alias cdarrb='pyl;cd src/arr/base'
+alias cdarrc='pyl;cd src/arr/compiler'
+alias cdarrt='pyl;cd src/arr/trove'
 alias cdbg='bpw pathways/pathwayP'
 alias cdjsb='pyl;cd src/js/base'
+alias cdjst='pylsrc;cd js/trove'
 alias cdme='cd $PWD'
 alias cdtests='pyl;cd tests/pyret/tests'
 alias cgame='bpw pathways/bs-game-pathway'
+alias cl=ecl
 alias clscript='rm typescript*;script'
 alias cp='cp -p'
 alias cpo='htm;cd code.pyret.org'
+alias cpos='cpo;cd src'
 alias cr=google-chrome
 alias cudo='remix;bpw'
 alias curric='src;cd curriculum'
@@ -75,12 +83,15 @@ alias gco='git commit'
 alias gdocadoc='TEMP() { f=$1; pandoc $f -o ${f%%.html}.adoc; }; TEMP'
 alias gex='git ls-files -o'
 alias gh='cd;cd src'
+alias ghas='src;cd asciidoctor'
 alias ghbin='dotf;cd bin'
 alias ghclone='TEMP() { git clone https://github.com/$1; unset -f TEMP; }; TEMP'
 alias ghdummy='gh;cd dummy'
 alias ghnvim='src;cd neovim'
 alias ghtmp='gh;cd tmp'
 alias ghvim='src;cd vim'
+alias ghvimsrc='ghvim;cd src'
+alias ginfo='\info --vi-keys'
 alias gio='src;cd ds26gte.github.io'
 alias gios='gio;cd patch'
 alias gitb='git branch'
@@ -170,6 +181,7 @@ alias seagate='cd /media/ds26gte/S*'
 alias sendtogmail='TEMP() { echo att | mutt -s att -a $1 -- $(gmailaddress); }; TEMP'
 alias shadadir='cd ~/.local/share/nvim/shada'
 alias sl=ls
+alias spell=aspellc
 alias spyjs='cpo;cd src/web/js'
 alias spyweb='cpo;cd src/web'
 alias src='cd;cd src'
