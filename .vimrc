@@ -1,4 +1,4 @@
-" last modified 2019-11-14
+" last modified 2019-11-21
 " Dorai Sitaram
 
 " .vimrc for the tiny Vim that's installed by default in Ubuntu
@@ -19,8 +19,8 @@ nno \\0 :%!ftrim<cr>
 
 so ~/.config/nvim/plugin/hilink.vim
 hi endofbuffer ctermfg=240
-hi statusline cterm=none ctermfg=248 ctermbg=237
-hi statuslinenc cterm=none ctermfg=244 ctermbg=237
+hi statusline cterm=none ctermfg=245
+hi statuslinenc cterm=none ctermfg=241
 hi visual ctermbg=24
 
 " some text object fakery

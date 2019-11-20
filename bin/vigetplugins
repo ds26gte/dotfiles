@@ -1,9 +1,10 @@
-# last modified 2019-11-13
+# last modified 2019-11-21
 # created 2019-10-22
 # Dorai Sitaram
 
 for p in \
   andymass/vim-matchup \
+  junegunn/fzf.vim \
   mhinz/vim-signify \
 
 do

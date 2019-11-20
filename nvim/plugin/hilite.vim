@@ -1,29 +1,23 @@
-" last modified 2019-11-14
+" last modified 2019-11-21
 "Dorai Sitaram
 hi diffadd guifg=#00d000 guibg=none
 hi diffchange guifg=#c08080 guibg=none
 hi diffdelete gui=none guifg=gray35 guibg=none
-hi difftext gui=none guifg=#f05050 guibg=none
-hi endofbuffer guifg=gray40
+hi endofbuffer guifg=gray35
 hi errormsg gui=bold guibg=#900000
 hi folded guifg=#00b0b0 guibg=gray21
 hi incsearch gui=none guibg=#900090
 hi matchparen guibg=#004040
-hi modemsg gui=none guifg=gray50
-hi msgarea guifg=#d09090
-hi nontext guifg=gray50
+hi moremsg gui=none guifg=#e0a020
+hi nontext gui=none guifg=gray50
 hi pmenu guibg=gray20
 hi pmenusbar guibg=gray35
 hi pmenusel guifg=black guibg=#c09000
 hi pmenuthumb guibg=gray60
 hi search guibg=#000040 guifg=none
-hi spellbad gui=none guifg=#f05050
-hi spellcap gui=none guifg=#8080f0
-hi spelllocal gui=none guifg=#00e0e0
-hi spellrare gui=none guifg=#e000e0
-hi statusline gui=none guifg=gray55 guibg=gray20
-hi statuslinenc gui=none guifg=gray45 guibg=gray20
-hi string guifg=#d0b0d0
+hi statusline gui=italic guifg=gray55
+hi statuslinenc gui=italic guifg=gray45
+hi string guifg=#80c080
 hi title guifg=gray90
 hi visual guifg=gray76 guibg=#006080
-hi whitespace guibg=#ff0000
+hi warningmsg guifg=#f05050

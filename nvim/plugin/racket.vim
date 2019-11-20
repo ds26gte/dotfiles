@@ -1,7 +1,7 @@
-" last modified 2019-11-16
+" last modified 2019-11-20
 " Dorai Sitaram
 
-au filetype scheme,lisp call s:racketWords()
+au filetype scheme call s:racketWords()
 
 func! s:racketWords()
   setl lw+=
@@ -11,8 +11,10 @@ func! s:racketWords()
         \datum->syntax,
         \enclose-div,
         \enclose-span,
+        \enclose-tag,
         \fluid-let,
         \for,
+        \mstring,
         \string-append,
         \syntax-parse,
         \syntax/loc,

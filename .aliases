@@ -1,4 +1,4 @@
-# last modified 2019-11-15
+# last modified 2019-11-20
 #Dorai Sitaram
 alias ..='cd ..'
 alias 1='fg %1'
@@ -11,6 +11,7 @@ alias adc=asciidoc
 alias add-apt-repository=apt-add-repository
 alias adoc-preproc='PATHWAYROOTDIR=../../../ ~/src/curriculum/shared/langs/en-us/adoc-preproc.rkt'
 alias adoc=asciidoctor
+alias adocl='adoc -a linkcss'
 alias adocr='link-reveal.js;asciidoctor -T ~/gh/asciidoctor-reveal.js/templates/slim'
 alias adocss='TEMP() { s=$1; shift; asciidoctor -a stylesheet=~/src/asciidoctor-stylesheet-factory/stylesheets/$s.css "$@"; }; TEMP'
 alias aepub='asciidoctor-epub3 -D ~/kindlelib'
@@ -27,8 +28,9 @@ alias bb=brave-browser
 alias bdir='cd;cd .local/share/nvim/backup'
 alias bin='cd;cd bin'
 alias bpw='remix;build-pathway'
-alias bpwdebug='(bpw pathways/pathwayP --nopdf --debug)'
-alias bpwgame='(bpw pathways/bs-game-pathway --proglang pyret --nopdf --debug)'
+alias bpwdebug='(bpw pathways/pathwayP --nopdf)'
+alias bpws='(bpw pathways/bs-game-pathway --proglang wescheme)'
+alias bpwgame='(bpw pathways/bs-game-pathway --proglang pyret --nopdf)'
 alias bpwpdebug='(bpw pathways/pathwayP --proglang pyret --nopdf --debug)'
 alias bugrec='curricl;cd BuggyRecipes/langs/en-us/exercises'
 alias c=clear

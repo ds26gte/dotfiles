@@ -1,4 +1,4 @@
-" last modified 2019-11-12
+" last modified 2019-11-20
 " Dorai Sitaram
 
 set bri
@@ -11,6 +11,7 @@ set dy-=msgsep
 set et
 set hid
 set ic
+set icm=split
 set lbr
 set mouse=n
 set nojs
@@ -19,6 +20,7 @@ set noswf
 set pa=.,,
 set sbr=...\ "
 set scs
+set sd+=%
 set spl=en_us
 set spr
 set sw=2
@@ -27,8 +29,6 @@ set tgc
 set wic
 set wig=*.docx,*.dvi,*.eps,*.min.js,*.mpx,*.o,*.odt,*.otf,*.ps,*.so,*.ttf,*.zo
 set wim=longest:full,full
-sil! set icm=split
-sil! set sd+=%
 
 au bufread * sil! norm g`"
 
@@ -36,13 +36,11 @@ syn off
 
 let &pm = strftime('.%Y-%m-%d-%Hh%M~')
 
-let netrw_winsize = float2nr(&co * 0.8)
-
 au vimleave * sil !BDIR=$HOME/.local/share/nvim/backup
       \ BFF=.????-??-??-??h??~
       \ BFF=".*$BFF *$BFF";
       \ mv -n $BFF $BDIR 2>/dev/null;
-      \ rm -f $BFF
+      \ test $PWD -ef $BDIR || rm -f $BFF
 
 cno <expr> %% getcmdtype() == ':' ? expand('%:h') . '/' : '%%'
 

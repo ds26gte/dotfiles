@@ -1,4 +1,4 @@
-" last modified 2019-11-12
+" last modified 2019-11-21
 " created 2019-10-24
 " Dorai Sitaram
 
@@ -25,11 +25,7 @@ func! s:identifyLispCharacter()
   syn match string /#\\[(){}\[\]";]/
 endfunc
 
-"
-
 au filetype vim call s:identifyComment('"')
-
-"
 
 au filetype lisp,scheme call s:identifyLispCharacter()
 
@@ -38,8 +34,6 @@ au filetype lisp,scheme,sh call s:identifyString('"')
 au filetype lua,vim call s:identifyString('"', 1) | call s:identifyString("'", 1)
 
 au filetype sh call s:identifyString("'")
-
-"
 
 au filetype lisp,scheme call s:identifyComment(';')
 
