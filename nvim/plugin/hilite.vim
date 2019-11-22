@@ -1,4 +1,4 @@
-" last modified 2019-11-21
+" last modified 2019-11-22
 "Dorai Sitaram
 hi diffadd guifg=#00d000 guibg=none
 hi diffchange guifg=#c08080 guibg=none
@@ -15,8 +15,8 @@ hi pmenusbar guibg=gray35
 hi pmenusel guifg=black guibg=#c09000
 hi pmenuthumb guibg=gray60
 hi search guibg=#000040 guifg=none
-hi statusline gui=italic guifg=gray55
-hi statuslinenc gui=italic guifg=gray45
+hi statusline gui=none guifg=#8080a0
+hi statuslinenc gui=none guifg=#606080
 hi string guifg=#80c080
 hi title guifg=gray90
 hi visual guifg=gray76 guibg=#006080

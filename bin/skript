@@ -1,4 +1,4 @@
-# last modified 2019-10-17
+# last modified 2019-11-26
 # Dorai Sitaram
 
 if test "$SCRIPT_ALREADY_RUNNING"; then
@@ -7,7 +7,12 @@ fi
 
 if test $# -ne 0; then
   f=$1
-  rm -f $f
+  if test "$f" == --fresh; then
+    rm -fr typescript*
+    f=typescript
+  else
+    rm -f "$f"
+  fi
 else
   f=typescript
   while true; do
@@ -19,7 +24,7 @@ fi
 
 export SCRIPT_ALREADY_RUNNING=1
 
-script $f
+/usr/bin/script $f
 
 export SCRIPT_ALREADY_RUNNING=
 

@@ -1,4 +1,4 @@
-" last modified 2019-11-21
+" last modified 2019-11-26
 " Dorai Sitaram
 
 au cmdlineenter * sil! let g:isk_sv = &l:isk | setl isk& noscs
@@ -28,8 +28,8 @@ let netrw_winsize = float2nr(&co * 0.8)
 let matchup_matchparen_offscreen = {}
 
 let signify_vcs_list = ['git']
-nno <leader>d :SignifyDiff<cr>
-nno <leader>f :SignifyHunkDiff<cr>
+nno cD :SignifyDiff<cr>
+nno cd :SignifyHunkDiff<cr>
 
 sil! exec 'so' system('dpkg-query -L fzf | grep fzf.vim | head -1')
 

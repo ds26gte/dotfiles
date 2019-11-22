@@ -1,4 +1,4 @@
-" last modified 2019-11-21
+" last modified 2019-11-26
 " Dorai Sitaram
 
 " .vimrc for the tiny Vim that's installed by default in Ubuntu
@@ -10,12 +10,12 @@ set bo=all
 set lcs+=tab:>-
 set ls=2
 
-au vimleave * bufdo !updatestamp %
+"au vimleave * bufdo !updatestamp %
 
 sil !date +"set pm=.\%Y-\%m-\%d-\%Hh\%M~" > ~/.patchmode.vim
 so ~/.patchmode.vim
 
-nno \\0 :%!ftrim<cr>
+nno \\0 :%!spctrim<cr>
 
 so ~/.config/nvim/plugin/hilink.vim
 hi endofbuffer ctermfg=240

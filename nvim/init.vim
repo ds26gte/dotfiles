@@ -1,4 +1,4 @@
-" last modified 2019-11-20
+" last modified 2019-11-26
 " Dorai Sitaram
 
 set bri
@@ -13,6 +13,7 @@ set hid
 set ic
 set icm=split
 set lbr
+set lw-=if
 set mouse=n
 set nojs
 set nosol
@@ -48,4 +49,4 @@ ino <tab> <c-n>
 ino jj <esc>
 
 nno <c-k> <c-w>
-nno \\t :tabc<cr>
+nno cC :tabc<cr>
