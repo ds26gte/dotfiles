@@ -1,4 +1,5 @@
-" last modified 2019-10-08
+" last modified 2019-11-29
+" created < 2016-10
 " Dorai Sitaram
 
 " from www.noah.org/wiki/Password_Safe_with_Vim_and_OpenSSL

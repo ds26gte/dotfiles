@@ -1,4 +1,4 @@
-" last modified 2019-11-21
+" last modified 2019-11-27
 "Dorai Sitaram
 hi! link comment normal
 hi! link cursorlinenr linenr
@@ -7,10 +7,6 @@ hi! link foldcolumn statusline
 hi! link linenr statusline
 hi! link modemsg statuslinenc
 hi! link question moremsg
-hi! link signcolumn statusline
-hi! link signifysignadd statusline
-hi! link signifysignchange statusline
-hi! link signifysigndelete statusline
 hi! link spellbad difftext
 hi! link spellcap diffadd
 hi! link spelllocal specialkey

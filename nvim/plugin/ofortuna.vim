@@ -1,7 +1,10 @@
-" Last modified 2019-03-28
+" last modified 2019-11-30
+" created 2019-03-05
 " Dorai Sitaram
 
 if !executable('fortune')
+  finish
+elseif exists('$GIT_EXEC_PATH')
   finish
 endif
 

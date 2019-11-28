@@ -1,4 +1,4 @@
-" last modified 2019-11-26
+" last modified 2019-12-01
 " Dorai Sitaram
 
 set bri
@@ -50,3 +50,5 @@ ino jj <esc>
 
 nno <c-k> <c-w>
 nno cC :tabc<cr>
+
+tno <esc><esc> <c-\><c-n>

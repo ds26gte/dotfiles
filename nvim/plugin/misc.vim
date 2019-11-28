@@ -1,12 +1,9 @@
-" last modified 2019-11-26
+" last modified 2019-12-02
 " Dorai Sitaram
-
-au cmdlineenter * sil! let g:isk_sv = &l:isk | setl isk& noscs
-au cmdlineleave * sil! let &l:isk = g:isk_sv | setl scs
 
 au filetype conf setl ft=sh
 
-au filetype diff,gitcommit setl syn=diff
+au filetype diff setl syn=diff
 
 au filetype help setl tw=78
 
@@ -32,6 +29,9 @@ nno cD :SignifyDiff<cr>
 nno cd :SignifyHunkDiff<cr>
 
 sil! exec 'so' system('dpkg-query -L fzf | grep fzf.vim | head -1')
+
+com! Fsh sp +setl\ mod /tmp/viSessionHasOpenTerminalBuffers | close | FloatermNew
+nno yo :FloatermToggle<cr>
 
 com! Sum !plus %
 

@@ -1,4 +1,4 @@
-# last modified 2019-11-27
+# last modified 2019-12-02
 #Dorai Sitaram
 alias ..='cd ..'
 alias 1='fg %1'
@@ -67,7 +67,8 @@ alias di=diff
 alias did='vi -c \$ -c s/\$/\\r/ -c r!date -c s/\$/\\r\\r/ -c startinsert ~/did.adoc'
 alias dif=diff
 alias diff=colordiff
-alias dnld='cd;cd downloads'
+alias dl='cd;cd downloads'
+alias dnld=dl
 alias do-release-upgrade='sudo do-release-upgrade'
 alias dotf='src;cd dotfiles'
 alias dsupplex='curricd; cd bs-game-pathway-pyret/en-us/lessons/Supplemental/exercises'
@@ -97,6 +98,9 @@ alias ginfo='\info --vi-keys'
 alias gio='src;cd ds26gte.github.io'
 alias gios='gio;cd patch'
 alias gitb='git branch'
+alias gj='git jump'
+alias gjdiff='gj diff'
+alias gjmerge='gj merge'
 alias gl='cd;cd gl'
 alias glg='git log --abbrev-commit'
 alias gls='git ls-files'
@@ -135,8 +139,6 @@ alias lsnae='lsna;cd exercises'
 alias ly=lynx
 alias lynx='COLUMNS=80 lynx -editor=nvim -vikeys'
 alias m=less
-alias m=v
-alias m=view
 alias madoc=kramdoc
 alias md=mkdir
 alias merg='mergedir ../..;prun'

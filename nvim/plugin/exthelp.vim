@@ -1,4 +1,5 @@
-" last modified 2019-11-01
+" last modified 2019-11-29
+" created < 2016-10
 " Dorai Sitaram
 
 let s:viewCounter = 0
@@ -26,4 +27,4 @@ com! -nargs=1 -complete=shellcmd Info call ViewCmdOutput('info', <q-args>)
 
 com! -nargs=1 Dict call ViewCmdOutput('dict', '"' . <q-args> . '"')
 
-nmap <leader>w :Dict<space>
+nmap d= :Dict<space>

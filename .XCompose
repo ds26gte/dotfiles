@@ -1,12 +1,13 @@
     include "%L"
 # additions to /usr/share/X11/locale/en_US.UTF-8/Compose
-# last modified 2017-11-29
+# last modified 2019-11-28
 <Multi_key> <0> <parenleft> : "∝"
 <Multi_key> <1> <apostrophe> : "′"
 <Multi_key> <2> <apostrophe> : "″"
 <Multi_key> <3> <apostrophe> : "‴"
 <Multi_key> <A> <plus> : "א"
 <Multi_key> <C> <asterisk> : "Ξ"
+<Multi_key> <C> <d> : "⌘"
 <Multi_key> <D> <asterisk> : "Δ"
 <Multi_key> <E> <h> : "⌂"
 <Multi_key> <F> <A> : "∀"

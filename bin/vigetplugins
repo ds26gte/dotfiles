@@ -1,13 +1,21 @@
-# last modified 2019-11-21
+# last modified 2019-11-30
 # created 2019-10-22
 # Dorai Sitaram
 
-for p in \
-  andymass/vim-matchup \
-  junegunn/fzf.vim \
-  mhinz/vim-signify \
-
-do
+for p in $(cat $0|grep /|grep -v '^for '|grep -v '^ *;'); do
   echo; echo $p
   vighclone $p
 done
+
+exit
+
+andymass/vim-matchup
+chrisbra/unicode.vim
+flazz/vim-colorschemes
+glacambre/firenvim
+guns/xterm-color-table.vim
+junegunn/fzf.vim
+mhinz/vim-signify
+sotte/presenting.vim
+voldikss/vim-floaterm
+walm/jshint.vim
