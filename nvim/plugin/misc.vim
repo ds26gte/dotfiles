@@ -1,11 +1,8 @@
-" last modified 2019-12-02
+" last modified 2019-12-15
 " Dorai Sitaram
 
+" this won't set 'inde' in init.vim
 au filetype conf setl ft=sh
-
-au filetype diff setl syn=diff
-
-au filetype help setl tw=78
 
 au filetype javascript setl sua+=.js,.jsx
 
@@ -15,23 +12,19 @@ au filetype lua,vim setl fo-=r fo-=o
 
 au filetype vim setl isk+=:
 
-au filetype * syn match colorcolumn 'FIXME\|TODO\|XXX' containedin=comment
-
-au syntax diff syn match diffadd '^+.*' | syn match difftext '^-.*'
-
 let netrw_preview = 1
 let netrw_winsize = float2nr(&co * 0.8)
 
 let matchup_matchparen_offscreen = {}
 
 let signify_vcs_list = ['git']
+
 nno cD :SignifyDiff<cr>
 nno cd :SignifyHunkDiff<cr>
 
-sil! exec 'so' system('dpkg-query -L fzf | grep fzf.vim | head -1')
+sil! exec 'so' system('dpkg-query -L fzf | grep fzf.vim | sed 1q')
 
-com! Fsh sp +setl\ mod /tmp/viSessionHasOpenTerminalBuffers | close | FloatermNew
-nno yo :FloatermToggle<cr>
+tno <esc><esc> <c-\><c-n>
 
 com! Sum !plus %
 

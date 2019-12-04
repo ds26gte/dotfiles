@@ -1,28 +1,30 @@
-" last modified 2019-12-03
+" last modified 2019-12-09
+" created 2019-11-27
 " Dorai Sitaram
 
+func! s:diffOptions()
+  " comments
+  syn match nontext '^#.*'
+
+  syn match diffadd '^+.*'
+  syn match difftext '^-.*'
+endfunc
+
+au syntax diff call s:diffOptions()
+
 if !exists('$GIT_EXEC_PATH')
-  " load only if called by a subprocess vi of
-  " `git jump` or `git commit`
+  " load rest only if called by a vim subprocess from
+  " git-jump or git-commit
   finish
 endif
 
 if exists('$GIT_AUTHOR_NAME')
-  " called from `git commit`
-  au filetype * call s:gitCommitOptions()
+  " called from git-commit
+  au filetype * call s:diffOptions()
 else
-  " called from `git jump`
+  " called from git-jump
   au filetype * call s:gitJumpOptions()
 endif
-
-func! s:gitCommitOptions()
-  " gray out comments
-  syn match nontext '^#.*'
-
-  " highlight diffs if shown
-  syn match diffadd '^+.*'
-  syn match difftext '^-.*'
-endfunc
 
 func! s:gitJumpOptions()
   " highlight merge hunks

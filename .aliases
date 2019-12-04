@@ -1,4 +1,4 @@
-# last modified 2019-12-03
+# last modified 2019-12-10
 #Dorai Sitaram
 alias ..='cd ..'
 alias 1='fg %1'
@@ -13,7 +13,7 @@ alias adoc-preproc='PATHWAYROOTDIR=../../../ ~/src/curriculum/shared/langs/en-us
 alias adoc=asciidoctor
 alias adocl='adoc -a linkcss'
 alias adocr='link-reveal.js;asciidoctor -T ~/gh/asciidoctor-reveal.js/templates/slim'
-alias adocss='TEMP() { s=$1; shift; asciidoctor -a stylesheet=~/src/asciidoctor-stylesheet-factory/stylesheets/$s.css "$@"; }; TEMP'
+alias adocss='TEMP() { s=$1; shift; asciidoctor -a stylesheet=~/src/asciidoctor-stylesheet-factory/stylesheets/$s.css "$@"; unset -f TEMP; }; TEMP'
 alias aepub='asciidoctor-epub3 -D ~/kindlelib'
 alias aman='asciidoctor -b manpage'
 alias apdf='asciidoctor-pdf -a pdf-fontsdir=/home/ds26gte/.fonts\;/usr/share/fonts/truetype/msttcorefonts\;GEM_FONTS_DIR -a pdf-themesdir=~'
@@ -28,10 +28,10 @@ alias bb=brave-browser
 alias bdir='cd;cd .local/share/nvim/backup'
 alias bin='cd;cd bin'
 alias bpw='curric;build-pathway'
-alias bpwdebug='(bpw pathways/pathwayP --nopdf)'
+alias bpwdbg='(bpw pathways/pathwayP --nopdf)'
 alias bpwdeploy='bpw pathways/bs-game-pathway'
 alias bpwgame='(bpw pathways/bs-game-pathway --proglang pyret --nopdf)'
-alias bpwpdebug='(bpw pathways/pathwayP --proglang pyret --nopdf --debug)'
+alias bpwp='(bpw pathways/bs-game-pathway --proglang pyret)'
 alias bpws='(bpw pathways/bs-game-pathway --proglang wescheme)'
 alias bugrec='curricl;cd BuggyRecipes/langs/en-us/exercises'
 alias c=clear
@@ -49,7 +49,8 @@ alias clscript='skript --fresh'
 alias cp='cp -p'
 alias cpo='htm;cd code.pyret.org'
 alias cpos='cpo;cd src'
-alias cr=google-chrome
+alias cr=chromium-browser
+alias cr='TEMP() { chromium-browser "$@" 2>/dev/null; unset -f TEMP; }; TEMP'
 alias cudo='remix;bpw'
 alias curric='src;cd curriculum'
 alias curricd='remix;cd distribution'
@@ -79,12 +80,12 @@ alias ff=firefox
 alias finished='mpg123 ~/public_html/alice-parker/Sorrow\ and\ Gladness.mp3'
 alias fmt=par
 alias fstart='cpo-ensure-env;foreman start'
-alias ftrim='spctrim -i'
+alias ftrim='sed -i -e "s/\s\+\$//" -e "/./,/^\$/!d"'
 alias fy='xclip -selection clipboard -i'
 alias gblame='TEMP() { local w=3; git blame "$1" | sed -e "s/^[^(]*(\(.\{$w\}\)[^)]*[0-9]\(\s\+[0-9]\+\)/\1\2/"; unset -f TEMP; }; TEMP'
 alias gcd='find . -name dump.rdb -delete'
 alias gco='git commit'
-alias gdocadoc='TEMP() { f=$1; pandoc $f -o ${f%%.html}.adoc; }; TEMP'
+alias gdocadoc='TEMP() { f=$1; pandoc $f -o ${f%%.html}.adoc; unset -f TEMP; }; TEMP'
 alias gex='git ls-files -o'
 alias gh='cd;cd src'
 alias ghas='src;cd asciidoctor'
@@ -120,7 +121,7 @@ alias htm='cd;cd public_html'
 alias htmp='htm;cd tmp'
 alias htmpb='htm;cd tmpb'
 alias htmpc='htm;cd tmpc'
-alias ipsum='TEMP() { lorem -p ${1:-1} | fmt -w 65; unset -f TEMP; }; TEMP'
+alias ipsum='TEMP() { echo; lorem -p ${1:-1} | fmt -w 65; echo; unset -f TEMP; }; TEMP'
 alias iv=vi
 alias j=jobs
 alias k1='k %1'
@@ -128,6 +129,7 @@ alias k2='k %2'
 alias k3='k %3'
 alias k='kill -9'
 alias kadoc=adockindle
+alias killcapslock='/usr/bin/setxkbmap -option "ctrl:nocaps"'
 alias killshada='rm ~/.local/share/nvim/shada/*'
 alias l.='ls -d .*'
 alias l='ls -l'
@@ -187,7 +189,7 @@ alias sbib='sortreferbib ~/bibliography.ref'
 alias schelog='src;cd schelog'
 alias script=skript
 alias seagate='cd /media/ds26gte/S*'
-alias sendtogmail='TEMP() { echo att | mutt -s att -a $1 -- $(gmailaddress); }; TEMP'
+alias sendtogmail='TEMP() { echo att | mutt -s att -a $1 -- $(gmailaddress); unset -f TEMP; }; TEMP'
 alias shadadir='cd ~/.local/share/nvim/shada'
 alias sl=ls
 alias spctrim='sed -e "s/\s\+\$//" -e "/./,/^\$/!d"'
@@ -220,6 +222,7 @@ alias vi=nvim
 alias vialias='vi ~/src/dotfiles/.aliases;realias'
 alias vid='vi -d'
 alias view='nvim -R'
+alias vihi='vi ~/.config/nvim/plugin/hilite.vim'
 alias viht='vi -es -c "helpt ."'
 alias vilu='vimd;cd lua'
 alias vima='vimd;cd after'
@@ -235,7 +238,7 @@ alias vinfo='TEMP() { vi -c "Info $*"; unset -f TEMP; }; TEMP'
 alias vinit='vi ~/.config/nvim/init.vim'
 alias vip='ps -ef | grep " \(vi\|nvim\)"'
 alias vite='vi +Bash'
-alias vnote='TEMP() { pushd ~/pCloudDrive/notes; vi $1; popd; }; TEMP'
+alias vnote='TEMP() { pushd ~/pCloudDrive/notes; vi $1; popd; unset -f TEMP; }; TEMP'
 alias vte=vte
 alias vu='TEMP() { f=$1; if test x${1##*.} = xps; then f=${1%.ps}.pdf; ps2pdf $1 $f; fi; evince $f; unset -f TEMP; }; TEMP'
 alias wget='wget -c'

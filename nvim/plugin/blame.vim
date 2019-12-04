@@ -1,4 +1,4 @@
-" last modified 2019-11-29
+" last modified 2019-12-08
 " created 2019-10-28
 " Dorai Sitaram
 
@@ -10,7 +10,7 @@ func! s:blame()
   exec 'lcd' l:srcDir
   exec '%!git blame' l:srcFile
   sil! %s/^.\+\s(\(.\{8}\).\{-}\d\+)/\1/
-  setl noma nomod nowrap nu ro
+  setl nomod nowrap nu
   syn match diffchange /^.\{8}/
   exec l:currLine
   norm z.

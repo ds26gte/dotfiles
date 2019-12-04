@@ -1,5 +1,7 @@
-" last modified 2019-11-29
+" last modified 2019-12-15
 " Dorai Sitaram
+
+let tex_flavor = 'tex'
 
 au filetype tex call s:texOptions()
 
@@ -28,17 +30,7 @@ func! s:latexboilerplate()
   norm k
 endfunc
 
-func! Smartquotes()
-  ino <buffer> "` “
-  ino <buffer> `" ”
-  ino <buffer> '` ‘
-  ino <buffer> `' ’
-endfunc
-
 func! s:texOptions()
   setl efm=l\.%l\ %m
-  setl inf
   setl mp=lualatex\ %
-  setl tw=65
-  call Smartquotes()
 endfunc
