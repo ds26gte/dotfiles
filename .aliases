@@ -1,4 +1,4 @@
-# last modified 2019-12-02
+# last modified 2019-12-03
 #Dorai Sitaram
 alias ..='cd ..'
 alias 1='fg %1'
@@ -71,6 +71,7 @@ alias dl='cd;cd downloads'
 alias dnld=dl
 alias do-release-upgrade='sudo do-release-upgrade'
 alias dotf='src;cd dotfiles'
+alias doutl='grep -n "^=\+"'
 alias dsupplex='curricd; cd bs-game-pathway-pyret/en-us/lessons/Supplemental/exercises'
 alias dvimf='src;cd dotfiles/nvim/plugin'
 alias enchantc='TEMP() { cat "$@" | enchant -a | grep "^&" | sed -e "s:^&\s*\(\S\+\).*:\1:" | sort -u; unset -f TEMP; }; TEMP'
@@ -207,6 +208,7 @@ alias texmf='cd;cd texmf/tex/'
 alias texmp='cd;cd texmf/mp/'
 alias tmp='cd;cd tmp'
 alias tmspeech='src;cd tmspeech'
+alias trailsp='grep "\s\+$"'
 alias trf='cd;cd groffinputs/font/devps'
 alias ty='gh;cd tyscheme'
 alias ubgrade='sudo apt update;sudo apt upgrade;sudo apt dist-upgrade'

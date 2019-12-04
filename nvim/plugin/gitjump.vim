@@ -1,4 +1,4 @@
-" last modified 2019-12-02
+" last modified 2019-12-03
 " Dorai Sitaram
 
 if !exists('$GIT_EXEC_PATH')
@@ -26,9 +26,9 @@ endfunc
 
 func! s:gitJumpOptions()
   " highlight merge hunks
-  syn region difftext start=/^<<<<<<</ end=/\n\(^|||||||\)\@=/
-  syn region diffchange start=/^|||||||/ end=/^=======/
-  syn region diffadd start=/\(^=======.*\n\)\@<=/ end=/^>>>>>>>.*/
+  syn region difftext start=/^<<<<<<</ end=/\n\(^|||||||\|^=======$\)\@=/
+  syn region diffchange start=/^|||||||/ end=/^=======$/
+  syn region diffadd start=/\(^=======\n\)\@<=/ end=/^>>>>>>>.*/
 
   " use [c ]c to navigate merge/diff hunks
   nno <buffer> [c :cp<cr>

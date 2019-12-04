@@ -1,4 +1,4 @@
-" last modified 2019-12-02
+" last modified 2019-12-03
 "Dorai Sitaram
 hi diffadd guifg=#00d000 guibg=none
 hi diffchange guifg=#d060b0 guibg=none
@@ -19,6 +19,6 @@ hi signcolumn guifg=#a03030 guibg=none
 hi statusline gui=none guifg=#8080a0
 hi statuslinenc gui=none guifg=#606080
 hi string guifg=#80c080
-hi title guifg=gray90
+hi title gui=none guifg=#d06090
 hi visual guifg=gray76 guibg=#006080
 hi warningmsg guifg=#f05050

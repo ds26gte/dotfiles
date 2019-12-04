@@ -1,4 +1,4 @@
-" last modified 2019-11-29
+" last modified 2019-12-03
 " created < 2016-12
 
 func! AdocFold()
@@ -25,6 +25,9 @@ func! s:adocOptions()
   nmap <buffer> ]] :/^=<cr>
 
   let b:presenting_slide_separator = '\%(^\|\n\)\ze=\+\s'
+
+  syn match warningmsg '\<\(CAUTION\|IMPORTANT\|NOTE\|TIP\|WARNING\)\>'
+  syn match title '^=\+.*'
 
 endfunc
 
