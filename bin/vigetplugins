@@ -1,4 +1,4 @@
-# last modified 2019-11-30
+# last modified 2019-12-18
 # created 2019-10-22
 # Dorai Sitaram
 
@@ -11,7 +11,7 @@ exit
 
 andymass/vim-matchup
 chrisbra/unicode.vim
-flazz/vim-colorschemes
+;flazz/vim-colorschemes
 glacambre/firenvim
 guns/xterm-color-table.vim
 junegunn/fzf.vim

@@ -1,4 +1,4 @@
-" last modified 2019-10-24
+" last modified 2019-12-19
 " created 2019-02-09
 " Dorai Sitaram
 
@@ -74,4 +74,4 @@ endfunc
 
 com! -complete=custom,ListRGBnames -nargs=1 Showswatch call s:showswatch(<q-args>)
 
-nmap <leader>s :Showswatch<space>
+nno \s :Showswatch<space>

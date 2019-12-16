@@ -1,10 +1,9 @@
-" last modified 2019-11-30
+" last modified 2019-12-20
 " created 2019-03-05
 " Dorai Sitaram
 
-if !executable('fortune')
-  finish
-elseif exists('$GIT_EXEC_PATH')
+if !executable('fortune') ||
+      \ exists('$GIT_EXEC_PATH')
   finish
 endif
 
@@ -27,12 +26,6 @@ endfunc
 
 com! Ofortuna call s:ofortuna()
 
-func! s:viCalledWithNoArgs()
-  if argc() == 0 && !bufexists('/tmp/viSessionHasOpenTerminalBuffers')
-    return 1
-  else
-    return 0
-  endif
-endfunc
+let s:viCalledWithNoArgs = (argc() == 0) ? 1 : 0
 
-au vimenter * if s:viCalledWithNoArgs() | call s:ofortuna() | endif
+au vimenter * if s:viCalledWithNoArgs | call s:ofortuna() | endif

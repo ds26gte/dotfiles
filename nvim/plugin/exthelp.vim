@@ -1,4 +1,4 @@
-" last modified 2019-11-29
+" last modified 2019-12-20
 " created < 2016-10
 " Dorai Sitaram
 
@@ -12,7 +12,7 @@ func! ViewCmdOutput(cmd, args)
   sil exec '%!' . a:cmd . ' ' . a:args
   setl ft=help nobl nomod ro
   let b:viewCmd = a:cmd
-  nmap <buffer> K :call ViewCmdOutput(b:viewCmd, expand('<cword>'))<cr>
+  nno <buffer> K :call ViewCmdOutput(b:viewCmd, expand('<cword>'))<cr>
 endfunc
 
 " always open a help file in its own tab
@@ -27,4 +27,4 @@ com! -nargs=1 -complete=shellcmd Info call ViewCmdOutput('info', <q-args>)
 
 com! -nargs=1 Dict call ViewCmdOutput('dict', '"' . <q-args> . '"')
 
-nmap d= :Dict<space>
+nno d= :Dict<space>

@@ -1,4 +1,4 @@
-" last modified 2019-11-21
+" last modified 2019-12-17
 " created 2019-10-24
 " Dorai Sitaram
 
@@ -9,7 +9,7 @@ func! s:identifyString(qc, ...)
   " first arg is the quote character used to delimit the string.
   " second arg, if any, implies strings can't span multiple lines
   let l:oneline = ''
-  if a:0 == 1
+  if a:0 > 0
     let l:oneline = 'oneline'
   endif
   exec 'syn region string' l:oneline
@@ -29,11 +29,11 @@ au filetype vim call s:identifyComment('"')
 
 au filetype lisp,scheme call s:identifyLispCharacter()
 
-au filetype lisp,scheme,sh call s:identifyString('"')
+au filetype css,html,lisp,scheme,sh,svg call s:identifyString('"')
 
 au filetype lua,vim call s:identifyString('"', 1) | call s:identifyString("'", 1)
 
-au filetype sh call s:identifyString("'")
+au filetype css,html,sh call s:identifyString("'")
 
 au filetype lisp,scheme call s:identifyComment(';')
 

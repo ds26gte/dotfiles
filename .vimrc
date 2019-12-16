@@ -1,21 +1,40 @@
-" last modified 2019-11-26
+" last modified 2019-12-20
 " Dorai Sitaram
 
 " .vimrc for the tiny Vim that's installed by default in Ubuntu
 
-sil! so ~/.config/nvim/init.vim
-
 set ar
 set bo=all
+set et
+set flp+=\\\|^\\s*[UNCOGTIMEWARP]\\+:\\s\\+
+set hid
+set ic
+set inf
+set lbr
 set lcs+=tab:>-
 set ls=2
+set lw-=if
+set nojs
+set nosol
+set noswf
+set pa=.,,
+set spr
+set sw=2
+set swb+=usetab
+set wic
+set wig=*.docx,*.dvi,*.eps,*.min.js,*.mpx,*.o,*.odt,*.otf,*.ps,*.so,*.ttf,*.zo
+set wim=longest:full,full
 
-"au vimleave * bufdo !updatestamp %
+ino jj <esc>
+
+nno <c-k> <c-w>
+
+no - :
+
+au vimleave * bufdo !updatestamp %
 
 sil !date +"set pm=.\%Y-\%m-\%d-\%Hh\%M~" > ~/.patchmode.vim
 so ~/.patchmode.vim
-
-nno \\0 :%!spctrim<cr>
 
 so ~/.config/nvim/plugin/hilink.vim
 hi endofbuffer ctermfg=240

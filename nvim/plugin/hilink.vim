@@ -1,5 +1,6 @@
-" last modified 2019-12-10
+" last modified 2019-12-18
 "Dorai Sitaram
+hi! link nontext normal
 hi! link comment normal
 hi! link cursorlinenr linenr
 hi! link foldcolumn normal
@@ -18,4 +19,5 @@ hi! link tabline statuslinenc
 hi! link tablinefill statuslinenc
 hi! link tablinesel statusline
 hi! link vertsplit statuslinenc 
+hi! link warningmsg errormsg
 hi! link whitespace nviminternalerror

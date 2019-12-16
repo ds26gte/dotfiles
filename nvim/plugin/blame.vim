@@ -1,4 +1,4 @@
-" last modified 2019-12-08
+" last modified 2019-12-18
 " created 2019-10-28
 " Dorai Sitaram
 
@@ -17,5 +17,3 @@ func! s:blame()
 endfunc
 
 com! Blame call s:blame()
-
-nmap !q :Blame<cr>
