@@ -1,9 +1,8 @@
-" last modified 2019-12-18
+" last modified 2019-12-27
 " created 2019-11-27
 " Dorai Sitaram
 
 func! s:diffOptions()
-  syn match folded '^@@.*'
   syn match diffadd '^+.*'
   syn match difftext '^-.*'
 endfunc

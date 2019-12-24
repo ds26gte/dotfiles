@@ -1,4 +1,4 @@
-# last modified 2019-12-18
+# last modified 2019-12-27
 # created 2019-10-22
 # Dorai Sitaram
 
@@ -9,13 +9,14 @@ done
 
 exit
 
+;flazz/vim-colorschemes
+;glacambre/firenvim
+;sotte/presenting.vim
+;voldikss/vim-floaterm
+;walm/jshint.vim
 andymass/vim-matchup
 chrisbra/unicode.vim
-;flazz/vim-colorschemes
-glacambre/firenvim
 guns/xterm-color-table.vim
 junegunn/fzf.vim
 mhinz/vim-signify
-sotte/presenting.vim
-voldikss/vim-floaterm
-walm/jshint.vim
+tpope/vim-surround

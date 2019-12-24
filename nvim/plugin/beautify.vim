@@ -1,11 +1,11 @@
-" last modified 2019-10-31
+" last modified 2019-12-28
 " created 2019-10-14
 " Dorai Sitaram
 
 func! s:beautify()
   if &ft == 'css'
     %!css-beautify
-  elseif &ft == 'html'
+  elseif &ft == 'html' || &ft == 'svg'
     %!html-beautify
   elseif &ft == 'javascript'
     %!js-beautify
