@@ -1,4 +1,4 @@
-# last modified 2019-12-27
+# last modified 2020-01-05
 #Dorai Sitaram
 alias ..='cd ..'
 alias .1='..'
@@ -38,6 +38,7 @@ alias bpwdeploy='bpw pathways/bs-game-pathway pathways/bs-data-science-pathway'
 alias bpwds='bpw bs-data-science-pathway'
 alias bpwgame='(bpw pathways/bs-game-pathway --proglang pyret --nopdf)'
 alias bpwp='bpw pathways/bs-game-pathway --proglang pyret'
+alias bpwq='bpw pathways/pathwayQ --force'
 alias bpws='bpw pathways/bs-game-pathway --proglang wescheme'
 alias bugrec='curricl;cd BuggyRecipes/langs/en-us/exercises'
 alias c=clear
@@ -59,6 +60,8 @@ alias cp='cp -p'
 alias cpo='htm;cd code.pyret.org'
 alias cpos='cpo;cd src'
 alias cr=bb
+alias crd='remix;cd distribution'
+alias crp='remix;cd pathways'
 alias cudo='remix;bpw'
 alias curric='src;cd curriculum'
 alias curricd='remix;cd distribution'

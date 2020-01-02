@@ -1,4 +1,4 @@
-" last modified 2019-12-30
+" last modified 2020-01-03
 " Dorai Sitaram
 
 set bri
@@ -34,14 +34,12 @@ sil! set sd+=%
 
 sil! syn off
 
-ino jj <esc>
-
-nno <c-k> <c-w>
-
-ino <tab> <c-n>
-
 cno <expr> %% getcmdtype() == ':' ? expand('%:h') . '/' : '%%'
 
+ino jj <esc>
+ino <tab> <c-n>
+
+nno <c-k> <c-w>
 no - :
 
 au bufread * sil! norm g`"
@@ -59,21 +57,3 @@ au bufwritepost * sil !updatestamp %
 
 au bufread,bufnewfile *.a[^r]*,*.[1mt]*
       \ setl com-=mb:* cpt+=k fo+=n tw=65
-
-au bufread,bufnewfile *
-  \ sil! syn match warningmsg 'FIXME\|TODO\|XXX' containedin=comment,string |
-  \ sil! syn match warningmsg '\<\(CAUTION\|IMPORTANT\|NOTE\|TIP\|WARNING\)\>' |
-  \ sil! syn match title '^=\+\s.*'
-
-if has('nvim')
-  " doesn't work in tiny Vim
-
-  func! s:smartquotes()
-    ino <buffer> "` “
-    ino <buffer> `" ”
-    ino <buffer> '` ‘
-    ino <buffer> `' ’
-  endfunc
-
-  au bufread,bufnewfile *.a[^r]*,*.[1mt]* call s:smartquotes()
-endif
