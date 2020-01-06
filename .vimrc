@@ -1,9 +1,11 @@
-" last modified 2019-12-29
+" last modified 2020-01-08
 " Dorai Sitaram
 
 " .vimrc for the tiny Vim that's installed by default in Ubuntu
 
+set ai
 set ar
+set bg=dark
 set bo=all
 set lcs+=tab:>-
 set ls=2
@@ -11,10 +13,10 @@ set ls=2
 sil !date +"set pm=.\%Y-\%m-\%d-\%Hh\%M~" > ~/.patchmode.vim
 so ~/.patchmode.vim
 
-so ~/.config/nvim/init.vim
-so ~/.config/nvim/after/plugin/hilite.vim
+so ~/.config/nvim/plugin/aardvark.vim
+so ~/.config/nvim/plugin/hilite.vim
 
-" some text object fakery
+" some text-object fakery
 
 "nno viw hebve
 nno viw wbve

@@ -1,4 +1,4 @@
-" last modified 2019-12-17
+" last modified 2020-01-10
 " created 2019-10-24
 " Dorai Sitaram
 
@@ -12,17 +12,17 @@ func! s:identifyString(qc, ...)
   if a:0 > 0
     let l:oneline = 'oneline'
   endif
-  exec 'syn region string' l:oneline
+  exec 'syn region String' l:oneline
         \ 'start=/\(\\\)\@<!' . a:qc . '/ skip=/\\[\\"'']/ end=/' . a:qc . '/'
 endfunc
 
 func! s:identifyComment(cc)
-  exec 'syn region comment oneline'
+  exec 'syn region Comment oneline'
         \ 'start=/' . a:cc . '/ end=/$/'
 endfunc
 
 func! s:identifyLispCharacter()
-  syn match string /#\\[(){}\[\]";]/
+  syn match String /#\\[(){}\[\]";]/
 endfunc
 
 au filetype vim call s:identifyComment('"')

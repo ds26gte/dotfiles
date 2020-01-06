@@ -1,13 +1,6 @@
-" last modified 2019-12-27
+" last modified 2020-01-11
 " created 2019-11-27
 " Dorai Sitaram
-
-func! s:diffOptions()
-  syn match diffadd '^+.*'
-  syn match difftext '^-.*'
-endfunc
-
-au syntax diff call s:diffOptions()
 
 if !exists('$GIT_EXEC_PATH')
   " load rest only if called by a vim subprocess from
@@ -17,7 +10,7 @@ endif
 
 if exists('$GIT_AUTHOR_NAME')
   " called from git-commit
-  au filetype * call s:diffOptions()
+  ru syntax/diff.vim
 else
   " called from git-jump
   au filetype * call s:gitJumpOptions()
