@@ -1,4 +1,4 @@
-# last modified 2020-01-10
+# last modified 2020-01-18
 #Dorai Sitaram
 alias ..='cd ..'
 alias .1='..'
@@ -40,6 +40,7 @@ alias bpwgame='(bpw pathways/bs-game-pathway --proglang pyret --nopdf)'
 alias bpwok='bpw ok-pathway'
 alias bpwp='bpw pathways/bs-game-pathway --proglang pyret'
 alias bpwq='bpw pathways/pathwayQ'
+alias bpwr='bpw bs-reactive-pathway'
 alias bpws='bpw pathways/bs-game-pathway --proglang wescheme'
 alias bugrec='curricl;cd BuggyRecipes/langs/en-us/exercises'
 alias c=clear
@@ -238,6 +239,7 @@ alias vi=nvim
 alias vialias='vi ~/src/dotfiles/.aliases;realias'
 alias vid='vi -d'
 alias view='nvim -R'
+alias vimi='vi ~/.config/nvim/plugin/misc.vim'
 alias vihi='vi ~/src/hilite.vim/plugin/hilite.vim'
 alias vihid='gh;cd hilite.vim/plugin'
 alias viht='vi -es -c "helpt ."'

@@ -1,0 +1,23 @@
+# last modified 2020-01-16
+# created 2019-10-22
+# Dorai Sitaram
+
+for p in $(cat $0|grep /|grep -v '^for '|grep -v '^ *;'); do
+  echo; echo $p
+  vighclone $p
+done
+
+exit
+
+;glacambre/firenvim
+;sotte/presenting.vim
+;voldikss/vim-floaterm
+;walm/jshint.vim
+andymass/vim-matchup
+chrisbra/unicode.vim
+flazz/vim-colorschemes
+guns/xterm-color-table.vim
+junegunn/fzf.vim
+machakann/vim-sandwich
+mhinz/vim-signify
+rhysd/git-messenger.vim

@@ -1,4 +1,4 @@
-" last modified 2020-01-10
+" last modified 2020-01-21
 " created 2019-10-24
 " Dorai Sitaram
 
@@ -39,4 +39,4 @@ au filetype lisp,scheme call s:identifyComment(';')
 
 au filetype lua call s:identifyComment('--')
 
-au filetype sh call s:identifyComment('#')
+au filetype sh call s:identifyComment('\(\$\)\@<!#')

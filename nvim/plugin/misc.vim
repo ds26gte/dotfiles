@@ -1,4 +1,4 @@
-" last modified 2020-01-11
+" last modified 2020-01-18
 " Dorai Sitaram
 
 set bri
@@ -43,16 +43,22 @@ func! s:plainTextOptions()
   ino <buffer> `" ”
   ino <buffer> '` ‘
   ino <buffer> `' ’
+endfunc
+
+func! s:adocOptions()
   nno <buffer> [[ :?^=<cr>
   nno <buffer> ]] :/^=<cr>
+  ru syntax/asciidoc.vim
+  syn region asciidocquotedemphasizeditalic start=/__/ end=/__/
+  syn region asciidocquotedmonospaced start=/``/ end=/``/
 endfunc
 
 au bufread,bufnewfile *.a[^r]*,*.[1mt]* call s:plainTextOptions()
 
+au bufread,bufnewfile *.a[sd]* call s:adocOptions()
+
 au bufread,bufnewfile *
-      \ syn match title 'FIXME\|TODO\|XXX' containedin=comment,string |
-      \ syn match title '\<\(CAUTION\|IMPORTANT\|NOTE\|TIP\|WARNING\)\>' |
-      \ syn match title '^=\+\s.*'
+      \ syn match title 'FIXME\|TODO\|XXX' containedin=comment,string
 
 au filetype conf setl ft=sh
 
