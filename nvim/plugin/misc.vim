@@ -1,4 +1,4 @@
-" last modified 2020-01-18
+" last modified 2020-01-24
 " Dorai Sitaram
 
 set bri
@@ -12,10 +12,10 @@ set icm=split
 set lbr
 set lw-=if
 set mouse=n
+set nofen
 set sbr=↪\ "
 set sd+=%
 set spl=en_us
-set tgc
 
 let &pm = strftime('.%Y-%m-%d-%Hh%M~')
 
@@ -48,21 +48,15 @@ endfunc
 func! s:adocOptions()
   nno <buffer> [[ :?^=<cr>
   nno <buffer> ]] :/^=<cr>
-  ru syntax/asciidoc.vim
-  syn region asciidocquotedemphasizeditalic start=/__/ end=/__/
-  syn region asciidocquotedmonospaced start=/``/ end=/``/
 endfunc
 
 au bufread,bufnewfile *.a[^r]*,*.[1mt]* call s:plainTextOptions()
 
-au bufread,bufnewfile *.a[sd]* call s:adocOptions()
+au bufread,bufnewfile *.asc setf asciidoc
 
-au bufread,bufnewfile *
-      \ syn match title 'FIXME\|TODO\|XXX' containedin=comment,string
+au filetype asciidoc call s:adocOptions()
 
 au filetype conf setl ft=sh
-
-au filetype gitmessengerpopup ru syntax/gitmessengerpopup.vim
 
 au filetype javascript setl sua+=.js,.jsx
 

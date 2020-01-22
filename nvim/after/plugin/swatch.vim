@@ -1,4 +1,4 @@
-" last modified 2019-12-19
+" last modified 2020-01-24
 " created 2019-02-09
 " Dorai Sitaram
 
@@ -19,6 +19,7 @@
 " - an X11 name
 
 func! s:showswatch(colordesc)
+  set tgc
   let l:swatchfile = split(&bdir, ',')[-1] . '/view.swatch.tmp.1'
   if bufexists(l:swatchfile)
     exec 'sb' l:swatchfile
@@ -69,7 +70,7 @@ func! s:showswatch(colordesc)
 endfunc
 
 func! ListRGBnames(A, L, P)
-  return system('cat ~/bin/rgbnames.txt')
+  return system('cat ~/bin/x11colornames.txt|sed -e "s/^\\S\\+\\s*\\(\\S\\+\\).*/\\1/"')
 endfunc
 
 com! -complete=custom,ListRGBnames -nargs=1 Showswatch call s:showswatch(<q-args>)

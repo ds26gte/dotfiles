@@ -1,4 +1,4 @@
-" last modified 2020-01-07
+" last modified 2020-01-24
 " Dorai Sitaram
 
 set et
@@ -10,7 +10,6 @@ set nojs
 set nosol
 set noswf
 set pa=.,,
-set sm
 set spr
 set sw=2
 set swb+=usetab
