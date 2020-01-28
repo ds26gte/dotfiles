@@ -1,4 +1,4 @@
-" last modified 2019-12-20
+" last modified 2020-01-29
 " created < 2016-10
 " Dorai Sitaram
 
@@ -11,12 +11,10 @@ func! ViewCmdOutput(cmd, args)
   exec 'sp' l:tmpFile
   sil exec '%!' . a:cmd . ' ' . a:args
   setl ft=help nobl nomod ro
+  winc T
   let b:viewCmd = a:cmd
   nno <buffer> K :call ViewCmdOutput(b:viewCmd, expand('<cword>'))<cr>
 endfunc
-
-" always open a help file in its own tab
-au filetype help winc T
 
 " sidestep default :Man as we have our own
 let g:loaded_man = 1

@@ -1,4 +1,4 @@
-" last modified 2020-01-24
+" last modified 2020-01-29
 " Dorai Sitaram
 
 set bri
@@ -46,8 +46,15 @@ func! s:plainTextOptions()
 endfunc
 
 func! s:adocOptions()
-  nno <buffer> [[ :?^=<cr>
-  nno <buffer> ]] :/^=<cr>
+  nno <buffer> [[ :?^\(=\\|\.\S\)<cr>
+  nno <buffer> ]] :/^\(=\\|\.\S\)<cr>
+endfunc
+
+func! s:helpOptions()
+  nno <buffer> <cr> <c-e>
+  nno <buffer> <space> <c-f>
+  nno <buffer> b <c-b>
+  nno <buffer> p <c-b>
 endfunc
 
 au bufread,bufnewfile *.a[^r]*,*.[1mt]* call s:plainTextOptions()
@@ -57,6 +64,8 @@ au bufread,bufnewfile *.asc setf asciidoc
 au filetype asciidoc call s:adocOptions()
 
 au filetype conf setl ft=sh
+
+au filetype help call s:helpOptions()
 
 au filetype javascript setl sua+=.js,.jsx
 

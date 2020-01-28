@@ -1,4 +1,4 @@
-" last modified 2019-11-25
+" last modified 2020-01-29
 " Dorai Sitaram
 
 au filetype lisp,scheme call s:lispwords()
@@ -12,6 +12,7 @@ func! s:lispwords()
         \call-with-output-file,
         \concatenate,
         \datum->syntax,
+        \define-macro,
         \enclose-div,
         \enclose-span,
         \enclose-tag,

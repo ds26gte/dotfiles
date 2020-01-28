@@ -1,4 +1,4 @@
-# last change 2019-10-22
+# last change 2020-01-30
 
 set -o vi
 
@@ -10,7 +10,7 @@ shopt -s autocd
 
 . ~/src/dotfiles/.env
 
-. ~/src/dotfiles/.aliases
+. ~/src/aliases/.aliases 2>/dev/null
 
 if test ! -d /gpfs -a \
   ! -d /sdcard -a  \
