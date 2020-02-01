@@ -1,4 +1,4 @@
-# last modified 2019-11-07
+# last modified 2020-01-31
 # Dorai Sitaram
 
 if test -z "$VIM"
@@ -13,4 +13,4 @@ shopt -s expand_aliases
 
 shopt -s globstar
 
-. ~/src/dotfiles/.aliases
+. ~/src/aliases/.aliases

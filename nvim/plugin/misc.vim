@@ -1,4 +1,4 @@
-" last modified 2020-01-29
+" last modified 2020-02-01
 " Dorai Sitaram
 
 set bri
@@ -38,13 +38,6 @@ tno <esc><esc> <c-\><c-n>
 
 au bufread * sil! norm g`"
 
-func! s:plainTextOptions()
-  ino <buffer> "` “
-  ino <buffer> `" ”
-  ino <buffer> '` ‘
-  ino <buffer> `' ’
-endfunc
-
 func! s:adocOptions()
   nno <buffer> [[ :?^\(=\\|\.\S\)<cr>
   nno <buffer> ]] :/^\(=\\|\.\S\)<cr>
@@ -56,8 +49,6 @@ func! s:helpOptions()
   nno <buffer> b <c-b>
   nno <buffer> p <c-b>
 endfunc
-
-au bufread,bufnewfile *.a[^r]*,*.[1mt]* call s:plainTextOptions()
 
 au bufread,bufnewfile *.asc setf asciidoc
 
