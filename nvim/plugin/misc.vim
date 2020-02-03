@@ -1,4 +1,4 @@
-" last modified 2020-02-01
+" last modified 2020-02-02
 " Dorai Sitaram
 
 set bri
@@ -18,21 +18,6 @@ set sd+=%
 set spl=en_us
 
 let &pm = strftime('.%Y-%m-%d-%Hh%M~')
-
-let matchup_matchparen_offscreen = {}
-
-let signify_vcs_list = ['git']
-
-nno cD :SignifyDiff<cr>
-nno cd :SignifyHunkDiff<cr>
-
-let netrw_preview = 1
-let netrw_winsize = float2nr(&co * 0.8)
-
-sil! exec 'so' system('dpkg-query -L fzf | grep fzf.vim | sed 1q')
-
-nno c8 :Files<cr>
-nno c9 :GFiles<cr>
 
 tno <esc><esc> <c-\><c-n>
 
@@ -66,8 +51,21 @@ au filetype lua,vim setl fo-=r fo-=o
 
 au filetype vim setl isk+=:
 
+let matchup_matchparen_offscreen = {}
+
+let signify_vcs_list = ['git']
+
+nno cD :SignifyDiff<cr>
+nno cd :SignifyHunkDiff<cr>
+
+let netrw_preview = 1
+let netrw_winsize = float2nr(&co * 0.8)
+
+sil! exec 'so' system('dpkg-query -L fzf | grep fzf.vim | sed 1q')
+
+nno c8 :Files<cr>
+nno c9 :GFiles<cr>
+
 com! Ftrim sil !ftrim %
 
 com! Sum !plus %
-
-if &ro && &uc == 10000 | nno q :q<cr> | endif
