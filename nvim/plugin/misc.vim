@@ -1,4 +1,4 @@
-" last modified 2020-02-02
+" last modified 2020-02-05
 " Dorai Sitaram
 
 set bri
@@ -51,15 +51,15 @@ au filetype lua,vim setl fo-=r fo-=o
 
 au filetype vim setl isk+=:
 
+let netrw_preview = 1
+let netrw_winsize = float2nr(&co * 0.8)
+
 let matchup_matchparen_offscreen = {}
 
 let signify_vcs_list = ['git']
 
 nno cD :SignifyDiff<cr>
 nno cd :SignifyHunkDiff<cr>
-
-let netrw_preview = 1
-let netrw_winsize = float2nr(&co * 0.8)
 
 sil! exec 'so' system('dpkg-query -L fzf | grep fzf.vim | sed 1q')
 

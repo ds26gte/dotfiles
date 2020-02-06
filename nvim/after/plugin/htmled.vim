@@ -1,10 +1,10 @@
-" last modified 2019-11-29
+" last modified 2020-02-05
 " created < 2015-11
 " Dorai Sitaram
 
-" needed only if called from within (text-based) browser
+" needed only if called from Lynx
 
-if $W3M_FILENAME == '' && $LYNX_VERSION == ''
+if $LYNX_VERSION == ''
   finish
 endif
 
