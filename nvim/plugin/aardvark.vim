@@ -1,8 +1,7 @@
-" last modified 2020-01-24
+" last modified 2020-02-07
 " Dorai Sitaram
 
 set et
-set flp=^\\s*\\d\\+[.]\\s\\+\\\|^\\s*[UNCOGTIMEWARP]\\+:\\s\\+\\\|^\\s*\\.\\+\\s\\+
 set hid
 set ic
 set inf
@@ -36,5 +35,10 @@ au vimleave * sil
 
 au bufwritepost * sil !updatestamp %
 
-au bufread,bufnewfile *.a[^r]*,*.[1mt]*
-      \ setl com-=mb:* cpt+=k fo+=n tw=65
+au bufread,bufnewfile *.a[^r]*,*.[1mt]* setl
+      \ com-=fb:- com-=mb:* cpt+=k
+      \ flp=^\\s*\\d\\+[.]\\s\\+
+      \ flp+=\\\|^\\s*[UNCOGTIMEWARP]\\+:\\s\\+
+      \ flp+=\\\|^\\s*\\.\\+\\s\\+
+      \ flp+=\\\|^\\s*-\\s\\+
+      \ fo+=n tw=65
