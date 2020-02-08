@@ -1,4 +1,4 @@
-" last modified 2020-02-07
+" last modified 2020-02-08
 " Dorai Sitaram
 
 " .vimrc for the tiny Vim that's installed by default in Ubuntu
@@ -56,3 +56,5 @@ nmap cip vipc
 nmap cap vapc
 nmap cis visc
 nmap cas vasc
+
+au bufread,bufnewfile *.rkt setl ep=scmindent.lua
