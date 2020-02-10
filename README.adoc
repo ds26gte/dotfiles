@@ -1,2 +1,1 @@
-Some idiosyncratic ~/.* files, ~/bin/ files, and Vim
-config.
+Some idiosyncratic ~/.* and ~/bin/* files.
