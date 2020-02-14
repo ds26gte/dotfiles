@@ -1,4 +1,4 @@
-" last modified 2020-02-08
+" last modified 2020-02-13
 " Dorai Sitaram
 
 " .vimrc for the tiny Vim that's installed by default in Ubuntu
@@ -9,6 +9,7 @@ set bg=dark
 set bo=all
 set lcs+=tab:>-
 set ls=2
+set sm
 
 sil !date +"set pm=.\%Y-\%m-\%d-\%Hh\%M~" > ~/.patchmode.vim
 so ~/.patchmode.vim
@@ -19,11 +20,10 @@ so ~/.config/nvim/pack/3rdpartyplugins/start/hilite.vim/plugin/hilitelinks.vim
 
 " some text-object fakery
 
-"nno viw hebve
 nno viw wbve
 nno vaw hebvw
 
-nno viW hEBvE
+nno viW WBvE
 nno vaW hEBvW
 
 nno vis )(v)b
@@ -51,7 +51,6 @@ nmap gqip vipgq
 nmap gqap vapgq
 
 nmap dip vipd
-nmap dap vapd
 nmap cip vipc
 nmap cap vapc
 nmap cis visc
