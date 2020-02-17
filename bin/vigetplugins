@@ -1,24 +1,21 @@
-# last modified 2020-02-05
+# last modified 2020-02-17
 # created 2019-10-22
 # Dorai Sitaram
 
-for p in $(cat $0|grep /|grep -v '^for '|grep -v '^ *;'); do
-  echo; echo $p
-  vighclone $p
+pkgdir=~/.config/nvim/pack/3rdpartyplugins/start
+
+cd $pkgdir
+
+for f in *;do
+  if test -d $f; then
+    echo $f
+    cd $f
+    git pull
+    if test -d doc; then
+      cd doc
+      nvim -es -c 'helpt .'
+      cd ..
+    fi
+    cd ..
+  fi
 done
-
-exit
-
-;glacambre/firenvim
-;machakann/vim-sandwich
-;sotte/presenting.vim
-;walm/jshint.vim
-andymass/vim-matchup
-chrisbra/unicode.vim
-flazz/vim-colorschemes
-guns/xterm-color-table.vim
-junegunn/fzf.vim
-mhinz/vim-signify
-rhysd/git-messenger.vim
-tpope/vim-surround
-voldikss/vim-floaterm
