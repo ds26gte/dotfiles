@@ -1,4 +1,0 @@
-# last modified 2020-01-23
-# created 2020-01-22
-
-. $(dpkg-query -L git|grep git-jump/git-jump) "$@"
