@@ -1,0 +1,36 @@
+# last modified 2020-03-06
+
+cat >> feature.h <<EOF
+
+#undef FEAT_ARABIC
+#undef FEAT_CRYPT 
+#undef FEAT_CSCOPE
+#undef FEAT_EMACS_TAGS
+#undef FEAT_KEYMAP
+#undef FEAT_LANGMAP
+#undef FEAT_MOUSE_XTERM
+#undef FEAT_MULTI_LANG 
+#undef FEAT_NETBEANS_INTG
+#undef FEAT_POSTSCRIPT
+#undef FEAT_PRINTER
+#undef FEAT_SESSION
+#undef FEAT_SMARTINDENT
+#undef FEAT_STL_OPT
+#undef FEAT_TAG_BINS
+#undef FEAT_TAG_OLDSTATIC
+#undef FEAT_TERMGUICOLORS
+#undef FEAT_VARTABS
+#undef FEAT_VREPLACE
+
+/*
+
+#undef FEAT_DIGRAPHS 
+#undef FEAT_MENU 
+#undef FEAT_SIGNS 
+#undef FEAT_SPELL 
+#undef FEAT_TERMINAL
+#undef FEAT_WILDMENU 
+
+*/
+
+EOF
