@@ -1,4 +1,4 @@
-# last modified 2020-03-06
+# last modified 2020-03-09
 
 cat >> feature.h <<EOF
 
@@ -29,6 +29,7 @@ cat >> feature.h <<EOF
 #undef FEAT_SIGNS 
 #undef FEAT_SPELL 
 #undef FEAT_TERMINAL
+#undef FEAT_TITLE
 #undef FEAT_WILDMENU 
 
 */
