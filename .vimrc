@@ -1,7 +1,5 @@
-" last modified 2020-03-13
+" last modified 2020-03-15
 " Dorai Sitaram
-
-" .vimrc for the tiny Vim that's installed by default in Ubuntu
 
 set ai
 set ar
@@ -10,6 +8,12 @@ set bo=all
 set lcs+=tab:>-
 set ls=2
 set sm
+
+if has('eval')
+  finis
+endif
+
+" this rest is for the tiny Vim that's installed by default in Ubuntu
 
 sil !date +"set pm=.\%Y-\%m-\%d-\%Hh\%M~" > ~/.patchmode.vim
 so ~/.patchmode.vim
