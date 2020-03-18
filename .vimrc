@@ -1,13 +1,22 @@
-" last modified 2020-03-15
+" last modified 2020-03-18
 " Dorai Sitaram
 
 set ai
 set ar
+set bdir=.,~/.local/share/nvim/backup
 set bg=dark
 set bo=all
+set dir=~/.local/share/nvim/swap//
+set hls
+set is
 set lcs+=tab:>-
 set ls=2
+set nf-=octal
+set nofs
 set sm
+set ss=1
+set sta
+set tpm=50
 
 if has('eval')
   finis
