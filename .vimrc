@@ -6,17 +6,25 @@ set ar
 set bdir=.,~/.local/share/nvim/backup
 set bg=dark
 set bo=all
+set bs=indent,eol,start
+set cpt-=i
 set dir=~/.local/share/nvim/swap//
+set dy+=lastline
+set hi=10000
 set hls
 set is
 set lcs+=tab:>-
 set ls=2
 set nf-=octal
 set nofs
+set ru
+set sc
 set sm
 set ss=1
 set sta
 set tpm=50
+set udir=~/.local/share/nvim/undo
+set vi+=!,%
 
 if has('eval')
   finis
