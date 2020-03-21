@@ -1,27 +1,25 @@
 # from http://stackoverflow.com/questions/9683279/make-the-current-commit-the-only-initial-commit-in-a-git-repository
-# last modified 2018-05-26
+# last modified 2020-03-20
+# created < 2018-05-26
 
-tmpf=/tmp/myUntrackedFiles
+tmpf=.my-untracked-files
+tmpconfig=.my-config.og
 
-git ls-files --others --exclude-standard > $tmpf
+mv .git/config $tmpconfig
 
-mv .git/config /tmp
+git ls-files --others --exclude-standard -z > $tmpf
 
 rm -fr .git
 git init
 git add .
 
-mv /tmp/config .git
+mv $tmpconfig .git/config
 
-#cat $tmpf | xargs -0 git rm --cached
-
-sed -i -e "s/^\(.*\)$/git rm --cached '\1'/" $tmpf
-
-. $tmpf
+cat $tmpf | xargs -r0 git rm --cached
 
 rm $tmpf
 
-git commit -m...
+git commit -m "sole commit"
 
 if test $(git remote | grep -c origin) -ne 0
 then git push -u --force origin master
