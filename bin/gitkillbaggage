@@ -1,6 +1,8 @@
 # from http://stackoverflow.com/questions/9683279/make-the-current-commit-the-only-initial-commit-in-a-git-repository
-# last modified 2020-03-20
+# last modified 2020-03-24
 # created < 2018-05-26
+
+arg1="$1"
 
 tmpf=.my-untracked-files
 tmpconfig=.my-config.og
@@ -21,6 +23,8 @@ rm $tmpf
 
 git commit -m "sole commit"
 
-if test $(git remote | grep -c origin) -ne 0
-then git push -u --force origin master
+if test "$arg1" != --nopush; then
+  if test $(git remote | grep -c origin) -ne 0; then
+    git push -u --force origin master
+  fi
 fi
