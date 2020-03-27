@@ -15,11 +15,11 @@ bin/m[^ae]*
 bin/o[^fpt]*
 bin/p[^br]*
 bin/s[^ejko]*
-bin/t[^aert]*
+bin/t[^aeirt]*
 bin/ta[^r]*
 bin/tex[^d]*
 bin/u[^pt]*
-bin/v[^iu]*
+bin/v[^u]*
 bin/w[^3eo]*
 dump.rdb
 nvim/pack

@@ -1,0 +1,24 @@
+# last modified 2020-03-27
+# Dorai Sitaram
+
+BDIR=$HOME/.anticlock
+
+BEXT=.TINY-VIM
+
+mv -n .*$BEXT *$BEXT $BDIR 2>/dev/null
+
+HERE=$(pwd)
+
+cd $BDIR
+
+for f in .*$BEXT *$BEXT; do
+  g=${f%.*}
+  mv $f $g
+  git add $g
+  git commit -am "$g"
+done
+
+cd "$HERE"
+
+test "$PWD" -ef $BDIR || rm -f .*$BEXT *$BEXT
+

@@ -1,0 +1,25 @@
+# last modified 2020-03-27
+# Dorai Sitaram
+
+if test ! "$VIM"; then
+  echo Can only be called from Vim
+  exit
+fi
+
+BDIR=$HOME/.anticlock
+
+if test ! -d $BDIR; then
+  mkdir -p $BDIR
+  (cd $BDIR; git init)
+fi
+
+if test "$1"; then
+  cp -p "$1" $BDIR
+  cd $BDIR
+  git add .
+  git commit -am "$1"
+
+else
+  tiny-vim-backup 
+fi
+
