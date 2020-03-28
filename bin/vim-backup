@@ -13,13 +13,25 @@ if test ! -d $BDIR; then
   (cd $BDIR; git init)
 fi
 
-if test "$1"; then
-  cp -p "$1" $BDIR
-  cd $BDIR
-  git add .
-  git commit -am "$1"
+FILE="$1"
 
-else
-  tiny-vim-backup 
+if test -f "$FILE"; then
+  cp -p "$FILE" $BDIR
+
+elif test "$FILE" = TINY-VIM; then
+  BEXT=.$FILE
+  FILE=
+  for f in .*$BEXT *$BEXT; do
+    if test -f "$f"; then
+      g=${f%.*}
+      FILE="$FILE $g"
+      g=$(basename $g)
+      mv $f $BDIR/$g
+    fi
+  done
 fi
+
+cd $BDIR
+git add .
+git commit -am "$FILE"
 

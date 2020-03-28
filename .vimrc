@@ -1,4 +1,4 @@
-" last modified 2020-03-26
+" last modified 2020-03-27
 " Dorai Sitaram
 
 set ai
@@ -34,7 +34,7 @@ endif
 
 set pm=.TINY-VIM
 
-au vimleave * sil !vim-backup
+au vimleave * sil !vim-backup TINY-VIM
 
 so ~/.config/nvim/plugin/aardvark.vim
 so ~/.config/nvim/pack/3rdpartyplugins/start/hilite.vim/plugin/hilitelinks.vim
