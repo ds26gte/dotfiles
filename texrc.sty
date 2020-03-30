@@ -1,0 +1,26 @@
+% last modified 2020-03-30
+% Dorai Sitaram
+
+\RequirePackage{luatextra}
+
+\RequirePackage{geometry}
+
+\RequirePackage{luamplib}
+
+\RequirePackage{alltt}
+
+\RequirePackage{hyperref}
+
+\RequirePackage{sectsty}
+
+\renewenvironment{verse}{\begin{alltt}\normalfont}{\end{alltt}}
+
+\setmainfont{times new roman}
+
+\setsansfont{latin modern sans}
+
+\setmonofont{latin modern mono}
+
+\allsectionsfont{\sf}
+
+\IfFileExists{\string ~/.texrc.sty}{\RequirePackage{\string ~/.texrc}}{}
