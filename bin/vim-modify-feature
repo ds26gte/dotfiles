@@ -1,4 +1,4 @@
-# last modified 2020-03-09
+# last modified 2020-04-01
 
 cat >> feature.h <<EOF
 
@@ -15,7 +15,6 @@ cat >> feature.h <<EOF
 #undef FEAT_PRINTER
 #undef FEAT_SESSION
 #undef FEAT_SMARTINDENT
-#undef FEAT_STL_OPT
 #undef FEAT_TAG_BINS
 #undef FEAT_TAG_OLDSTATIC
 #undef FEAT_TERMGUICOLORS
@@ -28,6 +27,7 @@ cat >> feature.h <<EOF
 #undef FEAT_MENU 
 #undef FEAT_SIGNS 
 #undef FEAT_SPELL 
+#undef FEAT_STL_OPT
 #undef FEAT_TERMINAL
 #undef FEAT_TITLE
 #undef FEAT_WILDMENU 
