@@ -1,4 +1,4 @@
-# last modified 2020-04-01
+# last modified 2020-04-05
 # created 2020-03-30
 # Dorai Sitaram
 
@@ -16,7 +16,7 @@ else
   texrc=$(echo $texrc|sed -e "s:^$HOME:\\\\string \~:")
 fi
 
-tmptexf=$(mktemp -p .).tex
+tmptexf=$(mktemp -p . tmpXXXXXXXXXX.tex)
 
 echo \\documentclass{article} > $tmptexf
 echo \\usepackage{$texrc} >> $tmptexf
