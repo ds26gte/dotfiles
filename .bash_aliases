@@ -1,4 +1,4 @@
-# last change 2020-04-01
+# last change 2020-04-06
 
 set -o vi
 
@@ -14,7 +14,7 @@ shopt -s autocd
 
 if test ! "$TMUX" -a ! "$VIM" -a \
   ! -d /gpfs -a \
-  ! -d /sdcard -a
+  ! -d /sdcard
 then
   tmux new -s t$$
 fi
