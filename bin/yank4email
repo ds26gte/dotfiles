@@ -1,4 +1,5 @@
-# last modified 2019-10-20
+# last modified 2020-04-30
+# created < 2018-08-07
 # Dorai Sitaram
 
 if test ! "$DISPLAY"; then
@@ -15,6 +16,7 @@ cp -p $1 $tmpf
 
 vi -es $tmpf <<EOF
 
+"trailing space implies paragraph continues to next line
 set fo+=w
 
 "remove all trailing spaces
