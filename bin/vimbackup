@@ -1,0 +1,16 @@
+# last modified 2020-05-12
+# created 2020-05-12
+# Dorai Sitaram
+
+BACKUPDIR=$HOME/.local/share/nvim/backup
+
+test $PWD -ef $BACKUPDIR && exit
+
+FILES_TO_BE_BACKED_UP=.????-??-??-??h??~
+
+FILES_TO_BE_BACKED_UP=".*$FILES_TO_BE_BACKED_UP *$FILES_TO_BE_BACKED_UP"
+
+mv -n $FILES_TO_BE_BACKED_UP $BACKUPDIR 2>/dev/null
+
+rm -f $FILES_TO_BE_BACKED_UP
+

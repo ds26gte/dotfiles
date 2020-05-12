@@ -1,4 +1,4 @@
-" last modified 2020-03-28
+" last modified 2020-05-12
 " Dorai Sitaram
 
 set ai
@@ -32,13 +32,11 @@ endif
 
 " this rest is for the tiny Vim that's installed by default in Ubuntu
 
-set pm=.TINY-VIM
-
-au vimleave * sil !tiny-vim-backup TINY-VIM
+sil !date +"set pm=.\%Y-\%m-\%d-\%Hh\%M~" > ~/.patchmode.vim
+so ~/.patchmode.vim
 
 so ~/.config/nvim/plugin/aardvark.vim
 so ~/.config/nvim/pack/3rdpartyplugins/start/hilite.vim/plugin/hilitelinks.vim
-so ~/.config/nvim/pack/3rdpartyplugins/start/hilite.vim/plugin/hilite.vim
 
 " some text-object fakery
 

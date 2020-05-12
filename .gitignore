@@ -19,7 +19,7 @@ bin/t[^aeirt]*
 bin/ta[^r]*
 bin/tex[^d]*
 bin/u[^pt]*
-bin/v[^u]*
+bin/v[^iu]*
 bin/w[^3eo]*
 dump.rdb
 nvim/pack
