@@ -1,4 +1,4 @@
-" last modified 2020-05-13
+" last modified 2020-05-16
 " Dorai Sitaram
 
 set ai
@@ -37,6 +37,8 @@ so ~/.patchmode.vim
 
 so ~/.config/nvim/plugin/aardvark.vim
 so ~/.config/nvim/pack/3rdpartyplugins/start/hilite.vim/plugin/hilite.vim
+
+hi cursorline cterm=underline
 
 " some text-object fakery
 
