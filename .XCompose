@@ -1,20 +1,22 @@
 #include "%L"
 
-<Multi_key> <apostrophe> <space>        : "’"   U2019           # RIGHT SINGLE QUOTATION MARK
-<Multi_key> <apostrophe> <apostrophe>   : "”"   U201D           # RIGHT DOUBLE QUOTATION MARK
-<Multi_key> <grave> <space>             : "‘"   U2018           # LEFT SINGLE QUOTATION MARK
-<Multi_key> <grave> <grave>             : "“"   U201C           # LEFT DOUBLE QUOTATION MARK
-<Multi_key> <6> <apostrophe>            : "‘"   U2018           # LEFT SINGLE QUOTATION MARK (high 6)
-<Multi_key> <6> <quotedbl>              : "“"   U201C           # LEFT DOUBLE QUOTATION MARK (66)
-<Multi_key> <9> <apostrophe>            : "’"   U2019           # RIGHT SINGLE QUOTATION MARK (high 9)
-<Multi_key> <9> <quotedbl>              : "”"   U201D           # RIGHT DOUBLE QUOTATION MARK (99)
-<Multi_key> <apostrophe> <6>            : "‘"   U2018           # LEFT SINGLE QUOTATION MARK (high 6)
-<Multi_key> <quotedbl> <6>              : "“"   U201C           # LEFT DOUBLE QUOTATION MARK (66)
-<Multi_key> <apostrophe> <9>            : "’"   U2019           # RIGHT SINGLE QUOTATION MARK (high 9)
-<Multi_key> <quotedbl> <9>              : "”"   U201D           # RIGHT DOUBLE QUOTATION MARK (99)
+<Multi_key> <apostrophe> <space>        : "’"
+<Multi_key> <apostrophe> <apostrophe>   : "”"
+<Multi_key> <grave> <space>             : "‘"
+<Multi_key> <grave> <grave>             : "“"
+<Multi_key> <6> <apostrophe>            : "‘"
+<Multi_key> <6> <quotedbl>              : "“"
+<Multi_key> <9> <apostrophe>            : "’"
+<Multi_key> <9> <quotedbl>              : "”"
+<Multi_key> <apostrophe> <6>            : "‘"
+<Multi_key> <quotedbl> <6>              : "“"
+<Multi_key> <apostrophe> <9>            : "’"
+<Multi_key> <quotedbl> <9>              : "”"
 
-<Multi_key> <l> <asterisk>              : "λ"   U03BB           # GREEK SMALL LETTER LAMDA
-<Multi_key> <asterisk> <l>              : "λ"   U03BB           # GREEK SMALL LETTER LAMDA
-<Multi_key> <p> <asterisk>              : "π"   U03C0           # GREEK SMALL LETTER PI
-<Multi_key> <asterisk> <p>              : "π"   U03C0           # GREEK SMALL LETTER PI
+<Multi_key> <l> <asterisk>              : "λ"
+<Multi_key> <asterisk> <l>              : "λ"
+<Multi_key> <p> <asterisk>              : "π"
+<Multi_key> <asterisk> <p>              : "π"
+
+<Multi_key> <greater> <period>          : "➤"
 
