@@ -1,0 +1,18 @@
+# last modified 2020-05-20
+# created 2020-05-20
+# Dorai Sitaram
+
+f=$1
+f_ext=${f##*.}
+
+if test "$f_ext" = css; then
+  css-beautify $f
+elif test "$f_ext" = html -o "$f_ext" = svg; then
+  html-beautify $f
+elif test "$f_ext" = js -o "$f_ext" = jsx; then
+  js-beautify $f
+elif test "$f_ext" = json; then
+  jq < $f
+else
+  cat $f
+fi
