@@ -1,4 +1,4 @@
-# last modified 2019-11-07
+# last modified 2020-05-28
 # created 2019-10-23
 # Dorai Sitaram
 
@@ -8,7 +8,11 @@ f="$1"
 
 test -f "$f" || exit
 
-# check file was modified today
+# check file isn't encrypted
+
+(file "$f" | grep -q openssl) && exit
+
+# check file wasn't modified today
 
 today=$(date +%Y%m%d)
 
