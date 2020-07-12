@@ -13,7 +13,6 @@ set dy+=lastline
 set hi=10000
 set hls
 set is
-set lcs+=tab:>-
 set ls=2
 set nf-=octal
 set nofs
