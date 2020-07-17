@@ -1,4 +1,4 @@
-" last modified 2020-07-01
+" last modified 2020-07-15
 " Dorai Sitaram
 
 set ai
@@ -16,16 +16,18 @@ set is
 set ls=2
 set nf-=octal
 set nofs
-set ru
 set sc
 set sm
 set ss=1
 set sta
 set tpm=50
-set udir=~/.local/share/nvim/undo
-set vi+=!,%
 
 if has('eval')
+
+  set ru
+  set udir=~/.local/share/nvim/undo
+  set vi+=!,%
+
   finis
 endif
 
