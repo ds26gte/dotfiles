@@ -1,4 +1,4 @@
-" last modified 2020-07-15
+" last modified 2020-07-17
 " Dorai Sitaram
 
 set ai
@@ -11,27 +11,20 @@ set cpt-=i
 set dir=~/.local/share/nvim/swap//
 set dy+=lastline
 set hi=10000
-set hls
 set is
 set ls=2
 set nf-=octal
 set nofs
-set sc
 set sm
 set ss=1
 set sta
 set tpm=50
 
+" this rest is for the tiny Vim that's installed by default in Ubuntu
+
 if has('eval')
-
-  set ru
-  set udir=~/.local/share/nvim/undo
-  set vi+=!,%
-
   finis
 endif
-
-" this rest is for the tiny Vim that's installed by default in Ubuntu
 
 sil !date +"set pm=.\%Y-\%m-\%d-\%Hh\%M~" > ~/.patchmode.vim
 so ~/.patchmode.vim
@@ -76,7 +69,5 @@ nmap cip vipc
 nmap cap vapc
 nmap cis visc
 nmap cas vasc
-
-au bufwritepost * sil !updatestamp %
 
 au bufread,bufnewfile *.lisp,*.rkt setl ep=scmindent.lua
