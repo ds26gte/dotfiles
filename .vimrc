@@ -1,4 +1,4 @@
-" last modified 2020-07-17
+" last modified 2020-07-24
 " Dorai Sitaram
 
 set ai
@@ -30,7 +30,6 @@ sil !date +"set pm=.\%Y-\%m-\%d-\%Hh\%M~" > ~/.patchmode.vim
 so ~/.patchmode.vim
 
 so ~/.config/nvim/plugin/aardvark.vim
-so ~/.config/nvim/pack/3rdpartyplugins/start/hilite.vim/plugin/hilite.vim
 
 " some text-object fakery
 
