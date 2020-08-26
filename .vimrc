@@ -1,24 +1,15 @@
-" last modified 2020-07-24
+" last modified 2020-08-26
 " Dorai Sitaram
 
 set ai
 set ar
 set bdir=.,~/.local/share/nvim/backup
 set bg=dark
-set bo=all
-set bs=indent,eol,start
-set cpt-=i
 set dir=~/.local/share/nvim/swap//
-set dy+=lastline
-set hi=10000
 set is
 set ls=2
 set nf-=octal
-set nofs
 set sm
-set ss=1
-set sta
-set tpm=50
 
 " this rest is for the tiny Vim that's installed by default in Ubuntu
 
