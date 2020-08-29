@@ -1,21 +1,14 @@
-" last modified 2020-08-26
+" last modified 2020-08-29
 " Dorai Sitaram
 
-set ai
-set ar
-set bdir=.,~/.local/share/nvim/backup
-set bg=dark
-set dir=~/.local/share/nvim/swap//
-set is
-set ls=2
-set nf-=octal
-set sm
-
-" this rest is for the tiny Vim that's installed by default in Ubuntu
+" for the tiny Vim that's installed by default on Ubuntu
 
 if has('eval')
   finis
 endif
+
+set ai
+set bg=dark
 
 sil !date +"set pm=.\%Y-\%m-\%d-\%Hh\%M~" > ~/.patchmode.vim
 so ~/.patchmode.vim
