@@ -1,4 +1,4 @@
-# last modified 2020-04-30
+# last modified 2020-09-16
 # created < 2018-08-07
 # Dorai Sitaram
 
@@ -14,7 +14,7 @@ tmpf=~/tmp/.tmp.$$
 
 cp -p $1 $tmpf
 
-vi -es $tmpf <<EOF
+echo '
 
 "trailing space implies paragraph continues to next line
 set fo+=w
@@ -34,7 +34,8 @@ g/\s$/ norm vipJ
 %s/\s\+$//
 
 w
-EOF
+
+' | vi -es $tmpf
 
 xclip -selection clipboard -i $tmpf
 

@@ -1,4 +1,4 @@
-" last modified 2020-08-29
+" last modified 2020-09-15
 " Dorai Sitaram
 
 " for the tiny Vim that's installed by default on Ubuntu
@@ -13,7 +13,7 @@ set bg=dark
 sil !date +"set pm=.\%Y-\%m-\%d-\%Hh\%M~" > ~/.patchmode.vim
 so ~/.patchmode.vim
 
-so ~/.config/nvim/plugin/aardvark.vim
+sil! so ~/.config/nvim/plugin/aardvark.vim
 
 " some text-object fakery
 

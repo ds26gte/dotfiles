@@ -1,4 +1,4 @@
-# last modified 2020-03-11
+# last modified 2020-09-16
 # created 2019-10-22
 # Dorai Sitaram
 
@@ -6,7 +6,7 @@ pkgdir=~/.config/nvim/pack/3rdpartyplugins/start
 
 cd $pkgdir
 
-for f in *;do
+for f in *; do
   if test -d $f; then
     echo ________________________________________
     echo
