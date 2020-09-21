@@ -1,4 +1,4 @@
-" last modified 2020-09-15
+" last modified 2020-09-20
 " Dorai Sitaram
 
 " for the tiny Vim that's installed by default on Ubuntu
@@ -52,5 +52,3 @@ nmap cip vipc
 nmap cap vapc
 nmap cis visc
 nmap cas vasc
-
-au bufread,bufnewfile *.lisp,*.rkt setl ep=scmindent.lua
