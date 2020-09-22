@@ -1,0 +1,27 @@
+#Dorai Sitaram
+#created 2020-09-22
+#last modified 2020-09-22
+
+export ANSWER=$(echo "$@" | bc)
+
+echo '
+(define n (getenv "ANSWER"))
+
+(set! n (regexp-replace*  "\\\\ " n ""))
+
+(cond [(regexp-match #px"^\\d" n)
+       (set! n (regexp-replace #px"(\\..{5}).*" n "\\1"))]
+      [(regexp-match #px"^\\.[^0]" n)
+       (set! n (string-append "0" n))
+       (set! n (regexp-replace #px"(\\..{6}).*" n "\\1"))]
+      [(regexp-match #px"^\\.0" n)
+       (let ([num-zeros (string-length (regexp-replace #px"^\\.(0*).*" n "\\1"))])
+         (set! n (substring n (+ num-zeros 1)))
+         (set! n (regexp-replace #px"^\\d" n "\\0."))
+         (set! n (regexp-replace #px"(\\..{5}).*" n "\\1"))
+         (set! n (regexp-replace #px"(\\..{5}).*" n "\\1")))])
+
+(printf "~a\n" n)
+
+' | racket -f -
+
