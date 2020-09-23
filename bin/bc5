@@ -1,0 +1,39 @@
+#Dorai Sitaram
+#created 2020-09-22
+#last modified 2020-09-22
+
+export ANSWER=$(echo "$@" | bc)
+
+echo '
+(define n (getenv "ANSWER"))
+
+;(printf "O n = ~a\n" n)
+
+(set! n (regexp-replace*  "\\\\ " n ""))
+
+(cond [(regexp-match #px"^\\d" n)
+       (set! n (regexp-replace #px"(\\..{5}).*" n "\\1"))
+       (set! n (regexp-replace #px"0+$" n ""))
+       (set! n (regexp-replace #px"\\.$" n ""))]
+      [(regexp-match #px"^\\.[^0]" n)
+       (set! n (string-append "0" n))
+       (set! n (regexp-replace #px"(\\..{6}).*" n "\\1"))
+       (set! n (regexp-replace #px"0+$" n ""))
+       (set! n (regexp-replace #px"\\.$" n ""))]
+      [(regexp-match #px"^\\.0" n)
+       (let ([num-zeros (string-length (regexp-replace #px"^\\.(0*).*" n "\\1"))])
+         ;(printf "num-zeros = ~a\n" num-zeros)
+         (set! n (substring n (+ num-zeros 1)))
+         ;(printf "I n = ~a\n" n)
+         (set! n (regexp-replace #px"^\\d" n "\\0."))
+         ;(printf "II n = ~a\n" n)
+         (set! n (regexp-replace #px"(\\..{5}).*" n "\\1"))
+         (set! n (regexp-replace #px"0+$" n ""))
+         (set! n (regexp-replace #px"\\.$" n ""))
+         (set! n (format "~ae-~a" n (+ num-zeros 1)))
+         )])
+
+(printf "~a\n" n)
+
+' | racket -f -
+

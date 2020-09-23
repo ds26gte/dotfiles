@@ -1,4 +1,4 @@
-# last change 2020-04-06
+# last change 2020-09-22
 
 set -o vi
 
@@ -10,7 +10,7 @@ shopt -s autocd
 
 . ~/src/dotfiles/.env
 
-. ~/src/aliases/.aliases
+. ~/src/aliases/aliases
 
 if test ! "$TMUX" -a ! "$VIM" -a \
   ! -d /gpfs -a \
