@@ -1,4 +1,4 @@
-# last change 2020-09-22
+# last change 2020-09-24
 
 set -o vi
 
@@ -12,9 +12,10 @@ shopt -s autocd
 
 . ~/src/aliases/aliases
 
-if test ! "$TMUX" -a ! "$VIM" -a \
+if test \
   ! -d /gpfs -a \
-  ! -d /sdcard
-then
+  ! -d /sdcard -a  \
+  ! "$VIM" -a \
+  ! "$TMUX" ; then
   tmux new -s t$$
 fi
