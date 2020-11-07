@@ -1,8 +1,10 @@
 # from http://stackoverflow.com/questions/9683279/make-the-current-commit-the-only-initial-commit-in-a-git-repository
-# last modified 2020-03-24
+# last modified 2020-11-07
 # created < 2018-05-26
 
 arg1="$1"
+
+cd $(git rev-parse --show-toplevel)
 
 tmpf=.my-untracked-files
 tmpconfig=.my-config.og
