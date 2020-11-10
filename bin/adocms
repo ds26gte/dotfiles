@@ -1,0 +1,35 @@
+# convert .adoc to .ms
+# Dorai Sitaram
+# last modified 2020-11-10
+# created < 2016-02-11
+
+asciidoctor $1
+
+g=${1##*/}
+g=${g%.*}
+
+vi -es $g.html <<EOF
+g/^<div id="footer-text">$/ +1s/^.*$//
+x
+EOF
+
+pandoc $g.html -t man -o $g.ms
+
+cp $g.ms dbg.ms
+
+vi -es $g.ms <<EOF
+g/^\.nf$/ .,/^\.fi$/ s/^$/\\\\ /
+g/^\.nf$/ -1s/^\.IP$/.LP/
+g/^\.fi$/ +1s/^.PP$/.LP/
+%s/\\\\-/-/g
+g/^\.S[HS]\s/ .,+1s/^.PP$/.LP/
+%s/^\.SH\s/\01\r/
+%s/^\.SS\s/.SH 2\r/
+x
+EOF
+
+sed -i \
+  -e 's/\\\[cq\]/’/g' \
+  -e 's/\\\[lq\]/“/g' \
+  -e 's/\\\[rq\]/”/g' \
+  $g.ms
