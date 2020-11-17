@@ -1,6 +1,6 @@
 # convert .adoc to .ms
 # Dorai Sitaram
-# last modified 2020-11-11
+# last modified 2020-11-17
 # created < 2016-02-11
 
 asciidoctor $1
@@ -18,14 +18,11 @@ pandoc $g.html -t man -o $g.ms
 cp $g.ms dbg.ms
 
 vi -es $g.ms <<EOF
-g/^\.nf$/ .,/^\.fi$/ s/^$/\\\\ /
-g/^\.nf$/ -1s/^\.IP$/.LP/
-g/^\.fi$/ +1s/^.PP$/.LP/
-%s/\\\\-/-/g
+"g/^\.nf$/ .,/^\.fi$/ s/^$/\\\\ /
+g/^\.nf$/ -1s/^\.IP$/.IP\r.sp \\\\n[DD]u/
+g/^\.fi$/ +1s/^.PP$/.sp \\\\n[DD]u\r.LP/
+"%s/\\\\-/-/g
 g/^\.S[HS]\s/ .,+1s/^.PP$/.LP/
-%s/^\.SH\s/\01\r/
-%s/^\.SS\s/.SH 2\r/
-%s/\\f\[\([CIR]\)\]/\\f\1/g
 x
 EOF
 
@@ -33,4 +30,9 @@ sed -i \
   -e 's/\\\[cq\]/’/g' \
   -e 's/\\\[lq\]/“/g' \
   -e 's/\\\[rq\]/”/g' \
+  -e 's/\\\[u200B\]//g' \
+  -e 's/^lw(35.*/lw(8n) lw(75n)./g' \
+  -e 's/^\.SH\s/\01\n/' \
+  -e 's/^\.SS\s/.SH 2\n/' \
+  -e 's/\\f\[\(.\)\]/\\f\1/g' \
   $g.ms
