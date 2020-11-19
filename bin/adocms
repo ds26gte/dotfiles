@@ -1,6 +1,6 @@
 # convert .adoc to .ms
 # Dorai Sitaram
-# last modified 2020-11-17
+# last modified 2020-11-18
 # created < 2016-02-11
 
 asciidoctor $1
@@ -31,6 +31,7 @@ sed -i \
   -e 's/\\\[lq\]/“/g' \
   -e 's/\\\[rq\]/”/g' \
   -e 's/\\\[u200B\]//g' \
+  -e 's/\\\[u2009\]/ /g' \
   -e 's/^lw(35.*/lw(8n) lw(75n)./g' \
   -e 's/^\.SH\s/\01\n/' \
   -e 's/^\.SS\s/.SH 2\n/' \
