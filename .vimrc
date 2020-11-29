@@ -1,4 +1,4 @@
-" last modified 2020-10-27
+" last modified 2020-11-29
 " Dorai Sitaram
 
 " for the tiny Vim that's installed by default on Ubuntu
@@ -9,6 +9,8 @@ endif
 
 set ai
 set bg=dark
+set lcs+=tab:>\ ,trail:-
+set lcs-=eol:$
 set pp+=~/.config/nvim
 set rtp+=~/.config/nvim
 
