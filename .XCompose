@@ -1,0 +1,17 @@
+include "/home/ds26gte/src/xcompose/dotXCompose"
+
+<Multi_key> <grave> <grave>           : "“"
+<Multi_key> <apostrophe> <apostrophe> : "”"
+<Multi_key> <grave> <space>           : "‘"
+<Multi_key> <apostrophe> <space>      : "’"
+
+<Multi_key> <l> <q>                   : "“"
+<Multi_key> <r> <q>                   : "”"
+<Multi_key> <o> <q>                   : "‘"
+<Multi_key> <c> <q>                   : "’"
+
+<Multi_key> <2> <minus>               : "−"
+<Multi_key> <p> <g>                   : "❡"
+<Multi_key> <greater> <period>        : "➤"
+<Multi_key> <slash> <equal>           : "‡"
+<Multi_key> <slash> <minus>           : "†"
