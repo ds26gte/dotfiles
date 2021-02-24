@@ -1,4 +1,4 @@
-# last modified 2020-04-05
+# last modified 2021-02-24
 # created 2020-03-30
 # Dorai Sitaram
 
@@ -13,7 +13,7 @@ if test "$(kpsewhich texrc.sty)"; then
 else
   texrc=~/texrc
   test -f $texrc.sty || touch $texrc.sty
-  texrc=$(echo $texrc|sed -e "s:^$HOME:\\\\string \~:")
+  texrc=$(echo $texrc | sed -e "s:^$HOME:\\\\string \~:")
 fi
 
 tmptexf=$(mktemp -p . tmpXXXXXXXXXX.tex)
@@ -21,7 +21,7 @@ tmptexf=$(mktemp -p . tmpXXXXXXXXXX.tex)
 echo \\documentclass{article} > $tmptexf
 echo \\usepackage{$texrc} >> $tmptexf
 
-title=$(grep '^= ' $adocf|head -n 1)
+title=$(grep '^= ' $adocf | head -n 1)
 
 if test "$title"; then
   echo $title |
@@ -34,6 +34,10 @@ fi
 echo \\begin{document} >> $tmptexf
 
 test "$title" && echo \\maketitle >> $tmptexf
+
+sed -i \
+  -e 's/ / /g' \
+  $texf
 
 cat $texf >> $tmptexf
 
