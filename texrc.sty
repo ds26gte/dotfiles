@@ -1,4 +1,4 @@
-% last modified 2020-03-30
+% last modified 2021-02-24
 % Dorai Sitaram
 
 \RequirePackage{luatextra}
@@ -21,6 +21,12 @@
 
 \setmonofont{latin modern mono}
 
-\allsectionsfont{\sf}
+\allsectionsfont{\sffamily}
 
+\def\bibliographynoheader#1{%
+  \begingroup
+    \def\chapter*##1{}%
+    \def\section*##1{}%
+    \bibliography{#1}%
+  \endgroup}
 \IfFileExists{\string ~/.texrc.sty}{\RequirePackage{\string ~/.texrc}}{}
