@@ -1,4 +1,4 @@
-# last change 2021-01-15
+# last change 2021-05-18
 
 set -o vi
 
@@ -8,9 +8,9 @@ shopt -s globstar
 shopt -s nocaseglob
 shopt -s autocd
 
-. ~/src/dotfiles/.env.sh
+test -f ~/src/aliases/env.sh && . ~/src/aliases/env.sh
 
-. ~/src/aliases/aliases.sh
+test -f ~/src/aliases/aliases.sh && . ~/src/aliases/aliases.sh
 
 if test \
   ! -d /gpfs -a \
