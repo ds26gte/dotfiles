@@ -1,0 +1,11 @@
+# last modified 2021-07-04
+
+test -d ~/bin || ln -sf $(pwd)/bin ~/bin
+
+test -f ~/.bash_aliases || ln -sf $(pwd)/.bash_aliases ~/.bash_aliases
+
+test -f ~/.bash_profile || ln -sf $(pwd)/.bash_profile ~/.bash_profile
+
+test -f ~/.inputrc || ln -sf $(pwd)/.inputrc ~/.inputrc
+
+test -f ~/.jshintrc || ln -sf $(pwd)/.jshintrc ~/.jshintrc
