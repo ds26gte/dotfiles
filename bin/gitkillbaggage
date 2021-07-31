@@ -1,10 +1,12 @@
 # from http://stackoverflow.com/questions/9683279/make-the-current-commit-the-only-initial-commit-in-a-git-repository
-# last modified 2020-11-07
+# last modified 2021-07-31
 # created < 2018-05-26
 
 arg1="$1"
 
 cd $(git rev-parse --show-toplevel)
+
+currbranch=$(git branch --show-current)
 
 tmpf=.my-untracked-files
 tmpconfig=.my-config.og
@@ -14,7 +16,7 @@ mv .git/config $tmpconfig
 git ls-files --others --exclude-standard -z > $tmpf
 
 rm -fr .git
-git init
+git init -b $currbranch
 git add .
 
 mv $tmpconfig .git/config
@@ -27,6 +29,6 @@ git commit -m "sole commit"
 
 if test "$arg1" != --nopush; then
   if test $(git remote | grep -c origin) -ne 0; then
-    git push -u --force origin master
+    git push -u --force origin $currbranch
   fi
 fi
