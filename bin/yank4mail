@@ -1,9 +1,15 @@
-# last modified 2020-09-16
+# last modified 2021-09-30
 # created < 2018-08-07
 # Dorai Sitaram
 
 if test ! "$DISPLAY"; then
   exit
+fi
+
+if which xclip | grep -q .; then
+  true
+else
+  echo Needs xclip installed; exit
 fi
 
 if test $# -ne 1; then
