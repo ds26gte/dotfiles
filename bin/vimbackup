@@ -1,8 +1,10 @@
-# last modified 2020-05-12
+# last modified 2021-10-06
 # created 2020-05-12
 # Dorai Sitaram
 
 BACKUPDIR=$HOME/.local/share/nvim/backup
+
+test -d $BACKUPDIR || mkdir -p $BACKUPDIR
 
 test $PWD -ef $BACKUPDIR && exit
 
