@@ -1,18 +1,17 @@
-# last modified 2021-10-06
+# last modified 2021-10-07
 # created 2020-05-12
 # Dorai Sitaram
 
-BACKUPDIR=$HOME/.local/share/nvim/backup
+backupDir=$HOME/.local/share/nvim/backup
 
-test -d $BACKUPDIR || mkdir -p $BACKUPDIR
+test -d $backupDir || mkdir -p $backupDir
 
-test $PWD -ef $BACKUPDIR && exit
+test $PWD -ef $backupDir && exit
 
-FILES_TO_BE_BACKED_UP=.????-??-??-??h??~
+filesToBeBackedUp=.????-??-??-??h??~
 
-FILES_TO_BE_BACKED_UP=".*$FILES_TO_BE_BACKED_UP *$FILES_TO_BE_BACKED_UP"
+filesToBeBackedUp=".*$filesToBeBackedUp *$filesToBeBackedUp"
 
-mv -n $FILES_TO_BE_BACKED_UP $BACKUPDIR 2>/dev/null
+mv -n $filesToBeBackedUp $backupDir 2>/dev/null
 
-rm -f $FILES_TO_BE_BACKED_UP
-
+rm -f $filesToBeBackedUp
