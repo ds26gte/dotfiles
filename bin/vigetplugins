@@ -1,8 +1,10 @@
-# last modified 2020-09-16
+# last modified 2021-10-15
 # created 2019-10-22
 # Dorai Sitaram
 
-pkgdir=~/.config/nvim/pack/3rdpartyplugins/start
+pkgdir=~/.local/share/nvim/site/pack/3rdparty/start
+
+mkdir -p $pkgdir
 
 cd $pkgdir
 
