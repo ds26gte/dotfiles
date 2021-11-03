@@ -1,4 +1,4 @@
-# last modified 2021-10-07
+# last modified 2021-11-03
 # created 2020-05-12
 # Dorai Sitaram
 
@@ -7,6 +7,14 @@ backupDir=$HOME/.local/share/nvim/backup
 test -d $backupDir || mkdir -p $backupDir
 
 test $PWD -ef $backupDir && exit
+
+afterPluginDir=$HOME/.config/nvim/after/plugin
+
+test -d $afterPluginDir || mkdir -p $afterPluginDir
+
+patchmodeFile=$afterPluginDir/patchmode.vim
+
+date +"set pm=.%Y-%m-%d-%Hh%M~" > $patchmodeFile
 
 filesToBeBackedUp=.????-??-??-??h??~
 
