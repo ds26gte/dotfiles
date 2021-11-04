@@ -8,18 +8,16 @@ test -d $backupDir || mkdir -p $backupDir
 
 test $PWD -ef $backupDir && exit
 
-afterPluginDir=$HOME/.config/nvim/after/plugin
+backupExt=.OG~
 
-test -d $afterPluginDir || mkdir -p $afterPluginDir
+filesToBeBackedUp=".*$backupExt *$backupExt"
 
-patchmodeFile=$afterPluginDir/patchmode.vim
+newBackupExt=$(date +".%Y-%m-%d-%Hh%M~")
 
-date +"set pm=.%Y-%m-%d-%Hh%M~" > $patchmodeFile
-
-filesToBeBackedUp=.????-??-??-??h??~
-
-filesToBeBackedUp=".*$filesToBeBackedUp *$filesToBeBackedUp"
-
-mv -n $filesToBeBackedUp $backupDir 2>/dev/null
+for f in $filesToBeBackedUp; do
+  test -s $f || continue
+  g=${f%.*}$newBackupExt
+  mv -n $f $backupDir/$g 2>/dev/null
+done
 
 rm -f $filesToBeBackedUp
