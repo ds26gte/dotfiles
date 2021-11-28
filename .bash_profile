@@ -1,7 +1,9 @@
-# last modified 2021-08-12
+# last modified 2021-11-28
 # Dorai Sitaram
 
 . $HOME/.bashrc
 
-/usr/bin/setxkbmap -option "ctrl:nocaps"
-/usr/bin/setxkbmap -option "compose:ralt"
+if which setxkbmap > /dev/null; then
+  /usr/bin/setxkbmap -option "ctrl:nocaps"
+  /usr/bin/setxkbmap -option "compose:ralt"
+fi
