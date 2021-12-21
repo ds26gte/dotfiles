@@ -1,4 +1,4 @@
-# Last modified 2018-08-12
+# Last modified 2021-12-20
 # Dorai Sitaram
 
 # Converts an adoc file to an HTML file that is suitable for
@@ -15,7 +15,7 @@ g=${@: -1}
 g=${g##*/}
 g=${g%.*}
 
-asciidoctor -a stylesheet=$HOME/bin/ereader.css -a data-uri "$@"
+asciidoctor -a stylesheet=$HOME/src/attic/ereader.css -a data-uri "$@"
 
 sed -i \
   -e 's/<pre>/<span class="epre">/g' \
