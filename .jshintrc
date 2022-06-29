@@ -1,0 +1,7 @@
+/* last modified: 2018-08-23 */
+{
+  "eqeqeq": true,
+  "esversion": 6,
+  "sub": true,
+  "undef": true
+}
