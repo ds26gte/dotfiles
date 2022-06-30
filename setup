@@ -10,7 +10,7 @@ test -f ~/.grofffontrc.tmac || cp -p .grofffontrc.tmac ~
 
 test -f ~/.groffrc.tmac || cp -p .groffrc.tmac ~/
 
-test -f ~/infokey || ln -sf $(pwd)/.infokey ~/.infokey
+test -f ~/.infokey || ln -sf $(pwd)/.infokey ~/.infokey
 
 test -f ~/.inputrc || ln -sf $(pwd)/.inputrc ~/.inputrc
 
