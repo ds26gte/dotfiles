@@ -1,4 +1,4 @@
-# last modified 2021-10-15
+# last modified 2022-07-01
 # created 2019-10-22
 # Dorai Sitaram
 
@@ -7,6 +7,15 @@ pkgdir=~/.local/share/nvim/site/pack/3rdparty/start
 mkdir -p $pkgdir
 
 cd $pkgdir
+
+if test $(ls|wc -l) -eq 0; then
+  desiredplugins=~/.config/nvim/vipacks.adoc
+  test -s $desiredplugins || exit
+  for f in $(grep -v '^//' $desiredplugins); do
+    git clone https://github.com/$f
+  done
+  exit
+fi
 
 for f in *; do
   if test -d $f; then
