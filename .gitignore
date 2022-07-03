@@ -1,5 +1,4 @@
 **/{indent,syntax}/pyret.vim
-*.html
 *.sav
 *.vim.*
 *Z*
