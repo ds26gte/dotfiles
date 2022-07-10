@@ -1,7 +1,7 @@
-# last modified 2021-10-23
+# last modified 2022-07-10
 # Dorai Sitaram
 
-if test -z "$VIM"
+if test -z "$MYVIMRC"
 then return
 fi
 
