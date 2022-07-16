@@ -1,0 +1,32 @@
+# created 2022-07-03
+# last modified 2022-07-16
+
+# create {.lispwords, .lispwords.lua} from lispwords.vim for 
+# use with scmindent.{rkt,lua}
+
+LISPFILE=~/.lispwords
+
+nvim -c "redir! > $LISPFILE" \
+  -c 'echo &lw' \
+  -c 'redir END' -cq
+
+sed -i \
+  -e '/^ *$/d' \
+  -e '$s/$/,/' \
+  $LISPFILE
+
+sed -i \
+  -e 's/,/\n/g' \
+  $LISPFILE
+
+sort $LISPFILE -o $LISPFILE
+
+LUAFILE=~/.lispwords.lua
+
+cp -p $LISPFILE $LUAFILE
+
+sed -i \
+  -e "s/\(.*\)/['\1'] = 0,/" \
+  -e '1s/^/return {\n/' \
+  -e '$s/$/\n}/' \
+  $LUAFILE
