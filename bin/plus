@@ -1,14 +1,19 @@
-# last modified 2019-08-12
+# last modified 2022-07-17
+# created < 2018-09-22
 # Dorai Sitaram
 
 f=$1
 
+if test ! -f "$f"; then
+  echo plus requires file arg; exit
+fi
+
 # remove lines starting with semicolon as comments
-# minus (hyphen) immediately after alpha removed
+# minus imly after alpha removed
 # minus imly before alpha removed
 # digit sequence imly after alpha removed
 # digit seq imly before alpha removed
-# non-alpha removed
+# non-{digit, point, minus} removed
 # trailing minus and point removed
 # leading point followed by space removed
 # point flanked by spaces removed
@@ -22,14 +27,14 @@ cat $f |
   sed -e '/^ *;/d' |
   sed -e 's/\([a-zA-Z]\)-/\1/g' |
   sed -e 's/-\([a-zA-Z]\)/\1/g' |
-  sed -e 's/\([a-zA-Z]\)[0-9][0-9]*/\1/g' |
-  sed -e 's/[0-9][0-9]*\([a-zA-Z]\)/\1/g' |
+  sed -e 's/\([a-zA-Z]\)[0-9]\+/\1/g' |
+  sed -e 's/[0-9]\+\([a-zA-Z]\)/\1/g' |
   sed -e 's/[^-0-9.*]/ /g' |
   sed -e 's/[-.]$//' |
   sed -e 's/^[.] / /' |
   sed -e 's/ [.] / /g' |
   sed -e '/^ *$/d' |
-  sed -e 's/\([^ *]\)  *\([^ *]\)/\1 + \2/' |
+  sed -e 's/\([^ *]\) \+\([^ *]\)/\1 + \2/' |
   sed -e 's/$/ +/' |
   sed -e '1s/^/print(/' |
   sed -e '$s/+$/)/' |
